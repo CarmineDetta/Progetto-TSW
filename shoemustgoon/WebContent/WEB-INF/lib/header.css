@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  header {
+    background-color: #FFF;
+    border-bottom: 1px solid #EEE;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
+  
+  .header-top {
+    padding: 15px 0;
+  }
+  
+  .logo img {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .search {
+    float: left;
+    margin-top: 5px;
+    width: 50%;
+  }
+  
+  .search input[type="text"] {
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+    width: 80%;
+    float: left;
+    font-size: 16px;
+  }
+  
+  
+  .search button[type="submit"] {
+    background-color: #FF0000;
+    border: none;
+    color: #FFF;
+    padding: 10px 20px;
+    float: left;
+    margin-left: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .cart {
+    float: right;
+    margin-top: 10px;
+    width: 20%;
+    text-align: right;
+  }
+  
+  .cart a {
+    background-color: #FF0000;
+    color: #FFF;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  
+  .cart a:hover {
+    background-color: #A00000;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px;
+    }
+
+nav ul li a:hover {
+    color: #FF4D4D;
+    }
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+    .header-top {
+    padding: 10px 0;
+    }
+
+.col-md-3 {
+width: 33.33333%;
+float: left;
+text-align: center;
+}
+
+.col-md-6 {
+width: 66.66667%;
+float: left;
+text-align: center;
+}
+
+.col-md-3:last-child {
+float: right;
+text-align: right;
+}
+
+.search input[type="text"] {
+width: 70%;
+}
+
+.search button {
+width: 28%;
+margin-left: 2%;
+}
+}
+  
