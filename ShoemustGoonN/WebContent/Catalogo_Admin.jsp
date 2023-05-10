@@ -34,6 +34,7 @@
 			<th>Disponibilita<button><a href="admin?sort=disponibilita"> Ordina</a></button></th>
 			<th>Descrizione<button><a href="admin?sort=descrizione"> Ordina</a></button></th>
 			<th>Categoria<button><a href="admin?sort=categoria"> Ordina</a></button></th>
+			
 		</tr>
 		<%
 			if (products != null && products.size() != 0) {
@@ -51,6 +52,7 @@
 			<td><%=bean.isDisponibilita()%></td>
 			<td><%=bean.getDescrizione()%></td>
 			<td><%=bean.getCategoria()%></td>
+			<td><img src="<%=bean.getImmagine().getPath()%>" alt="Immagine prodotto" width="80" height="80"></td>
 			<td><button><a href="admin?action=delete&id=<%=bean.getID_Prodotto()%>">Elimina</a></button></td><br>
 		</tr>
 		<%
@@ -65,38 +67,5 @@
 		%>
 	</table>
 	
-	
-	<%
-		if (product != null) {
-	%>
-	
-	<h2>Dettagli</h2>
-	<table border="1">
-		<tr>
-			<th>ID_Prodotto</th>
-			<th>Marca</th>
-			<th>Modello</th>
-			<th>Colore</th>
-			<th>Prezzo</th>
-			<th>Quantità</th>
-			<th>Disponibilita</th>
-			<th>Descrizione</th>
-			<th>Categoria</th>
-		</tr>
-		<tr>
-			<td><%=product.getID_Prodotto()%></td>
-			<td><%=product.getMarca()%></td>
-			<td><%=product.getModello()%></td>
-			<td><%=product.getColore()%></td>
-			<td><%=product.getPrezzo()%></td>
-			<td><%=product.getQuantita()%></td>
-			<td><%=product.isDisponibilita()%></td>
-			<td><%=product.getDescrizione()%></td>
-			<td><%=product.getCategoria()%></td>
-		</tr>
-	</table>
-	<%
-		}
-	%>
 </body>
 </html>

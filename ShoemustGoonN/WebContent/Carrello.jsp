@@ -60,6 +60,7 @@
 			<td><%=p.getDescrizione()%></td>
 			<td><%=p.getCategoria()%></td>
 			<td><%=c.getQuantitaItemCarrello()%></td>
+			<td><img src="<%=p.getImmagine().getPath()%>" alt="Immagine prodotto" width="80" height="80"></td>
 			<td><button><a href="details?action=read&id=<%=p.getID_Prodotto()%>">Dettagli</a></button></td>
 			<td>
 				<form action="cart" method="post">	

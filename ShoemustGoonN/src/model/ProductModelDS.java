@@ -41,12 +41,12 @@ public class ProductModelDS implements ProdottoDAO{
 		PreparedStatement preparedStatement = null;
 
 		String insertSQL = "INSERT INTO " + ProductModelDS.TABLE_NAME
-				+ " (ID_Prodotto, Marca, Colore, Modello, Prezzo, Quantita, Disponibilita, Descrizione, Categoria) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "(ID_Prodotto, Marca, Colore, Modello, Prezzo, Quantita, Disponibilita, Descrizione, Categoria) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(insertSQL);
-
+ 
 			GenerateIDProd generate = new GenerateIDProd();
 			prodotto.setID_Prodotto(generate.generateUniqueID());
 
@@ -60,7 +60,7 @@ public class ProductModelDS implements ProdottoDAO{
 			preparedStatement.setBoolean(7, prodotto.isDisponibilita());
 			preparedStatement.setString(8, prodotto.getDescrizione());
 			preparedStatement.setString(9, prodotto.getCategoria());
-
+			
 			preparedStatement.executeUpdate();
 
 		} finally {
@@ -137,7 +137,10 @@ public class ProductModelDS implements ProdottoDAO{
 					bean.setDisponibilita(rs.getBoolean("Disponibilita"));
 					bean.setDescrizione(rs.getString("Descrizione"));
 					bean.setCategoria(rs.getString("Categoria"));
-					
+									
+					ImageModelDS idao = new ImageModelDS();
+					bean.setImmagine(idao.doRetriveByKey(rs.getString("Immagine")));
+
 				}
 
 			} finally {
@@ -184,7 +187,10 @@ public class ProductModelDS implements ProdottoDAO{
 				bean.setDisponibilita(rs.getBoolean("Disponibilita"));
 				bean.setDescrizione(rs.getString("Descrizione"));
 				bean.setCategoria(rs.getString("Categoria"));
-							
+				
+				ImageModelDS idao = new ImageModelDS();
+				bean.setImmagine(idao.doRetriveByKey(rs.getString("Immagine")));
+				
 				products.add(bean);
 			}
 

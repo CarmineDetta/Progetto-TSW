@@ -6,6 +6,7 @@
 		response.sendRedirect("./product");	
 		return;
 	}
+	
 	ProdottoBean product = (ProdottoBean) request.getAttribute("product");
 %>
 
@@ -49,6 +50,7 @@
 			<td><%=bean.isDisponibilita()%></td>
 			<td><%=bean.getDescrizione()%></td>
 			<td><%=bean.getCategoria()%></td>
+			<td><img src="<%=bean.getImmagine().getPath()%>" alt="Immagine prodotto" width="80" height="80"></td>
 			<td><button><a href="details?action=read&id=<%=bean.getID_Prodotto()%>">Dettagli</a></button></td>
 			<td>
 				<form action="cart" method="post">	
@@ -97,6 +99,7 @@
 			<td><%=product.isDisponibilita()%></td>
 			<td><%=product.getDescrizione()%></td>
 			<td><%=product.getCategoria()%></td>
+			<td><img src="<%=product.getImmagine().getPath()%>" alt="Immagine prodotto" width="80" height="80"></td>
 		</tr>
 	</table>
 	<%

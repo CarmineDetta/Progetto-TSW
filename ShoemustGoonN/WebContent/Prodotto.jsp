@@ -45,6 +45,7 @@
 			<td><%=product.isDisponibilita()%></td>
 			<td><%=product.getDescrizione()%></td>
 			<td><%=product.getCategoria()%></td>
+			<td><img src="<%=product.getImmagine().getPath()%>" alt="Immagine prodotto" width="80" height="80"></td>
 			<td>
 				<form action="cart" method="post">	
 				<input type="hidden" name="action" value="addCart">	

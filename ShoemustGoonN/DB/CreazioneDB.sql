@@ -85,3 +85,8 @@ CREATE TABLE Indirizzo_di_Spedizione(
     PRIMARY KEY (CAP, Città),
     FOREIGN KEY(Ordine) REFERENCES Ordine(ID_Ordine) ON UPDATE CASCADE
 );
+
+CREATE TABLE Immagine(
+	NomeImmagine VARCHAR(45) NOT NULL PRIMARY KEY,
+	Path VARCHAR(60) NOT NULL
+);

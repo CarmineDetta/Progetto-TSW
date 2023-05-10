@@ -16,18 +16,10 @@ public class ProdottoBean implements Serializable {
     private boolean Disponibilita;
     private String Descrizione;
     private String Categoria;
+    private ImmagineBean Immagine;
 
     //Costruttore
-    public ProdottoBean () {
-        this.ID_Prodotto = "";
-        this.Marca = "";
-        this.Colore = "";
-        this.Modello = "";
-        this.Prezzo = 0.00;
-        this.Quantita= 0;
-        this.Disponibilita = false;
-        this.Descrizione= "";
-        this.Categoria = "";
+    public ProdottoBean (){
     }
 
     //MetodiGet&Set
@@ -101,6 +93,14 @@ public class ProdottoBean implements Serializable {
 
 	public void setDescrizione(String descrizione) {
 		Descrizione = descrizione;
+	}
+	
+	public ImmagineBean getImmagine() {
+		return this.Immagine;
+	}
+	
+	public void setImmagine(ImmagineBean s){
+		this.Immagine = s;
 	}
     
 }
