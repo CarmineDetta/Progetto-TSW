@@ -21,8 +21,10 @@
               <li><button><a href="Catalogo_Utente.jsp">Catalogo</a></button></li>
               <li><button><a href="Carrello.jsp">Carrello</a></button></li>
               <li><button><a href="Login.jsp">Login</a></button></li>
-            </ul>
+              <li><button><a href="Logout?action=Logout">Logout</a></button></li>
+		    </ul>
           </nav>
         </div>		
+		
 </body>
 </html>
