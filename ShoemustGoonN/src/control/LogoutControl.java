@@ -26,7 +26,7 @@ public class LogoutControl extends HttpServlet {
 		if(action != null) {
 			if(action.equalsIgnoreCase("Logout"));
 			request.getSession().invalidate();
-			response.sendRedirect("Catalogo_Utente.jsp");
+			response.sendRedirect("Homepage.jsp");
 		}
 
 		
