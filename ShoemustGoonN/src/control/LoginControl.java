@@ -1,6 +1,7 @@
 package control;
 
 import java.io.IOException;
+import model.UtenteBean;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;

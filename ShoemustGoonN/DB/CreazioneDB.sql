@@ -8,6 +8,11 @@ CREATE TABLE Categoria (
     Nome VARCHAR(10) NOT NULL
 );
 
+CREATE TABLE Immagine(
+	NomeImmagine VARCHAR(45) NOT NULL PRIMARY KEY,
+	Path VARCHAR(150) NOT NULL
+);
+
 CREATE TABLE Prodotto(
     ID_Prodotto VARCHAR(17) NOT NULL PRIMARY KEY,
     Marca VARCHAR(30) NOT NULL,
@@ -18,7 +23,10 @@ CREATE TABLE Prodotto(
     Disponibilita BOOLEAN NOT NULL,
     Descrizione VARCHAR(150) NOT NULL,
     Categoria VARCHAR(10) NOT NULL,
-		FOREIGN KEY(Categoria) REFERENCES Categoria(ID_Categoria)
+		FOREIGN KEY(Categoria) REFERENCES Categoria(ID_Categoria),
+	Immagine VARCHAR(45),
+		FOREIGN KEY (Immagine) REFERENCES Immagine(NomeImmagine)
+			ON DELETE CASCADE
 );
 
 DELIMITER //
@@ -70,7 +78,7 @@ CREATE TABLE Ordine(
 
 CREATE TABLE Composizione(
 	ID_Ordine VARCHAR(6) NOT NULL,
-    ID_Prodotto VARCHAR(6) NOT NULL,
+    ID_Prodotto VARCHAR(17) NOT NULL,
     primary key(ID_Ordine, ID_Prodotto),
 	FOREIGN KEY (ID_Prodotto) REFERENCES Prodotto(ID_Prodotto),
 	FOREIGN KEY (ID_Ordine) REFERENCES Ordine(ID_Ordine)	
@@ -78,15 +86,11 @@ CREATE TABLE Composizione(
 
 CREATE TABLE Indirizzo_di_Spedizione(
     CAP NUMERIC NOT NULL,
-    Città VARCHAR(20) NOT NULL,
+    CittÃ  VARCHAR(20) NOT NULL,
     Via_Piazza VARCHAR(20) NOT NULL,
     N_Civico INT NOT NULL,
     Ordine VARCHAR(6) NOT NULL,
-    PRIMARY KEY (CAP, Città),
+    PRIMARY KEY (CAP, CittÃ ),
     FOREIGN KEY(Ordine) REFERENCES Ordine(ID_Ordine) ON UPDATE CASCADE
 );
 
-CREATE TABLE Immagine(
-	NomeImmagine VARCHAR(45) NOT NULL PRIMARY KEY,
-	Path VARCHAR(60) NOT NULL
-);

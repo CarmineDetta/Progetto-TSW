@@ -1,5 +1,6 @@
 package control;
 
+import model.ItemCarrello;
 import java.io.IOException;
 import java.sql.SQLException;
 
