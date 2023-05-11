@@ -50,12 +50,12 @@ public class LoginControl extends HttpServlet {
 								if(utente.getPassword().equalsIgnoreCase(password)) {
 									
 									if(utente.getTipo().equalsIgnoreCase("utente")) {
-										request.getSession().setAttribute("Utente loggato" , utente );       //Per motivi di sicurezza 
+										request.getSession().setAttribute("UtenteLoggato" , utente);       //Per motivi di sicurezza 
 										response.sendRedirect("./Catalogo_Utente.jsp");
 									}
 									
 									if(utente.getTipo().equalsIgnoreCase("admin")) {
-										request.getSession().setAttribute("Utente loggato" , utente );       //Per motivi di sicurezza
+										request.getSession().setAttribute("AdminLoggato", utente );       //Per motivi di sicurezza
 										response.sendRedirect("./Catalogo_Admin.jsp");
 									}
 								}else{

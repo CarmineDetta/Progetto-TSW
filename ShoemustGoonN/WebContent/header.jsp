@@ -6,6 +6,9 @@
     <meta charset="UTF-8">
   </head>
 <body>
+	<%
+		
+	%>
         <div>
 			<a href="homepage.jsp"> <img src="image/Logo.jpg" alt="Logo del tuo ecommerce" width=50 height=50 align=left></a>
         </div>       
@@ -18,10 +21,24 @@
       <div>
           <nav>
             <ul>
+              <%
+                if(session.getAttribute("AdminLoggato") == null){ 
+              %>
               <li><button><a href="Catalogo_Utente.jsp">Catalogo</a></button></li>
               <li><button><a href="Carrello.jsp">Carrello</a></button></li>
+              <%
+                }
+              	if(session.getAttribute("UtenteLoggato") == null && session.getAttribute("AdminLoggato") == null){
+              %>
               <li><button><a href="Login.jsp">Login</a></button></li>
+              <%
+              	}else{
+              %>		
               <li><button><a href="Logout?action=Logout">Logout</a></button></li>
+		      <%
+              	}
+              
+              %>
 		    </ul>
           </nav>
         </div>		

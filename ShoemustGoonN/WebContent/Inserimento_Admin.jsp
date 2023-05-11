@@ -10,10 +10,12 @@
 </head>
 <body>
 
+	<jsp:include page="header.jsp" />
+	
 	<a href="Catalogo_Admin.jsp"><button>Home Amministratore</button></a><br>
 
 	<h2>Inserimento</h2>
-		<form action="admin" method="post">
+		<form action="admin" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="action" value="insert"> 
 			
 			<label for="marca">Marca:</label><br> 
@@ -39,6 +41,9 @@
 			
 			<label for="descrizione">Descrizione:</label><br>
 			<textarea name="descrizione" maxlength="100" rows="3" required placeholder="Inserisci una descrizione"></textarea><br>
+			
+			<label for="immagine">Immagine</label>
+			<input type="hidden" name="immagine" value="null"><br>
 			
 			<label for="categoria">Categoria:</label><br>
 			
