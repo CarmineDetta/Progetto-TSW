@@ -26,13 +26,13 @@ public class LogoutControl extends HttpServlet {
 		
 		if(action != null) {
 			if(action.equalsIgnoreCase("Logout")){
-				if(request.getSession().getAttribute("UtenteLoggato") != null){
-					request.removeAttribute("UtenteLoggato");
-				}else if(request.getSession().getAttribute("AdminLoggato") != null)
-					request.removeAttribute("UtenteLoggato");
+				if(sessione.getAttribute("UtenteLoggato") != null){
+					sessione.removeAttribute("UtenteLoggato");
+				}else if(sessione.getAttribute("AdminLoggato") != null)
+					sessione.removeAttribute("UtenteLoggato");
 				}
 				
-				request.getSession().invalidate();
+				//request.getSession().invalidate();
 				response.sendRedirect("Homepage.jsp");
 			}
 		}
