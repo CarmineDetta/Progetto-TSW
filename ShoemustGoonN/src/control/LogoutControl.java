@@ -25,14 +25,17 @@ public class LogoutControl extends HttpServlet {
 		String action = request.getParameter("action");
 		
 		if(action != null) {
-			if(action.equalsIgnoreCase("Logout"));
-			request.getSession().invalidate();
-			response.sendRedirect("Homepage.jsp");
+			if(action.equalsIgnoreCase("Logout")){
+				if(request.getSession().getAttribute("UtenteLoggato") != null){
+					request.removeAttribute("UtenteLoggato");
+				}else if(request.getSession().getAttribute("AdminLoggato") != null)
+					request.removeAttribute("UtenteLoggato");
+				}
+				
+				request.getSession().invalidate();
+				response.sendRedirect("Homepage.jsp");
+			}
 		}
-
-		
-		
-	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
