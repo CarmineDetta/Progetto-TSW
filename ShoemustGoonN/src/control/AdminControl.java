@@ -23,7 +23,6 @@ public class AdminControl extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession sessione = request.getSession();
 		String action = request.getParameter("action");
 
 		try {
