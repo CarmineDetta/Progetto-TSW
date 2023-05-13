@@ -25,6 +25,7 @@
 			<button ><a href="Catalogo_Utente.jsp">Vai al Catalogo</a></button>
 		</div>
 		
-	<jsp:include page="footer.jsp"/>
+		<jsp:include page="footer.jsp"/>
+	
 </body>
 </html>

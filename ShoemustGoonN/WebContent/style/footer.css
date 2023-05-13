@@ -1,0 +1,191 @@
+@charset "utf-8";
+
+*{				/*gestiamo tutto il footer*/
+    margin: 0;	
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+}
+
+#footer-large img {		/*gestimo le immagini*/
+    vertical-align: middle;		/*poniamo al centro*/
+    width:6%;	/*dimensione*/
+    margin-bottom:2%;	/*margini rispetto l'elemento sotto*/
+}
+
+a{		/*gestiamo le <a> */
+	text-decoration:none;	/*togliamo le sottolineature di href*/
+}
+
+p{		/*gestiamo le <p>*/
+	margin-bottom:12px;		
+}
+
+ul li{ 	/*gestiamo gli elenchi e togliamo i punti-elenco da vicino le righe*/
+	list-style:none;
+}
+
+body{				
+	font-family: 'Roboto Slab', serif;	/*font carattere tutto il body*/
+	color:#282828;		/*colore del testo nel body*/
+	font-size: 11pt;
+}
+
+/* -----------------footer html-----------------*/
+
+#footer-large{
+	width: 100%;	/*dimensione footer */
+	padding-top: 30px;	/*gestisce il margine con il lato superiore*/
+	background-color: #ff6347;	/*colore di background*/
+}
+
+#footer-large a{	/*colore delle <a> nel footer*/
+	color:#D3D3D3;
+	font-weight: bold;	/*grassetto*/
+	font-size: 10pt;
+}
+
+#footer-large a:hover{	/*quando passo con il cursore sopra l'elemento*/
+	color:black; 			/*diventa nero*/	
+	transform: scale(1.1);		/*varie transizioni*/
+    transition: .3s;
+}
+
+
+
+#footer-large .social-cont .social-list {	/*gestiamo le icone*/
+	list-style-type: none;	/*togliamo i punti-elenco*/
+	padding: 10px 0;		/*margine rispetto a sopra*/
+}
+
+#footer-large .social-cont .social-list > li {		/*icone in elenco*/
+	margin: 8px 8px 8px 0;		
+	display: inline-block;	/*gestisco i margini tra le icone*/
+		height: 30px;
+		width: 30px;
+	border-radius: 6em;		/*toglie il contorno della transizione sulle icone*/
+	background-color: #ff6347;
+}
+
+#footer-large .social-cont .social-list li img {	/*dim immagini*/
+	width: 30px
+}
+
+#footer-large .social-cont .social-list > li:hover {	/*colore transizione cursore*/
+background:#FF968C; 		
+}
+
+#footer-large .footer-informazioni{
+
+	border-bottom: 1px solid #ff6347;
+	border-left: 10px solid #ff6347;
+    border-right: 10px solid #ff6347;	/* primary color*/
+    
+    /*per gestire la visualizzazione della pagina in diversi siti*/
+    -moz-box-sizing: border-box;		/*mozzilla*/
+    -webkit-box-sizing: border-box;			/*su chrome e safari*/
+    -ms-box-sizing: border-box;
+    
+    box-sizing: border-box;			
+	border-top: 1px solid #ff6347;
+}
+
+#footer-large .footer-menu{		/*gestisce il menu*/
+	padding: 15px 0;
+	border-bottom: 1px solid #ff6347;
+	border-left: 10px solid #ff6347;
+    border-right: 10px solid #ff6347;
+   
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+   
+    box-sizing: border-box;
+	line-height: 1.5em;
+	
+}
+
+#footer-large .footer-contatti{			/*gestisce la classe contatti*/
+	padding: 15px 0;
+	border-left: 10px solid #ff6347;
+    border-right: 10px solid #ff6347;	
+    
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    
+    box-sizing: border-box;
+}
+
+#footer-large .crediti {	/*gestiamo i crediti*/
+	display: inline-block;		/*tutte su una riga*/
+	margin-bottom: 3%;			/*i vari margini*/	
+	margin-left:20%;
+	margin-right:20%;
+}
+	
+@media screen and (min-width: 672px){
+
+#footer-large .footer-informazioni{
+	padding: 0 0 15px 0;
+	border-bottom: none;
+	border-left: 10px solid #ff6347;
+    border-right: 10px solid #ff6347;
+    
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    
+    box-sizing: border-box;
+}
+	
+#footer-large{
+	display:inline-block;	
+}
+	
+#footer-large .footer-menu{
+	width: 50%;
+	float: left;
+	border-bottom: none;
+	border-top: 1px solid #ff6347;
+}
+
+#footer-large .footer-contatti{
+	width: 50%;
+	float: left;
+	border-bottom: none;
+	border-top: 1px solid #ff6347;
+}
+	
+}
+
+@media screen and (min-width: 1280px){
+	
+#footer-large{
+	display:inline-block;
+}
+	
+#footer-large .footer-container{
+		max-width: 1300px;
+		margin: auto;
+}
+
+#footer-large .footer-informazioni{
+	width: 50%;
+	float: left;
+	border-bottom: none;
+}
+
+#footer-large .footer-menu{
+	width: 25%;
+	float: left;
+}
+
+#footer-large .footer-contatti{
+	width: 25%;
+	float: left;
+}
+	
+}
+
