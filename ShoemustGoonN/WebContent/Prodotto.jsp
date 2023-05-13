@@ -50,7 +50,7 @@
 				<form action="cart" method="post">	
 				<input type="hidden" name="action" value="addCart">	
 				<input type="hidden" name="id" value="<%=product.getID_Prodotto()%>">
-				<input type="hidden" name="qty" value="1">
+				<input type="number" name="qty" value="1" min="1">
 				<input type="submit" value="Aggiungi al carrello">
 				</form>
 			</td>		

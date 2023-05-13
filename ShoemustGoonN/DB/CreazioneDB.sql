@@ -55,42 +55,44 @@ CREATE TABLE Utente(
     Tipo VARCHAR(15) NOT NULL
 );
 
-CREATE TABLE Pagamento(
-    ID_Pagamento INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE Portafoglio(
+    ID_Pagamento INT NOT NULL PRIMARY KEY,
     Data_Pagamento DATE NOT NULL,    
-    Num_Carta VARCHAR(30) NOT NULL,
+    Num_Carta INT NOT NULL,
     Nome_Intestatario VARCHAR(50) NOT NULL,
     Scadenza VARCHAR(7) NOT NULL,
-    CVV VARCHAR(4) NOT NULL,
-    Totale DECIMAL(10, 2) NOT NULL,
-    Tipo VARCHAR(20) NOT NULL,
-    Codice_Sconto VARCHAR(20) NULL
+    CVV INT NOT NULL,
+    Utente VARCHAR(6) NOT NULL,
+	FOREIGN KEY(Utente) REFERENCES Utente(ID_Utente)
 );
 
 CREATE TABLE Ordine(
 	ID_Ordine VARCHAR(6) NOT NULL PRIMARY KEY,
     Data_ordine DATE NOT NULL,
+    Metodo_Pagamento VARCHAR(25) NOT NULL,
+    Totale NUMERIC NOT NULL,
     ID_Utente VARCHAR(6) NOT NULL,
     FOREIGN KEY (ID_Utente) REFERENCES Utente(ID_Utente),
-    ID_Pagamento INT NOT NULL,
+    ID_Pagamento INT,
     FOREIGN KEY (ID_Pagamento) REFERENCES Pagamento(ID_Pagamento)
 );
 
 CREATE TABLE Composizione(
 	ID_Ordine VARCHAR(6) NOT NULL,
     ID_Prodotto VARCHAR(17) NOT NULL,
+    Quantita int not null,
     primary key(ID_Ordine, ID_Prodotto),
 	FOREIGN KEY (ID_Prodotto) REFERENCES Prodotto(ID_Prodotto),
 	FOREIGN KEY (ID_Ordine) REFERENCES Ordine(ID_Ordine)	
 );
 
 CREATE TABLE Indirizzo_di_Spedizione(
-    CAP NUMERIC NOT NULL,
-    CittÃ  VARCHAR(20) NOT NULL,
+    ID_Indirizzo INT NOT NULL PRIMARY KEY,
+	CAP NUMERIC NOT NULL,
+    Citta VARCHAR(20) NOT NULL,
     Via_Piazza VARCHAR(20) NOT NULL,
     N_Civico INT NOT NULL,
     Ordine VARCHAR(6) NOT NULL,
-    PRIMARY KEY (CAP, CittÃ ),
     FOREIGN KEY(Ordine) REFERENCES Ordine(ID_Ordine) ON UPDATE CASCADE
 );
 
