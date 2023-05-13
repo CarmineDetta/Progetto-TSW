@@ -29,7 +29,6 @@ public class AdminControl extends HttpServlet {
 			if (action != null) {
 				if (action.equalsIgnoreCase("read")) {
 					String id = request.getParameter("id");
-					request.removeAttribute("product");
 					request.setAttribute("product", model.doRetrieveByKey(id));
 				} else if (action.equalsIgnoreCase("delete")) {
 					String id = request.getParameter("id");
@@ -64,7 +63,6 @@ public class AdminControl extends HttpServlet {
 		String sort = request.getParameter("sort");
 		
 		try {
-			request.removeAttribute("products");
 			request.setAttribute("products", model.doRetrieveAll(sort));
 		} catch (SQLException e) {
 			System.out.println("Error:" + e.getMessage());

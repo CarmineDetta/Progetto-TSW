@@ -33,6 +33,11 @@
 		        
 		     <%
                 }
+              	if(session.getAttribute("UtenteLoggato") != null){
+              %>
+              		<li><button><a href="Utente.jsp">Il mio profilo</a></button></li>
+              <%		
+              	}
               	if(session.getAttribute("UtenteLoggato") == null && session.getAttribute("AdminLoggato") == null){
               %>
               
