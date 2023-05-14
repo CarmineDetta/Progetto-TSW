@@ -60,5 +60,9 @@
      <servlet-name>LoginControl</servlet-name>
      <url-pattern>/login</url-pattern>
    </servlet-mapping>
+<<<<<<< HEAD
    
+=======
+
+>>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
 </web-app>

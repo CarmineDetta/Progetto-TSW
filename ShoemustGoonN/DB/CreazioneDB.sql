@@ -57,8 +57,7 @@ CREATE TABLE Utente(
 
 CREATE TABLE Portafoglio(
     ID_Pagamento INT NOT NULL PRIMARY KEY,
-    Data_Pagamento DATE NOT NULL,    
-    Num_Carta INT NOT NULL,
+    Num_Carta VARCHAR(16) NOT NULL,
     Nome_Intestatario VARCHAR(50) NOT NULL,
     Scadenza VARCHAR(7) NOT NULL,
     CVV INT NOT NULL,
