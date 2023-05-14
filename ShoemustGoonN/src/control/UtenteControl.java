@@ -10,12 +10,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.PortafoglioBean;
 import model.PortafoglioDAO;
 import model.PortafoglioModelDS;
 import model.ProdottoBean;
 import model.ProdottoDAO;
 import model.ProductModelDS;
 import model.UtenteBean;
+import model.UtenteModelDS;
 
 @WebServlet("/utente")
 public class UtenteControl extends HttpServlet {
@@ -38,6 +40,21 @@ public class UtenteControl extends HttpServlet {
 					int id = Integer.parseInt(request.getParameter("id"));
 					model.doDelete(id);
 				}
+				else if (action.equalsIgnoreCase("insert")) {
+
+					String num_carta = request.getParameter("n_carta");			
+					String nome = request.getParameter("nome_intestatario");
+					String scadenza = request.getParameter("scadenza");
+					int cvv = Integer.parseInt(request.getParameter("cvv"));
+					
+					PortafoglioBean pagamento = new PortafoglioBean();
+					pagamento.setN_carta(num_carta);
+					pagamento.setNome_Intestatario(nome);
+					pagamento.setScadenza(scadenza);
+					pagamento.setCvv(cvv);
+					model.doSave(pagamento, utente);				
+					
+				}
 			}
 		}catch (SQLException e) {
 			System.out.println("Error:" + e.getMessage());
@@ -46,7 +63,7 @@ public class UtenteControl extends HttpServlet {
 		try {
 		
 			if(utente != null)
-			request.getSession().setAttribute("payments", model.doRetrieveByUtente(utente.getID_Utente()));
+			request.setAttribute("payments", model.doRetrieveByUtente(utente.getID_Utente()));
 			
 		} catch (SQLException e) {
 			System.out.println("Error: " + e.getMessage());

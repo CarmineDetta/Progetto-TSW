@@ -25,7 +25,7 @@
 		UtenteBean utente = (UtenteBean)request.getSession().getAttribute("UtenteLoggato");
 	%>
 	
-	<h2>Benvenuto<%=utente.getNome()%></h2>
+	<h2>Benvenuto</h2>
 	
 	<table border="1">
 		<tr>
@@ -46,7 +46,7 @@
 			<td><%=bean.getID_Pagamento()%></td>
 			<td><%=bean.getN_carta()%></td>
 			<td><%=bean.getNome_Intestatario()%></td>
-			<td><%=bean.getScandenza()%></td>
+			<td><%=bean.getScadenza()%></td>
 			<td><%=bean.getCvv()%></td>
 			<td><button><a href="utente?action=delete&id=<%=bean.getID_Pagamento()%>">Elimina</a></button></td><br>
 		</tr>
@@ -60,6 +60,9 @@
 		<%
 			}
 		%>
+		
+		<Button><a href ="InserimentoCarta.jsp">Inserisci una nuova carta</a></Button>
+		
 	</table>
 	
 </body>

@@ -40,21 +40,22 @@ public synchronized void doSave(PortafoglioBean pagamento, UtenteBean utente) th
 		PreparedStatement preparedStatement = null;
 
 		String insertSQL = "INSERT INTO " + PortafoglioModelDS.TABLE_NAME
-				+ "(ID_Pagamento, Num_Carta, Nome_Intestatario, Scandenza, CVV, Utente) VALUES (?, ?, ?, ?, ?, ?)";
+				+ "(ID_Pagamento, Num_Carta, Nome_Intestatario, Scadenza, CVV, Utente) VALUES (?, ?, ?, ?, ?, ?)";
 		
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(insertSQL);
 						
 			preparedStatement.setInt(1, pagamento.getID_Pagamento());
-			preparedStatement.setInt(2, pagamento.getN_carta());
+			preparedStatement.setString(2, pagamento.getN_carta());
 			preparedStatement.setString(3, pagamento.getNome_Intestatario());
-			preparedStatement.setString(4, pagamento.getScandenza());
+			preparedStatement.setString(4, pagamento.getScadenza());
 			preparedStatement.setInt(5, pagamento.getCvv());
 			
 			UtenteModelDS udao = new UtenteModelDS();
 			pagamento.setUtente(udao.doRetrieveByKey(utente.getID_Utente()));
 			
+			preparedStatement.setString(6,pagamento.getUtente().getID_Utente());
 			preparedStatement.executeUpdate();
 
 		} finally {
@@ -121,9 +122,9 @@ public synchronized boolean doDelete(int ID_Pagamento) throws SQLException {
 				
 				while (rs.next()) {
 					bean.setID_Pagamento(rs.getInt("ID_Pagamento"));
-					bean.setN_carta(rs.getInt("Num_Carta"));
+					bean.setN_carta(rs.getString("Num_Carta"));
 					bean.setNome_Intestatario(rs.getString("Nome_Intestatario"));
-					bean.setScandenza(rs.getString("Scandenza"));
+					bean.setScadenza(rs.getString("Scadenza"));
 					bean.setCvv(rs.getInt("CVV"));
 					
 					UtenteModelDS udao = new UtenteModelDS();
@@ -164,9 +165,9 @@ public synchronized Collection<PortafoglioBean> doRetrieveByUtente(String user) 
 				PortafoglioBean bean = new PortafoglioBean();
 
 				bean.setID_Pagamento(rs.getInt("ID_Pagamento"));
-				bean.setN_carta(rs.getInt("Num_Carta"));
+				bean.setN_carta(rs.getString("Num_Carta"));
 				bean.setNome_Intestatario(rs.getString("Nome_Intestatario"));
-				bean.setScandenza(rs.getString("Scandenza"));
+				bean.setScadenza(rs.getString("Scadenza"));
 				bean.setCvv(rs.getInt("CVV"));
 
 				payments.add(bean);

@@ -7,7 +7,7 @@ public class PortafoglioBean {
 	private int ID_Pagamento;
 	private static int c = 0;
 	private String nome_Intestatario;
-	private int n_carta;
+	private String n_carta;
 	private String Scadenza;
 	private int cvv;
 	private UtenteBean utente;
@@ -16,7 +16,7 @@ public class PortafoglioBean {
 		this.ID_Pagamento = c;
 		this.c++;
 		this.nome_Intestatario = "";
-		this.n_carta = 0;
+		this.n_carta = "";
 		this.Scadenza = "";
 		this.cvv = 0;
 	}
@@ -37,19 +37,19 @@ public class PortafoglioBean {
 		this.nome_Intestatario = nome;
 	}
 	
-	public int getN_carta(){
+	public String getN_carta(){
 		return this.n_carta;
 	}
 	
-	public void setN_carta(int n) {
-		this.n_carta = n;
+	public void setN_carta(String num_carta) {
+		this.n_carta = num_carta;
 	}
 	
-	public String getScandenza() {
+	public String getScadenza() {
 		return this.Scadenza;
 	}
 	
-	public void setScandenza(String n) {
+	public void setScadenza(String n) {
 		this.Scadenza = n;
 	}
 	
