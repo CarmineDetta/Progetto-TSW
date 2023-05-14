@@ -46,7 +46,10 @@ public class UtenteControl extends HttpServlet {
 		try {
 		
 			if(utente != null)
-			request.getSession().setAttribute("payments", model.doRetrieveByUtente(utente.getID_Utente()));
+			//request.getSession().setAttribute("payments", model.doRetrieveByUtente(utente.getID_Utente()));
+			request.setAttribute("payments", model.doRetrieveByUtente(utente.getID_Utente()));
+
+			
 			
 		} catch (SQLException e) {
 			System.out.println("Error: " + e.getMessage());

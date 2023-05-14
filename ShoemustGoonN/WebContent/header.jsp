@@ -35,7 +35,9 @@
                 }
               	if(session.getAttribute("UtenteLoggato") != null){
               %>
-              		<li><button><a href="Utente.jsp">Il mio profilo</a></button></li>
+              		<a href="Utente.jsp">
+              			<img src="https://www.svgrepo.com/show/510311/user-folder.svg"  width="28" height="28" title="account-icon" alt="account icon"><br>             		
+              		</a>
               <%		
               	}
               	if(session.getAttribute("UtenteLoggato") == null && session.getAttribute("AdminLoggato") == null){
@@ -48,11 +50,9 @@
 			<%
               	}else{
             %>
-             	<button>
                		<a href="Logout?action=Logout">
                		 	<img src="https://www.svgrepo.com/show/506720/logout.svg" width="28" height="28" title="logout-icon" alt="logout icon"><br>
                		</a>
-               	</button>
 		      <%
               	}
               
