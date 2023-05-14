@@ -74,7 +74,7 @@ CREATE TABLE Ordine(
     ID_Utente VARCHAR(6) NOT NULL,
     FOREIGN KEY (ID_Utente) REFERENCES Utente(ID_Utente),
     ID_Pagamento INT,
-    FOREIGN KEY (ID_Pagamento) REFERENCES Pagamento(ID_Pagamento)
+    FOREIGN KEY (ID_Pagamento) REFERENCES Portafoglio(ID_Pagamento)
 );
 
 CREATE TABLE Composizione(
