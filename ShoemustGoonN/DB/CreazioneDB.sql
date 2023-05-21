@@ -74,6 +74,8 @@ CREATE TABLE Ordine(
     FOREIGN KEY (ID_Utente) REFERENCES Utente(ID_Utente),
     ID_Pagamento INT,
     FOREIGN KEY (ID_Pagamento) REFERENCES Portafoglio(ID_Pagamento)
+	ID_Spedizione INT NOT NULL,
+	FOREIGN KEY (D_Spedizione) REFERENCES Indirizzo_di_Spedizione(ID_Spedizione)
 );
 
 CREATE TABLE Composizione(
@@ -86,12 +88,10 @@ CREATE TABLE Composizione(
 );
 
 CREATE TABLE Indirizzo_di_Spedizione(
-    ID_Indirizzo INT NOT NULL PRIMARY KEY,
+    ID_Spedizione INT NOT NULL PRIMARY KEY,
 	CAP NUMERIC NOT NULL,
-    Citta VARCHAR(20) NOT NULL,
-    Via_Piazza VARCHAR(20) NOT NULL,
+    Citta VARCHAR(50) NOT NULL,
+    Via_Piazza VARCHAR(50) NOT NULL,
     N_Civico INT NOT NULL,
-    Ordine VARCHAR(6) NOT NULL,
-    FOREIGN KEY(Ordine) REFERENCES Ordine(ID_Ordine) ON UPDATE CASCADE
 );
 

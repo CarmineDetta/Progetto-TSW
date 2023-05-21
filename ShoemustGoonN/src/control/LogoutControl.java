@@ -29,7 +29,7 @@ public class LogoutControl extends HttpServlet {
 				if(sessione.getAttribute("UtenteLoggato") != null){
 					sessione.removeAttribute("UtenteLoggato");
 				}else if(sessione.getAttribute("AdminLoggato") != null)
-					sessione.removeAttribute("UtenteLoggato");
+					sessione.removeAttribute("AdminLoggato");
 				}
 				
 				//request.getSession().invalidate();
