@@ -1,0 +1,114 @@
+@charset "utf-8";
+
+.registerForm {
+	width: 600px;
+	background-color: #FFDEAD;
+	padding: 3% 5% 5% 5%;
+	border: 7px solid #ff6347;
+		border-radius: 10px;
+	margin: 5% auto;
+	box-shadow: 0 10px 30px ;
+	font-family: Helvetica, sans-serif;
+}
+
+#title {
+	padding: 35px 35px 15px 0;
+    font-weight: 500;
+    font-size: 16pt;
+    font-family: Lucida Sans, sans-serif;
+}
+
+.input-field-r {
+	padding: 7px 5px;
+	font-family: Helvetica, sans-serif;
+}
+
+.input-field-r input {
+	
+	font-size: 15px;	/*font carratteri all'interno dei field*/
+	display: block;
+	font-family: Helvetica, sans-serif;
+	width: 100%;
+	padding: 8px 10px;			/*margini dei field di input*/
+	
+	margin-bottom: 5%;
+	border: 2.5px solid black;
+	transition: all .3s;
+}
+
+.input-field-r input:focus {
+	border-color: #ff6347;
+}
+
+.input-field-r .text{
+		font-family: Comica Sans, cursive;
+}
+
+.action-r {
+	display: flex;
+
+}
+
+.action-r button {
+	width: 30%;
+	padding: 6px;
+	
+	margin-top: 5px;
+	margin-bottom: 50px;
+	
+	border: 1px solid black;
+		border-radius: 20px;
+		letter-spacing: 0.2px;
+
+	font-family: Helvetica, sans-serif;
+	cursor: pointer;
+	/*text-transform: uppercase;	/*per mettere il testo in maiuscolo*/
+	background: #FFEFD5;
+	color: #222;
+
+	transition: all .3s;
+}
+
+.action-r button:hover {
+	background: #EECFA1;
+}
+
+/*dimensioni per diverse finestre*/
+
+@media (max-width:1000px){
+        	.loginForm{
+        		width:50%;
+        	}
+}
+        
+@media (max-width:750px) {
+        	.registerForm{
+        		width:70%;
+        	}
+}
+        
+@media (max-width:500px){
+        	.registerForm{
+        		width:90%;
+        	}
+
+	background: #3c4d6d;
+}
+
+@media ( max-width :1000px) {
+	.registerForm {
+		width: 50%;
+	}
+}
+
+@media ( max-width :750px) {
+	.registerForm {
+		width: 70%;
+	}
+}
+
+@media ( max-width :500px) {
+	.registerForm {
+		width: 90%;
+	}
+}
