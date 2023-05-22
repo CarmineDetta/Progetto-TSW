@@ -1,0 +1,136 @@
+@charset "utf-8";
+
+h1{				/*gestisco l'h1 del titolo*/
+	padding:10px;
+	margin: 10%;		/*margini*/
+	font-family: Helvetica, sans-serif;
+	font-size: 20pt;
+
+}
+.insert_form{
+	
+     width: 600px;
+     background-color: #FFDEAD;
+     padding: 0 3% 3% 3%;		/*margine rispetto al lato sinistro e destro degli elementi*/
+     border: 7px solid #ff6347;
+     	border-radius: 9px;		
+     margin: 5% auto;
+     
+     box-shadow: 0 10px 30px ;
+     font-family: Helvetica, sans-serif;
+}
+
+.div_insert{			/*gestisco tutto il form*/
+	text-align: center;
+    margin: 5px;
+    padding: 30px;
+}
+
+.insert{
+	display: flex;
+    align-items:center;
+    padding: 0 5% 5% 5%;
+}
+
+.label_mod{
+	margin-right: 8%;
+	font-family: Comica Sans, cursive;
+	font-weight: bold;
+}
+
+.box{
+	border: 1.5px solid #ff6347;
+		border-radius:15px;
+	padding: 7px;
+	
+	text-align:center;
+	transition: all .3s;
+}
+
+input.box[type="number"] {
+    text-align: left;
+}
+
+.box_disp{
+	background-color: #FFEFD5;
+}
+
+.box_color{
+	width:10%;
+}
+
+input:focus{
+	border-color: black;
+		
+}
+
+.box_option{
+	border: 1.5px solid #ff6347;
+		border-radius:15px;
+	
+	padding: 1%;	/*dim field*/
+}
+
+option{
+	background-color: #FFEFD5;
+}
+
+option:hover{
+	background-color: #F4A460;
+	transition: all 0.3s;	
+}
+
+.pulsanti{
+
+	text-decoration: none;		/*toglie la sottolineatura*/
+	border: 1px solid #ff6347;
+		border-radius: 5em;
+	
+	font-size: 1em;
+	color: black;
+	background-color: #FFEFD5;
+	
+	text-align:center;
+	width: 20%;
+	padding: 7px;	/*spessore*/
+    margin-top: 20px;
+    margin-left: 70px;
+	margin-right: 30px;
+	margin-bottom: 40px;
+}
+
+
+.pulsanti:hover {
+	color:black;
+	background-color: #F4A460;
+	transition: all 0.3s;
+	cursor: pointer;
+	border: ff6347;
+}
+
+
+.homebutton{
+	
+	text-align:center;
+	text-decoration: none;
+	border: 2px solid black;
+		border-radius: 2em;
+
+	font-size: 1em;
+	color: black;
+	background-color: #ff6347;
+	text-align:center;
+	width: 20%;			/*dimensione*/
+	padding: 8px;		/*spessore*/
+    margin: 3%;	/*margini ai lati*/
+
+
+}
+
+.homebutton:hover{
+	color:black;
+	background-color: #F4A460;
+	transition: all 0.3s;
+	cursor: pointer;
+	border: ff6347;
+}

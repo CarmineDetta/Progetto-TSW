@@ -1,0 +1,127 @@
+@charset "utf-8";
+
+
+#accedi {	/*gestisce la scritta "accedi"*/
+	padding: 35px 35px 0 35px;	/*margini*/
+	font-weight: 600;		/*spessore grassetto*/
+	
+	font-family: Lucida Sans, sans-serif;
+	font-size: 13pt;
+}
+
+.loginForm {
+			
+	width: 400px;		/*dimensioni form*/
+	background-color: 	#FFDEAD;
+	padding: 0 2% 2% 2%;
+	border: 7px solid #ff6347;		/*spessore e colori contorni*/
+	margin: 5% auto;		/*margini dal lato del form*/
+	box-shadow: 0 10px 30px ;	/*ombre form*/
+}
+
+
+
+.content {		/*gestisce gli elementi che formano il form*/
+	padding: 40px;
+	text-align: center;
+}
+
+.input-field {			/*gestisco i campi field*/
+	padding: 15px 5px;			/*gestendo i margini*/
+	font-family: Helvetica, sans-serif;
+}
+	
+.input-field input {		/*gestisco quello che c'è' dentro gli input field*/
+	
+	font-size: 16px;	/*dimensione field*/
+	display: block;	/*serve a far occupare l'intera linea orizzontale all'elemento*/
+	
+
+	font-family: Helvetica, sans-serif;
+	width: 100%;
+	padding: 10px 15px;				/*dimensione in altezza del field*/
+	border: 1px solid #ff6347;
+		border-radius:10px;			/*arrotondo i bordi*/
+	transition: all .3s;
+}
+
+.input-field input:focus {		/*serve a inserire i bordi di un altro colore quando sto scrivendo nel field apposito*/
+	border-color: #222;
+}
+
+.icon{
+	margin-bottom: 10px;
+}
+
+.action{
+	margin-top: 5px;
+}
+
+
+.action a {
+	
+	width: 100%;
+	padding: 10px;
+	font-family: Helvetica, sans-serif;
+	
+	/*tramite questa istruzione quando passiamo col cursore sopra il bottone si visualizza la manina*/
+		/*altre funzioni sono la "help" e si visualizza il punto interrogativo, ecc...*/
+	cursor: pointer;		
+
+	background: #FFDEAD;	/*colore background*/
+	color: black;
+
+	border: 1px solid #FFDEAD;	/*bordo*/
+		border-radius: 10px;	
+		letter-spacing: 0.2px;		/*spazio tra le lettere*/
+
+	transition: all .3s;
+	text-align: center;
+}
+
+.action a:hover {
+	background: #FFEFD5;	/*colore transizione con cursore*/
+}
+
+.action .action-1 button {	/*gestisco solo i bottoni reset e login*/
+
+	width: 30%;				/*dimensioni field*/
+	padding: 6px;			/*gestisco la robustezza dei field*/
+	
+	margin-top: 1px;	/*margine rispetto l'alto*/
+	margin-bottom: 50px;		/*margine rispetto all'elemento che ha sotto*/
+	
+	font-family: Helvetica, sans-serif;	
+	cursor: pointer;
+
+	background: #FFEFD5;	/*colori background button*/
+	color: black;	/*colore testo*/
+	border: 1px solid black;		/*bordi*/
+		border-radius: 20px; 	/*arrotondati*/
+		letter-spacing: 0.2px;
+
+	transition: all .3s;	/*transizione*/
+}
+
+.action button:hover {
+	background: #EECFA1;
+}
+
+@media ( max-width :1000px) {
+	.loginForm {
+		width: 50%;
+	}
+}
+
+@media ( max-width :750px) {
+	.loginForm {
+		width: 70%;
+	}
+}
+
+@media ( max-width :500px) {
+	.loginForm {
+		width: 90%;
+	}
+}
+

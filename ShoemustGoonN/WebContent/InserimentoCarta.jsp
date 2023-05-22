@@ -8,6 +8,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Inserimento Carta | ShoeMustGoOn</title>
 </head>
+
+
 <body>
 
 	<jsp:include page="header.jsp" />
@@ -17,7 +19,7 @@
 	%>
 	
 	<h2>Inserisci i dati della nuova carta</h2>
-		<form action="utente" method="post">
+		<form action="payments" method="post">
 			<input type="hidden" name="action" value="insert"> 
 			
 			<label for="n_carta">Numero Carta:</label><br> 
@@ -33,7 +35,7 @@
 			<input name="cvv" type="text" maxlength="3"><br> 
 			
 			<input name="utente" type="hidden" value="<%utente.getNome();%>">
-			<br><input type="submit" value="Add"><input type="reset" value="Reset"><br>
+			<br><input type="submit" value="Aggiungi"><input type="reset" value="Reset"><br>
 	
 		</form>
 </body>

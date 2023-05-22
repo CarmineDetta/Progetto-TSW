@@ -1,6 +1,5 @@
 package control;
 
-import model.ItemCarrello;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -42,7 +41,7 @@ public class CartControl extends HttpServlet {
 										
 					cart.addProduct(p);	
 
-				} else if (action.equalsIgnoreCase("deleteCart")) {
+				} else if (action.equalsIgnoreCase("deleteToCart")) {
 					
 					String id = request.getParameter("id");
 					int qty = Integer.parseInt(request.getParameter("qty"));
@@ -57,7 +56,18 @@ public class CartControl extends HttpServlet {
 				} else if (action.equalsIgnoreCase("read")) {
 					String id = request.getParameter("id");
 					request.setAttribute("product", model.doRetrieveByKey(id));
-				}
+				} else if(action.equalsIgnoreCase("rmvAll")){
+					
+					cart = new Cart();
+					
+					if(request.getParameter("provenienza").equals("cart"));
+					
+					request.getSession().setAttribute("cart", cart);
+					
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Carrello.jsp");
+					dispatcher.forward(request, response);
+					
+				} 
 			}			
 		} catch (SQLException e) {
 			System.out.println("Error:" + e.getMessage());

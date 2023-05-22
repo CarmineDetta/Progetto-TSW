@@ -151,7 +151,7 @@ public class UtenteModelDS implements UtenteDAO{
 			return u;
 		}
 	
-	public synchronized UtenteBean doRetrieveByEmail(String email) throws SQLException {
+	public UtenteBean doRetriveByEmail(String email) throws SQLException {
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -173,10 +173,10 @@ public class UtenteModelDS implements UtenteDAO{
 
 				//In questo modo inseriamo i valori estratti dalla qeury all'interno dell'oggetto bean
 				bean.setID_Utente(rs.getString("ID_Utente"));
-				bean.setEmail(rs.getString("Nome"));
-				bean.setPassword(rs.getString("Cognome"));
-				bean.setTipo(rs.getString("DataNascita"));
-				bean.setEmail(rs.getString("CF"));
+				bean.setNome(rs.getString("Nome"));
+				bean.setCognome(rs.getString("Cognome"));
+				bean.setDataNascita(rs.getString("DataNascita"));
+				bean.setCF(rs.getString("CF"));
 				bean.setEmail(rs.getString("Email"));
 				bean.setPassword(rs.getString("password"));
 				bean.setTipo(rs.getString("Tipo"));
@@ -241,10 +241,33 @@ public class UtenteModelDS implements UtenteDAO{
 		return u;
 	}
 
-	@Override
-	public UtenteBean doRetriveByEmail(String email) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+public synchronized void doUpdateUtente(String value, String attributo, String id) throws SQLException {
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		String selectSQL = "UPDATE " + TABLE_NAME + " SET ? = ? WHERE ID_Utente = ?";
+	
+		
+		try {
+			connection = DriverManagerConnectionPool.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			
+			preparedStatement.setString(1, value);
+			preparedStatement.setString(2, attributo);
+			preparedStatement.setString(3, id);
+			
+
+			preparedStatement.executeUpdate();
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				DriverManagerConnectionPool.releaseConnection(connection);
+			}
+		}
 	}
 
 }

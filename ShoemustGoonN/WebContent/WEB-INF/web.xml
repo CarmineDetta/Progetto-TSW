@@ -36,6 +36,31 @@
     <servlet-class>control.LoginControl</servlet-class>
   </servlet>
     
+  <servlet>
+    <servlet-name>PaymentsControl</servlet-name>
+    <servlet-class>control.PaymentsControl</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>RecapitoControl</servlet-name>
+    <servlet-class>control.RecapitoControl</servlet-class>
+  </servlet>
+  
+    <servlet>
+    <servlet-name>UtenteControl</servlet-name>
+    <servlet-class>control.UtenteControl</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>UtenteControl</servlet-name>
+    <url-pattern>/utente</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>RecapitoControl</servlet-name>
+    <url-pattern>/recapiti</url-pattern>
+  </servlet-mapping>
+    
   <servlet-mapping>
     <servlet-name>AdminControl</servlet-name>
     <url-pattern>/admin</url-pattern>
@@ -60,4 +85,9 @@
      <servlet-name>LoginControl</servlet-name>
      <url-pattern>/login</url-pattern>
    </servlet-mapping>
+   
+   <servlet-mapping>
+    <servlet-name>PaymentsControl</servlet-name>
+    <url-pattern>/payments</url-pattern>
+  </servlet-mapping>
 </web-app>

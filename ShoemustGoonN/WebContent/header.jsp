@@ -35,7 +35,7 @@
                 }
               	if(session.getAttribute("UtenteLoggato") != null){
               %>
-              		<a href="Utente.jsp">
+              		<a href="Profilo_Utente.jsp">
               			<img src="https://www.svgrepo.com/show/510311/user-folder.svg"  width="28" height="28" title="account-icon" alt="account icon"><br>             		
               		</a>
               <%		
