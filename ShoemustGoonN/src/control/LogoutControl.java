@@ -27,9 +27,9 @@ public class LogoutControl extends HttpServlet {
 		if(action != null) {
 			if(action.equalsIgnoreCase("Logout")){
 				if(sessione.getAttribute("UtenteLoggato") != null){
-					sessione.removeAttribute("UtenteLoggato");
+					sessione.setAttribute("UtenteLoggato", null);
 				}else if(sessione.getAttribute("AdminLoggato") != null)
-					sessione.removeAttribute("AdminLoggato");
+					sessione.setAttribute("AdminLoggato", null);
 				}
 				
 				//request.getSession().invalidate();

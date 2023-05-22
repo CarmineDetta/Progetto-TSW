@@ -66,20 +66,16 @@ CREATE TABLE Portafoglio(
 );
 
 CREATE TABLE Ordine(
-	ID_Ordine VARCHAR(6) NOT NULL PRIMARY KEY,
+	ID_Ordine int NOT NULL PRIMARY KEY,
     Data_ordine DATE NOT NULL,
     Metodo_Pagamento VARCHAR(25) NOT NULL,
     Totale NUMERIC NOT NULL,
-    ID_Utente VARCHAR(6) NOT NULL,
-    FOREIGN KEY (ID_Utente) REFERENCES Utente(ID_Utente),
-    ID_Pagamento INT,
-    FOREIGN KEY (ID_Pagamento) REFERENCES Portafoglio(ID_Pagamento)
-	ID_Spedizione INT NOT NULL,
-	FOREIGN KEY (D_Spedizione) REFERENCES Indirizzo_di_Spedizione(ID_Spedizione)
+    Utente VARCHAR(6) NOT NULL,
+    FOREIGN KEY (Utente) REFERENCES Utente(ID_Utente)
 );
 
 CREATE TABLE Composizione(
-	ID_Ordine VARCHAR(6) NOT NULL,
+	ID_Ordine int NOT NULL,
     ID_Prodotto VARCHAR(17) NOT NULL,
     Quantita int not null,
     primary key(ID_Ordine, ID_Prodotto),
@@ -87,11 +83,13 @@ CREATE TABLE Composizione(
 	FOREIGN KEY (ID_Ordine) REFERENCES Ordine(ID_Ordine)	
 );
 
-CREATE TABLE Indirizzo_di_Spedizione(
+CREATE TABLE Recapito(
     ID_Spedizione INT NOT NULL PRIMARY KEY,
 	CAP NUMERIC NOT NULL,
     Citta VARCHAR(50) NOT NULL,
     Via_Piazza VARCHAR(50) NOT NULL,
     N_Civico INT NOT NULL,
+     Utente VARCHAR(6) NOT NULL,
+    FOREIGN KEY (Utente) REFERENCES Utente(ID_Utente)
 );
 

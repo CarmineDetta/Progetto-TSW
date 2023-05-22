@@ -158,7 +158,7 @@ public class UtenteModelDS implements UtenteDAO{
 
 		UtenteBean bean = new UtenteBean();
 
-		String selectSQL = "SELECT * FROM " + TABLE_NAME + " WHERE email = ?";
+		String selectSQL = "SELECT * FROM " + UtenteModelDS.TABLE_NAME + " WHERE email = ?";
 	
 		
 		try {
