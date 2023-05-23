@@ -5,83 +5,57 @@ import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.PortafoglioBean;
-import model.PortafoglioDAO;
-import model.PortafoglioModelDS;
-import model.ProdottoBean;
-import model.ProdottoDAO;
-import model.ProductModelDS;
-import model.UtenteBean;
+import model.UtenteDAO;
 import model.UtenteModelDS;
 
-@WebServlet("/utente")
-public class UtenteControl extends HttpServlet {
-	private static final long serialVersionUID = 1L;
- 
-	static PortafoglioDAO model = new PortafoglioModelDS();
+public class UtenteControl extends HttpServlet{
 
+	private static final long serialVersionUID = 1L;
+
+	static UtenteDAO model = new UtenteModelDS();
+	
     public UtenteControl() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		UtenteBean utente = (UtenteBean) request.getSession().getAttribute("UtenteLoggato");
+	
 		String action = request.getParameter("action");
 		
-		try {
-			if (action != null) {
-				if (action.equalsIgnoreCase("delete")) {
-					int id = Integer.parseInt(request.getParameter("id"));
-					model.doDelete(id);
-				}
-				else if (action.equalsIgnoreCase("insert")) {
-
-					String num_carta = request.getParameter("n_carta");			
-					String nome = request.getParameter("nome_intestatario");
-					String scadenza = request.getParameter("scadenza");
-					int cvv = Integer.parseInt(request.getParameter("cvv"));
+		if (action != null) {
+			if (action.equalsIgnoreCase("update")) { 
+				String email = (String) request.getParameter("email");
+				try {
 					
-					PortafoglioBean pagamento = new PortafoglioBean();
-					pagamento.setN_carta(num_carta);
-					pagamento.setNome_Intestatario(nome);
-					pagamento.setScadenza(scadenza);
-					pagamento.setCvv(cvv);
-					model.doSave(pagamento, utente);				
+					request.setAttribute("a", model.doRetriveByEmail(email));
 					
+					String scelta =  request.getParameter("scelta");
+					String valore =  request.getParameter("valore");
+					String utente =  request.getParameter("utente");
+					
+					System.out.println(scelta);
+					System.out.println(valore);
+					System.out.println(utente);
+					
+					model.doUpdateUtente(valore, scelta, utente);
+					
+				} catch (SQLException e1) {
+					e1.printStackTrace();
 				}
-			}
-		}catch (SQLException e) {
-			System.out.println("Error:" + e.getMessage());
+			} 
 		}
 		
-		try {
-		
-			if(utente != null)
-			//request.getSession().setAttribute("payments", model.doRetrieveByUtente(utente.getID_Utente()));
-			request.setAttribute("payments", model.doRetrieveByUtente(utente.getID_Utente()));
-
-			
-
-			request.setAttribute("payments", model.doRetrieveByUtente(utente.getID_Utente()));
-
-			
-		} catch (SQLException e) {
-			System.out.println("Error: " + e.getMessage());
-		}
-
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Utente.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Dati_Utente.jsp");
 		dispatcher.forward(request, response);
 
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	// TODO Auto-generated method stub
+    	doGet(request, response);
 	}
-
 }

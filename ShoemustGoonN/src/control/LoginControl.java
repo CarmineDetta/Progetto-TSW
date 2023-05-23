@@ -38,7 +38,7 @@ public class LoginControl extends HttpServlet {
 				
 				if(action.equalsIgnoreCase("login")){
 			
-					utente = u_ds.doRetrieveByEmail(email);
+					utente = u_ds.doRetriveByEmail(email);
 					
 					if(utente.getEmail().equalsIgnoreCase("") || utente.getEmail() == null) {
 						response.sendRedirect("Login.jsp");
@@ -52,6 +52,7 @@ public class LoginControl extends HttpServlet {
 									if(utente.getTipo().equalsIgnoreCase("utente")) {
 										request.getSession().setAttribute("UtenteLoggato" , utente);       //Per motivi di sicurezza 
 										response.sendRedirect("./Catalogo_Utente.jsp");
+										
 									}
 									
 									if(utente.getTipo().equalsIgnoreCase("admin")) {
@@ -88,15 +89,6 @@ public class LoginControl extends HttpServlet {
 					u.setEmail(Email);
 					u.setPassword(Password);
 					u.setTipo(Tipo);
-					
-					
-					System.out.println("Nome:"+u.getNome()+"\n");
-					System.out.println("Cognome:"+u.getCognome()+"\n");
-					System.out.println("DataNascita:"+u.getDataNascita()+"\n");
-					System.out.println("CF:"+u.getCF()+"\n");
-					System.out.println("Email:"+u.getEmail()+"\n");
-					System.out.println("Password:"+u.getPassword()+"\n");
-					System.out.println("Tipo:"+u.getTipo()+"\n");
 					
 					u_ds.doSave(u);
 					

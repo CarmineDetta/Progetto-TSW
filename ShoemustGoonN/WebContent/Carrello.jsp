@@ -103,6 +103,32 @@ body{
 			<br>
 		
 		</div>
+		
+		<%}%>
+		
+		<div>
+			<table>
+				<tr>
+					<td>Somma totale</td>
+				</tr>
+				<tr>
+					<td><%=cart.getTotale()%>
+				</tr>
+			</table><br>
+			<%
+				UtenteBean utente = (UtenteBean) session.getAttribute("UtenteLoggato");
+			
+				if(utente != null){
+			%>
+			
+			<Button><a href="Acquisto.jsp">Procedi all'acquisto</a></Button>
+				
+			<%
+				}else{
+			%>
+			
+			<Button><a href="Login.jsp">Prima di procedere all'acquisto devi essere effettuare al login, ti mando lì?</a></Button>
+		</div>
 		<%
 				}
 			} else {

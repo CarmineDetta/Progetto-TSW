@@ -56,8 +56,10 @@ public class CartControl extends HttpServlet {
 						dispatcher.forward(request, response);
 					}
 				} else if (action.equalsIgnoreCase("read")) {
+					
 					String id = request.getParameter("id");
 					request.setAttribute("product", model.doRetrieveByKey(id));
+				
 				} else if(action.equalsIgnoreCase("rmvAll")){
 					
 					cart = new Cart();

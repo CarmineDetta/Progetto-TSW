@@ -12,4 +12,7 @@ public interface UtenteDAO {
 	public Collection<UtenteBean> doRetrieveAll(String order) throws SQLException;
 
 	public UtenteBean doRetriveByEmail(String email) throws SQLException;
+	
+	public void doUpdateUtente(String value, String attributo, String id) throws SQLException;
+
 }

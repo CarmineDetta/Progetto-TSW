@@ -35,7 +35,6 @@ private static DataSource ds;
 	
 public synchronized void doSave(PortafoglioBean pagamento, UtenteBean utente) throws SQLException {
 		
-		//fare quando dobbiamo inserire oggetti nel db
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
