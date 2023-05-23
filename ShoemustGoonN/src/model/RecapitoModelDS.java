@@ -72,7 +72,7 @@ private static DataSource ds;
 
 		int result = 0;
 
-		String deleteSQL = "DELETE FROM " + RecapitoModelDS.TABLE_NAME + " WHERE ID_ID_Indirizzo = ?";
+		String deleteSQL = "DELETE FROM " + RecapitoModelDS.TABLE_NAME + " WHERE ID_Indirizzo = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -104,7 +104,7 @@ private static DataSource ds;
 
 		RecapitoBean bean = new RecapitoBean();
 
-		String selectSQL = "SELECT * FROM " + RecapitoModelDS.TABLE_NAME + " WHERE ID_ID_Indirizzo = ?";
+		String selectSQL = "SELECT * FROM " + RecapitoModelDS.TABLE_NAME + " WHERE ID_Indirizzo = ?";
 
 		try {
 			connection = ds.getConnection();

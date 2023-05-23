@@ -12,6 +12,7 @@ public class OrdineBean implements Serializable{
     private String metodo_pagamento;
     private double totale;
     private UtenteBean utente;
+    private RecapitoBean recapito;
     
     public OrdineBean() {
     	this.ID_Ordine = c;
@@ -61,6 +62,12 @@ public class OrdineBean implements Serializable{
     	this.utente = utente;
     }
     
-   
+    public RecapitoBean getRecapito() {
+    	return this.recapito;
+    }
+    
+    public void setRecapito(RecapitoBean recapito) {
+    	this.recapito = recapito;
+    }
     
 }

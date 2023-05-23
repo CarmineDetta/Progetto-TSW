@@ -49,13 +49,16 @@ public class CartControl extends HttpServlet {
 					ItemCarrello p = new ItemCarrello(id, qty);
 										
 					cart.deleteProduct(p);
+					
 					if(cart == null) {
 						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Carrello.jsp");
 						dispatcher.forward(request, response);
 					}
 				} else if (action.equalsIgnoreCase("read")) {
+					
 					String id = request.getParameter("id");
 					request.setAttribute("product", model.doRetrieveByKey(id));
+				
 				} else if(action.equalsIgnoreCase("rmvAll")){
 					
 					cart = new Cart();

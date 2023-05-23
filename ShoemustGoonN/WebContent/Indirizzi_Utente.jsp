@@ -4,7 +4,7 @@
 <%
    Collection<?> recapiti = (Collection<?>) request.getAttribute("recapiti");
 	if(recapiti == null) {
-		response.sendRedirect("./recapiti");	
+		response.sendRedirect("./ordine");	
 		return;
 	}
 %>
@@ -51,7 +51,7 @@
 			} else {
 		%>
 		<tr>
-			<td colspan="6">Non hai recapito nessuna carta</td>
+			<td colspan="6">Non hai inserito nessun recapito</td>
 		</tr>
 		<%
 			}

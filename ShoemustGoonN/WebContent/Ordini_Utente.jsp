@@ -30,7 +30,6 @@
 			<th>Data ordine</th>
 			<th>Metodo di pagamento</th>
 			<th>Totale</th>
-			
 		</tr>
 		<%
 			if (ordini != null && ordini.size() != 0) {

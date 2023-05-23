@@ -30,12 +30,12 @@ public class OrdineModelDS implements OrdineDAO{
 
 	private static final String TABLE_NAME = "ordine";
 	
-	public void doSave(OrdineBean ordine, UtenteBean utente) throws SQLException {
+	public void doSave(OrdineBean ordine, UtenteBean utente, RecapitoBean recapito) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
 		String insertSQL = "INSERT INTO " + OrdineModelDS.TABLE_NAME
-				+ " (ID_Ordine, Data_Ordine, Metodo_Pagamento, Totale, Utente) VALUES (?, ?, ?, ?, ?)";
+				+ " (ID_Ordine, Data_Ordine, Metodo_Pagamento, Totale, Utente, Indirizzo) VALUES (?, ?, ?, ?, ?, ?)";
 		
 		try {
 			connection = ds.getConnection();
@@ -48,6 +48,9 @@ public class OrdineModelDS implements OrdineDAO{
 			
 			UtenteModelDS udao = new UtenteModelDS();
 			ordine.setUtente(udao.doRetrieveByKey(utente.getID_Utente()));
+			
+			RecapitoModelDS rdao = new RecapitoModelDS();
+			ordine.setRecapito(rdao.doRetrieveByKey(recapito.getID_Indirizzo()));
 			
 			preparedStatement.executeUpdate();
 
@@ -121,6 +124,9 @@ public class OrdineModelDS implements OrdineDAO{
 				bean.setMetodoPagamento(rs.getString("Metodo_Pagamento"));
 				bean.setTotale(rs.getInt("Totale"));
 			
+				RecapitoModelDS rdao = new RecapitoModelDS();
+				bean.setRecapito(rdao.doRetrieveByKey(rs.getInt("Indirizzo")));
+				
 				ordini.add(bean);
 			}
 
@@ -163,6 +169,9 @@ public class OrdineModelDS implements OrdineDAO{
 					
 					UtenteModelDS udao = new UtenteModelDS();
 					bean.setUtente(udao.doRetrieveByKey(rs.getString("utente")));
+					
+					RecapitoModelDS rdao = new RecapitoModelDS();
+					bean.setRecapito(rdao.doRetrieveByKey(rs.getInt("Indirizzo")));
 				}
 
 			} finally {
