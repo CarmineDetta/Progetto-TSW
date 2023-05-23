@@ -21,6 +21,14 @@
 	<link rel="stylesheet" href="style/carrello.css">
 	<title>ShoeMustGoOn | Carrello</title>
 </head>
+<!-- 	DECIDERE CHE SFONDO METTERE
+<style>
+body{
+	background-image: url("image/sfondo_carrello.jpeg");	
+}
+</style>
+-->	
+
 
 <body>
 	
@@ -36,7 +44,7 @@
 					<input type="hidden" name="action" value="rmvAll">	
 					<input type="hidden" name="qty" value="1">
 					<input type="hidden" name="provenienza" value="carrello">					
-					<button class="svuotaCarrello"><img src="https://www.svgrepo.com/show/434577/basket-error.svg" width="28" height="28" title="basket-icon" alt="basket icon"></button>
+					<button class="svuotaCarrello"><img src="https://www.svgrepo.com/show/434577/basket-error.svg" width="24" height="24" title="basket-icon" alt="basket icon"></button>
 				</form>
  	</div>
  	
@@ -52,39 +60,43 @@
 		
 		<div class="prodottoCarrello">
 	
-
-			<p class="label"> Scarpa: <%=p.getModello()%></p>
-					
+			
+				<p class="label"> Scarpa: <br> <%=p.getModello()%></p>
+				
 					<br>
 					
-			<p class="label"> Colore: <%=p.getColore()%> </p>
-
+				<p class="label"> Colore: <br> <%=p.getColore()%> </p>
+			
+			
 			<div>
 			 	<img src="<%=p.getImmagine().getPath()%>" id="immag">
 			</div>
 					
-
-			<p class="label"><%=p.getCategoria()%></p>
+			
+				<p class="label"><%=p.getCategoria()%></p>
+			
 			
 			<div>
-				<p class="prodPrezzo">Prezzo: <%=p.getPrezzo()%> &euro;</p>			
+				<p class="prodPrezzo">Prezzo: <br> <%=p.getPrezzo()%> &euro;</p>			
 			</div>
 				
+				
+				<label class="labelqty" for="quantità">Quantità: <br> <%=c.getQuantitaItemCarrello()%></label>
+							
 			<div>
-				<label class="labelqty" for="quantità">Quantità: <%=c.getQuantitaItemCarrello()%></label>
 			
 				<form action="cart" method="post">	
 					<input type="hidden" name="action" value="deleteToCart">	
 					<input type="hidden" name="id" value="<%=c.getID_ProdottoItemCarrello()%>">
 					<input type="hidden" name="qty" value="<%=c.getQuantitaItemCarrello()%>">
-					<input type="submit" value="Rimuovi dal carrello" class="pulsanti"> &nbsp;
+					<input type="submit" value="Remove" class="pulsanti"> &nbsp;
 				</form>
 		
 				<form action="cart" method="post">	
 					<input type="hidden" name="action" value="addCart">	
 					<input type="hidden" name="id" value="<%=c.getID_ProdottoItemCarrello()%>">
 					<input type="hidden" name="qty" value="<%=c.getQuantitaItemCarrello()%>">
-					<input type="submit" value="Aggiungi al carrello" class="pulsanti"> &nbsp;
+					<input type="submit" value="Add" class="pulsanti"> &nbsp;
 				</form>
 			</div>
 			
@@ -95,9 +107,11 @@
 				}
 			} else {
 		%>
-		
-			 <p>Il carrello è vuoto</p>
-		
+			
+			<div class="cart_empty">
+				<img src="image/faccina_triste.png">
+				<p>Il carrello è vuoto</p>
+			</div>
 		<%
 			}
 		%>

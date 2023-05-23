@@ -11,7 +11,7 @@
 	<body>
 	    <header id="header-large">
 	        <div>
-	            <a href="Homepage.jsp"> <img src="image/Logo.jpg" alt="logo" class="logo"></a>
+	            <a href="Homepage.jsp"> <img src="image/loggo.jpg" alt="logo" class="logo"></a>
 	        </div>
 	
 	        <div class="parametri">

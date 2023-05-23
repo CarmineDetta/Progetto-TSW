@@ -1,68 +1,91 @@
+@charset "utf-8";
+
 html, body {
-     min-height: 100%;
+  	min-height: 100%;
+  /*	background-color: #C6E2FF;*/
+
 }
 
-#carrello{
-	display:flex;
+#carrello{			/*gestisco la totalità della pagina*/
+	padding: 0 10% 10% 10%;
 	width:100%;
-	justify-content:center;
+	margin-bottom: 10%;
+	
 }
 
-.listProdCarrello {
+.listProdCarrello {	/*gestisce la divisione tra le parti del carrello*/
 	 width: 100%;
-     vertical-align: top;
-     float: left;
-     margin:2% 5%;
+  	
 }
 
-.titoloCarrello {
-	border-bottom:1px solid black;
+.titoloCarrello {				/*gestisce la parte della scritta carrello e l'icona svuota carrello*/
+	border-bottom:2px solid black;
 	font-weight:bold;
-	font-size:1.5em;
+		margin-top: 4%;
 	display:flex;
+		justify-content: center;
+		
 }
 
-.immag{
+.titoloCarrello > p{			/*gestisce la scritta carrello*/
+	font-family: Helvetica, sans-serif;
+	font-size: 16pt;
+}
+
+#immag{		/*immagini dei prodotti*/
 	width:100%;
 }
 
-.pulsanti {
-    width: 25px;
-    height: 25px;
-    background: none;
-    border-radius: 10px;
-    border: 1px solid #ffc1c1;
+#immag:hover{
+	transform: scale(2.1);	/*quando ci passo sopra si ingrandisce l'imm*/
+    transition: all .4s;
 }
 
-.prodottoCarrello {
+.pulsanti {	/*gestisco i pulsanti add e remove*/
+ 
+ 	padding: 5px;
+    background-color: #FFDEAD;
+    	
+    border: 2px solid black;
+    	border-radius: 3px;
+}
+
+.pulsanti:hover{
+	background-color: #FFEFD5;
+	cursor: pointer;
+	transition: all .3s;
+}
+
+.prodottoCarrello {	/*gestisco la visualizzazione dei prodotti nel carrello*/
 	display:flex;
+		justify-content: center;
+	
+	/*font-weight:bold; */
     text-align: center;
-    padding:10px 10px;
-    margin:auto;
-    border-bottom: 1px solid black;
+    
+    padding: 3% 3%;
+    margin: 5% auto;
+    border-bottom: 1px solid #ff6347;
     align-items:center;
     width:100%;
-    max-height:330px;
-    gap:5px;
+    max-height:300px;
+    gap:4px;
+
 }
 
-.prodottoCarrello > div {
+.prodottoCarrello > div {/*gestisco i singoli div tra di loro*/
   margin: 3%;
   text-align: center;
-  font-size: 1em;
-  width: 20%;
+  font-size: 1.em;
+  width: 15%;
   display: flex;
-  gap: 10%;
+  	gap: 10%;
 } 
 
-.prodottoCarrello:hover {
-    background-color: #f6f3f3;
-    transition: 0.5s;
-}
-
-.label, .prodPrezzo, .labelqty {
-	font-size:1.3em;
-	margin:0;
+.label, .prodPrezzo, .labelqty {	/*i label*/
+	font-family: Nimbus Sans L, sans-serif;
+	font-size: 12pt;
+	margin: 0;
 }
 /*
 .rimuoviProdottoCarrello {	
@@ -70,25 +93,39 @@ html, body {
 	background-color: rgba(255,255,255,0);
 }
 */
+
 .svuotaCarrello {
 	text-decoration: none;
-	border: 1px solid #ffc1c1;
-	border-radius: 2em;
-	font-size: 0.7em;
-	background-color: #ffc1c1;
-	font-weight: normal;
+	border: 2px solid black;
+		border-radius: 1em;
+	font-size: 0.5em;
+	background-color: #FFDEAD;
+
 	text-align:center;
 	width: 100%;
-	padding: 10px;
-    margin: 2px;
-    justify-content:space-around;
+	padding: 7px;
+    margin: 3px;
 }
 
 .svuotaCarrello:hover {
-	background-color:lightblue;
-	transition:0.3s;
+	background-color: #FFEFD5;
+	transition: all 0.3s;
 	cursor: pointer;
-	border: lightblue;
+}
+
+.cart_empty{ /*gestisce quando il carrello è vuoto*/
+	display: grid;
+  		place-items: center;		
+
+	padding-top: 5%;
+
+}
+
+.cart_empty p{
+	font-family: Apple Chancery, cursive;
+	font-size: 20pt;
+	font-weight: bold;
+	padding-top: 5%;
 }
 
 

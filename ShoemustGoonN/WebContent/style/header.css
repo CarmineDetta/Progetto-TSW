@@ -55,4 +55,5 @@
 	display:flex;			/*rende allineato la barra di ricerca che l'svg(l'immagine della lente d'ingrandimento)*/
 		gap: 2px;	/*il gap tra i due*/
 	padding-left: 5%;	/*margine con la foto quando rimpiccolisco*/
+	text-color: black;
 }

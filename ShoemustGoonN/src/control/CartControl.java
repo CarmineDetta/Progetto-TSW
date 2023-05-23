@@ -1,6 +1,7 @@
 package control;
 
 import java.io.IOException;
+
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -49,6 +50,7 @@ public class CartControl extends HttpServlet {
 					ItemCarrello p = new ItemCarrello(id, qty);
 										
 					cart.deleteProduct(p);
+					
 					if(cart == null) {
 						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Carrello.jsp");
 						dispatcher.forward(request, response);
