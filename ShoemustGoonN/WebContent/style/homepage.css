@@ -2,42 +2,44 @@
 
 .center{
 	
-  display: flex;
+  display: flex;	
   	justify-content: center;
 }
 
 .center span{
 	
-	font-family: ubuntu;	
+	font-family: ubuntu;		/*carattere testo nello <span>*/
 }
 
 .center a{
 	text-decoration: none !important;	/*con important diamo la massima priorità a questa istruzione*/
 	color:black !important;
-	font-family: Copperplate, fantasy;	
+	font-family: Helvetica, sans-serif;	/*carattere nel <a>	*/
 }
 
-.title{
+
+.title{	
 	
-  	font-size: 6.5em;
-  	position: absolute;
+  	font-size: 6.5em;	/*dimensione caratteri titolo*/
+  	position: absolute;		/*a 200 di margine dalla parte superiore*/
   		margin-top: 200px;
   		
   	animation-duration: 2s;
-  	animation-name: entraTesto;
+  	animation-name: entraTesto;	/*nome animazione per poterla gestire dopo*/
   	
   
   	color: white;
-  	text-shadow: 0 0 15px #000;
+  	text-shadow: 0 0 15px #000;	/*ombra del testo*/
 }
 
+
 .button{
-	margin-top: 370px;
+	margin-top: 370px;	/*dimensione bottone*/
 	font-size: 11pt;
 
 }
 
-.uname{
+.uname{	/*gestisco quello che c'è scritto nel bottone*/
 	
 	display: flex;
 	text-decoration: none;
@@ -53,20 +55,16 @@
 	padding: 10px;
     margin: 2px;
     
-    text-shadow: 0 0 10px white;
-    
-;
-    
+    text-shadow: 0 0 10px white;   
 }
 
-.uname:hover {
+.uname:hover {	/*animazione a quello scritto nel bottone*/
 	color:black;
 	font-color:white;
 	background-color: #FF8C69;
 	transition:0.4s;
 	border: #FF8C69;
 }
-
 
 /*-------- il keyframe gestisce animazioni definite dal web in css-----------*/
 
@@ -79,6 +77,4 @@
 			margin-top: 205px;	/*arriva alla sua posizione nello schermo*/
 			}
 		}
-		
-
-
+	

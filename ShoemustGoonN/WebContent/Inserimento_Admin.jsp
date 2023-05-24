@@ -6,55 +6,88 @@
 <%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.ProdottoBean"%>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Inserimento Prodotti</title>
+	<link rel="stylesheet" href="style/inserimento_admin.css">
+	<title>ShoeMustGoOn | Inserimento Prodotti</title>
 </head>
+
+<style>
+body{
+	background-image: url("image/sfondo_insert_admin.png");
+}
+</style>
 <body>
 
 	<jsp:include page="header.jsp" />
-	
-	<a href="Catalogo_Admin.jsp"><button>Home Amministratore</button></a><br>
 
-	<h2>Inserimento</h2>
-		<form action="admin" method="post" enctype="multipart/form-data">
+	<div class="div_insert">
+	
+	<a href="Catalogo_Admin.jsp"><button class="homebutton">Home Amministratore</button></a><br>
+
+	<form class="insert_form" action="admin" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="action" value="insert"> 
+		
+		<h1>Inserimento:</h1>
+		
+			<div class="insert">
+				<label  class="label_mod" for="marca">Marca:</label> 
+				<input class="box" name="marca" type="text" maxlength="20"  placeholder="Inserisci una marca" required>
+			</div>
 			
-			<label for="marca">Marca:</label><br> 
-			<input name="marca" type="text" maxlength="20" required placeholder="Inserisci una marca"><br> 
+			<div class="insert">
+				<label class="label_mod" for="modello">Modello:</label>
+				<input class="box"  name="modello" type="text" maxlength="20"  placeholder="Inserisci un modello" required>
+			</div>
 			
-			<label for="modello">Modello:</label><br> 
-			<input name="modello" type="text" maxlength="20" required placeholder="Inserisci un modello"><br> 
+			<div class="insert">
+				<label class="label_mod"  for="colore">Colore:</label>
+				<input class="box_color" name="colore" type="color" required> 
+			</div>
 			
-			<label for="colore">Colore:</label><br> 
-			<input name="colore" type="color"><br> 
+			<div class="insert">
+				<label class="label_mod"  for="prezzo">Prezzo:</label> 
+				<input class="box"  name="prezzo" type="number" min="1" value="1" required>
+			</div>
 			
-			<label for="prezzo">Prezzo:</label><br> 
-			<input name="prezzo" type="number" min="1" value="1"><br> 
+			<div class="insert">
+				<label class="label_mod"  for="quantita">Quantità:</label> 
+				<input class="box" name="quantita" type="number" min="1" value="1" required>
+			</div>
 			
-			<label for="quantita">Quantità:</label><br> 
-			<input name="quantita" type="number" min="1" value="1"><br>
+			<div class="insert">
+				<label class="label_mod"  for="disponibilita">Disponibilità:</label>
+				<input class="box_disp"  type="radio" name="disp" value="Si">
+				<label class="label_mod"  for="Si">Si</label>
+				<input class="box_disp"  type="radio" name="disp" value="No">
+				<label class="label_mod"  for="No">No</label>
+			</div>
 			
-			<label for="disponibilita">Disponibilità:</label><br>
-			<input type="radio" name="disp" id="Si">
-			<label for="Si">Si</label><br>
-			<input type="radio" name="disp" id="No">
-			<label for="No">No</label><br>		
+			<div class="insert">		
+				<label class="label_mod"  for="descrizione">Descrizione:</label>
+				<textarea class="box"  name="descrizione" maxlength="300"  placeholder="Inserisci una descrizione" required></textarea>
+			</div>
 			
-			<label for="descrizione">Descrizione:</label><br>
-			<textarea name="descrizione" maxlength="100" rows="3" required placeholder="Inserisci una descrizione"></textarea><br>
+			<div class="insert">
+				<label class="label_mod"  for="immagine">Immagine</label>
+				<input type="hidden" name="immagine" value="null">
+			</div>
 			
-			<label for="immagine">Immagine</label>
-			<input type="hidden" name="immagine" value="null"><br>
+			<div class="insert">
+				<label class="label_mod"  for="categoria">Categoria:</label>
 			
-			<label for="categoria">Categoria:</label><br>
+				<select class="box_option"  name="categoria">
+					<option value="uomo">Uomo</option>
+					<option value="donna">Donna</option>
+					<option value="unisex">Unisex</option>
+				</select>
+			</div>
 			
-			<select name="categoria"><br>
-				<option value="uomo">Uomo</option>
-				<option value="donna">Donna</option>
-				<option value="unisex">Unisex</option>
-			</select><br>
+			<div>
+				<input class="pulsanti" type="submit" value="Aggiungi">
+				<input class="pulsanti" type="reset" value="Reset">
+			</div>
+		</form>	
+	</div>
 	
-			<br><input type="submit" value="Add"><input type="reset" value="Reset"><br>
-	
-		</form>
+		<jsp:include page="footer.jsp" />
 </body>
 </html>

@@ -16,29 +16,38 @@
 <%@ page contentType="text/html; charset=UTF-8" import="java.util.*, model.*"%>
 
 <head>
+
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="style/carrello.css">
 	<title>ShoeMustGoOn | Carrello</title>
 </head>
+<!-- 	DECIDERE CHE SFONDO METTERE
+<style>
+body{
+	background-image: url("image/sfondo_carrello.jpeg");	
+}
+</style>
+-->	
+
 
 <body>
 	
 	<jsp:include page="header.jsp" />
-	<h2>Carrello</h2>
-	
-	<table border="1">
-		<tr>
-			<table border="1">
-		<tr>
-			<th>ID_Prodotto</th>
-			<th>Marca</th>
-			<th>Modello</th>
-			<th>Colore</th>
-			<th>Prezzo</th>
-			<th>Disponibilita</th>
-			<th>Descrizione</th>
-			<th>Categoria</th>
-			<th>Quantità carrello</th>
-		</tr>
+
+<div id="carrello">
+ <div class="listaProdCarrello">
+	<div class="titoloCarrello">
+			
+			<p style="width:20%; margin-right:auto">Carrello</p>
+			
+				<form action="cart" method="post">	
+					<input type="hidden" name="action" value="rmvAll">	
+					<input type="hidden" name="qty" value="1">
+					<input type="hidden" name="provenienza" value="carrello">					
+					<button class="svuotaCarrello"><img src="https://www.svgrepo.com/show/434577/basket-error.svg" width="24" height="24" title="basket-icon" alt="basket icon"></button>
+				</form>
+ 	</div>
+ 	
 		<%
 			if (cart != null && cart.getProducts().size() != 0) {
 				ProdottoBean p = new ProdottoBean();
@@ -49,39 +58,91 @@
 					p = cart.findProduct(id);
 		%>
 		
-		
-		<tr>
-			<td><%=p.getID_Prodotto()%></td>
-			<td><%=p.getMarca()%></td>
-			<td><%=p.getModello()%></td>
-			<td><%=p.getColore()%></td>
-			<td><%=p.getPrezzo()%></td>
-			<td><%=p.isDisponibilita()%></td>
-			<td><%=p.getDescrizione()%></td>
-			<td><%=p.getCategoria()%></td>
-			<td><%=c.getQuantitaItemCarrello()%></td>
-			<td><img src="<%=p.getImmagine().getPath()%>" alt="Immagine prodotto" width="80" height="80"></td>
-			<td><button><a href="details?action=read&id=<%=p.getID_Prodotto()%>">Dettagli</a></button></td>
-			<td>
+		<div class="prodottoCarrello">
+	
+			
+				<p class="label"> Scarpa: <br> <%=p.getModello()%></p>
+				
+					<br>
+					
+				<p class="label"> Colore: <br> <%=p.getColore()%> </p>
+			
+			
+			<div>
+			 	<img src="<%=p.getImmagine().getPath()%>" id="immag">
+			</div>
+					
+			
+				<p class="label"><%=p.getCategoria()%></p>
+			
+			
+			<div>
+				<p class="prodPrezzo">Prezzo: <br> <%=p.getPrezzo()%> &euro;</p>			
+			</div>
+				
+				
+				<label class="labelqty" for="quantità">Quantità: <br> <%=c.getQuantitaItemCarrello()%></label>
+							
+			<div>
+			
 				<form action="cart" method="post">	
-				<input type="hidden" name="action" value="deleteCart">	
-				<input type="hidden" name="id" value="<%=c.getID_ProdottoItemCarrello()%>">
-				<input type="hidden" name="qty" value="<%=c.getQuantitaItemCarrello()%>">
-				<input type="submit" value="Rimuovi dal carrello">
+					<input type="hidden" name="action" value="deleteToCart">	
+					<input type="hidden" name="id" value="<%=c.getID_ProdottoItemCarrello()%>">
+					<input type="hidden" name="qty" value="<%=c.getQuantitaItemCarrello()%>">
+					<input type="submit" value="Remove" class="pulsanti"> &nbsp;
 				</form>
-			</td>
-		</tr>
+		
+				<form action="cart" method="post">	
+					<input type="hidden" name="action" value="addCart">	
+					<input type="hidden" name="id" value="<%=c.getID_ProdottoItemCarrello()%>">
+					<input type="hidden" name="qty" value="<%=c.getQuantitaItemCarrello()%>">
+					<input type="submit" value="Add" class="pulsanti"> &nbsp;
+				</form>
+			</div>
+			
+			<br>
+		
+		</div>
+		
+		<%}%>
+		
+		<div>
+			<table>
+				<tr>
+					<td>Somma totale</td>
+				</tr>
+				<tr>
+					<td><%=cart.getTotale()%>
+				</tr>
+			</table><br>
+			<%
+				UtenteBean utente = (UtenteBean) session.getAttribute("UtenteLoggato");
+			
+				if(utente != null){
+			%>
+			
+			<Button><a href="Acquisto.jsp">Procedi all'acquisto</a></Button>
+				
+			<%
+				}else{
+			%>
+			
+			<Button><a href="Login.jsp">Prima di procedere all'acquisto devi essere effettuare al login, ti mando lì?</a></Button>
+		</div>
 		<%
 				}
 			} else {
 		%>
-		<tr>
-			<td colspan="6">Il carrello è vuoto</td>
-		</tr>
+			
+			<div class="cart_empty">
+				<img src="image/faccina_triste.png">
+				<p>Il carrello è vuoto</p>
+			</div>
 		<%
 			}
 		%>
-	</table>
+	</div>
+</div>
 	
 	<jsp:include page="footer.jsp"/>
 	

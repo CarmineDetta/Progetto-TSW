@@ -30,7 +30,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 					String id = request.getParameter("id");
 					request.removeAttribute("product");
 					request.setAttribute("product", model.doRetrieveByKey(id));	
-				}
+				} 
 			}
 		} catch (SQLException e) {
 			System.out.println("Error:" + e.getMessage());
