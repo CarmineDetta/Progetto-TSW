@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+div#sidebar {
+    width: 300px;
+    height: 2000px;
+    border: 1px solid black;
+    margin-left: 100px;
+    position: absolute; /* Posiziona la sidebar in modo assoluto rispetto al layout generale */
+    background-image: url(../image/imm_home_nike\ \(2\).jpg);
+}
+
