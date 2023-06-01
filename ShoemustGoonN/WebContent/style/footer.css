@@ -1,13 +1,5 @@
 @charset "utf-8";
 
-*{				/*gestiamo tutto il footer*/
-    margin: 0;	
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-size: 100%;
-}
-
 #footer-large img {		/*gestimo le immagini*/
     vertical-align: middle;		/*poniamo al centro*/
     width:6%;	/*dimensione*/
@@ -26,15 +18,18 @@ ul li{ 	/*gestiamo gli elenchi e togliamo i punti-elenco da vicino le righe*/
 	list-style:none;
 }
 
-body{				
+body{
+
 	font-family: 'Roboto Slab', serif;	/*font carattere tutto il body*/
 	color:#282828;		/*colore del testo nel body*/
 	font-size: 11pt;
 }
 
+
 /* -----------------footer html-----------------*/
 
 #footer-large{
+
 	width: 100%;	/*dimensione footer */
 	padding-top: 30px;	/*gestisce il margine con il lato superiore*/
 	background-color: #ff6347;	/*colore di background*/

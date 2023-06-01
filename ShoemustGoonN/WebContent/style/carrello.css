@@ -1,182 +1,171 @@
-@charset "utf-8";
 
-html, body {
-  	min-height: 100%;
-  /*	background-color: #C6E2FF;*/
-
+a{
+	color: black;
+	text-decoration: none;
 }
 
-#carrello{			/*gestisco la totalità della pagina*/
-	padding: 0 10% 10% 10%;
-	width:100%;
-	margin-bottom: 10%;
+button{
+	background-color: #ff6347;
+	border: 1px solid black;
+		border-radius: 15px;
+	width: 100px
+}
+
+button:hover{
+	transition: .3s;
+		background-color: #F4A460;
+	cursor: pointer;
 	
 }
-
-.listProdCarrello {	/*gestisce la divisione tra le parti del carrello*/
-	 width: 100%;
-  	
-}
-
-.titoloCarrello {				/*gestisce la parte della scritta carrello e l'icona svuota carrello*/
-	border-bottom:2px solid black;
-	font-weight:bold;
-		margin-top: 4%;
-	display:flex;
-		justify-content: center;
-		
-}
-
-.titoloCarrello > p{			/*gestisce la scritta carrello*/
+.text > p{
 	font-family: Helvetica, sans-serif;
-	font-size: 16pt;
+	font-size: 10pt;
+	color: red;
+	font-weight: bold;
 }
 
-#immag{		/*immagini dei prodotti*/
-	width:100%;
+.title{
+	width: 40%;
+	margin:5%;
+	background-color: white;
+	border: 1px solid black;
+	box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+#titolo{			/*gestisco il titolo carrello*/
+	font-family: Rockwell, serif;
+	text-transform: uppercase;
+	font-size: 25pt;
+	font-weight: bold;
+	margin: 5%;
+	margin-left: 5%;
+}
+ 
+.button_svuotaCarrello{	/*bottone di svuota carrello*/
+	width: 50%;
+	margin-top: 10%;
+	position: relative;
+		left: 20%;	
+}
+
+.conteiner{				/*gestisco la div dei prodotti e la div del prezzo*/
+	display: flex;
+}
+
+.listaprodotti{	/*div degli elementi*/
+	margin: 5%;
+	padding: 3%;
+	border: 1px solid black;
+	width: 50%;
+	background-color: white;
+	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.elementi{			/*gli elementi singoli*/
+	margin: 5%;
+	display: flex;			/*gestisce le scritte vicino le immagini*/
+		align-items: center;		/*mette immagini e scritte allineate*/
+	text-align: center;
+}
+
+.elementi .text{		/*gestisco il testo che si riferisce ai singoli prodotti*/	
+	margin: 3%;	
+	margin-left: 15%;
+}
+
+.elementi .text > a{
+	font-size: 12pt;
+	font-family: Cambria, serif;
+}
+
+.label_modello{
+	font-weight: bold;
+}
+
+.labelqty{
+	font-size:13pt;
+	font-family: Helvetica, sans-serif;
+}
+
+.div_acquisto{	/*la div del prezzo*/
+	background-color: white;
+	margin: 8%;
+	padding: 3%;
+	widtH: 30%;
+	height: 20%;
+	border: 1px solid black; 
+	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.div_acquisto > button{
+	padding: 10px;
+	width: 250px;
+	border-radius: 10px;
+}
+
+#immag{
+	width: 30%;
+	height: 30%;
 }
 
 #immag:hover{
-	transform: scale(2.1);	/*quando ci passo sopra si ingrandisce l'imm*/
+	transform: scale(1.5);	/*quando ci passo sopra si ingrandisce l'imm*/
     transition: all .4s;
 }
 
-.pulsanti {	/*gestisco i pulsanti add e remove*/
- 
- 	padding: 5px;
-    background-color: #FFDEAD;
-    	
-    border: 2px solid black;
-    	border-radius: 3px;
+.pulsanti{		/*gestisco i singoli add e remove*/
+	width: 50%;
+	display: flex;
+	margin: 5%;
+	padding: 5%;
 }
 
-.pulsanti:hover{
-	background-color: #FFEFD5;
-	cursor: pointer;
-	transition: all .3s;
-}
-
-.prodottoCarrello {	/*gestisco la visualizzazione dei prodotti nel carrello*/
-	display:flex;
-		justify-content: center;
-	
-	/*font-weight:bold; */
-    text-align: center;
-    
-    padding: 3% 3%;
-    margin: 5% auto;
-    border-bottom: 1px solid #ff6347;
-    align-items:center;
-    width:100%;
-    max-height:300px;
-    gap:4px;
-
-}
-
-.prodottoCarrello > div {/*gestisco i singoli div tra di loro*/
-  margin: 3%;
-  text-align: center;
-  font-size: 1.em;
-  width: 15%;
-  display: flex;
-  	gap: 10%;
-} 
-
-.label, .prodPrezzo, .labelqty {	/*i label*/
-	font-family: Nimbus Sans L, sans-serif;
-	font-size: 12pt;
-	margin: 0;
-}
-/*
-.rimuoviProdottoCarrello {	
-	border: none;
-	background-color: rgba(255,255,255,0);
-}
-*/
-
-.svuotaCarrello {
-	text-decoration: none;
-	border: 2px solid black;
-		border-radius: 1em;
-	font-size: 0.5em;
-	background-color: #FFDEAD;
-
-	text-align:center;
-	width: 100%;
-	padding: 7px;
-    margin: 3px;
-}
-
-.svuotaCarrello:hover {
-	background-color: #FFEFD5;
-	transition: all 0.3s;
-	cursor: pointer;
-}
-
-.cart_empty{ /*gestisce quando il carrello è vuoto*/
-	display: grid;
-  		place-items: center;		
-
-	padding-top: 5%;
-
-}
-
-.cart_empty p{
-	font-family: Apple Chancery, cursive;
-	font-size: 20pt;
+.somma_title{
+	font-family: Rockwell, serif;
+	text-transform: uppercase;
+	font-size: 16pt;
 	font-weight: bold;
-	padding-top: 5%;
 }
 
-
-@media (max-width:1000px){
-	.prodTitolo, .prodPrezzo, .prodLabel {
-		font-size:1em;
-	}
-	
-	.rimuoviProdottoCarrello{
-		padding-top:15px;	
-	}	
+.euro{
+	font-size: 18pt;
+	font-family: Rockwell, serif;
+	color:#B0171F;
+	margin: 7%;
 }
 
-@media (max-width:800px){
-	.prodTitolo, .prodPrezzo, .prodLabel {
-		font-size:0.9em;
-	}
-	
-	.rimuoviProdottoCarrello{
-		padding-top:15px;	
-	}
+.cart_empty{
+	margin: 5%;
 }
 
-@media (max-width:600px){
-		.prodTitolo, .prodPrezzo, .prodLabel {
-		font-size:0.8em;
-	}
+.cart_empty > button{
+	width: 200px;
+	height: 30px;
+	margin-top: 3%;
+	background-color: #ff6347;
+		border-radius: 20px;
 	
-	.rimuoviProdottoCarrello{
-		padding-top:15px;	
-	}
 }
 
-@media (max-width:500px){
-	#carrello{
-	display:flex;
-	flex-direction:column;
-	width:100%;
-	}
-	
-	.listProdCarrello{
-		width:85%;
-	}
-	
-	.rimuoviProdottoCarrello{
-		padding-top:15px;	
-	}
+.cart_empty > h2{
+	margin-bottom: 20px;
+	font-size: 26pt;
+	font-family: Rockwell, serif;
+	text-transform: uppercase;
 }
 
-@media (max-width:353px){
-	.svuotaCarrello{
-		font-size:0.5em;
-	}
+.cart_empty > img{
+	margin-bottom: 50px;
+	position: relative;
+		left: 30%;
+}
+ 
+.cart_empty > p{
+	font-family: Helvetica, sans-serif;
+}
+
+.cart_empty > button:hover{
+	font-weight: bold;
+	background-color: #F4A460;
+	transition: all .4s;
 }
