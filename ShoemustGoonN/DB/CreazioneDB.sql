@@ -81,7 +81,7 @@ CREATE TABLE Ordine(
     Metodo_Pagamento VARCHAR(25) NOT NULL,
     Totale NUMERIC NOT NULL,
     Utente VARCHAR(6) NOT NULL,
-    FOREIGN KEY (Utente) REFERENCES Utente(ID_Utente)
+    FOREIGN KEY (Utente) REFERENCES Utente(ID_Utente),
     Indirizzo int not null,
     FOREIGN KEY(Indirizzo) REFERENCES Recapito(ID_Spedizione)
 );

@@ -19,8 +19,6 @@ h2{				/*gestisco l'h1 del titolo*/
 }
 
 .div_form{
-
-	
 	background-color: #FFDEAD;
     padding: 3% 3% 3% 3%;		/*margine rispetto al lato sinistro e destro degli elementi*/
     border: 5px solid #ff6347;
@@ -36,6 +34,7 @@ h2{				/*gestisco l'h1 del titolo*/
     align-items:center;
     padding: 0 5% 5% 5%;
 }
+
 .label_mod{
 	margin-right: 8%;
 	font-family: Comica Sans, cursive;

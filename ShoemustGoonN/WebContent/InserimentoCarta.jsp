@@ -34,12 +34,12 @@ body{
 			
 			<div class="inserimento">
 				<label  class="label_mod" for="n_carta">Numero Carta:</label>
-				<input class="box" name="n_carta" type="text" maxlength="16"  placeholder="Numero della Carta" required><br>
+				<input class="box" name="n_carta" type="text" maxlength="16"  placeholder="Numero Carta" required><br>
 			</div>
 			
 			<div class="inserimento">
 				<label  class="label_mod" for="nome_intestatario">Nome intestatario:</label>
-				<input class="box"  name="nome_intestatario" type="text" maxlength="50" placeholder="Nome dell'intestatario" required><br> 
+				<input class="box"  name="nome_intestatario" type="text" maxlength="50" placeholder="Nome Intestatario" required><br> 
 			</div>
 			
 			<div class="inserimento">

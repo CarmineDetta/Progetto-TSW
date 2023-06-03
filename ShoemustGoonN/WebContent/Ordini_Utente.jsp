@@ -14,7 +14,7 @@
 <%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.OrdineBean, model.UtenteBean"%>
 
 <head>
-<title>I miei ordini | ShoeMustGoOn</title>
+<title>ShoeMustGoOn | I miei Ordini</title>
 </head>
 <body>
 

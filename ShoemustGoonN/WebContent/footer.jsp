@@ -12,7 +12,7 @@
 </head>
 
 <body>
- <footer id="footer-large">
+ <div id="footer-large">
 		
 	<div class="footer-container">
 		
@@ -79,7 +79,7 @@
 
  </div> <!--/fine footer container -->
 	
-</footer>
+</div>
 
 </body>
 </html>

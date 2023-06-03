@@ -11,11 +11,17 @@
     
 <!DOCTYPE html>
 <html>
-<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.PortafoglioBean, model.UtenteBean"%>
-
+	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.PortafoglioBean, model.UtenteBean"%>
 <head>
-<title>Metodi di pagamento | ShoeMustGoOn</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="style/payements.css" rel="stylesheet" type="text/css">
+	<title>ShoeMustGoon | Metodi di Pagamento</title>
 </head>
+<style>
+body{
+	background-image: url("image/sfondo_payements.jpg");	
+}
+</style>
 <body>
 
 	<jsp:include page="header.jsp" />
@@ -24,6 +30,13 @@
 		UtenteBean utente = (UtenteBean)request.getSession().getAttribute("UtenteLoggato");
 	%>
 	
+<div class="contenuto">
+
+		<div class=title>	
+			<h2>Payements</h2>
+		</div>
+		
+	<div class="elementi">
 	<table border="1">
 		<tr>
 			<th>Numero Carta</th>
@@ -52,13 +65,17 @@
 		<tr>
 			<td colspan="6">Non hai inserto nessuna carta</td>
 		</tr>
+	</table>
 		<%
 			}
 		%>
-		
-		<Button><a href ="InserimentoCarta.jsp">Inserisci una nuova carta</a></Button>
-		
-	</table>
+	</div>
 	
+	<div id="insert_button">	
+		<button><a href ="InserimentoCarta.jsp">Inserisci una nuova carta</a></button>
+	</div>	
+	
+
+</div>	
 </body>
 </html>
