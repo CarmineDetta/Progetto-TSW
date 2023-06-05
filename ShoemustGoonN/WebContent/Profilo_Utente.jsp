@@ -20,13 +20,13 @@
 	
 	<h2>Benvenuto</h2><br>
 	
-	<Button><a href ="Pagamenti_Utente.jsp">Visualizza o aggiorna i tuoi metodi di pagamento</a></Button><br><br>
+	<Button><a href ="payments">Visualizza o aggiorna i tuoi metodi di pagamento</a></Button><br><br>
 	
-	<Button><a href ="Indirizzi_Utente.jsp">Visualizza o aggiorna i tuoi indirizzi di spedizione</a></Button><br><br>
+	<Button><a href ="recapiti">Visualizza o aggiorna i tuoi indirizzi di spedizione</a></Button><br><br>
 	
-	<Button><a href="Dati_Utente.jsp">Visualizza o aggiorna i tuoi dati personali</a></Button><br><br>
+	<Button><a href="utente">Visualizza o aggiorna i tuoi dati personali</a></Button><br><br>
 	
-	<Button><a href="Ordini_Utente.jsp">Visualizza i tuoi ordini</a></Button><br><br>
+	<Button><a href="ordine">Visualizza i tuoi ordini</a></Button><br><br>
 	
 	<jsp:include page="footer.jsp" />
 	

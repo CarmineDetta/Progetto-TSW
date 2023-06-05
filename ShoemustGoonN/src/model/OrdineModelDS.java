@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.Date;
 import java.util.LinkedList;
 
 import javax.naming.Context;
@@ -41,11 +44,16 @@ public class OrdineModelDS implements OrdineDAO{
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(insertSQL);
 			
+			LocalDate dataOrdine = ordine.getDataOrdine();
+			LocalDateTime dataOrdineTime = dataOrdine.atStartOfDay();
+			Date dataOrdineSql = new Date();
+			((java.sql.Date) dataOrdineSql).valueOf(dataOrdineTime.toLocalDate());
+
 			preparedStatement.setInt(1, ordine.getID_Ordine());
-			preparedStatement.setString(2, ordine.getDataOrdine());
+			preparedStatement.setDate(2, (java.sql.Date) dataOrdineSql);
 			preparedStatement.setString(3, ordine.getMetodoPagamento());
 			preparedStatement.setDouble(4, ordine.getTotale());
-			
+
 			UtenteModelDS udao = new UtenteModelDS();
 			ordine.setUtente(udao.doRetrieveByKey(utente.getID_Utente()));
 			
@@ -120,8 +128,10 @@ public class OrdineModelDS implements OrdineDAO{
 				OrdineBean bean = new OrdineBean();
 
 				bean.setID_Ordine(rs.getInt("ID_Ordine"));
-				bean.setDataOrdine(rs.getString("Data_Ordine"));
-				bean.setMetodoPagamento(rs.getString("Metodo_Pagamento"));
+				Date dataOrdineSql = rs.getDate("Data_Ordine");
+			    LocalDate dataOrdine = ((java.sql.Date) dataOrdineSql).toLocalDate();
+			    bean.setDataOrdine(dataOrdine);
+			    bean.setMetodoPagamento(rs.getString("Metodo_Pagamento"));
 				bean.setTotale(rs.getInt("Totale"));
 			
 				RecapitoModelDS rdao = new RecapitoModelDS();
@@ -163,8 +173,12 @@ public class OrdineModelDS implements OrdineDAO{
 				
 				while (rs.next()) {
 					bean.setID_Ordine(rs.getInt("ID_Ordine"));
-					bean.setDataOrdine(rs.getString("Data_Ordine"));
-					bean.setMetodoPagamento(rs.getString("Metodo_Pagamento"));
+					
+					Date dataOrdineSql = rs.getDate("Data_Ordine");
+				    LocalDate dataOrdine = ((java.sql.Date) dataOrdineSql).toLocalDate();
+				    bean.setDataOrdine(dataOrdine);
+					
+				    bean.setMetodoPagamento(rs.getString("Metodo_Pagamento"));
 					bean.setTotale(rs.getDouble("Totale"));
 					
 					UtenteModelDS udao = new UtenteModelDS();
