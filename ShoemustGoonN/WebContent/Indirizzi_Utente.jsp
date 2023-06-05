@@ -11,11 +11,19 @@
     
 <!DOCTYPE html>
 <html>
-<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.RecapitoBean, model.UtenteBean"%>
+	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.RecapitoBean, model.UtenteBean"%>
+	<link href="style/indirizzi.css" rel="stylesheet" type="text/css">
 
 <head>
-<title>Indirizzi di Spedizione | ShoeMustGoOn</title>
+<title>ShoeMustGoOn | Indirizzi di Spedizione</title>
 </head>
+
+<style>
+body{
+	background-image: url("image/sfondo_recapiti.jpg");	
+}
+</style>
+
 <body>
 
 	<jsp:include page="header.jsp" />
@@ -24,15 +32,22 @@
 		UtenteBean utente = (UtenteBean)request.getSession().getAttribute("UtenteLoggato");
 	%>
 	
-	<table border="1">
-		<tr>
+	<div class="content">
 		
-			<th>Cap</th>
-			<th>Città</th>
-			<th>Via/Piazza</th>
-			<th>N. civico</th>
+		<div class="title">
+			<h2>I tuoi Indirizzi</h2>
+		</div>
+		
+		<div class="elementi">
+		<table border="1">
+			<tr>
+		
+				<th>Cap</th>
+				<th>Città</th>
+				<th>Via/Piazza</th>
+				<th>N. civico</th>
 			
-		</tr>
+			</tr>
 		<%
 			if (recapiti != null && recapiti.size() != 0) {
 				Iterator<?> it = recapiti.iterator();
@@ -53,13 +68,18 @@
 		<tr>
 			<td colspan="6">Non hai inserito nessun recapito</td>
 		</tr>
+		
+		</table>
+	</div>
 		<%
 			}
 		%>
-		
-		<Button><a href ="Inserimento_Indirizzo.jsp">Inserisci un nuovo recapito</a></Button>
-		
-	</table>
 	
+	<div id="insert_button"> 
+		<Button><a href ="Inserimento_Indirizzo.jsp">Inserisci un nuovo recapito</a></Button>
+	</div>
+	
+	
+</div>
 </body>
 </html>
