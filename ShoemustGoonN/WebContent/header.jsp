@@ -3,7 +3,7 @@
 	<head>
 	    <meta charset="UTF-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <link rel="stylesheet" href="style/header.css" type="text/css">
+	    <link rel="stylesheet" href="style/Header.css" type="text/css">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <title>ShoeMustGoOn | Header</title>
 	</head>
@@ -11,7 +11,7 @@
 	<body>
 	    <header id="header-large">
 	        <div>
-	            <a href="Homepage.jsp"> <img src="image/Logo.jpg" alt="logo" class="logo"></a>
+	            <a href="Homepage.jsp"> <img src="image/loggo.jpg" alt="logo" class="logo"></a>
 	        </div>
 	
 	        <div class="parametri">

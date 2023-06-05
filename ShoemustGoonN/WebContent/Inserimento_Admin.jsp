@@ -7,7 +7,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="style/inserimento_admin.css">
-	<title>Inserimento Prodotti</title>
+	<title>ShoeMustGoOn | Inserimento Prodotti</title>
 </head>
 
 <style>
@@ -87,7 +87,6 @@ body{
 			</div>
 		</form>	
 	</div>
-	
-		<jsp:include page="footer.jsp" />
+
 </body>
 </html>

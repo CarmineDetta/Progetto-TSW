@@ -12,13 +12,12 @@
 </head>
 
 <body>
- <footer id="footer-large">
+ <div id="footer-large">
 		
 	<div class="footer-container">
 		
 		<div class="footer-informazioni">
-		 	<div class="logo1"> <img src="image/Logo.jpg" /> </div>
-			
+		 				
 		  <p class="descrizione">Il nostro sito web tratta la vendita di scarpe per uomini e donne, scarpe di tutte le tipologie. Una scarpa per ogni evento! Venite a trovarci. Ad ogni persona la sua scarpa!</p>
 
 	      <br/><a target="_blank" href="#">Informativa Privacy</a> | <a target="_blank" href="#">Informativa Cookie</a>
@@ -37,7 +36,7 @@
 			</ul>
 		</div> <!-- fine menu -->
 	</div>
-		
+	
 	<div class="footer-contatti">
 			
 		<div class="large_txt color-secondary">Contatti</div>
@@ -51,12 +50,12 @@
 				<li class="trans-color"><a target="_blank" href="#"><img src="https://www.svgrepo.com/show/494273/facebook-round.svg"  title="facebook" alt="Facebook icon"><br></a></li>
 				<li class="trans-color"><a target="_blank" href="#"><img src="https://www.svgrepo.com/show/494277/instagram-round.svg" title="Instagram" alt="Instagram icon"><br></a></li>
 				<li class="trans-color"><a target="_blank" href="#"><img src="https://www.svgrepo.com/show/361181/github.svg" title="git-hub" alt="Git-Hub icon"><br></a></li>
-			</ul>
+			</ul>			
 		</div><!--/fine social-->	
-
+	
 	</div>	<!-- fine contatti -->
-		
-		
+
+	
 	<div class="crediti">
 		
 		<span class="title_crediti">Creato da:</span>
@@ -80,7 +79,7 @@
 
  </div> <!--/fine footer container -->
 	
-</footer>
+</div>
 
 </body>
 </html>

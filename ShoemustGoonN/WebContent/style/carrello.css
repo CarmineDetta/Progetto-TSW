@@ -1,145 +1,171 @@
-html, body {
-     min-height: 100%;
-}
 
-#carrello{
-	display:flex;
-	width:100%;
-	justify-content:center;
-}
-
-.listProdCarrello {
-	 width: 100%;
-     vertical-align: top;
-     float: left;
-     margin:2% 5%;
-}
-
-.titoloCarrello {
-	border-bottom:1px solid black;
-	font-weight:bold;
-	font-size:1.5em;
-	display:flex;
-}
-
-.immag{
-	width:100%;
-}
-
-.pulsanti {
-    width: 25px;
-    height: 25px;
-    background: none;
-    border-radius: 10px;
-    border: 1px solid #ffc1c1;
-}
-
-.prodottoCarrello {
-	display:flex;
-    text-align: center;
-    padding:10px 10px;
-    margin:auto;
-    border-bottom: 1px solid black;
-    align-items:center;
-    width:100%;
-    max-height:330px;
-    gap:5px;
-}
-
-.prodottoCarrello > div {
-  margin: 3%;
-  text-align: center;
-  font-size: 1em;
-  width: 20%;
-  display: flex;
-  gap: 10%;
-} 
-
-.prodottoCarrello:hover {
-    background-color: #f6f3f3;
-    transition: 0.5s;
-}
-
-.label, .prodPrezzo, .labelqty {
-	font-size:1.3em;
-	margin:0;
-}
-/*
-.rimuoviProdottoCarrello {	
-	border: none;
-	background-color: rgba(255,255,255,0);
-}
-*/
-.svuotaCarrello {
+a{
+	color: black;
 	text-decoration: none;
-	border: 1px solid #ffc1c1;
-	border-radius: 2em;
-	font-size: 0.7em;
-	background-color: #ffc1c1;
-	font-weight: normal;
-	text-align:center;
-	width: 100%;
-	padding: 10px;
-    margin: 2px;
-    justify-content:space-around;
 }
 
-.svuotaCarrello:hover {
-	background-color:lightblue;
-	transition:0.3s;
+button{
+	background-color: #ff6347;
+	border: 1px solid black;
+		border-radius: 15px;
+	width: 100px
+}
+
+button:hover{
+	transition: .3s;
+		background-color: #F4A460;
 	cursor: pointer;
-	border: lightblue;
+	
+}
+.text > p{
+	font-family: Helvetica, sans-serif;
+	font-size: 10pt;
+	color: red;
+	font-weight: bold;
 }
 
-
-@media (max-width:1000px){
-	.prodTitolo, .prodPrezzo, .prodLabel {
-		font-size:1em;
-	}
-	
-	.rimuoviProdottoCarrello{
-		padding-top:15px;	
-	}	
+.title{
+	width: 40%;
+	margin:5%;
+	background-color: white;
+	border: 1px solid black;
+	box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-@media (max-width:800px){
-	.prodTitolo, .prodPrezzo, .prodLabel {
-		font-size:0.9em;
-	}
-	
-	.rimuoviProdottoCarrello{
-		padding-top:15px;	
-	}
+#titolo{			/*gestisco il titolo carrello*/
+	font-family: Rockwell, serif;
+	text-transform: uppercase;
+	font-size: 25pt;
+	font-weight: bold;
+	margin: 5%;
+	margin-left: 5%;
+}
+ 
+.button_svuotaCarrello{	/*bottone di svuota carrello*/
+	width: 50%;
+	margin-top: 10%;
+	position: relative;
+		left: 20%;	
 }
 
-@media (max-width:600px){
-		.prodTitolo, .prodPrezzo, .prodLabel {
-		font-size:0.8em;
-	}
-	
-	.rimuoviProdottoCarrello{
-		padding-top:15px;	
-	}
+.conteiner{				/*gestisco la div dei prodotti e la div del prezzo*/
+	display: flex;
 }
 
-@media (max-width:500px){
-	#carrello{
-	display:flex;
-	flex-direction:column;
-	width:100%;
-	}
-	
-	.listProdCarrello{
-		width:85%;
-	}
-	
-	.rimuoviProdottoCarrello{
-		padding-top:15px;	
-	}
+.listaprodotti{	/*div degli elementi*/
+	margin: 5%;
+	padding: 3%;
+	border: 1px solid black;
+	width: 50%;
+	background-color: white;
+	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-@media (max-width:353px){
-	.svuotaCarrello{
-		font-size:0.5em;
-	}
+.elementi{			/*gli elementi singoli*/
+	margin: 5%;
+	display: flex;			/*gestisce le scritte vicino le immagini*/
+		align-items: center;		/*mette immagini e scritte allineate*/
+	text-align: center;
+}
+
+.elementi .text{		/*gestisco il testo che si riferisce ai singoli prodotti*/	
+	margin: 3%;	
+	margin-left: 15%;
+}
+
+.elementi .text > a{
+	font-size: 12pt;
+	font-family: Cambria, serif;
+}
+
+.label_modello{
+	font-weight: bold;
+}
+
+.labelqty{
+	font-size:13pt;
+	font-family: Helvetica, sans-serif;
+}
+
+.div_acquisto{	/*la div del prezzo*/
+	background-color: white;
+	margin: 8%;
+	padding: 3%;
+	widtH: 30%;
+	height: 20%;
+	border: 1px solid black; 
+	box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.div_acquisto > button{
+	padding: 10px;
+	width: 250px;
+	border-radius: 10px;
+}
+
+#immag{
+	width: 30%;
+	height: 30%;
+}
+
+#immag:hover{
+	transform: scale(1.5);	/*quando ci passo sopra si ingrandisce l'imm*/
+    transition: all .4s;
+}
+
+.pulsanti{		/*gestisco i singoli add e remove*/
+	width: 50%;
+	display: flex;
+	margin: 5%;
+	padding: 5%;
+}
+
+.somma_title{
+	font-family: Rockwell, serif;
+	text-transform: uppercase;
+	font-size: 16pt;
+	font-weight: bold;
+}
+
+.euro{
+	font-size: 18pt;
+	font-family: Rockwell, serif;
+	color:#B0171F;
+	margin: 7%;
+}
+
+.cart_empty{
+	margin: 5%;
+}
+
+.cart_empty > button{
+	width: 200px;
+	height: 30px;
+	margin-top: 3%;
+	background-color: #ff6347;
+		border-radius: 20px;
+	
+}
+
+.cart_empty > h2{
+	margin-bottom: 20px;
+	font-size: 26pt;
+	font-family: Rockwell, serif;
+	text-transform: uppercase;
+}
+
+.cart_empty > img{
+	margin-bottom: 50px;
+	position: relative;
+		left: 30%;
+}
+ 
+.cart_empty > p{
+	font-family: Helvetica, sans-serif;
+}
+
+.cart_empty > button:hover{
+	font-weight: bold;
+	background-color: #F4A460;
+	transition: all .4s;
 }

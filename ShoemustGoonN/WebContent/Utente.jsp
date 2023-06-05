@@ -1,49 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
 <%
    Collection<?> payments = (Collection<?>) request.getAttribute("payments");
 	if(payments == null) {
-		response.sendRedirect("./payments");	
+		response.sendRedirect("./utente");	
 		return;
 	}
 %>
-    
+ 
 <!DOCTYPE html>
 <html>
-	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.PortafoglioBean, model.UtenteBean"%>
+<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.PortafoglioBean, model.UtenteBean"%>
+
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link href="style/payements.css" rel="stylesheet" type="text/css">
-	<title>ShoeMustGoon | Metodi di Pagamento</title>
+	
+	<link rel="stylesheet" href="style/utente.css">
+	<title>ShoeMustGoOn | Il mio profilo</title>
 </head>
-<style>
-body{
-	background-image: url("image/sfondo_payements.jpg");	
-}
-</style>
-<body>
 
+<body>
+	
 	<jsp:include page="header.jsp" />
 	 
 	<%
 		UtenteBean utente = (UtenteBean)request.getSession().getAttribute("UtenteLoggato");
 	%>
 	
-<div class="contenuto">
-
-		<div class=title>	
-			<h2>Payements</h2>
-		</div>
-		
-	<div class="elementi">
-	<table border="1">
-		<tr>
+	<div class="content">
+		<h2 class="title">Benvenuto...</h2>
+	
+	<table class="table" border="1">
+		<tr>			
+			<th>ID_Pagamento</th>
 			<th>Numero Carta</th>
 			<th>Nome Intestatario</th>
 			<th>Scandenza</th>
 			<th>CVV</th>
-			
 		</tr>
 		<%
 			if (payments != null && payments.size() != 0) {
@@ -52,11 +45,12 @@ body{
 					PortafoglioBean bean = (PortafoglioBean) it.next();
 		%>
 		<tr>
+			<td><%=bean.getID_Pagamento()%></td>
 			<td><%=bean.getN_carta()%></td>
 			<td><%=bean.getNome_Intestatario()%></td>
 			<td><%=bean.getScadenza()%></td>
 			<td><%=bean.getCvv()%></td>
-			<td><button><a href="payments?action=delete&id=<%=bean.getID_Pagamento()%>">Elimina</a></button></td><br>
+			<td><button class="rmv_button"><a href="utente?action=delete&id=<%=bean.getID_Pagamento()%>">Elimina</a></button></td><br>
 		</tr>
 		<%
 				}
@@ -65,17 +59,18 @@ body{
 		<tr>
 			<td colspan="6">Non hai inserto nessuna carta</td>
 		</tr>
-	</table>
 		<%
 			}
 		%>
+		
+		<div class="add_button">
+			<button class="uname_insert"><a href ="InserimentoCarta.jsp">Inserisci una nuova carta</a></button>
+		</div>
+	</table>
 	</div>
 	
-	<div id="insert_button">	
-		<button><a href ="InserimentoCarta.jsp">Inserisci una nuova carta</a></button>
-	</div>	
+		<jsp:include page="footer.jsp" />
 	
-
-</div>	
+	
 </body>
 </html>

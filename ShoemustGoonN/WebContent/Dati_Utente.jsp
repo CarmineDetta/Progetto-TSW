@@ -8,9 +8,16 @@
 <html>
 <%@ page contentType="text/html; charset=UTF-8" import="model.UtenteBean"%>
 <head>
-<meta charset="UTF-8">
-<title>Dati utente |ShoeMustGoOn</title>
+	<meta charset="UTF-8">
+	<link href="style/dati_utentE.css" rel="stylesheet" type="text/css">
+	<title>ShoeMustGoOn | I mie Dati</title>
 </head>
+
+<style>
+body{
+	background-image: url("image/sfondo_datiutente.jpeg");	
+}
+</style>
 <body>
 
 <jsp:include page="header.jsp" />
@@ -19,36 +26,63 @@
 		UtenteBean utente = (UtenteBean)request.getSession().getAttribute("UtenteLoggato");
 		
 	%>
+<div class="division">
+	<div class=titolo>	
+		<h2>I miei Dati</h2>
+	</div>
 	
-	<table border="1">
-		<tr>
+	<div class="elementi">
+	
+	<div class="persona">
+		<div class="nome">
+			<p><%=utente.getNome()%> <%=utente.getCognome()%></p>
+		</div>
 		
-			<th>ID_Utente</th>
-			<th>Nome</th>
-			<th>Cognome</th>
-			<th>Codice Fiscale</th>
-			<th>Data nascita</th>
-			<th>Email</th>
-			<th>Password</th>
-		</tr>
-		<tr>
-			<td><%=utente.getID_Utente()%></td>
-			<td><%=utente.getNome()%></td>
-			<td><%=utente.getCognome()%></td>
-			<td><%=utente.getCF()%></td>
-			<td><%=utente.getDataNascita()%></td>
-			<td><%=utente.getEmail()%></td>
-			<td><%=utente.getPassword()%></td>
-		</tr>
+		<div class="email">
+			<p><%=utente.getEmail()%></p>
+		</div>
+	</div>
+	
+		<div class="particolar">		
+			
+			<table>
+				<tr>
+					<th>ID_Utente</th>
+					<td><%=utente.getID_Utente()%></td>
+				</tr>
+				<tr>
+					
+				</tr>
+				<tr>
+					<th>Codice Fiscale</th>
+					<td><%=utente.getCF()%></td>
+				</tr>
+				<tr>
+					<th>Data nascita</th>
+					<td><%=utente.getDataNascita()%></td>
+				</tr>
+			</table>
 		
-	</table>
+		
+		<div class="pass">
+			<table>
+				<th>Password:</th>
+				<td><%=utente.getPassword()%></td>
+			</table>
+		</div>
+	</div>
+	
+	</div>	<!-- chiude la class elementi -->
+
+	<div id="update_button">
 		<button><a href="utente?action=update&email=<%=utente.getEmail()%>">Vuoi aggiornare i tuoi dati?</a></button><br>
 		<br>
-
+	</div>
 	<%
 		if(update != null){	
 	%>
 	
+	<div class="update_form">
 		<form action="utente" method="post">
 		
 			<label for="scelta">Cosa vuoi aggiornare?</label>
@@ -57,19 +91,21 @@
 				<option value="password">Password</option>
 			</select>
 			
-			<label for="valore">Inserisci il nuovo valore</label>
-			<input type="text" name="valore" maxlength=50 required placeholder="Inserisci il nuovo valore">
+			<label for="valore">Inserisci Nuovi Valori</label>
+			<input type="text" name="valore" maxlength=50 required placeholder="Inserisci">
 			
 			<input type="hidden" value ="<%=update.getNome()%>" name="utente">
 			
-				<div>
+			<div id="input_field">
 				<input class="pulsanti" type="submit" value="Aggiorna">
 				<input class="pulsanti" type="reset" value="Reset">
 			</div>
 		</form>
-	
+		</div>
+
 	<% 
 		} 
 	%>
+</div>
 </body>
 </html>

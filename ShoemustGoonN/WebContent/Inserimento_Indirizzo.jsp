@@ -6,9 +6,15 @@
 <%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.RecapitoBean, model.UtenteBean"%>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Inserimento recapito | ShoeMustGoOn</title>
+	<link rel="stylesheet" href="style/insert_indirizzo.css">
+	<title>ShoeMustGoOn | Inserisci Nuovo Recapito</title>
 </head>
 
+<style>
+body{
+	background-image: url("image/sfondo_insert_card.jpeg");
+}
+</style>
 
 <body>
 
@@ -18,26 +24,46 @@
 		UtenteBean utente = (UtenteBean)request.getSession().getAttribute("UtenteLoggato");
 	%>
 	
-	<h2>Inserisci i dati della nuova carta</h2>
+	<div class="div_complete">
+		<div class="div_form">
+		<h2 class="title">Inserisci i dati del nuovo Indirizzo</h2>
 		<form action="recapiti" method="post">
+		
+
 			<input type="hidden" name="action" value="insert"> 
 			
-			<label for="citta">Città:</label><br> 
-			<input name="citta" type="text" maxlength="25" required placeholder="Inserisci la città"><br> 
+			<div class="insert">
+				<label class="label_mod" for="citta">Città:</label><br> 
+				<input class="box" name="citta" type="text" maxlength="25" required placeholder="Inserisci Città"><br> 
+			</div>
 			
-			<label for="cap">CAP:</label><br> 
-			<input name="cap" type="text" maxlength="5" required placeholder="Inserisci il cap della città"><br> 
+			<div class="insert">
+				<label class="label_mod" for="cap">CAP:</label><br> 
+				<input class="box" name="cap" type="text" maxlength="5" required placeholder="Inserisci CAP"><br> 
+			</div>
 			
-			<label for="via_piazza">Via/Piazza:</label><br> 
-			<input name="via_piazza" type="text" maxlength="30" required placeholder="Inserisci la via/piazza"><br> 
+			<div class="insert">
+				<label class="label_mod" for="via_piazza">Via/Piazza:</label><br> 
+				<input class="box" name="via_piazza" type="text" maxlength="30" required placeholder="Inserisci Via/Piazza"><br> 
+			</div>
 			
-			<label for="n_civico">N. Civico:</label><br> 
-			<input name="n_civico" type="text" maxlength="3"><br> 
+			<div class="insert">
+				<label class="label_mod" for="n_civico">N. Civico:</label><br> 
+				<input class="box" name="n_civico" type="text" maxlength="3" placeholder="Inserisci Numero Civico"><br> 
+			</div>
 			
 			<input name="utente" type="hidden" value="<%utente.getNome();%>">
 			
-			<br><input type="submit" value="Aggiungi"><input type="reset" value="Reset"><br>
-	
+			<br>
+			
+			<div>
+				<input class="button" type="submit" value="Aggiungi">
+				<input class="button" type="reset" value="Reset"><br>
+			</div>
+			
 		</form>
+	</div>
+</div>
+
 </body>
 </html>

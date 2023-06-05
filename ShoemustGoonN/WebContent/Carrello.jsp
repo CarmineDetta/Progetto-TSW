@@ -18,29 +18,31 @@
 <head>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="style/carrello.css">
+	<link href="style/carrello.css" rel="stylesheet" type="text/css">
 	<title>ShoeMustGoOn | Carrello</title>
+	
 </head>
 
+<style>
+body{
+	background-image: url("image/sfondoverdepastello.jpg");	
+}
+</style>
+
 <body>
-	
+
 	<jsp:include page="header.jsp" />
 
-<div id="carrello">
- <div class="listaProdCarrello">
-	<div class="titoloCarrello">
-			
-			<p style="width:20%; margin-right:auto">Carrello</p>
-			
-				<form action="cart" method="post">	
-					<input type="hidden" name="action" value="rmvAll">	
-					<input type="hidden" name="qty" value="1">
-					<input type="hidden" name="provenienza" value="carrello">					
-					<button class="svuotaCarrello"><img src="https://www.svgrepo.com/show/434577/basket-error.svg" width="28" height="28" title="basket-icon" alt="basket icon"></button>
-				</form>
- 	</div>
- 	
-		<%
+	<div class="title">
+		<p id="titolo">Il tuo Carrello:</p>			
+	</div>
+	
+<div class="conteiner">
+		<div class="listaprodotti">
+		
+		
+		
+	<%
 			if (cart != null && cart.getProducts().size() != 0) {
 				ProdottoBean p = new ProdottoBean();
 				String id;
@@ -49,88 +51,106 @@
 					id = c.getID_ProdottoItemCarrello();
 					p = cart.findProduct(id);
 		%>
-		
-		<div class="prodottoCarrello">
 	
-
-			<p class="label"> Scarpa: <%=p.getModello()%></p>
-					
-					<br>
-					
-			<p class="label"> Colore: <%=p.getColore()%> </p>
-
-			<div>
-			 	<img src="<%=p.getImmagine().getPath()%>" id="immag">
-			</div>
-					
-
-			<p class="label"><%=p.getCategoria()%></p>
 			
-			<div>
-				<p class="prodPrezzo">Prezzo: <%=p.getPrezzo()%> &euro;</p>			
-			</div>
+	
+				<div class="elementi">	
+					
+				 		<img src="<%=p.getImmagine().getPath()%>" id="immag">
+					
+					 <div class="text">
+					
+						<a class="label_modello"> <br> <%=p.getModello()%></a>	<br>			
+					
+					
+						<a class="label"> <%=p.getColore()%> </a> <br>
+			
+			
+						<a class="label"><%=p.getCategoria()%></a> <br>
+			
+						<br>
+						
+					
+						<p class="prodPrezzo">Prezzo: <br>  <%=p.getPrezzo()%> &euro; </p>			
+					
+						
+						<label class="labelqty" for="quantità">Quantità: <%=c.getQuantitaItemCarrello()%></label>
+					 </div>
+
+					</div>		
 				
-			<div>
-				<label class="labelqty" for="quantità">Quantità: <%=c.getQuantitaItemCarrello()%></label>
-			
+				<div class="pulsanti">			
+					<form action="cart" method="post">	
+						<input type="hidden" name="action" value="addCart">	
+						<input type="hidden" name="id" value="<%=c.getID_ProdottoItemCarrello()%>">
+						<input type="hidden" name="qty" value="<%=c.getQuantitaItemCarrello()%>">
+						<button type="submit">Add</button> 
+					</form>
+	
+					<form action="cart" method="post">	
+						<input type="hidden" name="action" value="deleteToCart">	
+						<input type="hidden" name="id" value="<%=c.getID_ProdottoItemCarrello()%>">
+						<input type="hidden" name="qty" value="<%=c.getQuantitaItemCarrello()%>">
+						<button type="submit">Remove</button>
+					</form>
+				</div>
+
+				<%}%>	
+						
 				<form action="cart" method="post">	
-					<input type="hidden" name="action" value="deleteToCart">	
-					<input type="hidden" name="id" value="<%=c.getID_ProdottoItemCarrello()%>">
-					<input type="hidden" name="qty" value="<%=c.getQuantitaItemCarrello()%>">
-					<input type="submit" value="Rimuovi dal carrello" class="pulsanti"> &nbsp;
-				</form>
+					<input type="hidden" name="action" value="rmvAll">	
+					<input type="hidden" name="qty" value="1">
+					<input type="hidden" name="provenienza" value="carrello">					
+					<button class="button_svuotaCarrello"><img src="https://www.svgrepo.com/show/434577/basket-error.svg" width="24" height="24" title="basket-icon" alt="basket icon"></button>
+				</form>	
+		</div>	<!-- chiude div listaprodotti -->
 		
-				<form action="cart" method="post">	
-					<input type="hidden" name="action" value="addCart">	
-					<input type="hidden" name="id" value="<%=c.getID_ProdottoItemCarrello()%>">
-					<input type="hidden" name="qty" value="<%=c.getQuantitaItemCarrello()%>">
-					<input type="submit" value="Aggiungi al carrello" class="pulsanti"> &nbsp;
-				</form>
-			</div>
+		<div class="div_acquisto">
+		
+					<p class="somma_title">Prezzo Totale</p>
 			
-			<br>
-		
-		</div>
-		
-		<%}%>
-		
-		<div>
-			<table>
-				<tr>
-					<td>Somma totale</td>
-				</tr>
-				<tr>
-					<td><%=cart.getTotale()%>
-				</tr>
-			</table><br>
+				<div class="euro">
+					<%=cart.getTotale()%> &euro;
+				</div>
 			<%
 				UtenteBean utente = (UtenteBean) session.getAttribute("UtenteLoggato");
 			
 				if(utente != null){
 			%>
-			
-			<Button><a href="Acquisto.jsp">Procedi all'acquisto</a></Button>
+			<br>
+			<button><a href="Acquisto.jsp">Procedi all'acquisto</a></button>
 				
 			<%
 				}else{
 			%>
-			
-			<Button><a href="Login.jsp">Prima di procedere all'acquisto devi essere effettuare al login, ti mando lì?</a></Button>
+			<br><br>
+			<button><a href="Login.jsp">Non hai effettuato nessun login, fai il login?</a></button> 
+		
 		</div>
+		
+
+	
 		<%
 				}
+				
+				/*chiude parentesi riga 38*/
 			} else {
-		%>
-		
-			 <p>Il carrello è vuoto</p>
-		
-		<%
-			}
-		%>
-	</div>
+				%>
+				
+				<div class="cart_empty">
+					<h2>Il carrello è vuoto</h2>
+						<img src="image/faccina_triste.png">
+					<p>Inizia i tuoi acquisti, vai al catalogo</p>
+				
+					<button><a href="Catalogo_Utente.jsp">Vai al catalogo   -></a></button>
+				</div>
+			<%
+				}
+			%>
 </div>
 	
-	<jsp:include page="footer.jsp"/>
+						
 	
 </body>
 </html>
+

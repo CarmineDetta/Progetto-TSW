@@ -6,7 +6,7 @@
 		response.sendRedirect("./product");	
 		return;
 	}
-	
+	/*Altrimenti, il valore dell'attributo "product" viene assegnato alla variabile product per ulteriori utilizzi nel codice successivo.*/
 	ProdottoBean product = (ProdottoBean) request.getAttribute("product");
 %>
 
@@ -17,96 +17,64 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Catalogo | ShoeMustGoOn</title>
+	<link rel="stylesheet" href="style/Catalogo_Utente.css" type="text/css">
+	<link rel="stylesheet" href="style/footercatalogo.css" type="text/css">
+	<link rel="stylesheet" href="style/neon.css" type="text/css">
 </head>
-
 <body>
+    <section id="content-main">
+        <header>
+            <jsp:include page="header.jsp" />
+        </header>
+		<div id=sidebar>
 
-	<jsp:include page="header.jsp" />
-	<h2>Prodotti</h2>
-	
-	<table border="1">
-		<tr>
-			<th>ID_Prodotto<button><a href="product?sort=ID_Prodotto"> Ordina</a></button></th>
-			<th>Marca<button><a href="product?sort=marca"> Ordina</a></button></th>
-			<th>Modello<button><a href="product?sort=modello"> Ordina</a></button></th>
-			<th>Colore<button><a href="product?sort=colore"> Ordina</a></button></th>
-			<th>Prezzo<button><a href="product?sort=descrizione"> Ordina</a></button></th>
-			<th>Disponibilita<button><a href="product?sort=disponibilita"> Ordina</a></button></th>
-			<th>Descrizione<button><a href="product?sort=descrizione"> Ordina</a></button></th>
-			<th>Categoria<button><a href="product?sort=categoria"> Ordina</a></button></th>
-		</tr>
-		<%
-			if (products != null && products.size() != 0) {
-				Iterator<?> it = products.iterator();
-				while (it.hasNext()) {
-					ProdottoBean bean = (ProdottoBean) it.next();
-		%>
-		<tr>
-			<td><%=bean.getID_Prodotto()%></td>
-			<td><%=bean.getMarca()%></td>
-			<td><%=bean.getModello()%></td>
-			<td><%=bean.getColore()%></td>
-			<td><%=bean.getPrezzo()%></td>
-			<td><%=bean.isDisponibilita()%></td>
-			<td><%=bean.getDescrizione()%></td>
-			<td><%=bean.getCategoria()%></td>
-			<td><img src="<%=bean.getImmagine().getPath()%>" alt="Immagine prodotto" width="80" height="80"></td>
-			<td><button><a href="details?action=read&id=<%=bean.getID_Prodotto()%>">Dettagli</a></button></td>
-			<td>
-				<form action="cart" method="post">	
-				<input type="hidden" name="action" value="addCart">	
-				<input type="hidden" name="id" value="<%=bean.getID_Prodotto()%>">
-				<input type="number" name="qty" value="1" min="1">
-				<input type="submit" value="Aggiungi al carrello">
-				</form>
-			</td>
-		</tr>
-		<%
-				}
-			} else {
-		%>
-		<tr>
-			<td colspan="6">Nessun prodotto disponibile</td>
-		</tr>
-		<%
-			}
-		%>
-	</table>
-	
-	
-	<%
-		if (product != null) {
-	%>
-	
-	<h2>Dettagli</h2>
-	<table border="1">
-		<tr>
-			<th>ID_Prodotto</th>
-			<th>Marca</th>
-			<th>Modello</th>
-			<th>Colore</th>
-			<th>Prezzo</th>
-			<th>Disponibilita</th>
-			<th>Descrizione</th>
-			<th>Categoria</th>
-		</tr>
-		<tr>
-			<td><%=product.getID_Prodotto()%></td>
-			<td><%=product.getMarca()%></td>
-			<td><%=product.getModello()%></td>
-			<td><%=product.getColore()%></td>
-			<td><%=product.getPrezzo()%></td>
-			<td><%=product.isDisponibilita()%></td>
-			<td><%=product.getDescrizione()%></td>
-			<td><%=product.getCategoria()%></td>
-			<td><img src="<%=product.getImmagine().getPath()%>" alt="Immagine prodotto" width="80" height="80"></td>
-		</tr>
-	</table>
-	<%
-		}
-	%>
-	
-	<jsp:include page="footer.jsp"/>
-	
+		</div>
+		<div id =sidebar2>
+			
+		</div>
+    <section>
+    <section id ="Neon">
+		<div id="container">
+			<span id="txt" >ShoeMustGoOn</span>
+			<span id="gradient"></span>
+			<span id="light"></span>
+		</div>
+	</section>
+	   <div class="product">
+			<% if (products != null && products.size() != 0) {
+			       Iterator<?> it = products.iterator();
+		    	   while (it.hasNext()) {
+			          ProdottoBean bean = (ProdottoBean) it.next();
+			          if (bean.isDisponibilita() == true) {
+			 %>
+			<div class="product-item">
+			     <button>
+			         <a href="details?action=read&id=<%=bean.getID_Prodotto()%>">
+			           <img src="<%=bean.getImmagine().getPath()%>" alt="Immagine prodotto" width="201" height="251" id="imgmod">
+			         </a>
+			     </button>
+		         <h3>
+			        <%=bean.getMarca()%>
+			          		-
+			        <%=bean.getModello()%>
+		         </h3>
+		         <p>
+		            <%=bean.getDescrizione()%>
+		            <br>
+		            <br>
+			        <%=bean.getPrezzo()%>€
+			     </p>
+	       </div>
+			    <% }
+			      }
+			    } else { %>
+			    <h1 colspan="6">Nessun prodotto disponibile</h1>
+			    <% } %>
+		   </div>
+     </section>
+    </section>
+            <footer>
+            <jsp:include page="footer.jsp"/>
+        </footer>
 </body>
 </html>

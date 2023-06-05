@@ -5,7 +5,7 @@
 <html>
 
 <head>
-    <link href="style/login.css" rel="stylesheet" type="text/css">
+    <link href="style/Login.css" rel="stylesheet" type="text/css">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>ShoeMustGoOn | Login</title>
 </head>
@@ -50,9 +50,13 @@ body{
 					<button type="reset" id="resetButton">Reset</button>
 				</div>	
 					<br>
-
-				<button><a href="Registrazione.jsp">Non sei ancora registrato? Registrati</a></button>
 			</div>		
+			
+			<div class="registration">	
+				<button><a href="Registrazione.jsp">Non sei ancora registrato? Registrati</a></button>					
+			</div>
+			
+			
 		</form>		
 		
 	<jsp:include page="footer.jsp" />		
