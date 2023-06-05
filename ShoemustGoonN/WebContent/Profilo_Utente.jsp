@@ -27,6 +27,7 @@
   <div class="content2">
 	<div class="pulsanti">
 		
+		
 	<Button><a href ="payments">Visualizza o aggiorna i tuoi metodi di pagamento</a></Button><br><br>
 	
 	<Button><a href ="recapiti">Visualizza o aggiorna i tuoi indirizzi di spedizione</a></Button><br><br>
