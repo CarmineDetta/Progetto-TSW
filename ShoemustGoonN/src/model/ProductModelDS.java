@@ -4,12 +4,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+
+import model.*;
+
+
 import javax.naming.Context;
 
 
@@ -207,3 +212,4 @@ public class ProductModelDS implements ProdottoDAO{
 	}
 
 }
+

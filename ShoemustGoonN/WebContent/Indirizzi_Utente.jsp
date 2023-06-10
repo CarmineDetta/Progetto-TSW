@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html>
 	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.RecapitoBean, model.UtenteBean"%>
-	<link href="style/indirizzi.css" rel="stylesheet" type="text/css">
+	<link href="style/indrrizzi.css" rel="stylesheet" type="text/css">
 
 <head>
 <title>ShoeMustGoOn | Indirizzi di Spedizione</title>
@@ -24,16 +24,21 @@ body{
 }
 </style>
 
-<body>
+<body id="body_indirizzi">
 
-	<jsp:include page="header.jsp" />
+		<jsp:include page="header.jsp" />
 	 
 	<%
 		UtenteBean utente = (UtenteBean)request.getSession().getAttribute("UtenteLoggato");
 	%>
+<div class="totale">			
+	
+	<div id="insert_button"> 
+		<button><a href ="Inserimento_Indirizzo.jsp">Inserisci un nuovo recapito</a></button>
+	</div>
 	
 	<div class="content">
-		
+
 		<div class="title">
 			<h2>I tuoi Indirizzi</h2>
 		</div>
@@ -48,6 +53,7 @@ body{
 				<th>N. civico</th>
 			
 			</tr>
+
 		<%
 			if (recapiti != null && recapiti.size() != 0) {
 				Iterator<?> it = recapiti.iterator();
@@ -59,7 +65,7 @@ body{
 			<td><%=bean.getCitta()%></td>
 			<td><%=bean.getVia_Piazza()%></td>
 			<td><%=bean.getN_Civico()%></td>
-			<td><button><a href="recapiti?action=delete&id=<%=bean.getID_Indirizzo()%>">Elimina</a></button></td><br>
+			<td><button id="rmv_butt"><a href="recapiti?action=delete&id=<%=bean.getID_Indirizzo()%>">Elimina</a></button></td><br>
 		</tr>
 		<%
 				}
@@ -75,11 +81,9 @@ body{
 			}
 		%>
 	
-	<div id="insert_button"> 
-		<Button><a href ="Inserimento_Indirizzo.jsp">Inserisci un nuovo recapito</a></Button>
-	</div>
-	
-	
 </div>
-</body>
+</div>
+
+</body>			
+
 </html>

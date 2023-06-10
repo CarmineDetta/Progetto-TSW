@@ -1,14 +1,21 @@
+
 h2{
 	font-size: 18pt;
 	margin-bottom: 5%;
 	font-family: Rockwell, serif;
 }
 
-.content{
+.totale{
+		display: grid;
+  		place-items: center;
+}
+
+.contenuto{
 	width: 70%;
 	border: 3px solid black;
 	box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
 	margin:15%;
+	margin-top: 5%;
 	padding: 10%;
 	background-color: #FFDEAD;	
 }
@@ -33,11 +40,10 @@ td{
 }
 
 #insert_button > button{
-  	position: absolute;	
-  		left: 50%;
- 	transform: translate(-50%, -50%);	/*posiziona al centro della pagina*/
-	width: 20%;
-	padding: 7px;
+margin-top: 80%;
+	text-align: center;
+	width: 100%;
+	padding: 10px;
 	background-color: #ff6347;
 	border: 1px solid black;
 		border-radius: 15px;
@@ -53,4 +59,12 @@ button > a{
 	background-color: #F4A460;
 	transition: all .3s;
 	cursor: pointer;s
+}
+
+#rmv_butt{
+	width: 70%;
+	background-color: #ff6347;
+	border: 1px solid black;
+		border-radius: 15px;
+	font-family: Helvetica, sans-serif;
 }

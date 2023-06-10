@@ -14,7 +14,7 @@
 	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.PortafoglioBean, model.UtenteBean"%>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link href="style/payements.css" rel="stylesheet" type="text/css">
+	<link href="style/payement.css" rel="stylesheet" type="text/css">
 	<title>ShoeMustGoon | Metodi di Pagamento</title>
 </head>
 <style>
@@ -29,6 +29,11 @@ body{
 	<%
 		UtenteBean utente = (UtenteBean)request.getSession().getAttribute("UtenteLoggato");
 	%>
+	
+<div class="totale">
+	<div id="insert_button">	
+		<button><a href ="InserimentoCarta.jsp">Inserisci una nuova carta</a></button>
+	</div>	
 	
 <div class="contenuto">
 
@@ -56,7 +61,7 @@ body{
 			<td><%=bean.getNome_Intestatario()%></td>
 			<td><%=bean.getScadenza()%></td>
 			<td><%=bean.getCvv()%></td>
-			<td><button><a href="payments?action=delete&id=<%=bean.getID_Pagamento()%>">Elimina</a></button></td><br>
+			<td><button id="rmv_butt"><a href="payments?action=delete&id=<%=bean.getID_Pagamento()%>">Elimina</a></button></td><br>
 		</tr>
 		<%
 				}
@@ -71,10 +76,7 @@ body{
 		%>
 	</div>
 	
-	<div id="insert_button">	
-		<button><a href ="InserimentoCarta.jsp">Inserisci una nuova carta</a></button>
-	</div>	
-	
+</div>
 
 </div>	
 </body>

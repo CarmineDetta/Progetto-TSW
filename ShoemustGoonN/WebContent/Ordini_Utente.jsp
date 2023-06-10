@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html>
 	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.OrdineBean, model.UtenteBean"%>
-	<link href="style/indirizzi.css" rel="stylesheet" type="text/css">
+	<link href="style/order.css" rel="stylesheet" type="text/css">
 
 <head>
 <title>ShoeMustGoOn | I miei Ordini</title>
