@@ -11,11 +11,19 @@
     
 <!DOCTYPE html>
 <html>
-<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.OrdineBean, model.UtenteBean"%>
+	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.OrdineBean, model.UtenteBean"%>
+	<link href="style/order.css" rel="stylesheet" type="text/css">
 
 <head>
 <title>ShoeMustGoOn | I miei Ordini</title>
 </head>
+
+<style>
+body{
+	background-image: url("image/sfondo_order.jpg");	
+}
+</style>
+
 <body>
 
 	<jsp:include page="header.jsp" />
@@ -23,7 +31,11 @@
 	<%
 		UtenteBean utente = (UtenteBean)request.getSession().getAttribute("UtenteLoggato");
 	%>
-	
+<div class="content">
+
+	<div class="title">
+		<h2>I miei Ordini</h2>
+	</div>
 	<table border="1">
 		<tr>
 			<th>ID_Ordine</th>
@@ -53,5 +65,7 @@
 			}
 		%>
 	</table>
+		
+</div>
 </body>
 </html>

@@ -5,6 +5,7 @@
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <link rel="stylesheet" href="style/Header.css" type="text/css">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	    <title>ShoeMustGoOn | Header</title>
 	</head>
 
@@ -18,7 +19,7 @@
 	        
 					<div id="barra" class="ricerca"> 
 						<img src="https://www.svgrepo.com/show/508177/search-square.svg" width="28" height="28" title="search-icon" alt="search icon"><br>							 
-						<input class="search" type="text" id="search">
+						<input placeholder="Cerca Prodotti" class="search" type="text" id="search">
 					</div>
 					
 					<div id ="ricerca" class="barra_ricerca"> <input type="hidden"> </div>
@@ -60,3 +61,10 @@
 	        </div>
 	    </header>
 	</body>
+
+	
+</html>	
+	
+	
+	
+	

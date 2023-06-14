@@ -27,7 +27,7 @@ body{
 	<div class="div_inserimento">	
 		<div class="div_form">
 		
-						<h2 class="title"> Inserisci i dati della nuova carta</h2>
+			<h2 class="title"> Inserisci i dati della nuova carta</h2>
 		
 		<form action="payments" method="post">
 			<input class="label_mod" type="hidden" name="action" value="insert"> 
