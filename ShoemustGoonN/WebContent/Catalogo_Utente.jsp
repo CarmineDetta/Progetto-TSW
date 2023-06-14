@@ -50,7 +50,7 @@
 			<div class="product-item">
 			     <button>
 			         <a href="details?action=read&id=<%=bean.getID_Prodotto()%>">
-			           <img src="<%=bean.getImmagine().getPath()%>" alt="Immagine prodotto" width="201" height="251" id="imgmod">
+			           <img src="<%=bean.getImmagine().getPath()%>" alt="Immagine prodotto" width="175" height="240" id="imgmod">
 			         </a>
 			     </button>
 		         <h3>

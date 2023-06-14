@@ -41,7 +41,6 @@ body{
 				 	<img class="icon" src="https://www.svgrepo.com/show/340797/password.svg" width="28" height="28" title="password-icon" alt="search icon">
 					<input type="password" placeholder="Password" id="password" name="password">
 				 </div>
-		
 			</div>
 				
 			<div class="action">

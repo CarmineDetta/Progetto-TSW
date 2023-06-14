@@ -85,13 +85,9 @@
      <servlet-name>LoginControl</servlet-name>
      <url-pattern>/login</url-pattern>
    </servlet-mapping>
-<<<<<<< HEAD
 
-=======
-   
    <servlet-mapping>
     <servlet-name>PaymentsControl</servlet-name>
     <url-pattern>/payments</url-pattern>
   </servlet-mapping>
->>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
 </web-app>
