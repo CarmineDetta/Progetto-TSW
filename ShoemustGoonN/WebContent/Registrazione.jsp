@@ -19,7 +19,7 @@ body{
     <jsp:include page="header.jsp"/>
 	
 
-		<form action="registration" method="post" class="registerForm" id="registerForm">
+		<form action="login" method="post" class="registerForm" id="registerForm">
 		<input type ="hidden" name="action" value="register">
 		
 			<h1 id="title">Compila Form Registrazione:</h1>
@@ -57,15 +57,9 @@ body{
 					 	<input type="hidden" name="tipo" value="utente">
 				</div>
 				
-				<div class="input-field-r">
-					<p class="text">Ripeti Password:</p>					
-						<input type="password" placeholder="Password" id="pswInput2" name="psw2" required>
-					 	<input type="hidden" name="tipo" value="utente">
-				</div>
-				
 					<br>
 				<div class="action-r">
-					<button type="button" id="regButton">Registrati</button>
+					<button type="submit" id="regButton">Registrati</button>
 					<button type="reset" id="resButton">Reset</button>
 				</div>
 	</div>

@@ -1,5 +1,6 @@
 use shoemustgoon;
 
+
 INSERT INTO Categoria (ID_Categoria, Nome) VALUES
 ('UOMO', 'Uomo'),
 ('DONNA', 'Donna'),
@@ -23,3 +24,11 @@ INSERT INTO Utente(ID_Utente, Nome, Cognome, DataNascita, CF, Email, Password, T
 ('U00', 'Salvatore', 'Alberti', '2003-02-04', 'ALB754DTF853DTV7', 's.alberti1@studenti.unisa.it', 'Gianmarco99.', 'admin'),
 ('U01', 'Mario', 'Rossi', '2000-10-24', 'MRR537YTD365DG6', 'm.rossi@studenti.unisa.it', '12345678', 'utente');
  
+INSERT INTO Recapito(ID_Spedizione, CAP, Citta, Via_Piazza, N_Civico, Utente)
+VALUES ('0', '84030', 'Torraca', 'Via Roma', 5, 'U01');
+
+INSERT INTO Portafoglio(ID_Pagamento, Num_Carta, Nome_Intestatario, Scadenza, Cvv, Utente)
+VALUES ('0', '5333171100891579', 'Mario Rossi', '2026-05-12', 302, 'U01');
+
+INSERT INTO Ordine (ID_Ordine, Data_Ordine, Totale, Utente, Indirizzo, Pagamento)
+VALUES ('0', '2023-05-12', 50, 'U01', '0', '0');

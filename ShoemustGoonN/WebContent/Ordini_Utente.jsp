@@ -28,7 +28,6 @@
 		<tr>
 			<th>ID_Ordine</th>
 			<th>Data ordine</th>
-			<th>Metodo di pagamento</th>
 			<th>Totale</th>
 		</tr>
 		<%
@@ -40,7 +39,6 @@
 		<tr>
 			<td><%=bean.getID_Ordine()%></td>
 			<td><%=bean.getDataOrdine()%></td>
-			<td><%=bean.getMetodoPagamento()%></td>
 			<td><%=bean.getTotale()%></td>
 			<td><button>Stampa Fattura</button></td><br>
 		</tr>

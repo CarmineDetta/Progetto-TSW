@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <html>
 
-<%@ page contentType="text/html; charset=UTF-8" import="java.util.*, model.*"%>
+<%@ page contentType="text/html; charset=UTF-8" import="java.util.*, model.*, java.text.DecimalFormat"%>
 
 <head>
 
@@ -108,9 +108,12 @@ body{
 		<div class="div_acquisto">
 		
 					<p class="somma_title">Prezzo Totale</p>
-			
+			<%
+				DecimalFormat df = new DecimalFormat("#.##");
+				String n = df.format(cart.getTotale());
+			%>
 				<div class="euro">
-					<%=cart.getTotale()%> &euro;
+					<%=n%> &euro;
 				</div>
 			<%
 				UtenteBean utente = (UtenteBean) session.getAttribute("UtenteLoggato");
@@ -118,7 +121,7 @@ body{
 				if(utente != null){
 			%>
 			<br>
-			<button><a href="Acquisto.jsp">Procedi all'acquisto</a></button>
+			<button><a href="AcquistoControl?action=CheckOut">Procedi all'acquisto</a></button>
 				
 			<%
 				}else{

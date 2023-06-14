@@ -33,7 +33,7 @@ body{
 <div class="contenuto">
 
 		<div class=title>	
-			<h2>Payements</h2>
+			<h2>Portafoglio</h2>
 		</div>
 		
 	<div class="elementi">

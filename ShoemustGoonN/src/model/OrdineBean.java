@@ -11,15 +11,14 @@ public class OrdineBean implements Serializable{
     private int ID_Ordine;
     private static int c = 0;
     private LocalDate data_ordine;
-    private String metodo_pagamento;
     private double totale;
     private UtenteBean utente;
     private RecapitoBean recapito;
+    private PortafoglioBean pagamento;
     
     public OrdineBean() {
     	this.ID_Ordine = c;
     	c++;
-    	this.metodo_pagamento = "";
     	this.totale = 0;
     }
     
@@ -38,15 +37,7 @@ public class OrdineBean implements Serializable{
     public void setDataOrdine(LocalDate data) {
     	this.data_ordine = data;
     }
-    
-    public String getMetodoPagamento() {
-    	return this.metodo_pagamento;
-    }
-    
-    public void setMetodoPagamento(String metodo) {
-    	this.metodo_pagamento = metodo;
-    }
-    
+   
     public double getTotale() {
     	return this.totale;
     }
@@ -69,6 +60,14 @@ public class OrdineBean implements Serializable{
     
     public void setRecapito(RecapitoBean recapito) {
     	this.recapito = recapito;
+    }
+    
+    public PortafoglioBean getPagamento() {
+    	return this.pagamento;
+    }
+    
+    public void setPagamento(PortafoglioBean pagamento) {
+    	this.pagamento = pagamento;
     }
     
 }

@@ -27,14 +27,14 @@ public class Cart{
 				aggiunto = true;
 				
 				ProdottoBean p = model.doRetrieveByKey(prod.getID_ProdottoItemCarrello());
-				totale = totale + (p.getPrezzo() * prod.getQuantitaItemCarrello());
+				totale = totale + (p.getPrezzo());
 				break;
 			}
 		}
 			if(!aggiunto) {
 				this.getProducts().add(product);
 				ProdottoBean p = model.doRetrieveByKey(product.getID_ProdottoItemCarrello());
-				totale = totale + p.getPrezzo();
+				totale = totale + (p.getPrezzo() * product.getQuantitaItemCarrello());
 			}
 			
 	}
