@@ -2,6 +2,7 @@ package control;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,7 +29,6 @@ public class AcquistoControl extends HttpServlet {
     
 	static PortafoglioDAO modelportafoglio = new PortafoglioModelDS();
 	static RecapitoDAO modelrecapito = new RecapitoModelDS();
-	private OrdineBean ordine = new OrdineBean();
 	static OrdineDAO modelordine = new OrdineModelDS();
 	static ComposizioneModelDS modelComposizione = new ComposizioneModelDS();
 	
@@ -40,27 +40,26 @@ public class AcquistoControl extends HttpServlet {
 		
 		UtenteBean utente = (UtenteBean) request.getSession().getAttribute("UtenteLoggato");
 		String action = request.getParameter("action");
-		System.out.println(action);
 		
 		try {
 			if(action.equalsIgnoreCase("Completo")) {
 				
 				PortafoglioBean pagamento = modelportafoglio.doRetrieveByKey(Integer.parseInt(request.getParameter("Pagamento")));
 				RecapitoBean recapito = (modelrecapito.doRetrieveByKey(Integer.parseInt(request.getParameter("Recapito"))));
-			
+				
+				OrdineBean ordine = new OrdineBean();
 				Cart carrello = (Cart) request.getSession().getAttribute("cart");
 				ordine.setTotale(carrello.getTotale());
 
-				modelComposizione.doSaveAll(ordine, carrello);
-				System.out.println("DO SAVE ALL Superata");
-
 				modelordine.doSave(ordine, utente, recapito, pagamento);
 
+				modelComposizione.doSaveAll(ordine, carrello);
+
 				carrello = new Cart();
-				request.setAttribute("cart", carrello);
+				request.getSession().setAttribute("cart", carrello);
 				
-				response.sendRedirect("/Acquisto_Completato.jsp");
-				
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Acquisto_Completato.jsp");
+				dispatcher.forward(request, response);				
 			}
 				if(action.equalsIgnoreCase("CheckOut")) {
 							

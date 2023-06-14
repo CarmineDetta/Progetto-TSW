@@ -10,7 +10,7 @@ public class OrdineBean implements Serializable{
 
     private int ID_Ordine;
     private static int c = 0;
-    private LocalDate data_ordine;
+    private String data_ordine;
     private double totale;
     private UtenteBean utente;
     private RecapitoBean recapito;
@@ -30,11 +30,11 @@ public class OrdineBean implements Serializable{
     	this.ID_Ordine = n;
     }
     
-    public LocalDate getDataOrdine() {
+    public String getDataOrdine() {
     	return this.data_ordine;
     }
     
-    public void setDataOrdine(LocalDate data) {
+    public void setDataOrdine(String data) {
     	this.data_ordine = data;
     }
    

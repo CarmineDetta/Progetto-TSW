@@ -11,7 +11,7 @@
 	<body>
 		<jsp:include page="header.jsp"/>
 
-			<h1> Grazie per aver acquistato da ShoeMustGoOn</span>
+			<h1> Grazie per aver acquistato da ShoeMustGoOn</h1><br>
 
 			<a href="Catalogo_Utente.jsp"><input type="button" value="Torna all'Homepage"> </a>
 

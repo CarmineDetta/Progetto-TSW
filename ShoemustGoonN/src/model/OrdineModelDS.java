@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 import java.util.Date;
 import java.util.LinkedList;
@@ -43,22 +44,34 @@ public class OrdineModelDS implements OrdineDAO{
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(insertSQL);
-			
-			LocalDate dataOrdine = ordine.getDataOrdine();
-			java.sql.Date dataOrdineSql = java.sql.Date.valueOf(dataOrdine);
 
 			preparedStatement.setInt(1, ordine.getID_Ordine());
-			preparedStatement.setDate(2, (java.sql.Date) dataOrdineSql);
-			preparedStatement.setDouble(4, ordine.getTotale());
+			
+			// Ottenere la data corrente come oggetto LocalDate
+	        LocalDate dataAcquisto = LocalDate.now();
+
+	        // Creare un oggetto DateTimeFormatter per il formato desiderato
+	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+	        // Formattare la data nel formato desiderato
+	        String dataFormattata = dataAcquisto.format(formatter);
+		
+	        ordine.setDataOrdine(dataFormattata);
+			preparedStatement.setString(2, dataFormattata);
+			
+			preparedStatement.setDouble(3, ordine.getTotale());
 
 			UtenteModelDS udao = new UtenteModelDS();
 			ordine.setUtente(udao.doRetrieveByKey(utente.getID_Utente()));
+			preparedStatement.setString(4, ordine.getUtente().getID_Utente());
 			
 			RecapitoModelDS rdao = new RecapitoModelDS();
 			ordine.setRecapito(rdao.doRetrieveByKey(recapito.getID_Indirizzo()));
+			preparedStatement.setInt(5, ordine.getRecapito().getID_Indirizzo());
 			
 			PortafoglioModelDS pdao = new PortafoglioModelDS();
 			ordine.setPagamento(pdao.doRetrieveByKey(pagamento.getID_Pagamento()));
+			preparedStatement.setInt(6, ordine.getPagamento().getID_Pagamento());
 			
 			preparedStatement.executeUpdate();
 
@@ -129,8 +142,7 @@ public class OrdineModelDS implements OrdineDAO{
 
 				bean.setID_Ordine(rs.getInt("ID_Ordine"));
 				
-				Date dataOrdineSql = rs.getDate("Data_Ordine");
-			    LocalDate dataOrdine = ((java.sql.Date) dataOrdineSql).toLocalDate();
+				String dataOrdine = rs.getString("Data_Ordine");
 			    bean.setDataOrdine(dataOrdine);
 			    
 				bean.setTotale(rs.getInt("Totale"));
@@ -179,7 +191,8 @@ public class OrdineModelDS implements OrdineDAO{
 					bean.setID_Ordine(rs.getInt("ID_Ordine"));
 					
 					Date dataOrdineSql = rs.getDate("Data_Ordine");
-				    LocalDate dataOrdine = ((java.sql.Date) dataOrdineSql).toLocalDate();
+					
+					String dataOrdine = rs.getString("Data_Ordine");
 				    bean.setDataOrdine(dataOrdine);
 					
 					bean.setTotale(rs.getDouble("Totale"));
