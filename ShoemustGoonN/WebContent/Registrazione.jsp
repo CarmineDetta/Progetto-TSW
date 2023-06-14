@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="style/register.css">	
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>ShoeMustGoOn | Registrazione</title>
+	<script src="javascript/ValidationRegistrazione.js" type="text/javascript"></script>
 </head>
 
 <style>
