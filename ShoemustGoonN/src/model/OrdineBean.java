@@ -1,6 +1,8 @@
 package model;
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.time.LocalDate;
 
 public class OrdineBean implements Serializable{
 	
@@ -8,7 +10,7 @@ public class OrdineBean implements Serializable{
 
     private int ID_Ordine;
     private static int c = 0;
-    private String data_ordine;
+    private LocalDate data_ordine;
     private String metodo_pagamento;
     private double totale;
     private UtenteBean utente;
@@ -17,7 +19,6 @@ public class OrdineBean implements Serializable{
     public OrdineBean() {
     	this.ID_Ordine = c;
     	c++;
-    	this.data_ordine = "";
     	this.metodo_pagamento = "";
     	this.totale = 0;
     }
@@ -30,11 +31,11 @@ public class OrdineBean implements Serializable{
     	this.ID_Ordine = n;
     }
     
-    public String getDataOrdine() {
+    public LocalDate getDataOrdine() {
     	return this.data_ordine;
     }
     
-    public void setDataOrdine(String data) {
+    public void setDataOrdine(LocalDate data) {
     	this.data_ordine = data;
     }
     

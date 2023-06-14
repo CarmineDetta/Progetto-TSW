@@ -35,7 +35,7 @@ private static DataSource ds;
 		PreparedStatement preparedStatement = null;
 
 		String insertSQL = "INSERT INTO " + RecapitoModelDS.TABLE_NAME
-				+ "(ID_Indirizzo, Cap, Citta, Via_Piazza, N_Civico, Utente) VALUES (?, ?, ?, ?, ?, ?)";
+				+ "(ID_Spedizione, Cap, Citta, Via_Piazza, N_Civico, Utente) VALUES (?, ?, ?, ?, ?, ?)";
 		
 		try {
 			connection = ds.getConnection();
@@ -72,7 +72,7 @@ private static DataSource ds;
 
 		int result = 0;
 
-		String deleteSQL = "DELETE FROM " + RecapitoModelDS.TABLE_NAME + " WHERE ID_Indirizzo = ?";
+		String deleteSQL = "DELETE FROM " + RecapitoModelDS.TABLE_NAME + " WHERE ID_Spedizione = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -104,7 +104,7 @@ private static DataSource ds;
 
 		RecapitoBean bean = new RecapitoBean();
 
-		String selectSQL = "SELECT * FROM " + RecapitoModelDS.TABLE_NAME + " WHERE ID_Indirizzo = ?";
+		String selectSQL = "SELECT * FROM " + RecapitoModelDS.TABLE_NAME + " WHERE ID_Spedizione = ?";
 
 		try {
 			connection = ds.getConnection();
@@ -114,7 +114,7 @@ private static DataSource ds;
 			ResultSet rs = preparedStatement.executeQuery();
 			
 			while (rs.next()) {
-				bean.setID_Indirizzo(rs.getInt("ID_Indirizzo"));
+				bean.setID_Indirizzo(rs.getInt("ID_Spedizione"));
 				bean.setcap(rs.getInt("Cap"));
 				bean.setCitta(rs.getString("Citta"));
 				bean.setVia_Piazza(rs.getString("Via_Piazza"));
@@ -158,7 +158,7 @@ public synchronized Collection<RecapitoBean> doRetrieveByUtente(String user) thr
 			while (rs.next()) {
 				RecapitoBean bean = new RecapitoBean();
 
-				bean.setID_Indirizzo(rs.getInt("ID_Indirizzo"));
+				bean.setID_Indirizzo(rs.getInt("ID_Spedizione"));
 				bean.setCitta(rs.getString("Citta"));
 				bean.setVia_Piazza(rs.getString("Via_Piazza"));
 				bean.setcap(rs.getInt("Cap"));

@@ -46,11 +46,11 @@
     <servlet-class>control.RecapitoControl</servlet-class>
   </servlet>
   
-    <servlet>
+  <servlet>
     <servlet-name>UtenteControl</servlet-name>
     <servlet-class>control.UtenteControl</servlet-class>
   </servlet>
-
+  
   <servlet-mapping>
     <servlet-name>UtenteControl</servlet-name>
     <url-pattern>/utente</url-pattern>
@@ -86,8 +86,12 @@
      <url-pattern>/login</url-pattern>
    </servlet-mapping>
 
+ 
+
    <servlet-mapping>
     <servlet-name>PaymentsControl</servlet-name>
     <url-pattern>/payments</url-pattern>
   </servlet-mapping>
+
+   
 </web-app>

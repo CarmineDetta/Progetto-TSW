@@ -24,44 +24,22 @@ body{
 		UtenteBean utente = (UtenteBean)request.getSession().getAttribute("UtenteLoggato");
 	%>
 	
-	<div class="div_inserimento">
-
-	<h2>Inserisci i dati della nuova carta</h2>
-		<form action="payments" method="post">
-			<input type="hidden" name="action" value="insert"> 
-			
-			<label for="n_carta">Numero Carta:</label><br> 
-			<input name="n_carta" type="text" maxlength="16" required placeholder="Inserisci il numero della carta"><br> 
-			
-			<label for="nome_intestatario">Nome intestatario:</label><br> 
-			<input name="nome_intestatario" type="text" maxlength="50" required placeholder="Inserisci il nome dell'intestatario"><br> 
-			
-			<label for="scadenza">Data scadenza:</label><br> 
-			<input name="scadenza" type="date"><br> 
-			
-			<label for="cvv">Cvv:</label><br> 
-			<input name="cvv" type="text" maxlength="3"><br> 
-			
-			<input name="utente" type="hidden" value="<%utente.getNome();%>">
-			<br><input type="submit" value="Aggiungi"><input type="reset" value="Reset"><br>
-
-	
-		
+	<div class="div_inserimento">	
 		<div class="div_form">
 		
-						<h2 class="title"> Inserisci i dati della nuova carta</h2>
+			<h2 class="title"> Inserisci i dati della nuova carta</h2>
 		
 		<form action="utente" method="post">
 			<input class="label_mod" type="hidden" name="action" value="insert"> 
 			
 			<div class="inserimento">
 				<label  class="label_mod" for="n_carta">Numero Carta:</label>
-				<input class="box" name="n_carta" type="text" maxlength="16"  placeholder="Numero della Carta" required><br>
+				<input class="box" name="n_carta" type="text" maxlength="16"  placeholder="Numero Carta" required><br>
 			</div>
 			
 			<div class="inserimento">
 				<label  class="label_mod" for="nome_intestatario">Nome intestatario:</label>
-				<input class="box"  name="nome_intestatario" type="text" maxlength="50" placeholder="Nome dell'intestatario" required><br> 
+				<input class="box"  name="nome_intestatario" type="text" maxlength="50" placeholder="Nome Intestatario" required><br> 
 			</div>
 			
 			<div class="inserimento">

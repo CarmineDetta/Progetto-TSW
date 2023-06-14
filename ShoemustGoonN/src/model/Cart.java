@@ -8,7 +8,7 @@ import java.util.List;
 import model.ItemCarrello;
 
 public class Cart{
-
+		
 	private ProductModelDS model;
 	private List<ItemCarrello> products;
 	private double totale = 0;
