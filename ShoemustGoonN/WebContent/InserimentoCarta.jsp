@@ -29,7 +29,7 @@ body{
 		
 			<h2 class="title"> Inserisci i dati della nuova carta</h2>
 		
-		<form action="utente" method="post">
+		<form action="payments" method="post">
 			<input class="label_mod" type="hidden" name="action" value="insert"> 
 			
 			<div class="inserimento">
@@ -52,8 +52,7 @@ body{
 				<input class="box"  name="cvv" type="text" maxlength="3" placeholder="CVV" required><br> 
 			</div>
 			
-			<!-- <input class="box" name="utente" type="hidden" value="(inserire utente.getnome)" -->
-				<!-- non va -->
+			<input name="utente" type="hidden" value="<%=utente.getNome()%>">
 			
 			<div>
 				<input class="button" type="submit" value="Add">

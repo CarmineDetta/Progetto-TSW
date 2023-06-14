@@ -57,7 +57,7 @@ body{
 			
 			
 		</form>		
-		
+	
 	<jsp:include page="footer.jsp" />		
 	 <script src="javascript/login.js" type="text/javascript"></script>
 	</body>

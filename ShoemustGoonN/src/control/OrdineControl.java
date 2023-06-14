@@ -17,7 +17,6 @@ import model.RecapitoDAO;
 import model.RecapitoModelDS;
 import model.UtenteBean;
 
-@WebServlet("/ordine")
 public class OrdineControl extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;

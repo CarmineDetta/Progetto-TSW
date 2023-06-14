@@ -1,10 +1,11 @@
 package model;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.Collection;
 
 public interface OrdineDAO {
-	public void doSave(OrdineBean ordine, UtenteBean utente, RecapitoBean recapito) throws SQLException;
+	public void doSave(OrdineBean ordine, UtenteBean utente, RecapitoBean recapito, PortafoglioBean pagamento) throws SQLException;
 
 	public boolean doDelete(int idOrdine) throws SQLException;
 	

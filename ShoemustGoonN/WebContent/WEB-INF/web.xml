@@ -51,6 +51,26 @@
     <servlet-class>control.UtenteControl</servlet-class>
   </servlet>
   
+   <servlet>
+    <servlet-name>OrdineControl</servlet-name>
+    <servlet-class>control.OrdineControl</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>AcquistoControl</servlet-name>
+    <servlet-class>control.AcquistoControl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>AcquistoControl</servlet-name>
+    <url-pattern>/AcquistoControl</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>OrdineControl</servlet-name>
+    <url-pattern>/ordine</url-pattern>
+  </servlet-mapping>
+  
   <servlet-mapping>
     <servlet-name>UtenteControl</servlet-name>
     <url-pattern>/utente</url-pattern>
