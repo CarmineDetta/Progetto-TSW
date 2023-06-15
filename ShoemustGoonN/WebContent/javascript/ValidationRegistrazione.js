@@ -68,7 +68,7 @@ function passid_validation(passid,mx,my) {
 function validateDateOfBirth(dateOfBirth) {
     var currentDate = new Date();
     var inputDate = new Date(dateOfBirth.value);
-    var minimumAge = 18;
+    var minimumAge = 12;
   
     // Calcola la differenza di anni tra la data di nascita inserita e la data corrente
     var age = currentDate.getFullYear() - inputDate.getFullYear();
