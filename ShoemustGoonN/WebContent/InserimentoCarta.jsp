@@ -8,6 +8,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="style/insert_card.css">
 	<title>ShoeMustGoOn | Inserimento Carta</title>
+			<script src="javascript/CartaInserimento.js" type="text/javascript"></script>
 </head>
 
 <style>
@@ -29,12 +30,12 @@ body{
 		
 			<h2 class="title"> Inserisci i dati della nuova carta</h2>
 		
-		<form action="payments" method="post">
+		<form action="payments" method="post" onsubmit="return validateCard()">
 			<input class="label_mod" type="hidden" name="action" value="insert"> 
 			
 			<div class="inserimento">
 				<label  class="label_mod" for="n_carta">Numero Carta:</label>
-				<input class="box" name="n_carta" type="text" maxlength="16"  placeholder="Numero Carta" required><br>
+				<input id="n_carta" class="box" name="n_carta" type="text" maxlength="16"  placeholder="Numero Carta" required><br>
 			</div>
 			
 			<div class="inserimento">
@@ -49,7 +50,7 @@ body{
 			
 			<div class="inserimento">
 				<label class="label_mod"  for="cvv">Cvv:</label> 
-				<input class="box"  name="cvv" type="text" maxlength="3" placeholder="CVV" required><br> 
+				<input class="box"  name="cvv" type="text" maxlength="4" placeholder="CVV" required><br> 
 			</div>
 			
 			<input name="utente" type="hidden" value="<%=utente.getNome()%>">
@@ -64,6 +65,5 @@ body{
 		
 	
 	</div>
-	
 </body>
 </html>

@@ -11,6 +11,7 @@
 	<meta charset="UTF-8">
 	<link href="style/dati_utentE.css" rel="stylesheet" type="text/css">
 	<title>ShoeMustGoOn | I mie Dati</title>
+	<script src="javascript/Dati_Utente.js" type="text/javascript"></script>
 </head>
 
 <style>
@@ -83,7 +84,7 @@ body{
 	%>
 	
 	<div class="update_form">
-		<form action="utente" method="post">
+		<form action="utente" method="post"  onsubmit="return formValidation();">
 		
 			<label for="scelta">Cosa vuoi aggiornare?</label>
 			<select name="scelta">
@@ -92,7 +93,7 @@ body{
 			</select>
 			
 			<label for="valore">Inserisci Nuovi Valori</label>
-			<input type="text" name="valore" maxlength=50 required placeholder="Inserisci">
+			<input id="valore" type="text" name="valore" maxlength=50 required placeholder="Inserisci">
 			
 			<input type="hidden" value ="<%=update.getNome()%>" name="utente">
 			

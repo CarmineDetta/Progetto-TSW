@@ -7,7 +7,7 @@ var password = document.getElementById("password");
 
 loginButton.addEventListener("click", function() {
     ValidateEmail(email);
-    ValidatePassword(password);
+    passid_validation(password);
 });
 
 function ValidateEmail(inputText) {
@@ -20,16 +20,13 @@ function ValidateEmail(inputText) {
     }
 }
 
-function ValidatePassword(inputText) {
-    // Controlla se la lunghezza è maggiore di 4 caratteri
-    if (inputText.value.length > 4) {
-        // Controlla se contiene almeno un carattere maiuscolo
-        var uppercaseRegex = /[A-Z]/;
-        if (uppercaseRegex.test(inputText.value)) {
-            return true; // Password valida
-        }
-    } else {
-        alert("La password non è valida!");
+function passid_validation(passid,mx,my) {
+    var passid_len = passid.value.length;
+    if (passid_len == 0 ||passid_len >= my || passid_len < mx) {
+        alert("Password should not be empty / length be between "+mx+" to "+my);
+        passid.focus();
+        return false;
     }
+    return true;
 }
 

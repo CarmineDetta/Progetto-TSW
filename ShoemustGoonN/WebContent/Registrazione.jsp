@@ -20,7 +20,7 @@ body{
     <jsp:include page="header.jsp"/>
 	
 
-		<form action="login" method="post" class="registerForm" id="registerForm">
+		<form action="login" method="post" class="registerForm" id="registerForm" onsubmit="return formValidation();">
 		<input type ="hidden" name="action" value="register">
 		
 			<h1 id="title">Compila Form Registrazione:</h1>
