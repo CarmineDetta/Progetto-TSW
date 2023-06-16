@@ -46,12 +46,22 @@ public class UtenteControl extends HttpServlet{
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				}
-			} 
-		}
+			}
+			if(action.equalsIgnoreCase("visualizza_tutti")) {
+				try {
+					request.setAttribute("all_utents", model.doRetrieveAllUtente());
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Visualizza_utenti.jsp");
+					dispatcher.forward(request, response);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				
+			}
+		}else {
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Dati_Utente.jsp");
-		dispatcher.forward(request, response);
-
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Dati_Utente.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

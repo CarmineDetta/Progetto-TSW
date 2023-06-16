@@ -6,8 +6,6 @@
 		response.sendRedirect("./product");	
 		return;
 	}
-	/*Altrimenti, il valore dell'attributo "product" viene assegnato alla variabile product per ulteriori utilizzi nel codice successivo.*/
-	ProdottoBean product = (ProdottoBean) request.getAttribute("product");
 %>
 
 <!DOCTYPE html>

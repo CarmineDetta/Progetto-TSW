@@ -22,7 +22,6 @@
 
 	<jsp:include page="header.jsp" />
 	
-	<a href="Inserimento_Admin.jsp"><button>Inserisci un prodotto</button></a><br>
 	<h2>Prodotti</h2>
 	
 	<table border="1">

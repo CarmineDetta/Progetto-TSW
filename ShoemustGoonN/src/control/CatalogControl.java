@@ -39,8 +39,9 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		String sort = request.getParameter("sort");
 		
 		try {
-			request.removeAttribute("products");
+			
 			request.setAttribute("products", model.doRetrieveAll(sort));
+			
 		} catch (SQLException e) {
 			System.out.println("Error:" + e.getMessage());
 		}

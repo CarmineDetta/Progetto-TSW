@@ -33,6 +33,11 @@
 				</a>
 		        
 		     <%
+                }else{
+             %>
+             	<a href="Inserimento_Admin.jsp"><button>Inserisci un prodotto</button></a><br>
+             	<a href="ordine?action=visualizza_tutti"><Button>Gestisci ordini</Button></a>
+             <%  	
                 }
               	if(session.getAttribute("UtenteLoggato") != null){
               %>
@@ -56,7 +61,6 @@
                		</a>
 		      <%
               	}
-              
               %> 	
 	        </div>
 	    </header>

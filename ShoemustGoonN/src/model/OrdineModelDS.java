@@ -219,5 +219,107 @@ public class OrdineModelDS implements OrdineDAO{
 		return bean;
 	}
 	
-}
 
+
+	public  Collection<OrdineBean> doRetrieveAll() throws SQLException {
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+	
+		Collection<OrdineBean> ordini = new LinkedList<OrdineBean>();
+	
+		String selectSQL = "SELECT * FROM " + OrdineModelDS.TABLE_NAME;
+	
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+	
+			ResultSet rs = preparedStatement.executeQuery();
+	
+			while (rs.next()) {
+				OrdineBean bean = new OrdineBean();
+	
+				bean.setID_Ordine(rs.getInt("ID_Ordine"));
+				
+				Date dataOrdineSql = rs.getDate("Data_Ordine");
+				
+				String dataOrdine = rs.getString("Data_Ordine");
+			    bean.setDataOrdine(dataOrdine);
+				
+				bean.setTotale(rs.getDouble("Totale"));
+				
+				UtenteModelDS udao = new UtenteModelDS();
+				bean.setUtente(udao.doRetrieveByKey(rs.getString("utente")));
+				
+				RecapitoModelDS rdao = new RecapitoModelDS();
+				bean.setRecapito(rdao.doRetrieveByKey(rs.getInt("Indirizzo")));
+				
+				PortafoglioModelDS pdao = new PortafoglioModelDS();
+				bean.setPagamento(pdao.doRetrieveByKey(rs.getInt("Pagamento")));			
+				
+				ordini.add(bean);
+			}
+	
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return ordini;
+	}
+	
+public Collection<OrdineBean> doRetrieveByDate(String DataInizio, String DataFine) throws SQLException {
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Collection<OrdineBean> ordini = new LinkedList<OrdineBean>();
+
+		String selectSQL = "SELECT * FROM " + OrdineModelDS.TABLE_NAME + " WHERE Data_Ordine >=  ? AND Data_Ordine <= ?";
+
+		try {
+			
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, DataInizio);
+			preparedStatement.setString(2, DataFine);
+
+			
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				OrdineBean bean = new OrdineBean();
+
+				bean.setID_Ordine(rs.getInt("ID_Ordine"));
+				
+				String dataOrdine = rs.getString("Data_Ordine");
+			    bean.setDataOrdine(dataOrdine);
+			    
+				bean.setTotale(rs.getInt("Totale"));
+			
+				RecapitoModelDS rdao = new RecapitoModelDS();
+				bean.setRecapito(rdao.doRetrieveByKey(rs.getInt("Indirizzo")));
+				
+				PortafoglioModelDS pdao = new PortafoglioModelDS();
+				bean.setPagamento(pdao.doRetrieveByKey(rs.getInt("Pagamento")));
+				
+				ordini.add(bean);
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		
+		return ordini;
+	}
+}

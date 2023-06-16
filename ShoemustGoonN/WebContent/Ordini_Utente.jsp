@@ -53,6 +53,7 @@ body{
 			<td><%=bean.getDataOrdine()%></td>
 			<td><%=bean.getTotale()%></td>
 			<td><button>Stampa Fattura</button></td><br>
+			<td><button><a href="ordine?action=details&id=<%=bean.getID_Ordine()%>">Dettagli</a></button>
 		</tr>
 		<%
 				}

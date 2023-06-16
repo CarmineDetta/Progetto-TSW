@@ -37,7 +37,7 @@ public class ProdottoControl extends HttpServlet {
 			System.out.println("Error:" + e.getMessage());
 		}
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/prova_prodotto.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Dettaglio_Prodotto.jsp");
 		dispatcher.forward(request, response);
 	}
 	

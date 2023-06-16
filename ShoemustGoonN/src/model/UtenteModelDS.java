@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.Date;
 import java.util.LinkedList;
 
 import javax.naming.Context;
@@ -218,10 +219,10 @@ public class UtenteModelDS implements UtenteDAO{
 				UtenteBean utente = new UtenteBean();
 
 				utente.setID_Utente(rs.getString("ID_Utente"));
-				utente.setEmail(rs.getString("Nome"));
-				utente.setPassword(rs.getString("Cognome"));
-				utente.setTipo(rs.getString("DataNascita"));
-				utente.setEmail(rs.getString("CF"));
+				utente.setNome(rs.getString("Nome"));
+				utente.setCognome(rs.getString("Cognome"));
+				utente.setDataNascita(rs.getString("DataNascita"));
+				utente.setCF(rs.getString("CF"));
 				utente.setEmail(rs.getString("Email"));
 				utente.setPassword(rs.getString("password"));
 				utente.setTipo(rs.getString("Tipo"));
@@ -241,33 +242,75 @@ public class UtenteModelDS implements UtenteDAO{
 		return u;
 	}
 
-public synchronized void doUpdateUtente(String value, String attributo, String id) throws SQLException {
+	public synchronized void doUpdateUtente(String value, String attributo, String id) throws SQLException {
+			
+			Connection connection = null;
+			PreparedStatement preparedStatement = null;
+	
+			String selectSQL = "UPDATE " + TABLE_NAME + " SET ? = ? WHERE ID_Utente = ?";
+		
+			
+			try {
+				connection = DriverManagerConnectionPool.getConnection();
+				preparedStatement = connection.prepareStatement(selectSQL);
+				
+				preparedStatement.setString(1, value);
+				preparedStatement.setString(2, attributo);
+				preparedStatement.setString(3, id);
+				
+	
+				preparedStatement.executeUpdate();
+	
+			} finally {
+				try {
+					if (preparedStatement != null)
+						preparedStatement.close();
+				} finally {
+					DriverManagerConnectionPool.releaseConnection(connection);
+				}
+			}
+		}
+	
+	public Collection<UtenteBean> doRetrieveAllUtente() throws SQLException {
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-
-		String selectSQL = "UPDATE " + TABLE_NAME + " SET ? = ? WHERE ID_Utente = ?";
 	
-		
+		Collection<UtenteBean> utenti = new LinkedList<UtenteBean>();
+	
+		String selectSQL = "SELECT * FROM " + UtenteModelDS.TABLE_NAME + " WHERE Tipo = 'utente'";
+	
 		try {
-			connection = DriverManagerConnectionPool.getConnection();
+			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
-			
-			preparedStatement.setString(1, value);
-			preparedStatement.setString(2, attributo);
-			preparedStatement.setString(3, id);
-			
-
-			preparedStatement.executeUpdate();
-
+	
+			ResultSet rs = preparedStatement.executeQuery();
+	
+			while (rs.next()) {
+				UtenteBean utente = new UtenteBean();
+				
+				utente.setID_Utente(rs.getString("ID_Utente"));
+				utente.setNome(rs.getString("Nome"));
+				utente.setCognome(rs.getString("Cognome"));
+				utente.setDataNascita(rs.getString("DataNascita"));
+				utente.setCF(rs.getString("CF"));
+				utente.setEmail(rs.getString("Email"));
+				utente.setPassword(rs.getString("password"));
+				utente.setTipo(rs.getString("Tipo"));
+				
+				utenti.add(utente);
+			}
+	
 		} finally {
 			try {
 				if (preparedStatement != null)
 					preparedStatement.close();
 			} finally {
-				DriverManagerConnectionPool.releaseConnection(connection);
+				if (connection != null)
+					connection.close();
 			}
 		}
+		return utenti;
 	}
 
 }
