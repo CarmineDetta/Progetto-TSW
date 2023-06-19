@@ -27,7 +27,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		
 		UtenteBean utente = (UtenteBean) request.getSession().getAttribute("UtenteLoggato");
 		String action = request.getParameter("action");
-		System.out.println(action);
+
 		try {
 			if(action != null) {
 				if(action.equalsIgnoreCase("details")){

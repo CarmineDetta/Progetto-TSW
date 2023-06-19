@@ -25,6 +25,7 @@ public class UtenteControl extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		String action = request.getParameter("action");
+		System.out.println(action);
 		
 		if (action != null) {
 			if (action.equalsIgnoreCase("update")) { 
@@ -37,9 +38,11 @@ public class UtenteControl extends HttpServlet{
 					String valore =  request.getParameter("valore");
 					String utente =  request.getParameter("utente");
 					
-					System.out.println(scelta);
+					/*System.out.println(scelta);
 					System.out.println(valore);
 					System.out.println(utente);
+					
+					*/
 					
 					model.doUpdateUtente(valore, scelta, utente);
 					
