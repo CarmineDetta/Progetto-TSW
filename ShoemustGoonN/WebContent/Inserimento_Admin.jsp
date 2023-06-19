@@ -56,9 +56,9 @@ body{
 			
 			<div class="insert">
 				<label class="label_mod"  for="disponibilita">Disponibilità:</label>
-				<input class="box_disp"  type="radio" name="disp" value="Si">
+				<input class="box_disp"  type="radio" name="disp" value="true">
 				<label class="label_mod"  for="Si">Si</label>
-				<input class="box_disp"  type="radio" name="disp" value="No">
+				<input class="box_disp"  type="radio" name="disp" value="false">
 				<label class="label_mod"  for="No">No</label>
 			</div>
 			

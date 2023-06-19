@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <%
-   Collection<?> ordini = (Collection<?>) request.getAttribute("ordini");
+   Collection<?> ordini = (Collection<?>) request.getAttribute("ordini_utente");
 	if(ordini == null) {
 		response.sendRedirect("./ordine");	
 		return;
@@ -15,7 +15,7 @@
 	<link href="style/order.css" rel="stylesheet" type="text/css">
 
 <head>
-<title>ShoeMustGoOn | I miei Ordini</title>
+<title>ShoeMustGoOn | Ordini cliente</title>
 </head>
 
 <style>
@@ -28,13 +28,10 @@ body{
 
 	<jsp:include page="header.jsp" />
 	 
-	<%
-		UtenteBean utente = (UtenteBean)request.getSession().getAttribute("UtenteLoggato");
-	%>
 <div class="content">
 
 	<div class="title">
-		<h2>I miei Ordini</h2>
+		<h2>Ordini cliente</h2>
 	</div>
 	<table border="1">
 		<tr>
@@ -52,7 +49,6 @@ body{
 			<td><%=bean.getID_Ordine()%></td>
 			<td><%=bean.getDataOrdine()%></td>
 			<td><%=bean.getTotale()%></td>
-			<td><button>Stampa Fattura</button></td><br>
 			<td><button><a href="ordine?action=details&id=<%=bean.getID_Ordine()%>">Dettagli</a></button>
 		</tr>
 		<%
@@ -60,7 +56,7 @@ body{
 			} else {
 		%>
 		<tr>
-			<td colspan="6">Non hai ancora effettuato alcun ordine!</td>
+			<td colspan="6">Non ha ancora effettuato alcun ordine!</td>
 		</tr>
 		<%
 			}

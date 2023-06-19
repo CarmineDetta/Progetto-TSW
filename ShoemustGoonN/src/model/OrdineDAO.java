@@ -12,4 +12,10 @@ public interface OrdineDAO {
 	public Collection<OrdineBean> doRetrieveByUtente(String utente) throws SQLException;
 
 	public OrdineBean doRetriveByKey(int id) throws SQLException;
+	
+	public Collection<OrdineBean> doRetrieveAll() throws SQLException;
+	
+	public Collection<OrdineBean> doRetrieveByDate(String DataInizio, String DataFine) throws SQLException;
+
+
 }

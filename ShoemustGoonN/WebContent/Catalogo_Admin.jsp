@@ -28,8 +28,26 @@
         </div>
        	<div id=sidebar>
 
+<<<<<<< HEAD
+	<jsp:include page="header.jsp" />
+	
+	<h2>Prodotti</h2>
+	
+	<table border="1">
+		<tr>
+			<th>ID_Prodotto<button><a href="admin?sort=ID_Prodotto"> Ordina</a></button></th>
+			<th>Marca<button><a href="admin?sort=marca"> Ordina</a></button></th>
+			<th>Modello<button><a href="admin?sort=modello"> Ordina</a></button></th>
+			<th>Colore<button><a href="admin?sort=colore"> Ordina</a></button></th>
+			<th>Prezzo<button><a href="admin?sort=descrizione"> Ordina</a></button></th>
+			<th>Quantita<button><a href="admin?sort=quantita"> Ordina</a></button></th>
+			<th>Disponibilita<button><a href="admin?sort=disponibilita"> Ordina</a></button></th>
+			<th>Descrizione<button><a href="admin?sort=descrizione"> Ordina</a></button></th>
+			<th>Categoria<button><a href="admin?sort=categoria"> Ordina</a></button></th>
+=======
 		</div>
 		<div id =sidebar2>
+>>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
 			
 		</div>
         <%

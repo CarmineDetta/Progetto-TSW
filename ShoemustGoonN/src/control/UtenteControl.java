@@ -25,6 +25,7 @@ public class UtenteControl extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		String action = request.getParameter("action");
+		System.out.println(action);
 		
 		if (action != null) {
 			if (action.equalsIgnoreCase("update")) { 
@@ -37,21 +38,33 @@ public class UtenteControl extends HttpServlet{
 					String valore =  request.getParameter("valore");
 					String utente =  request.getParameter("utente");
 					
-					System.out.println(scelta);
+					/*System.out.println(scelta);
 					System.out.println(valore);
 					System.out.println(utente);
+					
+					*/
 					
 					model.doUpdateUtente(valore, scelta, utente);
 					
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				}
-			} 
-		}
+			}
+			if(action.equalsIgnoreCase("visualizza_tutti")) {
+				try {
+					request.setAttribute("all_utents", model.doRetrieveAllUtente());
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Visualizza_utenti.jsp");
+					dispatcher.forward(request, response);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				
+			}
+		}else {
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Dati_Utente.jsp");
-		dispatcher.forward(request, response);
-
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Dati_Utente.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

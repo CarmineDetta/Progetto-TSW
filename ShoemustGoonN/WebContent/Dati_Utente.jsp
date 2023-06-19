@@ -25,7 +25,7 @@ body{
 	 
 	<%
 		UtenteBean utente = (UtenteBean)request.getSession().getAttribute("UtenteLoggato");
-		
+		String email = utente.getEmail();
 	%>
 <div class="division">
 	<div class=titolo>	
@@ -40,7 +40,7 @@ body{
 		</div>
 		
 		<div class="email">
-			<p><%=utente.getEmail()%></p>
+			<p><%=email%></p>
 		</div>
 	</div>
 	
@@ -76,10 +76,11 @@ body{
 	</div>	<!-- chiude la class elementi -->
 
 	<div id="update_button">
-		<button><a href="utente?action=update&email=<%=utente.getEmail()%>">Vuoi aggiornare i tuoi dati?</a></button><br>
+		<button><a href="utente?action=update&email=<%=email%>">Vuoi aggiornare i tuoi dati?</a></button><br>
 		<br>
 	</div>
 	<%
+		System.out.println(update);
 		if(update != null){	
 	%>
 	
