@@ -5,7 +5,7 @@
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <link rel="stylesheet" href="style/Header.css" type="text/css">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	   	
 	    <title>ShoeMustGoOn | Header</title>
 	</head>
 
@@ -17,12 +17,16 @@
 	
 	        <div class="parametri">
 	        
-					<div id="barra" class="ricerca"> 
+					<div id="barra"> 
+							
 						<img src="https://www.svgrepo.com/show/508177/search-square.svg" width="28" height="28" title="search-icon" alt="search icon"><br>							 
-						<input placeholder="Cerca Prodotti" class="search" type="text" id="search">
+						<form action="SearchServlet" method="get">
+							<input placeholder="Cerca Prodotti" type="text" id="search">
+						<div id ="ricerca" class="barra_ricerca"></div>	
+						</form>		
 					</div>
 					
-					<div id ="ricerca" class="barra_ricerca"> <input type="hidden"> </div>
+					
 					 
  			<%
                 if(session.getAttribute("AdminLoggato") == null){ 
@@ -60,6 +64,9 @@
               %> 	
 	        </div>
 	    </header>
+	    
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	    <script src="javascript/Search.js"></script>
 	</body>
 
 	

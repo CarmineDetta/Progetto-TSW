@@ -211,5 +211,48 @@ public class ProductModelDS implements ProdottoDAO{
 		return products;
 	}
 
+	public synchronized ArrayList<ProdottoBean> RicercaNomeProdotto(String nome) throws SQLException {
+	
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		ArrayList<ProdottoBean> products = new ArrayList<ProdottoBean>();
+		
+		String selectSQL = "SELECT * FROM " + ProductModelDS.TABLE_NAME + " WHERE Marca = ? OR Modello = ?";;
+	
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+					
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				ProdottoBean bean = new ProdottoBean();
+
+				bean.setID_Prodotto(rs.getString("ID_Prodotto"));
+				bean.setMarca(rs.getString("Marca"));
+				bean.setColore(rs.getString("Colore"));
+				bean.setModello(rs.getString("Modello"));
+				bean.setPrezzo(rs.getDouble("Prezzo"));
+				bean.setQuantita(rs.getInt("Quantita"));
+				bean.setDisponibilita(rs.getBoolean("Disponibilita"));
+				bean.setDescrizione(rs.getString("Descrizione"));
+				bean.setCategoria(rs.getString("Categoria"));
+				
+				products.add(bean);
+			}
+					
+			
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return products;	
+	}
 }
 
