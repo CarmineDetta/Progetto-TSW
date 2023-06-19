@@ -10,7 +10,7 @@
 }
 
 #container {
-	overflow: hidden;
+	overflow: hidden; /*?*/
 	filter: brightness(300%);
 }
 
@@ -25,7 +25,7 @@
 #txt::before {
 	content: 'ShoeMustGoOn';
 	position: absolute;
-	mix-blend-mode: difference;
+	mix-blend-mode: difference; /*?*/
 	filter: blur(3px);
 }
 
@@ -55,4 +55,6 @@
 
 @keyframes light-area {
 	to { transform: translate(50%,50%); 
-	}
+}
+
+

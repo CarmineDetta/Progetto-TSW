@@ -8,6 +8,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="style/inserimento_admin.css">
 	<title>ShoeMustGoOn | Inserimento Prodotti</title>
+	<script src="javascript/Admin_Inserimento.js" type="text/javascript"></script>
 </head>
 
 <style>
@@ -23,34 +24,34 @@ body{
 	
 	<a href="Catalogo_Admin.jsp"><button class="homebutton">Home Amministratore</button></a><br>
 
-	<form class="insert_form" action="admin" method="post" enctype="multipart/form-data">
+	<form class="insert_form" action="admin" method="post" enctype="multipart/form-data" id="myForm" onsubmit="return formValidation();">
 			<input type="hidden" name="action" value="insert"> 
 		
 		<h1>Inserimento:</h1>
 		
 			<div class="insert">
 				<label  class="label_mod" for="marca">Marca:</label> 
-				<input class="box" name="marca" type="text" maxlength="20"  placeholder="Inserisci una marca" required>
+				<input id="marca" class="box" name="marca" type="text" maxlength="20"  placeholder="Inserisci una marca" required>
 			</div>
 			
 			<div class="insert">
 				<label class="label_mod" for="modello">Modello:</label>
-				<input class="box"  name="modello" type="text" maxlength="20"  placeholder="Inserisci un modello" required>
+				<input id="modello" class="box"  name="modello" type="text" maxlength="20"  placeholder="Inserisci un modello" required>
 			</div>
 			
 			<div class="insert">
 				<label class="label_mod"  for="colore">Colore:</label>
-				<input class="box_color" name="colore" type="color" required> 
+				<input id="colore" class="box_color" name="colore" type="color" required> 
 			</div>
 			
 			<div class="insert">
 				<label class="label_mod"  for="prezzo">Prezzo:</label> 
-				<input class="box"  name="prezzo" type="number" min="1" value="1" required>
+				<input id="prezzo" class="box" name="prezzo" type="text" pattern="[0-9]+(\.[0-9]+)?" step="any" required placeholder="Inserisci prezzo">
 			</div>
 			
 			<div class="insert">
 				<label class="label_mod"  for="quantita">Quantità:</label> 
-				<input class="box" name="quantita" type="number" min="1" value="1" required>
+				<input id="quantita" class="box" name="quantita" type="number" min="1" value="1" required>
 			</div>
 			
 			<div class="insert">
@@ -82,11 +83,10 @@ body{
 			</div>
 			
 			<div>
-				<input class="pulsanti" type="submit" value="Aggiungi">
+				<input id="submit" class="pulsanti" type="submit" value="Aggiungi">
 				<input class="pulsanti" type="reset" value="Reset">
 			</div>
 		</form>	
 	</div>
-
 </body>
 </html>

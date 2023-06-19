@@ -60,11 +60,11 @@ public class LoginControl extends HttpServlet {
 										response.sendRedirect("./Catalogo_Admin.jsp");
 									}
 								}else{
-									response.getWriter().append("Password non corretta");
+									response.sendRedirect("./Login.jsp");
 								}
 							}
 							else {
-								response.getWriter().append("Utente non registrato");
+								response.sendRedirect("./Login.jsp");
 							}
 							
 						}

@@ -13,7 +13,7 @@ h1{				/*gestisco l'h1 del titolo*/
      background-color: #FFDEAD;
      padding: 0 3% 3% 3%;		/*margine rispetto al lato sinistro e destro degli elementi*/
      border: 7px solid #ff6347;
-     	border-radius: 9px;		
+     border-radius: 9px;		
      margin: 5% auto;
      
      box-shadow: 0 10px 30px ;

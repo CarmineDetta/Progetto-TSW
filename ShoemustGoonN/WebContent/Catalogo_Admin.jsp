@@ -16,10 +16,19 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Catalogo Admin</title>
+	<link rel="stylesheet" href="style/catalogoadmin2.css" type="text/css">
 </head>
-
 <body>
+	<header>
+		<jsp:include page="header.jsp" />
+	</header>
+    <section id="content-main">
+        <div id="insert">
+            <a href="Inserimento_Admin.jsp"><button>Inserisci un prodotto</button></a>
+        </div>
+       	<div id=sidebar>
 
+<<<<<<< HEAD
 	<jsp:include page="header.jsp" />
 	
 	<h2>Prodotti</h2>
@@ -35,38 +44,49 @@
 			<th>Disponibilita<button><a href="admin?sort=disponibilita"> Ordina</a></button></th>
 			<th>Descrizione<button><a href="admin?sort=descrizione"> Ordina</a></button></th>
 			<th>Categoria<button><a href="admin?sort=categoria"> Ordina</a></button></th>
+=======
+		</div>
+		<div id =sidebar2>
+>>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
 			
-		</tr>
-		<%
-			if (products != null && products.size() != 0) {
-				Iterator<?> it = products.iterator();
-				while (it.hasNext()) {
-					ProdottoBean bean = (ProdottoBean) it.next();
-		%>
-		<tr>
-			<td><%=bean.getID_Prodotto()%></td>
-			<td><%=bean.getMarca()%></td>
-			<td><%=bean.getModello()%></td>
-			<td><%=bean.getColore()%></td>
-			<td><%=bean.getPrezzo()%></td>
-			<td><%=bean.getQuantita()%></td>
-			<td><%=bean.isDisponibilita()%></td>
-			<td><%=bean.getDescrizione()%></td>
-			<td><%=bean.getCategoria()%></td>
-			<td><img src="<%=bean.getImmagine().getPath()%>" alt="Immagine prodotto" width="80" height="80"></td>
-			<td><button><a href="admin?action=delete&id=<%=bean.getID_Prodotto()%>">Elimina</a></button></td><br>
-		</tr>
-		<%
-				}
-			} else {
-		%>
-		<tr>
-			<td colspan="6">Nessun prodotto disponibile</td>
-		</tr>
-		<%
-			}
-		%>
-	</table>
-	
-</body>
+		</div>
+        <%
+            if (products != null && products.size() != 0) {
+                Iterator<?> it = products.iterator();
+                while (it.hasNext()) {
+                    ProdottoBean bean = (ProdottoBean) it.next();
+        %>       
+        <section id="container">
+            <div id="image">
+                <img src="<%=bean.getImmagine().getPath()%>" alt="Immagine prodotto" width="300" height="430">
+            </div>
+            <div id="product-item">
+                <p>ID Prodotto: <%=bean.getID_Prodotto()%></p>
+                <p>Marca: <%=bean.getMarca()%></p>
+                <p>Modello: <%=bean.getModello()%></p>
+                <p>Colore: <%=bean.getColore()%></p>
+                <p>Prezzo: <%=bean.getPrezzo()%></p>
+                <p>Quantità: <%=bean.getQuantita()%></p>
+                <p>Disponibilità: <%=bean.isDisponibilita()%></p>
+                <p>Descrizione: <%=bean.getDescrizione()%></p>
+                <p>Categoria: <%=bean.getCategoria()%></p>
+                <div>
+                    <button class="button-elimina">
+                        <a href="admin?action=delete&id=<%=bean.getID_Prodotto()%>">Elimina</a>
+                    </button>
+                </div>
+           </div>
+        </section>
+        <%
+            }
+        } else {
+        %>
+        <div class="table-cell" colspan="9">Nessun prodotto disponibile</div>
+        <%
+            }
+        %>          
+    </section>
+    <footer>
+    	<jsp:include page="footer.jsp" />
+    </footer>
 </html>

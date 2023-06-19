@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="style/register.css">	
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>ShoeMustGoOn | Registrazione</title>
+	<script src="javascript/ValidationRegistrazione.js" type="text/javascript"></script>
 </head>
 
 <style>
@@ -19,7 +20,7 @@ body{
     <jsp:include page="header.jsp"/>
 	
 
-		<form action="login" method="post" class="registerForm" id="registerForm">
+		<form action="login" method="post" class="registerForm" id="registerForm" onsubmit="return formValidation();">
 		<input type ="hidden" name="action" value="register">
 		
 			<h1 id="title">Compila Form Registrazione:</h1>
