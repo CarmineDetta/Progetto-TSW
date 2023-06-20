@@ -97,5 +97,13 @@ CREATE TABLE Composizione(
 	FOREIGN KEY (ID_Ordine) REFERENCES Ordine(ID_Ordine)	
 );
 
-
+CREATE TABLE Recensione(
+	ID_Recensione int not null primary key,
+	Votazione int not null,
+	Descrizione VARCHAR(150) not null,
+	Prodotto VARCHAR(17) not null,
+	foreign key (Prodotto) references Prodotto(ID_Prodotto),
+	Utente VARCHAR(6) NOT NULL,
+	foreign key (Utente) references Utente(ID_Utente)
+);
 
