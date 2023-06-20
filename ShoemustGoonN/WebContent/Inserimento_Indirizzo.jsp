@@ -53,7 +53,7 @@ body{
 				<input id="civico" class="box" name="n_civico" type="text" maxlength="3" placeholder="Inserisci Numero Civico"><br> 
 			</div>
 			
-			<input name="utente" type="hidden" value="<%=utente.getNome();%>">
+			<input name="utente" type="hidden" value="<%=utente.getNome()%>">
 			
 			<br>
 			

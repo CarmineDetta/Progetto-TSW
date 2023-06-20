@@ -35,6 +35,7 @@
     text-decoration: none;	/*toglie le sottolineatura*/	
     color:black;
     font-weight: bold;		/*grassetto*/
+    text-align: center;
 }
 
 .parametri :hover {		/*transizioni su oggetti*/

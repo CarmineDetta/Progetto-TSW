@@ -3,7 +3,7 @@
 	<head>
 	    <meta charset="UTF-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <link rel="stylesheet" href="style/Header.css" type="text/css">
+	    <link rel="stylesheet" href="style/header.css" type="text/css">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	   	
 	    <title>ShoeMustGoOn | Header</title>
@@ -17,13 +17,14 @@
 	
 	        <div class="parametri">
 	        
-					<div id="barra"> 
+					<div id="barra">
 							
 						<img src="https://www.svgrepo.com/show/508177/search-square.svg" width="28" height="28" title="search-icon" alt="search icon"><br>							 
 						<form action="SearchServlet" method="get">
 							<input placeholder="Cerca Prodotti" type="text" id="search">
-						<div id ="ricerca" class="barra_ricerca"></div>	
-						</form>		
+							
+						</form>			
+						<div id ="barra"> <input type="hidden"> </div>
 					</div>
 					
 					
@@ -39,8 +40,10 @@
 		     <%
                 }else{
              %>
-             	<a href="Inserimento_Admin.jsp"><button>Inserisci un prodotto</button></a><br>
-             	<a href="ordine?action=visualizza_tutti"><Button>Gestisci ordini</Button></a>
+             	<br><a href="Inserimento_Admin.jsp">
+             		<img src="https://www.svgrepo.com/show/514200/plus-folder.svg"  width="28" height="28" title="add-icon" alt="add product icon"><br>
+             	</a>
+             	<br><a href="ordine?action=visualizza_tutti">Gestisci Ordini</a>
              <%  	
                 }
               	if(session.getAttribute("UtenteLoggato") != null){
@@ -69,8 +72,10 @@
 	        </div>
 	    </header>
 	    
-	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	    <script src="javascript/Search.js"></script>
+	    <!--  
+	    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	    	<script src="javascript/Search.js"></script>
+	    -->
 	</body>
 
 	

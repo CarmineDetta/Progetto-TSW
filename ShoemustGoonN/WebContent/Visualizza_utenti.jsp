@@ -11,6 +11,7 @@
 <!DOCTYPE html>
 <html>
 <%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.*"%>
+
 <head>
 	<meta charset="UTF-8">
 	<title>ShoeMustGoOn | Utenti registrati</title>

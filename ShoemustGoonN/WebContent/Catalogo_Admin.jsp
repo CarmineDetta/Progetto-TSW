@@ -28,7 +28,7 @@
         </div>
        	<div id=sidebar>
 
-<<<<<<< HEAD
+
 	<jsp:include page="header.jsp" />
 	
 	<h2>Prodotti</h2>
@@ -44,11 +44,9 @@
 			<th>Disponibilita<button><a href="admin?sort=disponibilita"> Ordina</a></button></th>
 			<th>Descrizione<button><a href="admin?sort=descrizione"> Ordina</a></button></th>
 			<th>Categoria<button><a href="admin?sort=categoria"> Ordina</a></button></th>
-=======
+
 		</div>
 		<div id =sidebar2>
->>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
-			
 		</div>
         <%
             if (products != null && products.size() != 0) {

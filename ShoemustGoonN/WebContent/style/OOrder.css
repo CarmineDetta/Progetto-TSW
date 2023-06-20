@@ -1,0 +1,74 @@
+/*css utilizzato sia per ordini utenti che ordini admin*/
+#title{
+	margin: 5%;
+}
+
+#title h2{
+	font-size: 25pt;
+	font-family: Gill Sans, sans-serif;
+}
+
+.completo{
+		margin: 3%;
+		padding: 5%;
+		width: 93%;
+		box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);	
+}
+
+#price_order{	
+	padding-left: 10%;
+	font-size: 18pt;
+	font-weight: bold;
+}
+
+#id_order{
+	padding: 2%;
+	padding-left: 20%;
+	font-size: 11pt;
+	color: #BABABA;
+}
+
+.elements1{
+	display: flex;
+}
+
+#date_order{
+	padding-left: 50%;
+	font-size: 11pt;
+	color: #6495ED;
+}
+
+.elements2{
+	margin-top: 3%;
+	display: flex;
+		align-items: center;
+}
+
+#butt_dettagli{
+	margin-left: 50%;
+	width: 10%;
+	height: 40%;
+}
+
+#butt_dettagli a{
+	color: black;
+	text-decoration: none;
+}
+
+#stampa{
+	margin-top: 2%;
+	width: 15%;
+}
+
+.content  button{
+	border: 2px solid black;
+		border-radius: 8px;
+	background-color: #ff6347;
+}
+
+/*gestisce utente in ordini admin*/
+ #utente{
+ 	margin-left: 15%;
+ 	color: red;
+ 	font-weight: bold;
+ }

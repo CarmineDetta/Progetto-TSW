@@ -30,16 +30,20 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Checkout | ShoeMustGoOn</title>
+	<link href="style/acquist.css" rel="stylesheet" type="text/css">
+	<title>ShoeMustGoOn | CheckOut</title>
 </head>
+
 <body>
 	<jsp:include page="header.jsp"/>
-	
+
+<div class="contenuto">	
+
 		<form action="AcquistoControl" method="post"> 
-		
 		<input type="hidden" name="action" value="Completo">
 		
-		<span>Seleziona il tuo metodo di pagamento</span>
+	<div class="pagamento">
+		<p>Seleziona il tuo metodo di pagamento</p>
 		
 		<table border="1">
 		<tr>
@@ -49,6 +53,7 @@
 			<th>CVV</th>
 			
 		</tr>
+
 		<%
 			if (payments != null && payments.size() != 0) {
 				Iterator<?> it = payments.iterator();
@@ -66,9 +71,9 @@
 				}
 		%>
 		
-		</table><br>		
+		</table>		
 		<button><a href="InserimentoCarta.jsp">Inserisci una nuova carta</a></button><br>
-		
+	</div>
 		<%
 			} else {
 		%>
@@ -76,8 +81,9 @@
 		<%
 			}
 		%>
-		
-		<br><span>Seleziona il recapito dell'ordine</span><br>
+	
+	<div class="recapito">
+		<p>Seleziona il recapito dell'ordine</p>
 		
 		<table border="1">
 		<tr>
@@ -108,18 +114,20 @@
 				}
 		%>
 		
-		</table><br>		
+		</table>		
 		<Button><a href ="Inserimento_Indirizzo.jsp">Inserisci un nuovo recapito</a></Button><br>
 		
 		<%
 			} else {
 		%>
-			<br><Button><a href ="Inserimento_Indirizzo.jsp">Non hai inserito alcun recapito, inserisci un nuovo recapito</a></Button><br>
+			<Button><a href ="Inserimento_Indirizzo.jsp">Non hai inserito alcun recapito, inserisci un nuovo recapito</a></Button><br>
 			
 		<%
 			}
 		%>
-		
+		</div>
+	
+	<div class="completa_ordine">
 	<% if (payments.isEmpty() || recapiti.isEmpty()){ %>
 					<input type="submit" value="Completa ordine" disabled>
 	
@@ -127,6 +135,7 @@
 					<input type="submit" value="Completa ordine">
 					
 				<% } %>
-		
+		</div>
+</div>		
 </body>
 </html>

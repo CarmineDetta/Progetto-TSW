@@ -12,17 +12,11 @@
 <!DOCTYPE html>
 <html>
 	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.OrdineBean, model.UtenteBean"%>
-	<link href="style/order.css" rel="stylesheet" type="text/css">
 
 <head>
 <title>ShoeMustGoOn | Ordini per data</title>
 </head>
 
-<style>
-body{
-	background-image: url("image/sfondo_order.jpg");	
-}
-</style>
 
 <body>
 

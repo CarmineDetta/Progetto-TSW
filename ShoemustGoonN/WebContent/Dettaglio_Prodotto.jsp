@@ -14,7 +14,7 @@
 <%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.ProdottoBean"%>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link href="style/dettaglio.css" rel="stylesheet" type="text/css">
+	<link href="style/Dettaglio.css" rel="stylesheet" type="text/css">
 	<title><%=product.getMarca() +" "+ product.getModello()%></title>
 </head>
 <body>
@@ -56,7 +56,7 @@
 			</div>
 			
 
-		
+		<div id="form_prod">
 			<form action="cart" method="post">	
 				<input type="hidden" name="action" value="addCart">	
 				<input type="hidden" name="id" value="<%=product.getID_Prodotto()%>">
@@ -64,6 +64,7 @@
 				<input type="number" name="qty" value="1" min="1" id="numeri">
 				<input type="submit" value="Aggiungi al carrello" id="butt">
 			</form>
+		</div>
 		
 		</div>
 

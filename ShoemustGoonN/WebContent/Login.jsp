@@ -10,11 +10,13 @@
 	<title>ShoeMustGoOn | Login</title>
 </head>
 
+
 <style>
 body{
 	background-image: url("image/sfondo-login.jpg");
 }
 </style>
+
 	<body>
 	
 	<jsp:include page="header.jsp" />
