@@ -1,7 +1,5 @@
 package model;
 
-import java.time.LocalDate;
-
 public class PortafoglioBean {
 	
 	private int ID_Pagamento;
