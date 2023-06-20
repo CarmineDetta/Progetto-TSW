@@ -12,73 +12,52 @@
 %>
 <!DOCTYPE html>
 <html>
-<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.*"%>
-<head>
-<meta charset="UTF-8">
-<link href="style/dettaglio.css" rel="stylesheet" type="text/css">
+	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.*"%>
 
-<title>Dettagli Ordine | ShoeMustGoOn</title>
+<head>
+	<meta charset="UTF-8">
+	<title>ShoeMustGoOn | Dettaglio Ordine</title>
 </head>
+
 <body>
 
 	<jsp:include page="header.jsp" />
 
-	<table border="1">
-		<tr>
-			<th>ID_Ordine</th>
-			<th>Data ordine</th>
-			<th>Totale</th>
-		</tr>
+			ID_Ordine
+			Data ordine
+			Totale
 		
-		<tr>
-			<td><%=ordine.getID_Ordine()%></td>
-			<td><%=ordine.getDataOrdine()%></td>
-			<td><%=ordine.getTotale()%></td>
+			<%=ordine.getID_Ordine()%>ù
+			<%=ordine.getDataOrdine()%>
+			<%=ordine.getTotale()%>
 			<%
 				if(session.getAttribute("AdminLoggato") == null){ 
 			%>
-					<td><button>Stampa Fattura</button></td><br>
+					<button>Stampa Fattura</button></td>
 			<%
 				}
 			%>
-		</tr>
-	</table><br>
+
 <%
 	PortafoglioBean pagamento = ordine.getPagamento();
 	RecapitoBean recapito = ordine.getRecapito();
 %>	
 
 	<h3>Metodo Pagamento</h3><br>
-	<table border="1">
-		<tr>
-			<th>Numero Carta</th>
-			<th>Nome Intestatario</th>
-			<th>Scandenza</th>
-			<th>CVV</th>
-		</tr>
-		<tr>
-			<td><%=pagamento.getN_carta()%></td>
-			<td><%=pagamento.getNome_Intestatario()%></td>
-			<td><%=pagamento.getScadenza()%></td>
-			<td><%=pagamento.getCvv()%></td>
-		</tr>
-	</table><br>
-	
+
+			<%=pagamento.getN_carta()%>
+			<%=pagamento.getNome_Intestatario()%>
+			<%=pagamento.getScadenza()%>
+			<%=pagamento.getCvv()%>
+
 	<h3>Recapito</h3><br>
-	<table border="1">
-		<tr>	
-			<th>Cap</th>
-			<th>Città</th>
-			<th>Via/Piazza</th>
-			<th>N. civico</th>
-		</tr>
-		<tr>
-			<td><%=recapito.getCap()%></td>
-			<td><%=recapito.getCitta()%></td>
-			<td><%=recapito.getVia_Piazza()%></td>
-			<td><%=recapito.getN_Civico()%></td>
-		</tr>
-	</table><br>
+		
+
+			<%=recapito.getCap()%>
+			<%=recapito.getCitta()%>
+			<%=recapito.getVia_Piazza()%>
+			<%=recapito.getN_Civico()%>
+
 <%
 	ComposizioneModelDS modelComp = new ComposizioneModelDS();
 	ProductModelDS modelProd = new ProductModelDS();

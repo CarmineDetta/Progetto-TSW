@@ -218,7 +218,7 @@ public class ProductModelDS implements ProdottoDAO{
 		
 		ArrayList<ProdottoBean> products = new ArrayList<ProdottoBean>();
 		
-		String selectSQL = "SELECT * FROM " + ProductModelDS.TABLE_NAME + " WHERE Marca = ? OR Modello = ?";;
+		String selectSQL = "SELECT * FROM " + ProductModelDS.TABLE_NAME + " WHERE Marca = ? OR Modello = ?";
 	
 		try {
 			connection = ds.getConnection();
