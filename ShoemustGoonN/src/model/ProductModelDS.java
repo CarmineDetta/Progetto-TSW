@@ -1,5 +1,6 @@
 package model;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -254,5 +255,54 @@ public class ProductModelDS implements ProdottoDAO{
 		}
 		return products;	
 	}
+	
+public synchronized Collection<ProdottoBean> doRetrieveSuggest(String StringaParziale) throws SQLException, IOException {
+		
+		//fare quando dobbiamo cercare oggetti precisi sul db
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		ProdottoBean bean = new ProdottoBean();
+
+		String selectSQL = "SELECT * FROM " + ProductModelDS.TABLE_NAME + " WHERE Marca LIKE ?";
+		Collection<ProdottoBean> products = new LinkedList<ProdottoBean>();
+			
+		try {
+			connection = DriverManagerConnectionPool.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			String stringaRicerca = StringaParziale.concat("%");
+			preparedStatement.setString(1, stringaRicerca);
+			
+			System.out.println(stringaRicerca+ " nella stringa: " + selectSQL);
+
+			ResultSet rs = preparedStatement.executeQuery();
+			
+			
+			
+			while (rs.next()) {
+				bean = new ProdottoBean();
+				bean.setID_Prodotto(rs.getString("ID_Prodotto"));
+				bean.setMarca(rs.getString("Marca"));
+				bean.setDisponibilita(rs.getBoolean("Disponibilita"));
+				System.out.println("Gli oggetti trovati sono: "+bean.getID_Prodotto()+ " " + bean.getMarca() + " " + bean.isDisponibilita() );
+				if( bean.isDisponibilita() ) {
+					products.add(bean);
+				}
+
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				DriverManagerConnectionPool.releaseConnection(connection);
+			}
+		}
+		products.toString();
+		return products;
+	}
+
+	
 }
 
