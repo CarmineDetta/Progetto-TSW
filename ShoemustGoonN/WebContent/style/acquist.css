@@ -1,0 +1,65 @@
+
+.contenuto{
+	margin: 5%;
+}
+
+.contenuto p{
+	font-size: 18pt;
+	font-family: Gill Sans, sans-serif;
+	font-weight: bold;
+}
+
+.pagamento{
+	margin: 5%;
+	padding: 3%;
+	box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);	
+}
+
+.recapito{
+	margin:5%;
+	padding: 3%;
+	box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);	
+}
+
+.contenuto table{
+	border-collapse: collapse;
+	border: 2px solid black;
+	width: 100%;
+	margin-bottom: 5%;
+	text-align: center;
+}
+
+.contenuto td{
+	font-size: 14pt;
+	font-family: Trebuchet MS, sans-serif;
+}
+.contenuto a{
+	text-decoration: none;
+	color: black;
+	
+}
+
+.contenuto button{
+	background-color: #ff6347;
+	border-radius: 6px;
+	width: 21%;
+}
+
+.completa_ordine input{
+	margin-left: 40%;
+	border-radius: 10px;
+	width: 15%;
+	padding: 5px;
+	background-color: #ff6347;
+}
+
+.contenuto button:hover{
+	background-color: #F4A460;
+	transition: all .2s;
+}
+
+.completa_ordine input:hover{
+	background-color: #F4A460;
+	transition: all .2s;
+	cursor:pointer;
+}

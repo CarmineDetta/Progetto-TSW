@@ -1,0 +1,38 @@
+
+.contenuto h1{
+	margin: 8%;
+	font-family:Gill Sans, sans-serif;
+	font-size: 30pt;
+	
+}
+
+.text{
+	display: flex;
+		align-items: center;
+}
+
+#imagine{
+	margin-left: 1%;
+}
+
+.intermezzo{
+	display: flex;
+}
+.contenuto input{
+	margin: 5%;
+	width: 90%;
+	padding: 5px;
+	background-color: #ff6347;
+	border-radius: 10px;
+}
+
+.contenuto input:hover{
+	cursor: pointer;
+	background-color: #F4A460;
+	transition: all .2s;
+}
+
+.contenuto .pollice img{
+	width: 15%;
+	margin-left: 40%;
+}

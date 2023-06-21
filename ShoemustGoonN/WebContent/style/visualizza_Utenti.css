@@ -1,0 +1,69 @@
+
+.content{
+	margin: 5%;
+}
+
+.content h2{
+	font-family: Gill Sans, sans-serif;
+	font-size: 20pt;
+	margin-bottom: 5%;
+}
+
+.content table{
+	text-align: center;
+	border-collapse: collapse;
+	border: 2px solid black;
+	width: 100%;
+	margin-bottom: 5%;
+	box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);	
+	
+}
+
+.content th{
+	background-color:	#B7B7B7;
+	font-size: 13pt;
+	width: 10%;
+	font-family: Gill Sans, sans-serif;
+
+}
+
+.content td{
+	font-size: 12pt;
+	font-family: Trebuchet MS, sans-serif;
+}
+
+.content a{
+	text-decoration: none;
+	color: black;
+}
+
+.content button{
+	width: 80%;
+	background-color: #ff6347;
+	
+}
+
+.content button:hover{
+	background-color: #F4A460;
+	transition: all .2s;
+}
+
+.barra_ricerca{
+	display: flex;
+		justify-content: center;
+	margin-bottom: 3%;
+}
+
+.content #cerca{
+	border: 2px solid black;
+	margin-left: 2%;
+	padding: 5px;
+	width: 200px;		
+	border-radius:20px;							
+	text-align: center;	
+}
+
+.content #cerca:hover{
+	border: 2px solid #ff6347;
+	transform: translateY(-3px); 
+}

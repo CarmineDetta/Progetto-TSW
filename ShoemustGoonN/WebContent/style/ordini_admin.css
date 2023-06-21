@@ -1,0 +1,70 @@
+ 
+ #title{
+	margin: 5%;
+}
+ 
+ #title h2{
+	font-size: 25pt;
+	font-family: Gill Sans, sans-serif;
+}
+
+.content{
+	margin-bottom: 15%;
+}
+
+ .completo table{
+	border-collapse: collapse;
+	border: 2px solid black;
+	width: 80%;
+	margin-bottom: 1%;
+	margin-left: 10%;
+	text-align: center;
+}
+
+.completo td{
+	font-size: 14pt;
+	font-family: Trebuchet MS, sans-serif;
+}
+
+.completo a{
+	text-decoration: none;
+ 	color: black;
+}
+
+.completo button{
+	background-color: #ff6347;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+.completo button:hover{
+	background-color: #F4A460;
+	transition: all .2s;
+}
+
+ .combo_bottoni{
+ 		display: grid;
+ 		margin-bottom: 7%;
+ }
+ 
+ .combo_bottoni a{
+ 	border: 1px solid #ff6347;
+ 	border-radius: 7px;
+	margin-bottom: 1%;
+	margin-left: 5%;
+
+ }
+ 
+ #visual_button a{
+ 	font-size: 13pt;
+ 	font-family: Helvetica, sans-serif;
+ 	text-decoration: none;
+ 	color: black;
+ }
+ 
+ #visual_button:hover{
+	transform: translateY(-3px);
+	font-weight: bold;
+    text-shadow: 4px 3px 4px  white;
+    transition: .3s;
+ }

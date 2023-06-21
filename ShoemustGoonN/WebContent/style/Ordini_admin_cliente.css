@@ -1,0 +1,43 @@
+
+.contenutoo{
+	margin: 5%;
+}
+
+.contenutoo h2{
+	font-size: 19pt;
+	font-family: Gill Sans, sans-serif;
+}
+
+.contenutoo table{
+	border-collapse: collapse;
+	border: 2px solid black;
+	width: 100%;
+	margin-bottom: 5%;
+	text-align: center;
+	margin-top: 5%;
+}
+
+.contenutoo th{
+	font-size: 14pt;
+	font-family: Gill Sans, sans-serif;
+	background-color: #B7B7B7;
+}
+
+.contenutoo td{
+	height: 40px;
+}
+
+.contenutoo button{
+	width: 70%;
+	background-color: #ff6347;
+}
+
+.contenutoo a{
+	text-decoration: none;
+	color: black;
+}
+
+.contenutoo button:hover{
+	background-color: #F4A460;
+	transition: all .2s;
+}
