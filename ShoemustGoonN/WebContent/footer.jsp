@@ -18,7 +18,7 @@
 		
 		<div class="footer-informazioni">
 		 				
-		  <p class="descrizione">Il nostro sito web tratta la vendita di scarpe per uomini e donne, scarpe di tutte le tipologie. Una scarpa per ogni evento! Venite a trovarci. Ad ogni persona la sua scarpa!</p>
+		  <p class="descrizione">Il nostro sito web tratta la vendita di scarpe, scarpe di tutte le tipologie. Una scarpa per ogni evento! Venite a trovarci. Ad ogni persona la sua scarpa!</p>
 
 	      <br/><a target="_blank" href="#">Informativa Privacy</a> | <a target="_blank" href="#">Informativa Cookie</a>
 			
@@ -28,11 +28,10 @@
 	<div class="footer-menu">
 		<div class="menu-footer">
 		<ul id="menu-menu-footer" class="menu">
-    		<li><a href="#">Homepage</a></li>
-			<li><a href="#">Prodotti</a></li>
-			<li><a href="#">Domande Frequenti</a></li><br>
-			<li><a href="#">Chi Siamo</a></li>
-			<li><a href="#">Contatti</a></li>
+    		<li><a href="Homepage.jsp">Homepage</a></li>
+			<li><a href="Catalogo_Utente.jsp">Prodotti</a></li>
+			<li><a href="FAQ.jsp">Domande Frequenti</a></li><br>
+			<li><a href="Chi_Siamo.jsp">Chi Siamo</a></li>
 			</ul>
 		</div> <!-- fine menu -->
 	</div>
@@ -49,7 +48,7 @@
 			<ul class="social-list">		<!-- targetblank utilizzato per aprire un link in un'altra pagina -->
 				<li class="trans-color"><a target="_blank" href="#"><img src="https://www.svgrepo.com/show/494273/facebook-round.svg"  title="facebook" alt="Facebook icon"><br></a></li>
 				<li class="trans-color"><a target="_blank" href="#"><img src="https://www.svgrepo.com/show/494277/instagram-round.svg" title="Instagram" alt="Instagram icon"><br></a></li>
-				<li class="trans-color"><a target="_blank" href="#"><img src="https://www.svgrepo.com/show/361181/github.svg" title="git-hub" alt="Git-Hub icon"><br></a></li>
+				<li class="trans-color"><a target="_blank" href="https://github.com/CarmineDetta/Progetto-TSW"><img src="https://www.svgrepo.com/show/361181/github.svg" title="git-hub" alt="Git-Hub icon"><br></a></li>
 			</ul>			
 		</div><!--/fine social-->	
 	
@@ -61,19 +60,19 @@
 		<span class="title_crediti">Creato da:</span>
 
       	<span class="nomiCreatori">
-         <a class="linkNome" href="">Salvatore Alberti | </a>
+         <a target="_blank" class="linkNome" href="https://github.com/SalvatoreAlberti">Salvatore Alberti | </a>
       	</span>
       
       	<span class="nomiCreatori">
-         <a class="linkNome" href="">Lino D'Amora | </a>
+         <a target="_blank" class="linkNome" href="https://github.com/Onil0">Lino D'Amora | </a>
       	</span>
 
       	<span class="nomiCreatori">
-         <a class="linkNome" href="">Francesco Contaldo | </a>
+         <a target="_blank" class="linkNome" href="https://github.com/CiaoMiChiamoFrank">Francesco Contaldo | </a>
       	</span>
 
       	<span class="nomiCreatori">
-         <a class="linkNome" href="">Carmine Detta</a>
+         <a target="_blank"  class="linkNome" href="https://github.com/CarmineDetta">Carmine Detta</a>
      	</span>
 	</div>				
 

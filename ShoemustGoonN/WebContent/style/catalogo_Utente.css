@@ -1,0 +1,45 @@
+
+
+*{
+ 	box-sizing: border-box;	
+}
+.marca-modello{
+	align-items: middle;
+    font-family: Gill Sans, sans-serif;
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+.prezz{
+    font-family: Arial, sans-serif; 
+}
+
+.product {
+
+	display: grid;
+	
+    margin-top: 5%;
+    margin-left: 10%; 
+    margin-right: 20%;
+
+    
+}
+
+.product-item {
+	border: 1px solid black;
+	padding: 1%;
+  	margin: 2%; /* Aggiungi uno spazio tra i container */
+  	
+}
+
+
+
+
+@media (max-width: 767px) {
+    div.product-item {
+        margin: 20px; /* Aggiungi uno spazio tra i container */
+        flex-basis: 50%;
+    }
+}
+
+

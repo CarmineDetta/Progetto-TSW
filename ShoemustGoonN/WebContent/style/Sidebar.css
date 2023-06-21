@@ -1,0 +1,17 @@
+
+
+#sidebar{
+    width: 200px;
+    height: 2000px;
+    margin-left: 1%;
+    float: left; 			/* Aggiunto float: left per far sì che la sidebar venga posizionata a sinistra */
+    background-image: url(../image/sidebar.jpeg);
+}
+
+#sidebar2 {
+    width: 200px;
+    height: 2000px;
+    margin-right: 1%;
+    float: right; 				/* Aggiunto float: left per far sì che la sidebar venga posizionata a sinistra */
+    background-image: url(../image/sidebar.jpeg);
+}

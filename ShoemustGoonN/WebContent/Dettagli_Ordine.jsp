@@ -13,6 +13,7 @@
 <!DOCTYPE html>
 <html>
 	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.*"%>
+	<link rel="stylesheet" href="style/dettaglii_ordine.css" type="text/css">
 
 <head>
 	<meta charset="UTF-8">
@@ -23,41 +24,7 @@
 
 	<jsp:include page="header.jsp" />
 
-			ID_Ordine
-			Data ordine
-			Totale
-		
-			<%=ordine.getID_Ordine()%>ù
-			<%=ordine.getDataOrdine()%>
-			<%=ordine.getTotale()%>
-			<%
-				if(session.getAttribute("AdminLoggato") == null){ 
-			%>
-					<button>Stampa Fattura</button></td>
-			<%
-				}
-			%>
-
-<%
-	PortafoglioBean pagamento = ordine.getPagamento();
-	RecapitoBean recapito = ordine.getRecapito();
-%>	
-
-	<h3>Metodo Pagamento</h3><br>
-
-			<%=pagamento.getN_carta()%>
-			<%=pagamento.getNome_Intestatario()%>
-			<%=pagamento.getScadenza()%>
-			<%=pagamento.getCvv()%>
-
-	<h3>Recapito</h3><br>
-		
-
-			<%=recapito.getCap()%>
-			<%=recapito.getCitta()%>
-			<%=recapito.getVia_Piazza()%>
-			<%=recapito.getN_Civico()%>
-
+<div class="totale">
 <%
 	ComposizioneModelDS modelComp = new ComposizioneModelDS();
 	ProductModelDS modelProd = new ProductModelDS();
@@ -66,46 +33,136 @@
 		ProdottoBean product = modelProd.doRetrieveByKey(a.getID_ProdottoItemCarrello());
 		int quantita = a.getQuantitaItemCarrello();
 %>
-	
-<div class="content">
-	<div class="elementi">
+		
+	<div class="prodotto">
 		
 		<div id="image">
 			<img src="<%=product.getImmagine().getPath()%>" alt="Immagine prodotto">
 		</div>
-		<div id="zoomedImage"></div>
-
-		<div class="text">
-			<div id="marca">
-				<%=product.getMarca()%>
-			</div>		
 		
-			<div id="modello">
-				<%=product.getModello()%>
-			</div>
-	
-			<div id="category">	
-				<%=product.getCategoria()%>
-			</div>
+			<div class="specifiche">
+				<div id="marca">
+					<%=product.getMarca()%>
+				</div>		
+			
+				<div id="modello">
+					<%=product.getModello()%>
+				</div>
+		
+				<div id="category">	
+					<%=product.getCategoria()%>
+				</div>
+					
+				<div id="prezzo">
+					<%=product.getPrezzo()%> €
+				</div>
+		
+				<div id="color">
+					<%=product.getColore()%>
+				</div>
 				
-			<div id="prezzo">
-				<%=product.getPrezzo()%> €
-			</div>
-	
-			<div id="color">
-				<%=product.getColore()%>
 			</div>
 			
-			<div>
-				<%=quantita%>
+			<div class="order_info">
+			
+				<h4>Info Ordine</h4><br>
+			
+				<div class="campo_specifico">
+					<p id="label">ID_Ordine:</p>
+						<p id="risposta"> <%=ordine.getID_Ordine()%></p>
+				</div>
+				
+				<div class="campo_specifico">
+					<p id="label">Data Ordine:</p> 
+						<p id="risposta"> <%=ordine.getDataOrdine()%></p>
+				</div>
+				
+				<div class="campo_specifico">
+					<p id="label">Totale Speso:</p> 
+						<p id="risposta"> <%=ordine.getTotale()%></p>
+				</div>
 			</div>
-	</div>
-</div>
+		
+		</div>
+		
+			
 
+<%
+	PortafoglioBean pagamento = ordine.getPagamento();
+	RecapitoBean recapito = ordine.getRecapito();
+%>	
+
+	<div class="specifiche2">
+		<div class="pagaments">
+			<h4>Metodo Pagamento</h4><br>
+		
+				<div class="campo_specifico">
+					<p id="label">N° Carta:</p>
+						<p id="risposta"> <%=pagamento.getN_carta()%></p>
+				</div>
+				
+				<div class="campo_specifico">
+					<p id="label">Nome Intestatario:</p>
+						<p id="risposta"> <%=pagamento.getNome_Intestatario()%></p>
+				</div>
+				
+				<div class="campo_specifico">
+					<p id="label">Data di Scadenza:</p>
+						<p id="risposta"> <%=pagamento.getScadenza()%></p>
+				</div>
+				
+				<div class="campo_specifico">
+					<p id="label">CVV:</p>
+						<p id="risposta"> <%=pagamento.getCvv()%></p>
+				</div>
+		</div>
+		
+		<div class="recapitoo">
+			<h4>Recapito</h4><br>
+										
+				<div class="campo_specifico">
+					<p id="label">CAP:</p>
+						<p id="risposta"> <%=recapito.getCap()%></p>
+				</div>
+				
+				<div class="campo_specifico">
+					<p id="label">Città:</p>
+						<p id="risposta"> <%=recapito.getCitta()%></p>
+				</div>
+				
+				<div class="campo_specifico">
+					<p id="label">Via/Piazza:</p>
+						<p id="risposta"> <%=recapito.getVia_Piazza()%></p>
+				</div>
+				
+				<div class="campo_specifico">
+					<p id="label">N° Civico:</p>
+						<p id="risposta"> <%=recapito.getN_Civico()%></p>
+				</div>
+				
+		</div>
+	</div>
+			
+			<%
+				if(session.getAttribute("AdminLoggato") == null){ 
+			%>
+					<button>Stampa Fattura</button></td>
+			<%
+				}
+			%>
+			
+			
+		<hr class="linea">	<!-- gestisce la linea di separaizione tra piu ordini -->
+				
+				
+				
 <%
 	}
 %>
-	<jsp:include page="footer.jsp" />
 
+</div>
+			
+			
+	<jsp:include page="footer.jsp" />
 </body>
 </html>
