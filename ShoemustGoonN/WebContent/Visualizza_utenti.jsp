@@ -23,13 +23,12 @@
 
 <div class="content">
 	
-	<div class="barra_ricerca">
-		<img src="https://www.svgrepo.com/show/510179/search-file.svg" width="28" height="28" title="mark-icon" alt="mark icon">
-		<form method="get">
-			<input placeholder="Cerca Utente" type="text" id="cerca">	
-		</form>		
-	</div>
-
+	        <!-- barra ricerca -->
+			<div id="barra_ricerca">
+				<img src="https://www.svgrepo.com/show/510179/search-file.svg" width="28" height="28" title="mark-icon" alt="mark icon">
+				<input type="text" placeholder="Cerca Utente" class="campoRicerca" id="cerca" onkeyup="funzioneRicercaUtente()"/>
+				<div id="Risultati"></div>
+			</div>
 
 		<h2>Utenti Registrati</h2>
 		
@@ -74,6 +73,78 @@
 </div>
 
 		<jsp:include page="footer.jsp" />
-	
+		<script>
+		$('#cerca').on('click', function() {
+			
+			Swal.fire({
+				  showConfirmButton: false,
+				  html: '<h1>Ricerca</h1><div id="barraricercaResponsive"><input type="text" placeholder="Cerca prodotti" class="campoRicercaResponsive" id="QueryRicercaResponsive" onkeyup="funzioneRicercaUtente()"/><button type="submit" class="bottoneRicercaResponsive"><ion-icon name="search-outline" class="" id=""></ion-icon></button><div id="RisultatiResponsive"></div></div>',
+				  customClass: { popup: 'borderBoxPopU'},
+				})
+		} )
+		
+		
+		function funzioneRicercaUtente() {
+			
+			$("#Risultati").empty();
+        	$("#RisultatiResponsive").empty();
+        	$("#Risultati").removeClass( "DivRisultati" );
+			
+			console.log("Inizia la funzione di ricerca")
+			var stringaParziale;
+
+			
+			
+			if(document.getElementById("cerca").value === ""){
+				stringaParziale = document.getElementById("QueryRicercaResponsive").value;
+				console.log("Ricerca query responsive");
+			} else {
+				stringaParziale = document.getElementById("cerca").value;
+				console.log("Ricerca query normale");
+			}
+			
+			$.ajax({  
+				async: true,
+	            //uri della servlet
+	            url: "AjaxUtente",  
+	            //tipo di richiesta
+	            method: "POST",
+	            //dati inviati al server
+	            data: "stringaRicerca=" + stringaParziale,
+	            //tipo dato ricevuto dalla servlet
+	            dataType: "json",          
+	            success: function(data, textStatus, jqXHR) {
+	            	
+	            	$("#Risultati").empty();
+	            	$("#RisultatiResponsive").empty();
+	            	
+	            	if( data.length >=1) {
+	            		$("#RisultatiResponsive").empty();
+	            		$("#Risultati").empty();
+		            	$("#Risultati").addClass( "DivRisultati" );
+		            	for (const i in data) {
+		            		$( "#Risultati" ).append('<div id=""><a href="utente?action=visualizza_tutti&id='+data[i].ID_Utente+'">'+data[i].Cognome+'</a></div>');
+		            		$( "#RisultatiResponsive" ).append('<div id=""><a href="utente?action=visualizza_tutti&id='+data[i].ID_Utente+'">'+data[i].Cognome+'</a></div>');
+						}
+		            	
+	            	} else {
+	            		$("#RisultatiResponsive").empty();
+	            		$("#Rdisultati").empty();
+	            		$("#Risultati").removeClass( "DivRisultati" );
+	            	}
+	            	
+	            	if(stringaParziale === ""){
+	            		
+	            		$("#Risultati").removeClass( "DivRisultati" );
+	            	}
+	            	
+	            },
+	            error: function(jqXHR, textStatus, errorThrown){
+	            	console.log(jqXHR);
+	            } 
+	        });
+		}
+		
+	</script>
 </body>
 </html>

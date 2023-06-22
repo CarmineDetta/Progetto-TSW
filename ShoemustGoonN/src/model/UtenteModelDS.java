@@ -1,5 +1,6 @@
 package model;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -313,5 +314,52 @@ public class UtenteModelDS implements UtenteDAO{
 		return utenti;
 	}
 
+	
+public synchronized Collection<UtenteBean> doRetrieveSuggest(String StringaParziale) throws SQLException, IOException {	
+	//fare quando dobbiamo cercare oggetti precisi sul db
+	Connection connection = null;
+	PreparedStatement preparedStatement = null;
+
+	UtenteBean bean = new UtenteBean();
+
+	String selectSQL = "SELECT * FROM " + UtenteModelDS.TABLE_NAME + " WHERE Cognome LIKE ?";
+	Collection<UtenteBean> utentes = new LinkedList<UtenteBean>();
+		
+	try {
+		connection = DriverManagerConnectionPool.getConnection();
+		preparedStatement = connection.prepareStatement(selectSQL);
+		String stringaRicerca = StringaParziale.concat("%");
+		preparedStatement.setString(1, stringaRicerca);
+		System.out.println(stringaRicerca+ " nella stringa: " + selectSQL);
+
+		ResultSet rs = preparedStatement.executeQuery();
+		
+		
+		
+		while (rs.next()) {
+			bean = new UtenteBean();
+			bean.setID_Utente(rs.getString("ID_Utente"));
+			bean.setNome(rs.getString("Nome"));
+			bean.setCognome(rs.getString("Cognome"));
+			bean.setDataNascita(rs.getString("DataNascita"));
+			bean.setCF(rs.getString("CF"));
+			bean.setEmail(rs.getString("Email"));
+			bean.setPassword(rs.getString("password"));
+			System.out.println("Gli oggetti trovati sono: "+bean.getID_Utente()+ " " + bean.getNome() + " " + bean.getCognome() );
+			utentes.add(bean);
+		}
+
+	} finally {
+		try {
+			if (preparedStatement != null)
+				preparedStatement.close();
+		} finally {
+			DriverManagerConnectionPool.releaseConnection(connection);
+		}
+	}
+	utentes.toString();
+	return utentes;
+ }
 }
+
 
