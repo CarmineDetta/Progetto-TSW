@@ -88,11 +88,7 @@
 			
 			</div>
 		
-	<h4>Recensioni</h4>
-	
-	<%
-		if(recensioni != null){		
-	%>
+	<br><h4>Recensioni</h4>
 	
 		<table>
 			<tr>
@@ -103,6 +99,15 @@
 		<% 
 		if (recensioni != null && recensioni.size() != 0) {
 			Iterator<?> it = recensioni.iterator();
+			
+		%>
+			<table>
+				<tr>
+					<td>Votazione</td>
+					<td>Descrizione</td>
+					<td>Utente</td>
+				</tr>
+		<%
 			while (it.hasNext()) {
 				RecensioneBean bean = (RecensioneBean) it.next();
 		%>
@@ -113,11 +118,13 @@
 			</tr>
 			
 		<%
-			}
+				}
 		}else{
 		%>
 		
-			<tr>Non ci sono recensioni per questo prodotto</tr>
+			<tr>
+				Non ci sono recensioni per questo prodotto
+			</tr>
 		<% 
 			}
 		%>
@@ -126,11 +133,9 @@
 	<%
 		}
 	%>
+	
+	<button><a href="recensione?idProd=<%=product.getID_Prodotto()%>">Inserisci una recensione</a></button>
 </div>						
-
-	<%
-		}
-	%>
 
 	<jsp:include page="footer.jsp"/>
 	
