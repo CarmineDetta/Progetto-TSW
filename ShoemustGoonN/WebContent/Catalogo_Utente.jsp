@@ -14,8 +14,8 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="style/NEon.css" type="text/css">
-	<link rel="stylesheet" href="style/Sidebar.css" type="text/css">
+	<link rel="stylesheet" href="style/NEOn.css" type="text/css">
+	<link rel="stylesheet" href="style/side-bar.css" type="text/css">
 	
 	<link rel="stylesheet" href="style/catalogo-Utente.css" type="text/css">
 	
@@ -27,23 +27,44 @@
             <jsp:include page="header.jsp" />
         </header>
   
-  <!--          
-		<div id=sidebar></div>
+        <!--    
+			<div id=sidebar></div>
 		
-		<div id =sidebar2></div>
-	-->
+			<div id =sidebar2></div>
+		-->
 	  
 <section id="content-main">
          
     
-    <!--  scritta neon del titolo -->
-    <div id ="Neon">	
-		<div id="container">
-			<div id="txt" >ShoeMustGoOn</div>
-			<div id="light"></div>
-		</div>
-	</div>
+    <div class="part-title">
 
+    	<div class="testo_immagini">
+		    	<img id="imagine" src="image/freddy.jpg" width="90" height="90" title="complete-icon" alt="complete icon"><br>							 
+		    	
+		    	 <!--  scritta neon del titolo -->
+			    <div id ="Neon">	
+					<div id="container">
+						<div id="txt" >ShoeMustGoOn</div>
+						<div id="light"></div>
+					</div>
+				</div>
+		    
+		    	<img id="imagine" src="image/freddy.jpg" width="90" height="90" title="complete-icon" alt="complete icon"><br>							 
+    	</div>
+    	
+    	<div class="video">
+		    <video id="video-element" autoplay muted>
+		  		<source src="image/video-catalog.mp4"  type="video/mp4" >
+		 	</video>
+		    
+		    <video id="video-element2" autoplay muted>
+		  		<source src="image/video-catalogo2.mp4"  type="video/mp4" >
+		 	</video>
+		</div>
+    	
+    	
+
+	</div>
 
 	   <div class="product">
 			<% if (products != null && products.size() != 0) {
@@ -61,8 +82,7 @@
 		         
 		         <div class="marca-modello">
 			        <%=bean.getMarca()%>
-			          		<br>
-			          		
+			          		<br>-<br>
 			        <%=bean.getModello()%>
 		         </div>
 		         
@@ -90,5 +110,33 @@
        <footer>
             <jsp:include page="footer.jsp"/>
         </footer>
+        
+        <script>
+	
+        document.addEventListener('DOMContentLoaded', function() {
+        	  var video = document.getElementById('video-element');
+
+        	  video.addEventListener('ended', function() {
+        	    video.currentTime = 0; // Riavvia il video dall'inizio
+        	    video.play(); // Avvia nuovamente la riproduzione automatica
+        	  });
+        	});
+	
+        document.addEventListener('DOMContentLoaded', function() {
+      	  var video = document.getElementById('video-element2');
+
+      	  video.addEventListener('ended', function() {
+      	    video.currentTime = 0; // Riavvia il video dall'inizio
+      	    video.play(); // Avvia nuovamente la riproduzione automatica
+      	  });
+      	});
+
+	</script>
+	
 </body>
+
+
+
+
+
 </html>

@@ -1,0 +1,123 @@
+
+
+* {
+    box-sizing: border-box;		
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, sans-serif;
+}
+
+#header-large {		/*gestione header*/
+    display: flex;		/*mette in fila*/
+    	justify-content: space-between;		/*spazio tra gli elementi*/	
+    height: 80px;
+    background-color: #ff6347;	
+    align-items: center;	/*allinea gli elementi al centro orizzontale dell'header*/
+    padding: 0 5%;		/*margini dal lato*/
+}
+
+.logo {	/*modifica logo*/
+    height: 60px;
+}
+
+/*con hover gestiamo le transizioni*/
+.logo:hover {				/*transizioni del logo*/
+    transform: scale(1.1);
+    transition: .3s;
+}
+
+.parametri {
+
+    display: flex;	/*metto i  parametri in fila*/
+   		gap: 25px;		/*gap tra oggetti*/ /*usato solo con l'istruzione "display"*/
+	align-items: center;
+}
+
+.parametri a {		/*gestisce le <a> in parametri*/
+    text-decoration: none;	/*toglie le sottolineatura*/	
+    color:black;
+    font-weight: bold;		/*grassetto*/
+    text-align: center;
+}
+
+
+
+.parametri #icona:hover{
+	    transform: translateY(-3px);
+    text-shadow: 4px 3px 4px  white;
+    transition: .3s;
+}
+
+
+/*gestione della BARRA*/
+
+
+#barraRicerca {
+	width: 250px;
+	
+	position: relative;	/*serve per fare in modo che la barra non si sposta quando cerchi elementi*/
+
+}
+
+#queryRicerca{
+	
+	 width: 100%;
+	 padding: 5px;
+	 border: 2px solid black;
+	 border-radius: 15px;
+	 text-align: center;
+	
+}
+
+.bottoneRicerca {		/*nasconde il bottone*/
+  background-color: transparent;
+  border: none;
+}
+
+/*gestisce i risultati della ricerca nella barra sia quì che nella visualizzazione utente*/
+
+.DivRisultati {
+	position: absolute;	/*riprende la position relative del padre e la migliora*/
+  		top: 40px;
+  	
+  	width: 100%;
+	
+	background-color: white;
+	font-size: 11pt;
+	font-familY: Helvetica, sans-serif;
+	
+	border: 2px solid black;
+
+	padding-top: 2%;
+
+	padding-left: 4%;
+}
+
+
+.DivRisultati > div {
+	padding-top: 10pt;
+}
+.DivRisultati > div:last-child {	/*distanza dal fondo del div dell'ultima parola*/
+	padding-bottom: 10pt;
+}
+
+.DivRisultati a{
+
+	color: black;
+	text-decoration: none;
+}
+
+.DivRisultati a:hover{
+	color: #ff6347;
+	transition: 0.2s;
+	outline: 1px solid black;		/*mette un bordo intorno alla parola che selezionamo colmouse*/
+}
+
+#barraRicerca:hover > .DivRisultati {	/*transizioni sul divrisultato*/
+  border: 3px solid black;
+  border-top: none;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  outline: none; 
+}
+

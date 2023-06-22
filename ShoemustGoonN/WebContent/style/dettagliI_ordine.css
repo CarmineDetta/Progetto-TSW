@@ -1,0 +1,205 @@
+
+.totale{
+	margin: 5%;
+	 
+}
+
+.parte_sup{
+	display: flex;
+		align-items: center;
+	margin-bottom: 10%;
+}
+
+.titolo{
+	display: flex;
+		align-items: center;
+	width: 50%;
+}
+
+#titolo1{
+	text-transform: uppercase;
+	margin-left: 10%;
+	font-weight: bold;
+	font-family: Gill Sans, sans-serif;
+	font-size: 25pt;
+}
+
+#titolo2{
+	margin-left: 4%;
+	color: 	#FF7F24;
+	font-family: Arial, sans-serif;
+	font-size: 20pt;
+}
+
+.totale h4{
+	font-size: 15pt;
+	font-family: Gill Sans, sans-serif;
+}
+
+
+/*inizia la parte delle info ordine*/
+
+.order_info{
+
+	
+	padding: 2%;
+	width: 30%;
+	height: 40%;
+	border: 1px solid black;
+	box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);	
+}
+
+.specifiche2{
+	margin-top: 5%;
+	display: flex;
+	margin-bottom: 7%;
+}
+
+.pagaments{
+	margin-left: 10%;
+	padding: 2%;
+	width: 30%;
+	height: 40%;
+	border: 1px solid black;
+	box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);	
+}
+
+.recapitoo{
+	margin-left: 20%;
+
+	padding: 2%;
+	width: 30%;
+	height: 40%;
+	border: 1px solid black;
+	box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
+	
+}
+
+.campo_specifico{
+	display: flex;
+}
+
+.order_info:hover{
+	transition: all 0.4s;
+    transform: scale(1.03);
+
+}
+
+.recapitoo:hover{
+	transition: all 0.4s;
+    transform: scale(1.03);
+
+}
+
+.pagaments:hover{
+	transition: all 0.4s;
+    transform: scale(1.03);
+
+}
+
+/*parte del testo nelle specifiche*/
+
+#label{
+	font-weight: bold;
+	text-trasform: uppercase;
+	font-family: Trebuchet MS, sans-serif;
+}
+
+#risposta{
+	margin-left: 3%;
+	font-family: Helvetica, sans-serif;
+}
+
+#risposta_prezzo{
+	margin-left: 3%;
+	color: red;
+}
+
+/*parte delle info sul prodotto*/ 
+#image > img{
+	width: 100%;
+}
+
+.prodotto{
+	display: flex;
+}
+
+#image{
+	width: 20%;
+	height: 20%;
+	border: 1px solid black;
+	padding: 1%;
+}
+
+.specifiche{
+	margin-left: 10%;
+	margin-top: 5%;
+	text-align: center;
+	font-weight: bold;
+	padding-bottom: 50px;
+}
+
+#marca{
+	font-family:Candara, sans-serif;
+	font-size: 20pt;
+	text-transform: uppercase;
+	padding-bottom: 10px;
+}
+
+#modello{
+	font-family: Helvetica, sans-serif;
+	font-size: 10pt;
+	text-transform: uppercase;
+}
+
+#category{
+	font-family: Helvetica, sans-serif;
+	font-size: 10pt;
+	padding-bottom: 20px;
+}
+
+#prezzo{
+	color: red;
+	font-family: Gill Sans, sans-serif;
+	font-size: 16pt;
+	padding-bottom: 20px;
+}
+
+#color{
+	padding-bottom: 10%;
+}
+
+
+
+
+
+/*linea di separazione tra due ordini*/
+.linea {
+  border: none;
+  border-top: 2px solid black;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+/*parte del bottone di fattura*/
+
+.totale a{
+	text-decoration: none;
+	color: black;
+}
+
+.totale button{
+	margin-left: 40%;
+	padding: 5px;
+	width: 15%;
+	background-color: #ff6347;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+.totale button:hover{
+	background-color: #F4A460;
+}
+
+
+

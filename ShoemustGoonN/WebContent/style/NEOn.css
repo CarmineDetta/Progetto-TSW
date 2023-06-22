@@ -1,0 +1,61 @@
+
+/*gestione della scritta neon*/
+
+#Neon{
+	width: 100%;
+	margin-top: 5%;
+	display: grid;
+		justify-content: center;
+
+}
+
+#container {
+	overflow: hidden; /*nasconde l'illuminazione della scritta all'esterno del contenitore del titolo*/
+	filter: brightness(300%);	/*aumenta la luminosità di un elemento*/
+
+}
+
+#txt {
+	color: #ff6347;	/*gestisco i colori del testo*/
+	font-size: 500%;	/*dimensione*/
+	font-weight: bold;
+	font-family: Gill Sans, sans-serif;
+	background-color: white;
+}
+
+#txt::before {
+	content: 'ShoeMustGoOn';	/*scritta sovrapposta*/
+
+	position: absolute;				/*posizione sopra l'altra scritta*/
+	
+	mix-blend-mode: difference; 	/*serve a "miscelare" i colori tra i due testi sovrapposti*/
+
+	filter: blur(1px);			/*mette l'intensità del filtro di luce sul testo*/
+}
+
+/*parte che aggiunge la luce al testo*/
+#light {
+	position: absolute;			/*sovrappone al testo*/
+	top:-100%;				/*parte da  sopra */
+	left:-100%;					/*e da sinistra*/
+	right:0;		
+	bottom:0;		/*e arriva a 0 verso destra e giù*/
+
+
+		/*questo mette la luce che cammina nel testo*/
+	
+	background: radial-gradient(circle, white, black 100%) center / 25% 25%;
+}
+
+#light {
+	
+	mix-blend-mode: color-dodge;			/*miscelazione colori*/
+	animation: light-area 5s linear infinite;		/*tempi animazione*/
+}
+
+/*questa funzione da alla luce la possibilità di muoversi*/
+@keyframes light-area {
+	to { transform: translate(50%,50%); 
+}
+
+

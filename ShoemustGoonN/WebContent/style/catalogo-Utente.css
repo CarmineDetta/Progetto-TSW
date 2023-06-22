@@ -1,59 +1,117 @@
 
-
-*{
- 	box-sizing: border-box;	
+/*il titolo piu i video*/
+.part-title {
+	display: grid;
+		
 }
+
+/*gestisce i video tra di loro*/
+.video{
+	display: flex;
+		justify-content: center;
+	margin: 3%;
+	width: auto;
+	height: 340px;
+}
+
+#video-element2 {
+	margin-left: 1%;
+}
+
+/*geestisce il titolo in combo con i due freddy*/
+.testo_immagini{
+	display: flex;
+		align-items: center;
+}
+
+.testo_immagini img{
+	margin-left: 3%;
+	margin-right: 3%;
+	
+}
+
+
+/*da qui inizia il css dei prodotti*/
 .marca-modello{
 	align-items: middle;
     font-family: Gill Sans, sans-serif;
     font-weight: bold;
-    font-size: 14pt;
+    font-size: 13pt;
 }
 
-.prezz{
-    font-family: Arial, sans-serif; 
+#prezz{
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: blue;
 }
 
 .product {
 
 	display:flex;
-	flex-wrap: wrap;
+	flex-wrap: wrap;		/*far andare a capo gli elementi*/
     justify-content: center;
 	width:100%;
 	
-    margin-top: 5%;
-    margin-left: 10%; 
-    margin-right: 20%;
-
-    
+	margin-top: 5%;
+	margin-bottom: 10%;
 }
 
 .product-item {
 	
 	display: inline-block;
-    text-align: center;
-    vertical-align: top;
-	
-	padding: 2% 2%;
-	margin: 0 5px;
- 	vertical-align: top;
-	
-	autoflow:auto;
-	
+   		text-align: center;
+    	vertical-align: top;
+		
 	border: 1px solid black;
 	padding: 1%;
   	margin: 2%; /* Aggiungi uno spazio tra i container */
   	
 }
 
+.product-item:hover {	/*effetti sui prodotti*/
+    background-color: #ff6347;
+    transition: 0.5s;
+    transform: scale(1.01);
 
-
-
-@media (max-width: 767px) {
-    div.product-item {
-        margin: 20px; /* Aggiungi uno spazio tra i container */
-        flex-basis: 50%;
-    }
+	box-shadow: 3px 6px 14px -2px rgba(45,59,85,0.82);
 }
+
+
+@media (max-width:1000px){
+	.product-item{
+		width:29%;
+	}
+	
+	.part-title{
+		width: 100%;
+	}
+	
+	
+	
+	
+@media (max-width:750px){
+	.product-item{
+		width:46%;
+		margin: 10px 5px;
+	}
+	
+	#Neon{
+		width: 100%;
+	}
+	/*
+	.imgProdotto{
+		width: 100%;
+	}
+*/
+@media (max-width:353px){
+	.product-item{
+		width:85%;
+		margin: 10px 5px;
+	}
+	
+	#Neon{
+		width: 100%;
+	}
+
 
 
