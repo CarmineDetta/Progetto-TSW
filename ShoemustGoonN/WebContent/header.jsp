@@ -17,6 +17,7 @@
 	
 	        <div class="parametri">
 	        
+	        <!-- barra ricerca -->
 					<div id="barra">
 							
 						<img src="https://www.svgrepo.com/show/508177/search-square.svg" width="28" height="28" title="search-icon" alt="search icon"><br>							 

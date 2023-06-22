@@ -1,4 +1,5 @@
-	//search è l'id dell'input della ricerca di ricerca
+
+//search è l'id dell'input della ricerca di ricerca
 	$('#search').on('input focus', function(e) {
 	
 			let value = $('search').val();
