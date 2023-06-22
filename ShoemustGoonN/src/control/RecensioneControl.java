@@ -35,31 +35,32 @@ public class RecensioneControl extends HttpServlet {
 		UtenteBean utente = (UtenteBean) request.getSession().getAttribute("UtenteLoggato");
 		ProdottoBean p;
 		
-		if(action.equalsIgnoreCase("Insert")){
-			float votazione = Float.parseFloat(request.getParameter("Votazione"));
-			String descrizione = request.getParameter("Descrizione");
-			try {
-				p = modelProd.doRetrieveByKey((String) request.getAttribute("idProd"));
-				
-				RecensioneBean recensione = new RecensioneBean();
-				recensione.setDescrizione(descrizione);
-				recensione.setVotazione(votazione);
-				recensione.setUtente(utente);
-				recensione.setProdotto(p);
-				
-				model.doSave(recensione, utente, p);
-				
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Recensione_Completata.jsp");
-				dispatcher.forward(request, response);
-				
-			} catch (SQLException e) {
-				e.printStackTrace();
+		if(action != null) {
+			if(action.equalsIgnoreCase("Insert")){
+				float votazione = Float.parseFloat(request.getParameter("Votazione"));
+				String descrizione = request.getParameter("Descrizione");
+				try {
+					p = modelProd.doRetrieveByKey((String) request.getAttribute("idProd"));
+					
+					RecensioneBean recensione = new RecensioneBean();
+					recensione.setDescrizione(descrizione);
+					recensione.setVotazione(votazione);
+					recensione.setUtente(utente);
+					recensione.setProdotto(p);
+					
+					model.doSave(recensione, utente, p);
+					
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Recensione_Completata.jsp");
+					dispatcher.forward(request, response);
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			}
-			
-
+		}else {
 			try {
 				p = modelProd.doRetrieveByKey((String) request.getAttribute("idProd"));
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("InserimentoRecensione.jsp");
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/InserimentoRecensione.jsp");
 				dispatcher.forward(request, response);
 
 			} catch (SQLException e) {
