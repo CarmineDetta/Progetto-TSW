@@ -62,6 +62,7 @@
   </servlet>
   
   <servlet>
+<<<<<<< HEAD
     <servlet-name>RecensioneControl</servlet-name>
     <servlet-class>control.RecensioneControl</servlet-class>
   </servlet>
@@ -70,6 +71,11 @@
     <servlet-name>RecensioneControl</servlet-name>
     <url-pattern>/recensione</url-pattern>
   </servlet-mapping>
+=======
+    <servlet-name>SearchServlet</servlet-name>
+    <servlet-class>control.SearchServlet</servlet-class>
+  </servlet>
+>>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
   
   <servlet-mapping>
     <servlet-name>AcquistoControl</servlet-name>
@@ -116,12 +122,14 @@
      <url-pattern>/login</url-pattern>
    </servlet-mapping>
 
- 
-
    <servlet-mapping>
     <servlet-name>PaymentsControl</servlet-name>
     <url-pattern>/payments</url-pattern>
   </servlet-mapping>
 
-   
+  <servlet-mapping>
+    <servlet-name>SearchServlet</servlet-name>
+    <url-pattern>/search</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
