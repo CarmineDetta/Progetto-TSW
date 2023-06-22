@@ -12,6 +12,7 @@
 	<title>ShoeMustGoOn | HomePage</title>
 </head>
 
+
 <style>
 body{
 	background-image: url("image/imm_home_nike.jpg");	
