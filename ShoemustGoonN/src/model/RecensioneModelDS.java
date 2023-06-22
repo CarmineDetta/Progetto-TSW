@@ -181,5 +181,45 @@ private static DataSource ds;
 		return recensioni;
 	}
 
+	public Collection<RecensioneBean> doRetrieveByProdotto(String prodotto) throws SQLException {
+
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Collection<RecensioneBean> recensioni = new LinkedList<RecensioneBean>();
+
+		String selectSQL = "SELECT * FROM " + RecensioneModelDS.TABLE_NAME + " WHERE Prodotto = ?";
+
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+			preparedStatement.setString(1, prodotto);
+			
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				RecensioneBean bean = new RecensioneBean();
+
+				bean.setID_Recensione(rs.getInt("ID_Recensione"));
+				bean.setVotazione(rs.getFloat("Votazione"));
+				bean.setDescrizione(rs.getString("Descrizione"));
+				
+				UtenteModelDS udao = new UtenteModelDS();
+				bean.setUtente(udao.doRetrieveByKey(rs.getString("Utente")));
+		
+				recensioni.add(bean);
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		return recensioni;
+	}
 
 }
