@@ -10,18 +10,29 @@
 %>
 <!DOCTYPE html>
 <html>
-<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.*"%>
+	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.*"%>
+	<link rel="stylesheet" href="style/visualizza_Utenti.css" type="text/css">
 
 <head>
 	<meta charset="UTF-8">
-	<title>ShoeMustGoOn | Utenti registrati</title>
+	<title>ShoeMustGoOn | Utenti Registrati</title>
 </head>
 <body>
 
 <jsp:include page="header.jsp" />
-		
-		<h2>Utenti registrati</h2><br>
 
+<div class="content">
+	
+	<div class="barra_ricerca">
+		<img src="https://www.svgrepo.com/show/510179/search-file.svg" width="28" height="28" title="mark-icon" alt="mark icon">
+		<form method="get">
+			<input placeholder="Cerca Utente" type="text" id="cerca">	
+		</form>		
+	</div>
+
+
+		<h2>Utenti Registrati</h2>
+		
 		<table border="1">
 		<tr>
 			<th>ID_Utente</th>
@@ -60,6 +71,9 @@
 			}
 		%>
 	</table>
+</div>
+
+		<jsp:include page="footer.jsp" />
 	
 </body>
 </html>
