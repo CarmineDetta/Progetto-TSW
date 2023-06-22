@@ -1,0 +1,77 @@
+
+.totale{
+	margin: 5%;
+}
+
+.totale h2{
+	font-family: Gill Sans, sans-serif;
+	font-size: 19pt;
+		margin-right: 5%;
+}
+
+.totale h3{
+	font-family: Gill Sans, sans-serif;
+	font-size: 15pt;
+	margin-bottom: 3%;
+}
+
+.title{
+	display: flex;
+		justify-content: left;
+}
+.testo{
+	margin-top: 5%;
+
+}
+
+.testo a{
+	font-size: 10pt;
+	font-family: Helvetica, sans-serif;
+	text-decoration: none;
+	color: blue;
+}
+
+.parte_superiore{
+	display: flex;
+	margin-bottom: 4%;
+	
+}
+
+.parte_superiore ul{
+	padding: 2%;
+	border: 1px solid black;
+	
+	width: 50%;
+	margin-right: 10%;
+	list-style-type: none;
+}
+
+.parte_inferiore{
+	display: flex;
+	margin-bottom: 4%;
+
+}
+
+.parte_inferiore ul{
+	padding: 2%;
+	border: 1px solid black;
+	
+	width: 50%;
+	margin-right: 10%;
+	list-style-type: none;
+}
+
+.parte_superiore li{
+	margin-right: 20%;
+	margin-bottom: 1%;
+}
+
+.parte_inferiore li{
+	margin-right: 20%;	
+}
+
+.testo a:hover{
+	font-weight: bold;
+	text-decoration: underline;
+}
+

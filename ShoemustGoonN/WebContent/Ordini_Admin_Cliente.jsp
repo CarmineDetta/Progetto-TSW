@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html>
 	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.OrdineBean, model.UtenteBean"%>
-	<link href="style/ordini_admin_cliente.css" rel="stylesheet" type="text/css">
+	<link href="style/Ordini_admin_cliente.css" rel="stylesheet" type="text/css">
 	
 <head>
 <title>ShoeMustGoOn | Ordini Cliente</title>
@@ -22,11 +22,11 @@
 
 	<jsp:include page="header.jsp" />
 	 
-<div class="content">
+<div class="contenutoo">
 
-	<div class="title">
-		<h2>Ordini cliente</h2>
-	</div>
+
+		<h2>Ordini Cliente</h2>
+
 	<table border="1">
 		<tr>
 			<th>ID_Ordine</th>

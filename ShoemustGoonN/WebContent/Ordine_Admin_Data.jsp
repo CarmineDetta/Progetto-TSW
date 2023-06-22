@@ -12,7 +12,8 @@
 <!DOCTYPE html>
 <html>
 	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.OrdineBean, model.UtenteBean"%>
-
+	<link rel="stylesheet" href="style/ordine_admin_data.css" type="text/css">
+	
 <head>
 <title>ShoeMustGoOn | Ordini per data</title>
 </head>
@@ -24,9 +25,7 @@
 	 
 <div class="content">
 
-	<div class="title">
-		<h2>Ordini per data</h2><br>
-	</div>
+		<h2>Trova Ordine in base alla Data</h2><br>
 	
 	<form action="ordine" method="post">
 		<input type="hidden" name="action" value="visualizza_data">
@@ -37,8 +36,8 @@
 		<label for="dataFine">Data fine: </label>
 		<input type="date" name="dataFine" required><br>
 		
-		<input type="submit" value="invia">
-		<input type="reset" value="reset">
+		<input type="submit" value="Cerca">
+		<input type="reset" value="Reset">
 		
 	</form>
 	

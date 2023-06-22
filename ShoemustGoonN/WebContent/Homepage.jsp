@@ -24,15 +24,29 @@ body{
 	
 	<div class="center">
 			
-
+	
 		<div class="title">
 			<span id="testo">ShoeMustGoOn</span>
 		</div>
 		
+		<%
+                if(session.getAttribute("AdminLoggato") == null){ 
+         %>
+         
 		<div class="button">
 			<button class="uname" ><a href="Catalogo_Utente.jsp">Vai al Catalogo</a></button>
 		</div>
 		
+		<%
+              }else{
+         %>
+         
+         <div class="button">
+			<button class="uname" ><a href="Catalogo_Admin.jsp">Vai al Catalogo</a></button>
+		</div>
+		<%
+         	}
+         %> 
 	</div>	
 	
 	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

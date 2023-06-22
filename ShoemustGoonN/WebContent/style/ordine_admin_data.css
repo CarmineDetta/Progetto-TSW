@@ -1,0 +1,82 @@
+
+.content{
+	margin: 5%;
+}
+
+.content h2{
+	font-size: 25pt;
+	font-family: Gill Sans, sans-serif;	
+}
+
+.content form{
+	padding: 5%;
+	border: 1px solid black;
+	width: 40%;
+	box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);	
+	margin-bottom: 5%;
+	
+}
+
+.content form > label{
+	font-weight: bold;
+}
+
+
+/*gestiscono i tasti*/
+.content form > 
+input[type="submit"]{
+	background-color: #ff6347;
+		border: 1px solid black;
+	
+}
+
+.content form > 
+input[type="reset"]{
+	background-color: #ff6347;
+		border: 1px solid black;
+	
+}
+
+.content form > 
+input[type="submit"]:hover{
+	cursor: pointer;
+	background-color: #F4A460;
+	trasnition: all .2s;
+}
+
+.content form > 
+input[type="reset"]:hover{
+	cursor: pointer;
+	background-color: #F4A460;
+	trasnition: all .2s;
+}
+
+/*gestione della tabella*/
+.content table{
+	border-collapse: collapse;
+	border: 2px solid black;
+	width: 100%;
+	margin-bottom: 5%;
+	text-align: center;
+}
+
+.content th{
+	background-color: 	#B7B7B7;
+	font-family: Gill Sans, sans-serif;	
+	font-size: 15pt;
+}
+
+.content button{
+	width: 70%;
+	background-color: #ff6347;
+}
+
+.content a{
+	text-decoration: none;
+	color: black;
+}
+
+.content button:hover{
+	background-color: #F4A460;
+	transition: all .2s;
+}
