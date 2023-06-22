@@ -125,7 +125,7 @@
 		            	for (const i in data) {
 		            		$( "#Risultati" ).append('<div id=""><a href="ordine?action=visualizza_cliente&id='+data[i].ID_Utente+'">'+data[i].Cognome+'</a></div>');
 		            		$( "#RisultatiResponsive" ).append('<div id=""><a href="ordine?action=visualizza_cliente&id='+data[i].ID_Utente+'">'+data[i].Cognome+'</a></div>');
-						}
+						 }
 		            	
 	            	} else {
 	            		$("#RisultatiResponsive").empty();
