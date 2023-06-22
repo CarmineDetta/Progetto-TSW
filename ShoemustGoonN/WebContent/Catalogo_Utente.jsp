@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="style/NEon.css" type="text/css">
 	<link rel="stylesheet" href="style/Sidebar.css" type="text/css">
 	
-	<link rel="stylesheet" href="style/catalogo_Utente.css" type="text/css">
+	<link rel="stylesheet" href="style/catalogo-Utente.css" type="text/css">
 	
 	<title>ShoeMustGoOn | Catalogo Utente</title>
 </head>
@@ -61,7 +61,8 @@
 		         
 		         <div class="marca-modello">
 			        <%=bean.getMarca()%>
-			          		-
+			          		<br>
+			          		
 			        <%=bean.getModello()%>
 		         </div>
 		         

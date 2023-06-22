@@ -16,7 +16,10 @@
 
 .product {
 
-	display: grid;
+	display:flex;
+	flex-wrap: wrap;
+    justify-content: center;
+	width:100%;
 	
     margin-top: 5%;
     margin-left: 10%; 
@@ -26,6 +29,17 @@
 }
 
 .product-item {
+	
+	display: inline-block;
+    text-align: center;
+    vertical-align: top;
+	
+	padding: 2% 2%;
+	margin: 0 5px;
+ 	vertical-align: top;
+	
+	autoflow:auto;
+	
 	border: 1px solid black;
 	padding: 1%;
   	margin: 2%; /* Aggiungi uno spazio tra i container */
