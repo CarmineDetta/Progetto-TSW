@@ -12,4 +12,7 @@ public interface RecensioneDAO {
 	public RecensioneBean doRetrieveByKey(int ID_Recensione) throws SQLException;
 	
 	public Collection<RecensioneBean> doRetrieveByUtente(String utente) throws SQLException;
+	
+	public Collection<RecensioneBean> doRetrieveByProdotto(String prodotto) throws SQLException;
+
 }

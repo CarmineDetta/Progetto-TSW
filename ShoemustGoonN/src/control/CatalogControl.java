@@ -28,7 +28,6 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 			if (action != null) {
 				if (action.equalsIgnoreCase("read")) {
 					String id = request.getParameter("id");
-					request.removeAttribute("product");
 					request.setAttribute("product", model.doRetrieveByKey(id));	
 				} 
 			}

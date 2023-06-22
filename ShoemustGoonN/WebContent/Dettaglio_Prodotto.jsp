@@ -7,11 +7,17 @@
 		response.sendRedirect("./details");	
 		return;
 	}
+	
+	Collection<?> recensioni = (Collection<?>) request.getAttribute("recensioni");
+	if(recensioni == null) {
+		response.sendRedirect("./details");	
+		return;
+	}
 %>
 
 <!DOCTYPE html>
 <html>
-<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.ProdottoBean"%>
+<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.*"%>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link href="style/Dettaglio.css" rel="stylesheet" type="text/css">
@@ -81,6 +87,44 @@
 			
 			</div>
 		
+	<h4>Recensioni</h4>
+	
+	<%
+		if(recensioni != null){		
+	%>
+	
+		<table>
+			<tr>
+				<td>Votazione</td>
+				<td>Descrizione</td>
+				<td>Utente</td>
+			</tr>
+		<% 
+		if (recensioni != null && recensioni.size() != 0) {
+			Iterator<?> it = recensioni.iterator();
+			while (it.hasNext()) {
+				RecensioneBean bean = (RecensioneBean) it.next();
+		%>
+			<tr>
+				<td><%=bean.getVotazione()%></td>
+				<td><%=bean.getDescrizione()%></td>
+				<td><%=bean.getUtente().getNome()%> <%=bean.getUtente().getCognome()%></td>
+			</tr>
+			
+		<%
+			}
+		}else{
+		%>
+		
+			<tr>Non ci sono recensioni per questo prodotto</tr>
+		<% 
+			}
+		%>
+		</table>
+	
+	<%
+		}
+	%>
 </div>						
 
 	<%
