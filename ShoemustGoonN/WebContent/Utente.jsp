@@ -12,7 +12,7 @@
 <html>
 <%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.PortafoglioBean, model.UtenteBean"%>
 
-<head>
+<head> 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	
 	<link rel="stylesheet" href="style/utente.css">
