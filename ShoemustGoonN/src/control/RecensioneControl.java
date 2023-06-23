@@ -33,41 +33,45 @@ public class RecensioneControl extends HttpServlet {
 		
 		String action = (String) request.getAttribute("action");
 		UtenteBean utente = (UtenteBean) request.getSession().getAttribute("UtenteLoggato");
-		ProdottoBean p;
 		
-		if(action != null) {
-			if(action.equalsIgnoreCase("Insert")){
-				float votazione = Float.parseFloat(request.getParameter("Votazione"));
-				String descrizione = request.getParameter("Descrizione");
-				try {
-					p = modelProd.doRetrieveByKey((String) request.getAttribute("idProd"));
+		try {
+		
+			ProdottoBean p = modelProd.doRetrieveByKey((String) request.getAttribute("idProd"));
+			request.setAttribute("idProd", p.getID_Prodotto());
+			
+			
+			if(action != null) {
+				if(action.equalsIgnoreCase("Insert")){
 					
-					RecensioneBean recensione = new RecensioneBean();
-					recensione.setDescrizione(descrizione);
-					recensione.setVotazione(votazione);
-					recensione.setUtente(utente);
-					recensione.setProdotto(p);
+					float votazione = Float.parseFloat(request.getParameter("Votazione"));
+					String descrizione = request.getParameter("descrizione");
 					
-					model.doSave(recensione, utente, p);
+					try {
+						ProdottoBean p1 = modelProd.doRetrieveByKey(request.getParameter("idProd"));
+						RecensioneBean recensione = new RecensioneBean();
+						recensione.setDescrizione(descrizione);
+						recensione.setVotazione(votazione);
+						recensione.setUtente(utente);
+						recensione.setProdotto(p1);
 					
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Recensione_Completata.jsp");
-					dispatcher.forward(request, response);
+						model.doSave(recensione, utente, p1);
 					
-				} catch (SQLException e) {
+						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Recensione_Completata.jsp");
+						dispatcher.forward(request, response);
+					
+					} catch (SQLException e) {
 					e.printStackTrace();
+					}
 				}
-			}
-		}else {
-			try {
-				p = modelProd.doRetrieveByKey((String) request.getAttribute("idProd"));
+			}else {
+				
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/InserimentoRecensione.jsp");
 				dispatcher.forward(request, response);
-
-			} catch (SQLException e) {
-				e.printStackTrace();
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-	}
+}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

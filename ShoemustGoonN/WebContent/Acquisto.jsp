@@ -41,7 +41,6 @@
 
 		<form action="AcquistoControl" method="post"> 
 		<input type="hidden" name="action" value="Completo">
-		</form>
 		
 	<div class="pagamento">
 		<p>Seleziona il tuo metodo di pagamento</p>
@@ -140,5 +139,6 @@
 				<% } %>
 		</div>
 </div>		
+	</form>
 </body>
 </html>

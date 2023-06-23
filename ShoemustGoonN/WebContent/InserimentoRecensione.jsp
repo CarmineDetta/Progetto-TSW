@@ -20,11 +20,13 @@
 		<h3>Inserisci Nuova Recensione</h3>
 
 	
-	<form action="RecensioneControl" method="post">
-		<input type = "hidden" name = "action" value = "Insert">
-		<input type = "hidden" name = "idProd" value ="<%= request.getAttribute("idProd")%>">
+	<form action="RecensioneControl" method="get">
+			<input type="hidden" name="action" value="Insert"> 
+			<input type="hidden" name="idProd" value="<%= request.getAttribute("idProd")%>" id="carmineIlDown">		
+		<script type="text/javascript">
 		
-		
+		let id = getElementById("carmineIlDown");
+		console.log(id)</script>
 		<h5>Scegli Valutazione in Stelle:</h5>
 			<select name="Valutazione">
 						<option value="0">0</option>
@@ -36,11 +38,11 @@
 			</select>
 		<br>
 		
-		<h5>Insersci un Commento:</h5>
+		<h5>Inserisci un Commento:</h5>
 			<textarea name="descrizione" maxlength="300"  placeholder="Inserisci" required></textarea>
 					<br>
-				<input type = "submit" value="Inserisci" id="butt_insert">
-				<input type = "reset" value="Reset" id="butt_reset">
+				<input type="submit" value="Inserisci" id="butt_insert">
+				<input type="reset" value="Reset" id="butt_reset">
 	</form>	
 </div>
 	<jsp:include page="footer.jsp"/>
