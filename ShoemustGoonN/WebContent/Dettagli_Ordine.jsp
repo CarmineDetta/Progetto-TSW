@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <html lang="it" xml:lang="it">
 	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.*"%>
-	<link rel="stylesheet" href="style/dettagliI_ordine.css" type="text/css">
+	<link rel="stylesheet" href="style/Dettagli_ordine.css" type="text/css">
 
 <head>
 	<meta charset="UTF-8">
@@ -131,7 +131,7 @@
 				</div>		
 			
 				<div id="modello">
-					<%=product.getModello()%>
+					<span><%=product.getModello()%></span>
 				</div>
 		
 				<div id="category">	

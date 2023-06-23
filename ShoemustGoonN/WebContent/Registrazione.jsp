@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="it" xml:lang="it">
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="style/register.css">	

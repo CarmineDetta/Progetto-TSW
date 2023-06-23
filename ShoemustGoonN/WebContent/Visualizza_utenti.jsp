@@ -10,6 +10,7 @@
 %>
 <!DOCTYPE html>
 <html lang="it" xml:lang="it">
+
 	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.*"%>
 	<link rel="stylesheet" href="style/visualizza-utenti.css" type="text/css">
 
@@ -22,18 +23,26 @@
 <jsp:include page="header.jsp" />
 
 <div class="content">
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
 
 			<!-- barra ricerca -->
 			<div id="barra_ricerca">
 				<img src="https://www.svgrepo.com/show/510179/search-file.svg" width="28" height="28" title="mark-icon" alt="mark icon">
 				<input type="text" placeholder="Cerca Utente" class="campoRicerca" id="cerca" onkeyup="funzioneRicercaUtente()"/>
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
 				<div id="Risultati"></div>
 			</div>
 
 		<h2>Utenti Registrati</h2>
 		
 		<table border="1">
+			<caption>Tabella che mostra gli utenti che hanno effettuato ordini</caption>
 		<tr>
 			<th>ID_Utente</th>
 			<th>Nome</th>
