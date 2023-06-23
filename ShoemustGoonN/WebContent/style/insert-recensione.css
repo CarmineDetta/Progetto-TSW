@@ -1,0 +1,52 @@
+
+.totalita{
+	margin: 5%;
+}
+
+.totalita h3{
+	font-family: Gill Sans, sans-serif;
+	font-size: 18pt;
+}
+
+.totalita h5{
+	font-family: Gill Sans, sans-serif;
+	font-size: 12pt;
+}
+.totalita form{
+	margin-top: 2%;
+	margin-top: 5%;
+	margin-left: 10%;
+
+}
+
+.totalita select{
+	margin-top: 2%;
+	margin-bottom: 5%;
+
+}
+
+.totalita textarea{
+	margin-top: 2%;
+}
+
+.totalita #butt_insert{
+	background-color: #ff6347;
+	width: 7%;
+}
+
+.totalita #butt_reset{
+	background-color: #ff6347;
+	width: 7%;
+}
+
+.totalita #butt_insert:hover{
+	background-color: #F4A460;
+	transition: .2s;
+	cursor: pointer;
+}
+
+.totalita #butt_reset:hover{
+	background-color: #F4A460;
+	transition: .2s;
+	cursor: pointer;
+}

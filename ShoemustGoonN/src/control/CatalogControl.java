@@ -27,6 +27,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		try {
 			if (action != null) {//Controlla se action è vuoto
 				if (action.equalsIgnoreCase("read")) {
+
 					String id = request.getParameter("id");//Prelevam ID
 					request.removeAttribute("product");//Ruomove prodotto "vecchio"
 					request.setAttribute("product", model.doRetrieveByKey(id));	//Inserisce il nuovo

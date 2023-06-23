@@ -62,6 +62,16 @@
   </servlet>
   
   <servlet>
+    <servlet-name>RecensioneControl</servlet-name>
+    <servlet-class>control.RecensioneControl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>RecensioneControl</servlet-name>
+    <url-pattern>/recensione</url-pattern>
+	</servlet-mapping>
+	
+  <servlet>
     <servlet-name>SearchServlet</servlet-name>
     <servlet-class>control.SearchServlet</servlet-class>
   </servlet>

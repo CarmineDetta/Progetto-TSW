@@ -12,11 +12,14 @@ import javax.servlet.http.HttpSession;
 
 import model.ProdottoDAO;
 import model.ProductModelDS;
+import model.RecensioneDAO;
+import model.RecensioneModelDS;
 
 public class ProdottoControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	static ProdottoDAO model = new ProductModelDS();
+	static RecensioneDAO modelRec = new RecensioneModelDS();
 	
     public ProdottoControl() {
         super();
@@ -31,6 +34,8 @@ public class ProdottoControl extends HttpServlet {
 				if (action.equalsIgnoreCase("read")) {
 						String id = request.getParameter("id");
 						request.setAttribute("product", model.doRetrieveByKey(id));
+						request.setAttribute("recensioni", modelRec.doRetrieveByProdotto(id));
+
 				}
 			}
 		} catch (SQLException e) {
