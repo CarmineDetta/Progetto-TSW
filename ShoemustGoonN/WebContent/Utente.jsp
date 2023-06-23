@@ -9,7 +9,7 @@
 %>
  
 <!DOCTYPE html>
-<html>
+<html lang="it" xml:lang="it">
 <%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.PortafoglioBean, model.UtenteBean"%>
 
 <head> 
@@ -31,6 +31,7 @@
 		<h2 class="title">Benvenuto...</h2>
 	
 	<table class="table" border="1">
+		<caption>Tabella che specifica i valori dell'utente</caption>
 		<tr>			
 			<th>ID_Pagamento</th>
 			<th>Numero Carta</th>

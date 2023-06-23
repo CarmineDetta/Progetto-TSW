@@ -42,10 +42,12 @@
 		<form action="AcquistoControl" method="post"> 
 		<input type="hidden" name="action" value="Completo">
 		</form>
+		
 	<div class="pagamento">
 		<p>Seleziona il tuo metodo di pagamento</p>
 		
 		<table border="1">
+			<caption>Tabella per selezionare il metodo di pagamento per l'acquisto</caption>	<!-- caption usato perhè lo vuole sonarcloud e serve ad aggiungere una descrzion alla tabella -->	
 		<tr>
 			<th>Numero Carta</th>
 			<th>Nome Intestatario</th>
@@ -86,6 +88,7 @@
 		<p>Seleziona il recapito dell'ordine</p>
 		
 		<table border="1">
+			<caption>Tabella per selezionare l'indirizzo di spedizione per l'acquisto</caption>
 		<tr>
 		
 			<th>Cap</th>

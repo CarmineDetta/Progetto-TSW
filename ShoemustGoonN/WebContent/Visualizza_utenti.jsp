@@ -9,7 +9,7 @@
 	}    
 %>
 <!DOCTYPE html>
-<html>
+<html lang="it" xml:lang="it">
 	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.*"%>
 	<link rel="stylesheet" href="style/visualizza-utenti.css" type="text/css">
 
@@ -24,11 +24,6 @@
 <div class="content">
 	
 	        <!-- barra ricerca -->
-<!-- 
-			<div id="barra_ricerca">
-				<img src="https://www.svgrepo.com/show/510179/search-file.svg" width="28" height="28" title="mark-icon" alt="mark icon">
-				<input type="text" placeholder="Cerca Utente" class="campoRicerca" id="cerca" onkeyup="funzioneRicercaUtente()"/>
-   -->
 			<div id="barra_ricerca">
 				<img src="https://www.svgrepo.com/show/510179/search-file.svg" width="28" height="28" title="mark-icon" alt="mark icon">
 					<input type="text" placeholder="Cerca Utente" class="campoRicerca" id="cerca" onkeyup="funzioneRicercaUtente()"/>
