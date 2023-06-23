@@ -27,7 +27,7 @@
 
 %>   
 <!DOCTYPE html>
-<html>
+<html lang="it" xml:lang="it">
 <head>
 	<meta charset="utf-8">
 	<link href="style/acquist.css" rel="stylesheet" type="text/css">
@@ -41,7 +41,7 @@
 
 		<form action="AcquistoControl" method="post"> 
 		<input type="hidden" name="action" value="Completo">
-		
+		</form>
 	<div class="pagamento">
 		<p>Seleziona il tuo metodo di pagamento</p>
 		
