@@ -28,12 +28,12 @@ table{
 }
 
 tr{
-	font-family: Helvetica, sanf-serif;
+	font-family: Helvetica, sans-serif;
 	font-size: 10pt;
 }
 
 td{
-	font-family: Helvetica, sanf-serif;
+	font-family: Helvetica, sans-serif;
 	font-size: 10pt;
 	padding: 7px;		/*padding tra elementi*/
 }

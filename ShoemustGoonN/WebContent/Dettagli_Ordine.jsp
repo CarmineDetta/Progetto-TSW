@@ -39,6 +39,7 @@
 				<h4>Info Ordine</h4><br>
 
 				<div class="campo_specifico">
+					
 					<p id="label">Data Ordine:</p> 
 						<p id="risposta"> <%=ordine.getDataOrdine()%></p>
 				</div>

@@ -14,12 +14,12 @@ public class DriverManagerConnectionPool {
 		
 		//Viene utilizzato "static" in modo tale che si caricano i driver per la connessione solo quando si crea la classe.
 		static {
-			freeDbConnections = new LinkedList<Connection>();
+			freeDbConnections = new LinkedList<>();
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 			} 	
 			catch (ClassNotFoundException e) {
-				System.out.println("DB driver not found:"+ e.getMessage());
+				System.err.println("DB driver not found:"+ e.getMessage());
 			} 
 		}
 		
@@ -62,7 +62,7 @@ public class DriverManagerConnectionPool {
 		
 		
 		//Ogni volta che si smette di utilizzare una connessione la si inserisce nella lista, è una buona pratica!
-		public static synchronized void releaseConnection(Connection connection) throws SQLException {
+		public static synchronized void releaseConnection(Connection connection){
 			if(connection != null) freeDbConnections.add(connection);
 		}
 	}

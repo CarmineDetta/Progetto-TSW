@@ -2,7 +2,8 @@
     pageEncoding="utf-8" import="java.util.*, model.*"%>
     
 <!DOCTYPE html>
-<html alt="img.jpg">
+<<<<<<< HEAD
+<html lang="it" xml:lang="it">
 
 	<head>
  		<meta charset="utf-8">
@@ -21,7 +22,7 @@
 		</div>
 		
 		<div class="pollice">
-			<img src="image/smile_ok.png">							 
+			<img src="image/smile_ok.png" alt="confirm image">							 
 		</div>
 		
 			<a href="Catalogo_Utente.jsp" ><input type="button" value="Torna all'Homepage"></a>

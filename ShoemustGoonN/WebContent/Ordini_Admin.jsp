@@ -46,6 +46,7 @@
 	<div class="completo">
 	
 		<table border="1">
+			<caption>Tabella che specifica i dati dell'ordine per l'admin</caption>
 		<tr>
 			<th>ID_Ordine</th>
 			<th>Data ordine</th>

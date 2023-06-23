@@ -101,7 +101,6 @@
 
 #label{
 	font-weight: bold;
-	text-trasform: uppercase;
 	font-family: Trebuchet MS, sans-serif;
 }
 
@@ -153,7 +152,7 @@
 }
 
 #modello span{
-	text-trasform: capitalize;
+	text-transform: capitalize;
 }
 
 #category{

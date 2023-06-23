@@ -62,7 +62,7 @@ input:focus{
 		border-radius: 3em;
 	
 	font-size: 1em;
-	font-wight: bold;
+	font-weight: bold;
 	color: black;
 	background-color: #FFEFD5;
 	
@@ -74,7 +74,7 @@ input:focus{
 
 .button:hover {
 	color:black;
-	font-wight: bold;
+	font-weight: bold;
 	background-color: #F4A460;
 	transition: all 0.3s;
 	cursor: pointer;
