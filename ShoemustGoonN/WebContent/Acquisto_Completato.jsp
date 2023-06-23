@@ -4,9 +4,6 @@
 <!DOCTYPE html>
 <<<<<<< HEAD
 <html lang="it" xml:lang="it">
-=======
-<html alt="img.jpg">
->>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
 
 	<head>
  		<meta charset="utf-8">
