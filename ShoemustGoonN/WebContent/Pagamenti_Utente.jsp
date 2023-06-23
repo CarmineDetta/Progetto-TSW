@@ -10,7 +10,7 @@
 %>
     
 <!DOCTYPE html>
-<html>
+<html lang="it" xml:lang="it">
 	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.PortafoglioBean, model.UtenteBean"%>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -42,7 +42,9 @@ body{
 		</div>
 		
 	<div class="elementi">
+	
 	<table border="1">
+		<caption>tabella per visualizzare le informazioni sulla carta</caption>
 		<tr>
 			<th>Numero Carta</th>
 			<th>Nome Intestatario</th>

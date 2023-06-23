@@ -152,6 +152,10 @@
 	text-transform: uppercase;
 }
 
+#modello span{
+	text-trasform: capitalize;
+}
+
 #category{
 	font-family: Helvetica, sans-serif;
 	font-size: 10pt;
