@@ -22,11 +22,19 @@
 <jsp:include page="header.jsp" />
 
 <div class="content">
+<<<<<<< HEAD
 	
 	        <!-- barra ricerca -->
 			<div id="barra_ricerca">
 				<img src="https://www.svgrepo.com/show/510179/search-file.svg" width="28" height="28" title="mark-icon" alt="mark icon">
 					<input type="text" placeholder="Cerca Utente" class="campoRicerca" id="cerca" onkeyup="funzioneRicercaUtente()"/>
+=======
+
+			<!-- barra ricerca -->
+			<div id="barra_ricerca">
+				<img src="https://www.svgrepo.com/show/510179/search-file.svg" width="28" height="28" title="mark-icon" alt="mark icon">
+				<input type="text" placeholder="Cerca Utente" class="campoRicerca" id="cerca" onkeyup="funzioneRicercaUtente()"/>
+>>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
 				<div id="Risultati"></div>
 			</div>
 
@@ -123,15 +131,9 @@
 	            		$("#Risultati").empty();
 		            	$("#Risultati").addClass( "DivRisultati" );
 		            	for (const i in data) {
-<<<<<<< HEAD
 		            		$( "#Risultati" ).append('<div id=""><a href="ordine?action=visualizza_cliente&id='+data[i].ID_Utente+'">'+data[i].Cognome+'</a></div>');
 		            		$( "#RisultatiResponsive" ).append('<div id=""><a href="ordine?action=visualizza_cliente&id='+data[i].ID_Utente+'">'+data[i].Cognome+'</a></div>');
 						 }
-=======
-		            		$( "#Risultati" ).append('<div id=""><a href="utente?action=visualizza_tutti&id='+data[i].ID_Utente+'">'+data[i].Cognome+'</a></div>');
-		            		$( "#RisultatiResponsive" ).append('<div id=""><a href="utente?action=visualizza_tutti&id='+data[i].ID_Utente+'">'+data[i].Cognome+'</a></div>');
-						}
->>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
 		            	
 	            	} else {
 	            		$("#RisultatiResponsive").empty();
