@@ -62,6 +62,8 @@ body{
 	padding-bottom: 10%;
 }
 
+
+/*descrizioni*/
 #descrizione{
 	padding: 1%;
 	border: 1px solid black;
@@ -88,6 +90,74 @@ body{
 	margin-left: 1%;
 }
 
+
+/*recensioni*/
+.recensioni{
+	margin-top: 5%;
+	padding: 1%;
+	border: 1px solid black;
+}
+
+#title_rec{
+	display: flex;
+		align-items: center;
+	font-weight: bold;
+	font-family: Helvetica, sans-serif;
+	font-size: 12pt;
+}
+
+#title_rec a{
+	text-decoration: none;
+	color: black;
+}
+
+#title_rec button{
+	margin-left: 33%;
+	background-color: #ff6347;
+	border-radius: 10px; 
+}
+
+#title_rec button:hover{
+	background-color: #F4A460;
+	transition: all .2s;
+	 
+}
+#votazione{
+	display: flex;
+		align-items: center;
+}
+
+#votazione img{
+	margin-left: 10%;
+	width: 20%;
+
+}
+
+#commento{
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+#commento #rispostaa{
+	font-family: Helvetica, sans-serif;
+	font-size: 12pt;
+}
+#utente{
+	display: flex;
+}
+
+.elementi-recensione #labell{
+	font-weight: bold;
+}
+
+.elementi-recensione #rispostaa{
+	margin-left: 5%;
+}
+
+#rec-vuote{
+	text-align: center;
+}
+/*form*/
 #form_prod > form {
 	display: flex;
 		flex-direction: column;
@@ -110,4 +180,11 @@ input[type="submit"]{
 
 #butt:hover{
 	cursor: pointer;
+}
+
+.linea {
+  border: none;
+  border-top: 2px solid black;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }

@@ -7,35 +7,42 @@
 <%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.*"%>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Recensione</title>
+		<link href="style/insert-recensione.css" rel="stylesheet" type="text/css">
+	
+	<title>ShoeMustGoOn | Recensione</title>
 </head>
 <body>
 
 	<jsp:include page="header.jsp" />
+
+<div class="totalita">
+
+		<h3>Inserisci Nuova Recensione</h3>
+
 	
 	<form action="RecensioneControl" method="post">
 		<input type = "hidden" name = "action" value = "Insert">
 		<input type = "hidden" name = "idProd" value ="<%= request.getAttribute("idProd")%>">
 		
-		<select name="Valutazione">
-					<option value="0.5">0.5</option>
-					<option value="1">1</option>
-					<option value="1.5">1.5</option>
-					<option value="2">2</option>
-					<option value="2.5">2.5</option>
-					<option value="3">3</option>
-					<option value="3.5">3.5</option>
-					<option value="4">4</option>
-					<option value="4.5">4.5</option>
-					<option value="5">5</option>
-		</select>
 		
-		<textarea name="descrizione" maxlength="300"  placeholder="Inserisci una descrizione" required></textarea>
-				
-		<input type = "submit" value="invia">
-		<input type = "reset" value="reset">
+		<h5>Scegli Valutazione in Stelle:</h5>
+			<select name="Valutazione">
+						<option value="0">0</option>
+						<option value="1">1</option>					
+						<option value="2">2</option>					
+						<option value="3">3</option>					
+						<option value="4">4</option>
+						<option value="5">5</option>
+			</select>
+		<br>
+		
+		<h5>Insersci un Commento:</h5>
+			<textarea name="descrizione" maxlength="300"  placeholder="Inserisci" required></textarea>
+					<br>
+				<input type = "submit" value="Inserisci" id="butt_insert">
+				<input type = "reset" value="Reset" id="butt_reset">
 	</form>	
-	
+</div>
 	<jsp:include page="footer.jsp"/>
 	
 </body>
