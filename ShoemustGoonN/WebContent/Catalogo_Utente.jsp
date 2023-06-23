@@ -9,7 +9,7 @@
 %>
 
 <!DOCTYPE html>
-<html>
+<html lang="it" xml:lang="it">
 <%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.ProdottoBean"%>
 
 <head>
@@ -26,13 +26,7 @@
         <header>
             <jsp:include page="header.jsp" />
         </header>
-  
-        <!--    
-			<div id=sidebar></div>
-		
-			<div id =sidebar2></div>
-		-->
-	  
+
 <section id="content-main">
          
     

@@ -10,7 +10,7 @@
 		
 %>
 <!DOCTYPE html>
-<html>
+<html lang="it" xml:lang="it">
 
 
 <%@ page contentType="text/html; charset=UTF-8" import="java.util.*, model.*, java.text.DecimalFormat"%>
@@ -56,7 +56,7 @@ body{
 	
 				<div class="elementi">	
 					
-				 		<img src="<%=p.getImmagine().getPath()%>" id="immag">
+				 		<img src="<%=p.getImmagine().getPath()%>" id="immag" alt="img.jpg">
 					
 					 <div class="text">
 					
@@ -142,7 +142,7 @@ body{
 				
 				<div class="cart_empty">
 					<h2>Il carrello è vuoto</h2>
-						<img src="image/faccina_triste.png">
+						<img src="image/faccina_triste.png" alt="img.jpg">
 					<p>Inizia i tuoi acquisti, vai al catalogo</p>
 				
 					<button><a href="Catalogo_Utente.jsp">Vai al catalogo   -></a></button>

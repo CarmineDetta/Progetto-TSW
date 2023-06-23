@@ -10,7 +10,7 @@
 %>
     
 <!DOCTYPE html>
-<html>
+<html lang="it" xml:lang="it">
 	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.OrdineBean, model.UtenteBean"%>
 	<link href="style/Ordini_admin_cliente.css" rel="stylesheet" type="text/css">
 	
@@ -28,6 +28,7 @@
 		<h2>Ordini Cliente</h2>
 
 	<table border="1">
+	<caption>Tabella per ordini</caption>
 		<tr>
 			<th>ID_Ordine</th>
 			<th>Data ordine</th>

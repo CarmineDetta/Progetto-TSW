@@ -2,7 +2,7 @@
     pageEncoding="utf-8" import="java.util.*, model.*"%>
     
 <!DOCTYPE html>
-<html>
+<html alt="img.jpg">
 
 	<head>
  		<meta charset="utf-8">

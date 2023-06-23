@@ -10,7 +10,7 @@
 %>
 
 <!DOCTYPE html>
-<html>
+<html lang="it" xml:lang="it">
 <%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.ProdottoBean"%>
 
 <head>
@@ -48,6 +48,7 @@
 	<h2>Prodotti</h2>
      
      <table border="1">
+     <caption>Tabella Catalogo</caption>
      
 		<tr>
 			<th>ID_Prodotto</th>

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<html>
+<html lang="it" xml:lang="it">
 
 <head>
     <link href="style/Login.css" rel="stylesheet" type="text/css">
@@ -20,12 +20,7 @@ body{
 	<body>
 	
 	<jsp:include page="header.jsp" />
-	
-<!--
-	<div>
-		<h1>Login</h1>
-	</div>
--->	  		
+	 		
 		<form id="loginForm" class="loginForm" action="login" method="post">
 			<input type = "hidden" name="action" value="login">
 				

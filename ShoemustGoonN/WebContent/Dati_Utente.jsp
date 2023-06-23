@@ -5,7 +5,7 @@
 	UtenteBean update = (UtenteBean) request.getAttribute("a");
 %>
 <!DOCTYPE html>
-<html>
+<html lang="it" xml:lang="it">
 <%@ page contentType="text/html; charset=UTF-8" import="model.UtenteBean"%>
 <head>
 	<meta charset="UTF-8">
@@ -47,6 +47,7 @@ body{
 		<div class="particolar">		
 			
 			<table>
+			<caption>Tabella dati utente</caption>
 				<tr>
 					<th>ID_Utente</th>
 					<td><%=utente.getID_Utente()%></td>

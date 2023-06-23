@@ -10,21 +10,13 @@
 %>
     
 <!DOCTYPE html>
-<html>
+<html lang="it" xml:lang="it">
 	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.OrdineBean, model.UtenteBean"%>
 	<link href="style/ORder.css" rel="stylesheet" type="text/css">
 
 <head>
 <title>ShoeMustGoOn | I miei Ordini</title>
 </head>
-
-<!-- 
-<style>
-body{
-	background-image: url("image/sfondo_order.jpg");	
-}
-</style>
- -->
  
 <body>
 

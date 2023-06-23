@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <!DOCTYPE html>
-<html>
+<html lang="it" xml:lang="it">
 <%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.*"%>
 
 

@@ -10,7 +10,7 @@
 %>
     
 <!DOCTYPE html>
-<html>
+<html lang="it" xml:lang="it">
 	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.RecapitoBean, model.UtenteBean"%>
 	<link href="style/indrrizzi.css" rel="stylesheet" type="text/css">
 
@@ -45,6 +45,7 @@ body{
 		
 		<div class="elementi">
 		<table border="1">
+		<caption>Tabella indirizzi utente</caption>
 			<tr>
 		
 				<th>Cap</th>

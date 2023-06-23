@@ -22,19 +22,12 @@
 <jsp:include page="header.jsp" />
 
 <div class="content">
-<<<<<<< HEAD
-	
-	        <!-- barra ricerca -->
-			<div id="barra_ricerca">
-				<img src="https://www.svgrepo.com/show/510179/search-file.svg" width="28" height="28" title="mark-icon" alt="mark icon">
-					<input type="text" placeholder="Cerca Utente" class="campoRicerca" id="cerca" onkeyup="funzioneRicercaUtente()"/>
-=======
 
 			<!-- barra ricerca -->
 			<div id="barra_ricerca">
 				<img src="https://www.svgrepo.com/show/510179/search-file.svg" width="28" height="28" title="mark-icon" alt="mark icon">
 				<input type="text" placeholder="Cerca Utente" class="campoRicerca" id="cerca" onkeyup="funzioneRicercaUtente()"/>
->>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
+
 				<div id="Risultati"></div>
 			</div>
 
