@@ -47,14 +47,14 @@ public class RecensioneControl extends HttpServlet {
 					String descrizione = request.getParameter("descrizione");
 					
 					try {
-						ProdottoBean p1 = modelProd.doRetrieveByKey(request.getParameter("idProd"));
+						
 						RecensioneBean recensione = new RecensioneBean();
 						recensione.setDescrizione(descrizione);
 						recensione.setVotazione(votazione);
 						recensione.setUtente(utente);
-						recensione.setProdotto(p1);
+						recensione.setProdotto(p);
 					
-						model.doSave(recensione, utente, p1);
+						model.doSave(recensione, utente, p);
 					
 						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Recensione_Completata.jsp");
 						dispatcher.forward(request, response);
