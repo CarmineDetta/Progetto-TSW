@@ -2,7 +2,11 @@
     pageEncoding="utf-8" import="java.util.*, model.*"%>
     
 <!DOCTYPE html>
+<<<<<<< HEAD
+<html lang="it" xml:lang="it">
+=======
 <html alt="img.jpg">
+>>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
 
 	<head>
  		<meta charset="utf-8">
@@ -21,7 +25,7 @@
 		</div>
 		
 		<div class="pollice">
-			<img src="image/smile_ok.png">							 
+			<img src="image/smile_ok.png" alt="confirm image">							 
 		</div>
 		
 			<a href="Catalogo_Utente.jsp" ><input type="button" value="Torna all'Homepage"></a>

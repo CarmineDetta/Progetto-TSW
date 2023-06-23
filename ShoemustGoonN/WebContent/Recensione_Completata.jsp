@@ -21,7 +21,7 @@
 		</div>
 		
 		<div class="pollice">
-			<img src="image/smile_ok.png">							 
+			<img src="image/smile_ok.png" alt="Immagine recensione completata">							 
 		</div>
 		
 			<a href="Catalogo_Utente.jsp" ><input type="button" value="Torna all'Homepage"></a>

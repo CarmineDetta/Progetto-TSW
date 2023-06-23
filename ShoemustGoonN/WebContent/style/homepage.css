@@ -8,7 +8,7 @@
 
 .center span{
 	
-	font-family: ubuntu;		/*carattere testo nello <span>*/
+	font-family: Ubuntu, serif;		/*carattere testo nello <span>*/
 }
 
 .center a{
@@ -60,7 +60,6 @@
 
 .uname:hover {	/*animazione a quello scritto nel bottone*/
 	color:black;
-	font-color:white;
 	background-color: #FF8C69;
 	transition:0.4s;
 	border: #FF8C69;

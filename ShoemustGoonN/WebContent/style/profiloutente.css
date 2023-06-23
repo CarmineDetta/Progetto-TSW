@@ -48,7 +48,7 @@ button{
 .pulsanti a:hover{
 	color: black;
 	font-weight: bold;
-	tansition: .2s;
+	transition: .2s;
 }
 
 #logos > img{
