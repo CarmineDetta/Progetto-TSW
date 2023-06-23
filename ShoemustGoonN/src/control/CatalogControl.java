@@ -22,13 +22,15 @@ public class CatalogControl extends HttpServlet {
 
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String action = request.getParameter("action");
+		String action = request.getParameter("action"); //Preleva l'azione
 
 		try {
-			if (action != null) {
+			if (action != null) {//Controlla se action è vuoto
 				if (action.equalsIgnoreCase("read")) {
-					String id = request.getParameter("id");
-					request.setAttribute("product", model.doRetrieveByKey(id));	
+
+					String id = request.getParameter("id");//Prelevam ID
+					request.removeAttribute("product");//Ruomove prodotto "vecchio"
+					request.setAttribute("product", model.doRetrieveByKey(id));	//Inserisce il nuovo
 				} 
 			}
 		} catch (SQLException e) {
