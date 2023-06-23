@@ -17,6 +17,9 @@
 	margin-top: 5%;
 }
 
+.contenutoo table > caption{
+	display:none; /*nasconde il caption*/
+}
 .contenutoo th{
 	font-size: 14pt;
 	font-family: Gill Sans, sans-serif;

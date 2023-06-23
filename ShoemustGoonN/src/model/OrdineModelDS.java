@@ -19,6 +19,7 @@ import javax.sql.DataSource;
 public class OrdineModelDS implements OrdineDAO{
 
 	private static DataSource ds;
+	private static int c = 5;
 	
 	static {
 		try {
@@ -45,7 +46,15 @@ public class OrdineModelDS implements OrdineDAO{
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(insertSQL);
 
+			
+			int id =  ordine.getID_Ordine() + c;
+			this.c++;
+			
+			ordine.setID_Ordine(id);
+			
 			preparedStatement.setInt(1, ordine.getID_Ordine());
+			
+			
 			
 			// Ottenere la data corrente come oggetto LocalDate
 	        LocalDate dataAcquisto = LocalDate.now();
