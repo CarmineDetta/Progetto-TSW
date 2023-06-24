@@ -68,8 +68,9 @@ body{
 			</div>
 			
 			<div class="insert">
-				<label class="label_mod"  for="immagine">Immagine</label>
-				<input type="hidden" name="immagine" value="null">
+				<label class="label_mod"  for="image-outline">Immagine:</label>
+				<i class="icon"><ion-icon name="image-outline" size="large"></ion-icon></i>
+				<input class="input-field" type="file" name="photo" accept="image/*" required/>
 			</div>
 			
 			<div class="insert">

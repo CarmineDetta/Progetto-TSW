@@ -22,8 +22,9 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link href="style/Deettaglio.css" rel="stylesheet" type="text/css">
-		<link href="style/recension.css" rel="stylesheet" type="text/css">
-	
+	<link href="style/recension.css" rel="stylesheet" type="text/css">
+	<script src="javascript/Dettagli_Prodotto.js" type="text/javascript"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<title><%=product.getMarca() +" "+ product.getModello()%></title>
 </head>
 <body>
@@ -66,14 +67,15 @@
 			
 
 		<div id="form_prod">
-			<form action="cart" method="post">	
-				<input type="hidden" name="action" value="addCart">	
-				<input type="hidden" name="id" value="<%=product.getID_Prodotto()%>">
-				
-				<input type="number" name="qty" value="1" min="1" id="numeri">
-				<input type="submit" value="Aggiungi al carrello" id="butt">
-			</form>
+		  <form id="cartForm" action="cart" method="post" onsubmit="return formValidation();">	 
+		    <input type="hidden" name="action" value="addCart">	
+		    <input id="productId" type="hidden" name="id" value="<%=product.getID_Prodotto()%>">
+		    
+		    <input type="number" name="qty" value="1" min="1" id="numeri">
+		    <input type="submit" value="Aggiungi al carrello" id="butt">
+		  </form>
 		</div>
+
 		
 		</div>
 
