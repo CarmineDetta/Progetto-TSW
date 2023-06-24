@@ -102,7 +102,7 @@
 		<%
 			if(utente != null){
 		%>		 	
-			<button><a href="recensione?idProd=<%=product.getID_Prodotto()%>">Inserisci una recensione</a></button>
+			<button><a href="recensione?idProd=<%=product.getID_Prodotto()%>">Inserisci una recensione </a></button>
 		<%
 			} 
 		%>
