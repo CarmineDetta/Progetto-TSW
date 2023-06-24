@@ -31,41 +31,37 @@ public class UtenteControl extends HttpServlet{
 		if (action != null) {
 			if (action.equalsIgnoreCase("update")) { 
 				
-				UtenteBean u = (UtenteBean) request.getSession().getAttribute("UtenteLoggato");
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Modifica_Dati_Utente.jsp");
+				dispatcher.forward(request, response);
+			
+			}else if(action.equalsIgnoreCase("completa_update")) {
 				
-				//System.out.println("email--:" + u.getEmail());
-				
-				String email = u.getEmail();
-				//System.out.println("email 222:" + email);
-				
-				String scelta =  request.getParameter("Scelta");
-				String valore =  request.getParameter("valore");
-				String utente =  request.getParameter("utente");
-				
-				/*System.out.println("scelta:" + scelta);
-				System.out.println("valore"  + valore);
-				System.out.println("utente" + utente);*/
-				
-			try {
-		
-					request.setAttribute("UtenteLoggato", model.doRetriveByEmail(email));
-	
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Modifica_Dati_Utente.jsp");
-					dispatcher.forward(request, response);
+					UtenteBean u = (UtenteBean) request.getSession().getAttribute("UtenteLoggato");
+								
+					String email = u.getEmail();
 					
-					if(scelta.equalsIgnoreCase("password")) {
+					String scelta =  request.getParameter("Scelta");
+					String valore =  request.getParameter("valore");
+					String utente =  request.getParameter("utente");
 						
+				try {
+			
+					request.setAttribute("UtenteLoggato", model.doRetriveByEmail(email));
+						
+					if(scelta.equalsIgnoreCase("password")) {
+							
 						model.doUpdatePassword(valore, utente);
 					
 					}else {
-						model.doUpdateEmail(valore, utente);
+							model.doUpdateEmail(valore, utente);
 					}
-					
-					
-					
-			} catch (SQLException e1) {
+						
+				}catch (SQLException e1) {
 					e1.printStackTrace();
 				}
+				
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Dati_Utente.jsp");
+				dispatcher.forward(request, response);
 			}
 			if(action.equalsIgnoreCase("visualizza_tutti")) {
 				try {
