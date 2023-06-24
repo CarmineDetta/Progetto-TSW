@@ -13,6 +13,9 @@
 		response.sendRedirect("./details");	
 		return;
 	}
+	
+	UtenteBean utente = (UtenteBean) request.getSession().getAttribute("UtenteLoggato");
+
 %>
 
 <!-- prova -->
@@ -96,9 +99,13 @@
 	 	
 		 	<div id="title_rec">
 		 		<p>Recensioni</p>
-		 	
-		 		<button><a href="recensione?idProd=<%=product.getID_Prodotto()%>">Inserisci una recensione</a></button>
-		 		
+		<%
+			if(utente != null){
+		%>		 	
+			<button><a href="recensione?idProd=<%=product.getID_Prodotto()%>">Inserisci una recensione </a></button>
+		<%
+			} 
+		%>
 			</div>
 		
 		<hr class="linea">

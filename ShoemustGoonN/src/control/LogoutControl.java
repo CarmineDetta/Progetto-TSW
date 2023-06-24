@@ -21,19 +21,17 @@ public class LogoutControl extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession sessione = request.getSession();
+        HttpSession sessione = request.getSession(false); 
 		String action = request.getParameter("action");
 		
 		if(action != null) {
 			if(action.equalsIgnoreCase("Logout")){
-				if(sessione.getAttribute("UtenteLoggato") != null){
-					sessione.setAttribute("UtenteLoggato", null);
-				}else if(sessione.getAttribute("AdminLoggato") != null)
-					sessione.setAttribute("AdminLoggato", null);
+					sessione.removeAttribute("UtenteLoggato");
+					sessione.removeAttribute("AdminLoggato");
 				}
-				
-				//request.getSession().invalidate();
+			
 				response.sendRedirect("Homepage.jsp");
+				
 			}
 		}
 
