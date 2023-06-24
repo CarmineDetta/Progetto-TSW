@@ -28,13 +28,12 @@ public class RecensioneControl extends HttpServlet {
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String action = (String) request.getParameter("action");
 		UtenteBean utente = (UtenteBean) request.getSession().getAttribute("UtenteLoggato");
 		
 		try {
-		
 			if(action != null) {
 				if(action.equalsIgnoreCase("Insert")){
 					
@@ -42,16 +41,15 @@ public class RecensioneControl extends HttpServlet {
 					String descrizione = request.getParameter("descrizione");
 					ProdottoBean p = modelProd.doRetrieveByKey((String) request.getParameter("idProd"));
 					
-					System.out.print(p.getID_Prodotto());
-					
 					try {
-						
+											
 						RecensioneBean recensione = new RecensioneBean();
+						
 						recensione.setDescrizione(descrizione);
 						recensione.setVotazione(votazione);
 						recensione.setUtente(utente);
 						recensione.setProdotto(p);
-					
+				
 						model.doSave(recensione, utente, p);
 					
 						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Recensione_Completata.jsp");
@@ -70,7 +68,8 @@ public class RecensioneControl extends HttpServlet {
 			e.printStackTrace();
 		}
 }
-
+		
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}

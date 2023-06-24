@@ -13,6 +13,7 @@
 <html lang="it" xml:lang="it">
 	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.OrdineBean, model.UtenteBean"%>
 	<link rel="stylesheet" href="style/ordine_admin_data.css" type="text/css">
+	<script src="javascript/Ordine_Admin_Data.js" type="text/javascript"></script>
 	
 <head>
 <title>ShoeMustGoOn | Ordini per data</title>
@@ -27,21 +28,20 @@
 
 		<h2>Trova Ordine in base alla Data</h2><br>
 	
-	<form action="ordine" method="post">
-		<input type="hidden" name="action" value="visualizza_data">
-		
-		<label for="dataInizio">Data inizio: </label>
-		<input type="date" name="dataInizio" required><br>
-		
-		<label for="dataFine">Data fine: </label>
-		<input type="date" name="dataFine" required><br>
-		
-		<input type="submit" value="Cerca">
-		<input type="reset" value="Reset">
-		
+
+	<form action="ordine" method="post" onsubmit="formValidation()">
+	    <input type="hidden" name="action" value="visualizza_data">
+	
+	    <label for="dataInizio">Data inizio: </label>
+	    <input id="date1" type="date" name="dataInizio" required><br>
+	
+	    <label for="dataFine">Data fine: </label>
+	    <input id="date2" type="date" name="dataFine" required><br>
+	
+	    <input type="submit" value="Cerca">
+	    <input type="reset" value="Reset">
 	</form>
-	
-	
+			
 	<table border="1">
 	<caption>Tabella ordini data Admin</caption>
 		<tr>

@@ -2,14 +2,14 @@
     pageEncoding="UTF-8"%>
     
 <%
-	UtenteBean update = (UtenteBean) request.getAttribute("a");
+	UtenteBean update = (UtenteBean) request.getAttribute("user");
 %>
 <!DOCTYPE html>
 <html lang="it" xml:lang="it">
 <%@ page contentType="text/html; charset=UTF-8" import="model.UtenteBean"%>
 <head>
 	<meta charset="UTF-8">
-	<link href="style/dati_utentE.css" rel="stylesheet" type="text/css">
+	<link href="style/dati-utente.css" rel="stylesheet" type="text/css">
 	<title>ShoeMustGoOn | I mie Dati</title>
 	<script src="javascript/Dati_Utente.js" type="text/javascript"></script>
 </head>
@@ -45,12 +45,10 @@ body{
 	</div>
 	
 		<div class="particolar">		
-			
+	
 			<table>
-				<caption>Tabella per i dati sull'utente</caption>
-			<caption>Tabella dati utente</caption>
-
-				<tr>
+				<table>
+			<caption>Tabella dati utente</caption><tr>
 					<th>ID_Utente</th>
 					<td><%=utente.getID_Utente()%></td>
 				</tr>
@@ -80,38 +78,10 @@ body{
 	</div>	<!-- chiude la class elementi -->
 
 	<div id="update_button">
-		<button><a href="utente?action=update&email=<%=email%>">Vuoi aggiornare i tuoi dati?</a></button><br>
+		<button><a href="utente?action=update">Vuoi aggiornare i tuoi dati?</a></button><br>
 		<br>
 	</div>
-	<%
-		System.out.println(update);
-		if(update != null){	
-	%>
-	
-	<div class="update_form">
-		<form action="utente" method="post"  onsubmit="return formValidation();">
-		
-			<label for="scelta">Cosa vuoi aggiornare?</label>
-			<select name="scelta">
-				<option value="email">Email</option>
-				<option value="password">Password</option>
-			</select>
-			
-			<label for="valore">Inserisci Nuovi Valori</label>
-			<input id="valore" type="text" name="valore" maxlength=50 required placeholder="Inserisci">
-			
-			<input type="hidden" value ="<%=update.getNome()%>" name="utente">
-			
-			<div id="input_field">
-				<input class="pulsanti" type="submit" value="Aggiorna">
-				<input class="pulsanti" type="reset" value="Reset">
-			</div>
-		</form>
-		</div>
 
-	<% 
-		} 
-	%>
 </div>
 </body>
 </html>

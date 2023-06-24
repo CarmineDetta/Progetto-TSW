@@ -13,8 +13,10 @@ public interface UtenteDAO {
 
 	public UtenteBean doRetriveByEmail(String email) throws SQLException;
 	
-	public void doUpdateUtente(String value, String attributo, String id) throws SQLException;
+	public void doUpdatePassword(String value, String id) throws SQLException;
+	
+	public void doUpdateEmail(String value, String id) throws SQLException;
 	
 	public Collection<UtenteBean> doRetrieveAllUtente() throws SQLException;
-
+	
 }
