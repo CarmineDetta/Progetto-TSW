@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<!-- prova -->
+
+
+
 <!DOCTYPE html>
 <html lang="it" xml:lang="it">
 <%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.*"%>
@@ -19,14 +20,13 @@
 
 		<h3>Inserisci Nuova Recensione</h3>
 
+	<%//utenteloggato
+	%>
 	
 	<form action="RecensioneControl" method="get">
 			<input type="hidden" name="action" value="Insert"> 
-			<input type="hidden" name="idProd" value="<%= request.getAttribute("idProd")%>" id="carmineIlDown">		
-		<script type="text/javascript">
-		
-		let id = getElementById("carmineIlDown");
-		console.log(id)</script>
+			<input type="hidden" name="idProd" value="<%= request.getAttribute("idProd")%>">		
+
 		<h5>Scegli Valutazione in Stelle:</h5>
 			<select name="Valutazione">
 						<option value="0">0</option>

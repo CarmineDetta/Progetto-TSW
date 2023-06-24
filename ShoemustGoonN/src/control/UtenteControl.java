@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.UtenteBean;
 import model.UtenteDAO;
 import model.UtenteModelDS;
 
@@ -29,24 +30,40 @@ public class UtenteControl extends HttpServlet{
 		
 		if (action != null) {
 			if (action.equalsIgnoreCase("update")) { 
-				String email = (String) request.getParameter("email");
-				try {
+				
+				UtenteBean u = (UtenteBean) request.getSession().getAttribute("UtenteLoggato");
+				
+				//System.out.println("email--:" + u.getEmail());
+				
+				String email = u.getEmail();
+				//System.out.println("email 222:" + email);
+				
+				String scelta =  request.getParameter("Scelta");
+				String valore =  request.getParameter("valore");
+				String utente =  request.getParameter("utente");
+				
+				/*System.out.println("scelta:" + scelta);
+				System.out.println("valore"  + valore);
+				System.out.println("utente" + utente);*/
+				
+			try {
+		
+					request.setAttribute("UtenteLoggato", model.doRetriveByEmail(email));
+	
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Modifica_Dati_Utente.jsp");
+					dispatcher.forward(request, response);
 					
-					request.setAttribute("a", model.doRetriveByEmail(email));
+					if(scelta.equalsIgnoreCase("password")) {
+						
+						model.doUpdatePassword(valore, utente);
 					
-					String scelta =  request.getParameter("scelta");
-					String valore =  request.getParameter("valore");
-					String utente =  request.getParameter("utente");
+					}else {
+						model.doUpdateEmail(valore, utente);
+					}
 					
-					/*System.out.println(scelta);
-					System.out.println(valore);
-					System.out.println(utente);
 					
-					*/
 					
-					model.doUpdateUtente(valore, scelta, utente);
-					
-				} catch (SQLException e1) {
+			} catch (SQLException e1) {
 					e1.printStackTrace();
 				}
 			}
@@ -60,11 +77,11 @@ public class UtenteControl extends HttpServlet{
 				}
 				
 			}
-		}else {
+		}
 		
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Dati_Utente.jsp");
 			dispatcher.forward(request, response);
-		}
+			
 	}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

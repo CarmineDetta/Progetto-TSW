@@ -242,26 +242,27 @@ public class UtenteModelDS implements UtenteDAO{
 		}
 		return u;
 	}
-
-	public synchronized void doUpdateUtente(String value, String attributo, String id) throws SQLException {
-			
+		
+	public synchronized void doUpdatePassword(String value, String id) throws SQLException {
+											//in value c'è il nuovo valore
 			Connection connection = null;
 			PreparedStatement preparedStatement = null;
 	
-			String selectSQL = "UPDATE " + TABLE_NAME + " SET ? = ? WHERE ID_Utente = ?";
-		
-			
+			String updateSQL = "UPDATE " + UtenteModelDS.TABLE_NAME + " SET Password = ? WHERE ID_Utente = ?";
+
 			try {
 				connection = DriverManagerConnectionPool.getConnection();
-				preparedStatement = connection.prepareStatement(selectSQL);
+				preparedStatement = connection.prepareStatement(updateSQL);
 				
+
 				preparedStatement.setString(1, value);
-				preparedStatement.setString(2, attributo);
-				preparedStatement.setString(3, id);
+				preparedStatement.setString(2, id);
 				
-	
+				//System.out.println("Ho preparato la stringa SQL: "+preparedStatement);
 				preparedStatement.executeUpdate();
-	
+					
+				connection.commit();
+				//System.out.println("Ho aggiornato l'utente con successo");
 			} finally {
 				try {
 					if (preparedStatement != null)
@@ -271,6 +272,34 @@ public class UtenteModelDS implements UtenteDAO{
 				}
 			}
 		}
+	
+	public synchronized void doUpdateEmail(String value, String id) throws SQLException {
+							//in value c'è il nuovo valore
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		String updateSQL = "UPDATE " + UtenteModelDS.TABLE_NAME + " SET Email = ? WHERE ID_Utente = ?";
+		
+		try {
+			connection = DriverManagerConnectionPool.getConnection();
+			preparedStatement = connection.prepareStatement(updateSQL);
+		
+			
+			preparedStatement.setString(1, value);
+			preparedStatement.setString(2, id);
+		
+			preparedStatement.executeUpdate();
+		
+			connection.commit();	//conferma le modifiche nel database
+		} finally {
+			try {
+					if (preparedStatement != null)
+						preparedStatement.close();
+			} finally {
+				DriverManagerConnectionPool.releaseConnection(connection);
+			}
+		}
+	}
 	
 	public Collection<UtenteBean> doRetrieveAllUtente() throws SQLException {
 		
@@ -361,5 +390,6 @@ public synchronized Collection<UtenteBean> doRetrieveSuggest(String StringaParzi
 	return utentes;
  }
 }
+
 
 
