@@ -30,44 +30,23 @@ public class RecensioneControl extends HttpServlet {
     }
 
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		UtenteBean utente = (UtenteBean) request.getSession().getAttribute("UtenteLoggato");
-		
-		if(utente == null) {
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Login.jsp");
-			dispatcher.forward(request, response);
-		}else {
+				
+	
+
 			
 			String action = (String) request.getParameter("action");
-		
-		try {
-		/*
-			String c = request.getParameter("idProd");
-			System.out.println("ID Prodotto:" + c);
-		*/
+			UtenteBean utente = (UtenteBean) request.getSession().getAttribute(("UtenteLoggato"));
 			
-			ProdottoBean p = modelProd.doRetrieveByKey((String) request.getParameter("idProd"));
-			request.setAttribute("idProd", p.getID_Prodotto());
+			try {
 
-			//System.out.println("ID Prodotto aaaaa: " + p.getID_Prodotto());
-			
 			if(action != null) {
 				if(action.equalsIgnoreCase("Insert")){
 					
-					String c = request.getParameter("idProd");
-					System.out.println("ID Prodotto:" + c);
-					
-					
-					System.out.println("ID Prodotto 22222: " + p.getID_Prodotto());
-					
 					float votazione = Float.parseFloat(request.getParameter("Valutazione"));
 					String descrizione = request.getParameter("descrizione");
-					
+					ProdottoBean p = modelProd.doRetrieveByKey((String) request.getParameter("idProd"));
 					
 					try {
-						
-						System.out.println(utente.getNome());
-						System.out.println(p.getID_Prodotto());
 					
 						RecensioneBean recensione = new RecensioneBean();
 						
@@ -95,7 +74,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		}
 
 	}
-}
+
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
