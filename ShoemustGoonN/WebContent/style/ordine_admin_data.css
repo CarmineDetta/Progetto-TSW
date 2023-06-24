@@ -60,6 +60,10 @@ input[type="reset"]:hover{
 	text-align: center;
 }
 
+.total_cont table > caption{
+	display:none; /*nasconde il caption*/
+}
+
 .content th{
 	background-color: 	#B7B7B7;
 	font-family: Gill Sans, sans-serif;	

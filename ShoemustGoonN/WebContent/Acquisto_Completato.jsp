@@ -2,7 +2,6 @@
     pageEncoding="utf-8" import="java.util.*, model.*"%>
     
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html lang="it" xml:lang="it">
 
 	<head>

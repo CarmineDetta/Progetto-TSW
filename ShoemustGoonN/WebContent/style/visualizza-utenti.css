@@ -18,6 +18,9 @@
 	box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);	
 	
 }
+.content table > caption{
+	display:none; /*nasconde il caption*/
+}
 
 .content th{
 	background-color:	#B7B7B7;

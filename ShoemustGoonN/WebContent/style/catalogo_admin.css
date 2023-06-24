@@ -9,6 +9,10 @@
 	margin-bottom: 1%;
 }
 
+.total_cont table > caption{
+	display:none; /*nasconde il caption*/
+}
+
 
 .total_cont table{
 	border-collapse: collapse;

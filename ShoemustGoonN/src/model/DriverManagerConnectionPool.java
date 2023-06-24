@@ -29,8 +29,12 @@ public class DriverManagerConnectionPool {
 			String ip = "localhost";
 			String port = "3306";
 			String username = "root";
-			String password = "ciccio";
+<<<<<<< HEAD
+			String password = "carmineadmin";
 
+=======
+			String password = "Gianmarco99.";
+>>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
 			newConnection = DriverManager.getConnection("jdbc:mysql://"+ ip+":"+ port+"/"+"shoemustgoon"+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", username, password);
 			
 			newConnection.setAutoCommit(false);

@@ -21,6 +21,10 @@
 	box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);	
 }
 
+.contenuto table > caption{
+	  display: none;
+}
+
 .contenuto table{
 	border-collapse: collapse;
 	border: 2px solid black;

@@ -21,6 +21,10 @@
 	text-align: center;
 }
 
+.completo table > caption{
+	display:none; /*nasconde il caption*/
+}
+
 .completo td{
 	font-size: 14pt;
 	font-family: Trebuchet MS, sans-serif;
