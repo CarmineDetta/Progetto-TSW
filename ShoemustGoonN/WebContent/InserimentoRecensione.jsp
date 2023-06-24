@@ -29,7 +29,7 @@
 		
 	<form action="RecensioneControl" method="get">
 			<input type="hidden" name="action" value="Insert"> 
-			<input type="hidden" name="idProd" value="<%= request.getAttribute("idProd")%>">		
+			<input type="hidden" name="idProd" value="<%= request.getAttribute("idProd")%> ">		
 
 		<h5>Scegli Valutazione in Stelle:</h5>
 			<select name="Valutazione">
