@@ -1,14 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 
-
-
-=======
 <% String idProd = request.getParameter("idProd"); %>
 
 <!-- prova -->
->>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
 <!DOCTYPE html>
 <html lang="it" xml:lang="it">
 <%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.*"%>
@@ -28,10 +23,6 @@
 
 	<%//utenteloggato
 	%>
-
-	<form action="RecensioneControl" method="get">
-			<input type="hidden" name="action" value="Insert"> 
-			<input type="hidden" name="idProd" value="<%= request.getAttribute("idProd")%>">		
 
 	<form action="recensione" method="post">
 		<input type="hidden" name="action" value="Insert"> 
