@@ -47,8 +47,13 @@ body{
 		<div class="particolar">		
 	
 			<table>
-				<table>
+
+				<caption>Tabella per i dati sull'utente</caption>
+
+				<tr>
+		<table>
 			<caption>Tabella dati utente</caption><tr>
+
 					<th>ID_Utente</th>
 					<td><%=utente.getID_Utente()%></td>
 				</tr>

@@ -21,6 +21,7 @@
 	
 	<div class="update_form">
 		<form action="utente" method="post"  onsubmit="return formValidation();">
+		<input type="hidden" name="action" value="update">
 		<input type="hidden" name="action" value="completa_update">
 				
 		<label for="scelta">Cosa vuoi aggiornare?</label>

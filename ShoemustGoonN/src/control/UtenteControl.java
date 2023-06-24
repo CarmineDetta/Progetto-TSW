@@ -31,15 +31,17 @@ public class UtenteControl extends HttpServlet{
 		if (action != null) {
 			if (action.equalsIgnoreCase("update")) { 
 				
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Modifica_Dati_Utente.jsp");
-				dispatcher.forward(request, response);
+					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Modifica_Dati_Utente.jsp");
+					dispatcher.forward(request, response);
+
 			
 			}else if(action.equalsIgnoreCase("completa_update")) {
 				
 					UtenteBean u = (UtenteBean) request.getSession().getAttribute("UtenteLoggato");
 								
 					String email = u.getEmail();
-					
+
+
 					String scelta =  request.getParameter("Scelta");
 					String valore =  request.getParameter("valore");
 					String utente =  request.getParameter("utente");
@@ -51,8 +53,8 @@ public class UtenteControl extends HttpServlet{
 					if(scelta.equalsIgnoreCase("password")) {
 							
 						model.doUpdatePassword(valore, utente);
-					
-					}else {
+				
+					} else {
 							model.doUpdateEmail(valore, utente);
 					}
 						

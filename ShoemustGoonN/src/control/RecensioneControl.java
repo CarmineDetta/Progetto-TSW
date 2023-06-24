@@ -29,10 +29,12 @@ public class RecensioneControl extends HttpServlet {
     }
 
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String action = (String) request.getParameter("action");
-		UtenteBean utente = (UtenteBean) request.getSession().getAttribute("UtenteLoggato");
-		
+
+				
+
+			String action = (String) request.getParameter("action");
+			UtenteBean utente = (UtenteBean) request.getSession().getAttribute(("UtenteLoggato"));
+
 		try {
 			if(action != null) {
 				if(action.equalsIgnoreCase("Insert")){
@@ -42,7 +44,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 					ProdottoBean p = modelProd.doRetrieveByKey((String) request.getParameter("idProd"));
 					
 					try {
-											
+					
 						RecensioneBean recensione = new RecensioneBean();
 						
 						recensione.setDescrizione(descrizione);
@@ -67,7 +69,8 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-}
+
+	}
 		
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
