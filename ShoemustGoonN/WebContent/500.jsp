@@ -8,8 +8,7 @@
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>SERVER ERROR</title>
-       <script src="js/JQuery.js" type="text/javascript"></script>
-      <script src="javascript/Not_autorized.js" type="text/javascript"></script>
+      	<script src="javascript/Not_Autorized.js" type="text/javascript"></script>
 </head>
 
 <body>

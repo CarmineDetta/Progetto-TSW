@@ -45,15 +45,11 @@ body{
 	</div>
 	
 		<div class="particolar">		
-	
+			
 			<table>
-
 				<caption>Tabella per i dati sull'utente</caption>
 
 				<tr>
-		<table>
-			<caption>Tabella dati utente</caption><tr>
-
 					<th>ID_Utente</th>
 					<td><%=utente.getID_Utente()%></td>
 				</tr>
@@ -83,7 +79,7 @@ body{
 	</div>	<!-- chiude la class elementi -->
 
 	<div id="update_button">
-		<button><a href="utente?action=update">Vuoi aggiornare i tuoi dati?</a></button><br>
+		<button><a href="utente?action=update" target="_blank">Vuoi aggiornare i tuoi dati?</a></button><br>
 		<br>
 	</div>
 
