@@ -14,7 +14,7 @@
 	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.PortafoglioBean, model.UtenteBean"%>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link href="style/payement.css" rel="stylesheet" type="text/css">
+	<link href="style/payements.css" rel="stylesheet" type="text/css">
 	<title>ShoeMustGoon | Metodi di Pagamento</title>
 </head>
 <style>

@@ -135,7 +135,7 @@
 			<%
 				}else if(bean.getVotazione() == 1){
 			%>
-				<img id="stelle" src="image/unastelle.png" title="star-icon" alt="star icon"><br>							 
+				<img id="stelle" src="image/unastella.png" title="star-icon" alt="star icon"><br>							 
 			
 			<%
 				}else if(bean.getVotazione() == 2){

@@ -108,35 +108,4 @@ button > a{
 	cursor: pointer;
 }
 
-.update_form{
-	border: 1px solid black;
-	margin: 3%;
-	padding: 1%;
-		
-}
 
-label{
-	font-family: Helvetica, sans-serif;
-}
-
-select{
-	border-radius: 10px;
-}
-
-input{
-	text-align: center;
-	font-family: Comic Sans, cursive;
-}
-
-.pulsanti{
-	width: 10%;
-	background-color: tomato;
-	border: 1px solid black;
-		border-radius: 5px;
-}
-
-.pulsanti:hover{
-	background-color: #F4A460;
-	transition: all .2s;
-	cursor: pointer;
-}

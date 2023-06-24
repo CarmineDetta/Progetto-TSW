@@ -1,0 +1,48 @@
+.update_form{
+
+	display: grid;
+	border: 1px solid black;
+	margin: 5%;
+	padding: 3%;
+		
+}
+
+.cosa_aggiornare{
+	padding: 3%;
+}
+
+.valori-aggior{
+	padding: 5%;
+}
+
+.update_form label{
+	margin-right: 3%;
+	font-weight: bold;
+	font-family: Helvetica, sans-serif;
+}
+
+.cosa_aggiornare select{
+	border-radius: 10px;
+}
+
+.valori-aggior input{
+	width: 20%;
+	padding: 5px;
+	border-radius: 5px;
+	text-align: center;
+	font-family: Comic Sans, cursive;
+
+}
+
+.pulsanti{
+	width: 10%;
+	background-color: tomato;
+	border: 1px solid black;
+		border-radius: 5px;
+}
+
+.pulsanti:hover{
+	background-color: #F4A460;
+	transition: all .2s;
+	cursor: pointer;
+}

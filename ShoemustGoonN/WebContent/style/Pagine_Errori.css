@@ -1,0 +1,33 @@
+
+body{
+	display: grid;
+		justify-content: center;
+	text-align: center;
+	margin: 10%;
+}
+
+.text-error span{
+	font-wight: bold;
+	font-family: GIll Sans, sans-serif;
+	font-size: 25pt;
+
+}
+
+.torna input{
+	margin-top: 5%;
+	background-color: #ff6347;
+	border: 1px solid black;
+	border-radius: 15px;
+	width: 20%;
+	padding: 5px;
+}
+
+.torna input:hover{
+	background-color: #F4A460;
+	cursor:pointer;
+	transition: all .2s;
+}
+
+.total-error img{
+	margin-top: 5%;
+}

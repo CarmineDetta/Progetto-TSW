@@ -61,7 +61,7 @@
 		</div>
 			
 		
-			<button id="stampa">Stampa Fattura</button>
+			<button id="stampa"><a href="fattura?idOrdine=<%= bean.getID_Ordine()%>">Stampa Fattura</a></button>
 	</div>	
 
 		<%

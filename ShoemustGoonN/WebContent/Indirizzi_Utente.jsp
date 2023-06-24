@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html lang="it" xml:lang="it">
 	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.RecapitoBean, model.UtenteBean"%>
-	<link href="style/indrrizzi.css" rel="stylesheet" type="text/css">
+	<link href="style/Indrizzi.css" rel="stylesheet" type="text/css">
 
 <head>
 <title>ShoeMustGoOn | Indirizzi di Spedizione</title>

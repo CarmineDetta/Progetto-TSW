@@ -99,9 +99,10 @@ public class ProdottoBean implements Serializable {
 	public ImmagineBean getImmagine() {
 		return this.Immagine;
 	}
+
 	
-	public void setImmagine(ImmagineBean s){
-		this.Immagine = s;
+	public void setImmagine(ImmagineBean immagineBean){
+		this.Immagine = immagineBean;
 	}
     
 }

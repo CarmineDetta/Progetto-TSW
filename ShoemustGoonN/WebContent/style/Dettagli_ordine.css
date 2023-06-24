@@ -4,6 +4,10 @@
 	 
 }
 
+.totale a{
+	text-decoration: none;
+}
+
 .parte_sup{
 	display: flex;
 		align-items: center;
