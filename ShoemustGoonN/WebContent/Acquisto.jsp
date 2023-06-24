@@ -30,7 +30,7 @@
 <html lang="it" xml:lang="it">
 <head>
 	<meta charset="utf-8">
-	<link href="style/acquist.css" rel="stylesheet" type="text/css">
+	<link href="style/acquisto.css" rel="stylesheet" type="text/css">
 	<title>ShoeMustGoOn | CheckOut</title>
 </head>
 
@@ -41,6 +41,13 @@
 
 		<form action="AcquistoControl" method="post"> 
 		<input type="hidden" name="action" value="Completo">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+		
+=======
+>>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
+>>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
 		
 	<div class="pagamento">
 		<p>Seleziona il tuo metodo di pagamento</p>
@@ -87,7 +94,7 @@
 		<p>Seleziona il recapito dell'ordine</p>
 		
 		<table border="1">
-			<caption>Tabella per selezionare l'indirizzo di spedizione per l'acquisto</caption>
+			<caption display="none";>Tabella per selezionare l'indirizzo di spedizione per l'acquisto</caption>
 		<tr>
 		
 			<th>Cap</th>
@@ -137,8 +144,11 @@
 					<input type="submit" value="Completa ordine">
 					
 				<% } %>
+				
+				</form>
 		</div>
 		</form>
 </div>		
+	</form>
 </body>
 </html>

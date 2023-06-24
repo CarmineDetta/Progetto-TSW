@@ -6,11 +6,7 @@
         driverClassName="com.mysql.cj.jdbc.Driver"
         type="javax.sql.DataSource"
         username="root"
-<<<<<<< HEAD
-        password="carmineadmin"
+        password="ciccio"
 
-=======
-        password="Gianmarco99."
->>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
         url="jdbc:mysql://localhost:3306/shoemustgoon?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
 </Context>
