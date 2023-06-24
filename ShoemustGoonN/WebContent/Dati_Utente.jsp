@@ -47,11 +47,9 @@ body{
 		<div class="particolar">		
 			
 			<table>
-<<<<<<< HEAD
 				<caption>Tabella per i dati sull'utente</caption>
-=======
 			<caption>Tabella dati utente</caption>
->>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
+
 				<tr>
 					<th>ID_Utente</th>
 					<td><%=utente.getID_Utente()%></td>

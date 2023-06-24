@@ -49,8 +49,11 @@ private static DataSource ds;
 			UtenteModelDS udao = new UtenteModelDS();
 			recensione.setUtente(udao.doRetrieveByKey(utente.getID_Utente()));
 			
+			preparedStatement.setString(4,recensione.getUtente().getID_Utente());
+
 			ProductModelDS pdao = new ProductModelDS();
 			recensione.setProdotto(pdao.doRetrieveByKey(prodotto.getID_Prodotto()));
+			preparedStatement.setString(5,recensione.getProdotto().getID_Prodotto());
 			
 			preparedStatement.executeUpdate();
 

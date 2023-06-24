@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<% String idProd = request.getParameter("idProd"); %>
 <!-- prova -->
 <!DOCTYPE html>
 <html lang="it" xml:lang="it">
@@ -20,13 +20,10 @@
 		<h3>Inserisci Nuova Recensione</h3>
 
 	
-	<form action="RecensioneControl" method="get">
-			<input type="hidden" name="action" value="Insert"> 
-			<input type="hidden" name="idProd" value="<%= request.getAttribute("idProd")%>" id="carmineIlDown">		
-		<script type="text/javascript">
+	<form action="recensione" method="post">
+		<input type="hidden" name="action" value="Insert"> 
+		<input type="hidden" name="idProd" value="<%= idProd %>"> <!-- Aggiungi questa riga -->
 		
-		let id = getElementById("carmineIlDown");
-		console.log(id)</script>
 		<h5>Scegli Valutazione in Stelle:</h5>
 			<select name="Valutazione">
 						<option value="0">0</option>

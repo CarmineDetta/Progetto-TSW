@@ -18,7 +18,6 @@ import model.RecensioneDAO;
 import model.RecensioneModelDS;
 import model.UtenteBean;
 
-@WebServlet("/RecensioneControl")
 public class RecensioneControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -31,20 +30,19 @@ public class RecensioneControl extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String action = (String) request.getAttribute("action");
+		String action = (String) request.getParameter("action");
 		UtenteBean utente = (UtenteBean) request.getSession().getAttribute("UtenteLoggato");
 		
 		try {
 		
-			ProdottoBean p = modelProd.doRetrieveByKey((String) request.getAttribute("idProd"));
-			request.setAttribute("idProd", p.getID_Prodotto());
-			
-			
 			if(action != null) {
 				if(action.equalsIgnoreCase("Insert")){
 					
-					float votazione = Float.parseFloat(request.getParameter("Votazione"));
+					float votazione = Float.parseFloat(request.getParameter("Valutazione"));
 					String descrizione = request.getParameter("descrizione");
+					ProdottoBean p = modelProd.doRetrieveByKey((String) request.getParameter("idProd"));
+					
+					System.out.print(p.getID_Prodotto());
 					
 					try {
 						
@@ -63,11 +61,11 @@ public class RecensioneControl extends HttpServlet {
 					e.printStackTrace();
 					}
 				}
-			}else {
-				
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/InserimentoRecensione.jsp");
-				dispatcher.forward(request, response);
 			}
+			
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/InserimentoRecensione.jsp");
+			dispatcher.forward(request, response);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
