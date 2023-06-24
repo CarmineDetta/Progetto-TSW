@@ -41,7 +41,11 @@
 
 		<form action="AcquistoControl" method="post"> 
 		<input type="hidden" name="action" value="Completo">
+<<<<<<< HEAD
+
+=======
 		
+>>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
 	<div class="pagamento">
 		<p>Seleziona il tuo metodo di pagamento</p>
 		
@@ -87,7 +91,11 @@
 		<p>Seleziona il recapito dell'ordine</p>
 		
 		<table border="1">
+<<<<<<< HEAD
+			<caption >Tabella per selezionare l'indirizzo di spedizione per l'acquisto</caption>
+=======
 			<caption>Tabella per selezionare l'indirizzo di spedizione per l'acquisto</caption>
+>>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
 		<tr>
 		
 			<th>Cap</th>
@@ -140,5 +148,9 @@
 		</div>
 		</form>
 </div>		
+<<<<<<< HEAD
+
+=======
+>>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
 </body>
 </html>
