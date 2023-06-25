@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <html lang="it" xml:lang="it">
 	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.*"%>
-	<link rel="stylesheet" href="style/Dettagli_ordine.css" type="text/css">
+	<link rel="stylesheet" href="style/Dettagli_Ordine.css" type="text/css">
 
 <head>
 	<meta charset="UTF-8">

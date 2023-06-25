@@ -80,27 +80,27 @@ function validateVisa(cardNumber) {
 }
 
 function validateMastercard(cardNumber) {
-  var mastercardPattern = /^(?:5[1-5][0-9]{14})$/;
+  let mastercardPattern = /^(?:5[1-5][0-9]{14})$/;
   return mastercardPattern.test(cardNumber);
 }
 
 function validateJCB(cardNumber) {
-  var jcbPattern = /^(?:(?:2131|1800|35\d{3})\d{11})$/;
+  let jcbPattern = /^(?:(?:2131|1800|35\d{3})\d{11})$/;
   return jcbPattern.test(cardNumber);
 }
 
 function validateDiscover(cardNumber) {
-  var discoverPattern = /^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
+  let discoverPattern = /^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
   return discoverPattern.test(cardNumber);
 }
 
 function validateDinersClub(cardNumber) {
-  var dinersClubPattern = /^(?:3(?:0[0-5]|[68][0-9])[0-9]{11})$/;
+  let dinersClubPattern = /^(?:3(?:0[0-5]|[68][0-9])[0-9]{11})$/;
   return dinersClubPattern.test(cardNumber);
 }
 
 function validateAmericanExpress(cardNumber) {
-  var americanExpressPattern = /^(?:3[47][0-9]{13})$/;
+  let americanExpressPattern = /^(?:3[47][0-9]{13})$/;
   return americanExpressPattern.test(cardNumber);
 }
 

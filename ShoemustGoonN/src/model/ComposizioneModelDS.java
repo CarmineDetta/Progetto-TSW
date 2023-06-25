@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.Connection;
+import java.util.logging.Logger;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,6 +15,8 @@ import javax.sql.DataSource;
 import model.OrdineBean;
 
 public class ComposizioneModelDS {
+	
+    private static final Logger LOGGER = Logger.getLogger(ComposizioneModelDS.class.getName());
 
 	private static DataSource ds;
 	static ProdottoDAO modelProdotto = new ProductModelDS();
@@ -26,7 +29,7 @@ public class ComposizioneModelDS {
 			ds = (DataSource) envCtx.lookup("jdbc/shoemustgoon");
 
 		} catch (NamingException e) {
-			System.out.println("Error:" + e.getMessage());
+			LOGGER.log(null, "contesto", e);	//fatto perchè lo chiede sonarcloud dicendo che devo controllare se il questo codice è disattivato quando consegno del condice da eseguire
 		}
 	}
 

@@ -2,6 +2,7 @@ package control;
 
 import java.io.IOException;
 
+
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
@@ -39,11 +40,10 @@ public class AjaxCart extends HttpServlet {
 		response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         
-        PrintWriter out = response.getWriter();
         String oggettoJSON = null;
         String stringaRicerca =  request.getParameter("stringaRicerca");
         
-		System.out.println("Stringa Ricerca:" + request.getParameter("stringaRicerca"));
+		//System.out.println("Stringa Ricerca:" + request.getParameter("stringaRicerca"));
 		
 		Cart cart = (Cart) sessione.getAttribute("cart");
 		if(cart == null) {
@@ -51,7 +51,6 @@ public class AjaxCart extends HttpServlet {
 			sessione.setAttribute("cart", cart);
 		}
 		
-		String action = request.getParameter("action");
 		try {
 			if(!request.getParameter("stringaRicerca").equalsIgnoreCase("")) {
 				
@@ -61,7 +60,7 @@ public class AjaxCart extends HttpServlet {
 				cart.addProduct(p);	
 
 				oggettoJSON = new Gson().toJson(cart);
-				System.out.println("Oggetto JSON: "+oggettoJSON);
+				//System.out.println("Oggetto JSON: "+oggettoJSON);
 				
 				response.getWriter().write(oggettoJSON.toString());
 			 }

@@ -1,6 +1,8 @@
 package control;
 
 import java.io.IOException;
+
+import java.util.logging.Logger;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -17,6 +19,9 @@ import model.RecensioneModelDS;
 
 public class ProdottoControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+    private static final Logger LOGGER = Logger.getLogger(ProdottoControl.class.getName());
+
 	
 	static ProdottoDAO model = new ProductModelDS();
 	static RecensioneDAO modelRec = new RecensioneModelDS();
@@ -39,7 +44,7 @@ public class ProdottoControl extends HttpServlet {
 				}
 			}
 		} catch (SQLException e) {
-			System.out.println("Error:" + e.getMessage());
+			LOGGER.log(null, "contesto", e);	//fatto perchè lo chiede sonarcloud dicendo che devo controllare se il questo codice è disattivato quando consegno del condice da eseguire
 		}
 		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Dettaglio_Prodotto.jsp");

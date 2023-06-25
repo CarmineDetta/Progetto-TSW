@@ -1,6 +1,8 @@
 package model;
 
 import java.sql.Connection;
+
+import java.util.logging.Logger;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,7 +16,13 @@ import javax.sql.DataSource;
 
 public class RecensioneModelDS implements RecensioneDAO{
 
-private static DataSource ds;
+    private static final Logger LOGGER = Logger.getLogger(RecensioneModelDS.class.getName());
+
+	private static DataSource ds;
+	
+	private static final String VOTAZIONE = "Votazione";	/*per sonarcloud creo le costanti di stringhe che si ripetono*/
+	private static final String DESCRIZIONE = "Descrizione";
+	private static final String ID_RECENSIONE = "ID_Recensione";
 	
 	static {
 		try {
@@ -24,7 +32,7 @@ private static DataSource ds;
 			ds = (DataSource) envCtx.lookup("jdbc/shoemustgoon");
 
 		} catch (NamingException e) {
-			System.out.println("Error:" + e.getMessage());
+			LOGGER.log(null, "contesto", e);	//fatto perchè lo chiede sonarcloud dicendo che devo controllare se il questo codice è disattivato quando consegno del condice da eseguire
 		}
 	}
 
@@ -118,9 +126,9 @@ private static DataSource ds;
 			ResultSet rs = preparedStatement.executeQuery();
 			
 			while (rs.next()) {
-				bean.setID_Recensione(rs.getInt("ID_Recensione"));
-				bean.setVotazione(rs.getFloat("Votazione"));
-				bean.setDescrizione(rs.getString("Descrizione"));
+				bean.setID_Recensione(rs.getInt(ID_RECENSIONE));
+				bean.setVotazione(rs.getFloat(VOTAZIONE));
+				bean.setDescrizione(rs.getString(DESCRIZIONE));
 				
 				UtenteModelDS udao = new UtenteModelDS();
 				bean.setUtente(udao.doRetrieveByKey(rs.getString("Utente")));
@@ -162,9 +170,9 @@ private static DataSource ds;
 			while (rs.next()) {
 				RecensioneBean bean = new RecensioneBean();
 
-				bean.setID_Recensione(rs.getInt("ID_Recensione"));
-				bean.setVotazione(rs.getFloat("Votazione"));
-				bean.setDescrizione(rs.getString("Descrizione"));
+				bean.setID_Recensione(rs.getInt(ID_RECENSIONE));
+				bean.setVotazione(rs.getFloat(VOTAZIONE));
+				bean.setDescrizione(rs.getString(DESCRIZIONE));
 
 				ProductModelDS pdao = new ProductModelDS();
 				bean.setProdotto(pdao.doRetrieveByKey(rs.getString("Prodotto")));
@@ -203,9 +211,9 @@ private static DataSource ds;
 			while (rs.next()) {
 				RecensioneBean bean = new RecensioneBean();
 
-				bean.setID_Recensione(rs.getInt("ID_Recensione"));
-				bean.setVotazione(rs.getFloat("Votazione"));
-				bean.setDescrizione(rs.getString("Descrizione"));
+				bean.setID_Recensione(rs.getInt(ID_RECENSIONE));
+				bean.setVotazione(rs.getFloat(VOTAZIONE));
+				bean.setDescrizione(rs.getString(DESCRIZIONE));
 				
 				UtenteModelDS udao = new UtenteModelDS();
 				bean.setUtente(udao.doRetrieveByKey(rs.getString("Utente")));

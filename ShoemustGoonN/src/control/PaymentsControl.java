@@ -1,6 +1,7 @@
 package control;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -16,7 +17,9 @@ import model.UtenteBean;
 
 public class PaymentsControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
- 
+
+    private static final Logger LOGGER = Logger.getLogger(PaymentsControl.class.getName());
+
 	static PortafoglioDAO model = new PortafoglioModelDS();
 
     public PaymentsControl() {
@@ -50,7 +53,7 @@ public class PaymentsControl extends HttpServlet {
 				}
 			}
 		}catch (SQLException e) {
-			System.out.println("Error:" + e.getMessage());
+			LOGGER.log(null, "contesto", e);	//fatto perchè lo chiede sonarcloud dicendo che devo controllare se il questo codice è disattivato quando consegno del condice da eseguire
 		}
 		
 		try {
@@ -58,7 +61,7 @@ public class PaymentsControl extends HttpServlet {
 			request.setAttribute("payments", model.doRetrieveByUtente(utente.getID_Utente()));
 			
 		} catch (SQLException e) {
-			System.out.println("Error: " + e.getMessage());
+			LOGGER.log(null, "contesto", e);	//fatto perchè lo chiede sonarcloud dicendo che devo controllare se il questo codice è disattivato quando consegno del condice da eseguire
 		}
 
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Pagamenti_Utente.jsp");

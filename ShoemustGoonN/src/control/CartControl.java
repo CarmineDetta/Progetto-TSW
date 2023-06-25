@@ -2,6 +2,8 @@ package control;
 
 import java.io.IOException;
 
+import java.util.logging.Logger;
+
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -15,6 +17,8 @@ import model.*;
 
 public class CartControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+    private static final Logger LOGGER = Logger.getLogger(CartControl.class.getName());
 
 	ProductModelDS model = new ProductModelDS();
 	
@@ -52,6 +56,7 @@ public class CartControl extends HttpServlet {
 					cart.deleteProduct(p);
 					
 					if(cart == null) {
+						
 						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Carrello.jsp");
 						dispatcher.forward(request, response);
 					}
@@ -74,7 +79,7 @@ public class CartControl extends HttpServlet {
 				} 
 			}			
 		} catch (SQLException e) {
-			System.out.println("Error:" + e.getMessage());
+			LOGGER.log(null, "contesto", e);	//fatto perchè lo chiede sonarcloud dicendo che devo controllare se il questo codice è disattivato quando consegno del condice da eseguire
 		}
 
 		sessione.setAttribute("cart", cart);

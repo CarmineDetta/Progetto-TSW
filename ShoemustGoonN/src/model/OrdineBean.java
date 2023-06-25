@@ -9,12 +9,11 @@ public class OrdineBean implements Serializable{
     private static final long serialVersionUID = 1L; //Serve alla JVK
 
     private int ID_Ordine;
-    //private static int c = 0;
     private String data_ordine;
     private double totale;
     private UtenteBean utente;
     private RecapitoBean recapito;
-    private PortafoglioBean pagamento;
+    private transient PortafoglioBean pagamento;
     
     public OrdineBean() {
     	this.totale = 0;

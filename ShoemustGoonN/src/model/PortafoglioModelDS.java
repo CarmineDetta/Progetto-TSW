@@ -1,6 +1,8 @@
 package model;
 
 import java.sql.Connection;
+
+import java.util.logging.Logger;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +19,9 @@ import utils.GenerateIDProd;
 
 public class PortafoglioModelDS implements PortafoglioDAO{
 	
-private static DataSource ds;
+	private static DataSource ds;
+    private static final Logger LOGGER = Logger.getLogger(PortafoglioModelDS.class.getName());
+
 	
 	static {
 		try {
@@ -27,7 +31,7 @@ private static DataSource ds;
 			ds = (DataSource) envCtx.lookup("jdbc/shoemustgoon");
 
 		} catch (NamingException e) {
-			System.out.println("Error:" + e.getMessage());
+			LOGGER.log(null, "contesto", e);	//fatto perchè lo chiede sonarcloud dicendo che devo controllare se il questo codice è disattivato quando consegno del condice da eseguire
 		}
 	}
 

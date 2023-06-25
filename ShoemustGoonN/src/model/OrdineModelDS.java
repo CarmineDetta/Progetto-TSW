@@ -1,6 +1,9 @@
 package model;
 
 import java.sql.Connection;
+
+import java.util.logging.Logger;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,10 +20,17 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 public class OrdineModelDS implements OrdineDAO{
+	
+    private static final Logger LOGGER = Logger.getLogger(OrdineModelDS.class.getName());
 
 	private static DataSource ds;
 	private static int c = 5;
-	
+	private static final String ID_ORDINE = "ID_Ordine";		/*utlizzo delle costanti dato che questi valori vengono ripetuti per più volte (me lo ha chiesto sonacloud)*/
+	private static final String DATA_ORDINE = "Data_Ordine";
+	private static final String TOTALE = "Totale";
+	private static final String INDIRIZZO = "Indirizzo";
+	private static final String PAGAMENTO = "Pagamento";
+
 	static {
 		try {
 			Context initCtx = new InitialContext();
@@ -29,7 +39,7 @@ public class OrdineModelDS implements OrdineDAO{
 			ds = (DataSource) envCtx.lookup("jdbc/shoemustgoon");
 
 		} catch (NamingException e) {
-			System.out.println("Error:" + e.getMessage());
+			LOGGER.log(null, "contesto", e);	//fatto perchè lo chiede sonarcloud dicendo che devo controllare se il questo codice è disattivato quando consegno del condice da eseguire
 		}
 	}
 
@@ -48,7 +58,7 @@ public class OrdineModelDS implements OrdineDAO{
 
 			
 			int id =  ordine.getID_Ordine() + c;
-			OrdineModelDS.c++;
+			this.c++;
 			
 			ordine.setID_Ordine(id);
 			
@@ -149,18 +159,18 @@ public class OrdineModelDS implements OrdineDAO{
 			while (rs.next()) {
 				OrdineBean bean = new OrdineBean();
 
-				bean.setID_Ordine(rs.getInt("ID_Ordine"));
+				bean.setID_Ordine(rs.getInt(ID_ORDINE));
 				
-				String dataOrdine = rs.getString("Data_Ordine");
+				String dataOrdine = rs.getString(DATA_ORDINE);
 			    bean.setDataOrdine(dataOrdine);
 			    
-				bean.setTotale(rs.getInt("Totale"));
+				bean.setTotale(rs.getInt(TOTALE));
 			
 				RecapitoModelDS rdao = new RecapitoModelDS();
-				bean.setRecapito(rdao.doRetrieveByKey(rs.getInt("Indirizzo")));
+				bean.setRecapito(rdao.doRetrieveByKey(rs.getInt(INDIRIZZO)));
 				
 				PortafoglioModelDS pdao = new PortafoglioModelDS();
-				bean.setPagamento(pdao.doRetrieveByKey(rs.getInt("Pagamento")));
+				bean.setPagamento(pdao.doRetrieveByKey(rs.getInt(PAGAMENTO)));
 				
 				ordini.add(bean);
 			}
@@ -197,23 +207,23 @@ public class OrdineModelDS implements OrdineDAO{
 				ResultSet rs = preparedStatement.executeQuery();
 				
 				while (rs.next()) {
-					bean.setID_Ordine(rs.getInt("ID_Ordine"));
+					bean.setID_Ordine(rs.getInt(ID_ORDINE));
 					
-					Date dataOrdineSql = rs.getDate("Data_Ordine");
+					Date dataOrdineSql = rs.getDate(DATA_ORDINE);
 					
-					String dataOrdine = rs.getString("Data_Ordine");
+					String dataOrdine = rs.getString(DATA_ORDINE);
 				    bean.setDataOrdine(dataOrdine);
 					
-					bean.setTotale(rs.getDouble("Totale"));
+					bean.setTotale(rs.getDouble(TOTALE));
 					
 					UtenteModelDS udao = new UtenteModelDS();
 					bean.setUtente(udao.doRetrieveByKey(rs.getString("utente")));
 					
 					RecapitoModelDS rdao = new RecapitoModelDS();
-					bean.setRecapito(rdao.doRetrieveByKey(rs.getInt("Indirizzo")));
+					bean.setRecapito(rdao.doRetrieveByKey(rs.getInt(INDIRIZZO)));
 					
 					PortafoglioModelDS pdao = new PortafoglioModelDS();
-					bean.setPagamento(pdao.doRetrieveByKey(rs.getInt("Pagamento")));
+					bean.setPagamento(pdao.doRetrieveByKey(rs.getInt(PAGAMENTO)));
 				}
 
 			} finally {
@@ -248,23 +258,23 @@ public class OrdineModelDS implements OrdineDAO{
 			while (rs.next()) {
 				OrdineBean bean = new OrdineBean();
 	
-				bean.setID_Ordine(rs.getInt("ID_Ordine"));
+				bean.setID_Ordine(rs.getInt(ID_ORDINE));
 				
-				Date dataOrdineSql = rs.getDate("Data_Ordine");
+				Date dataOrdineSql = rs.getDate(DATA_ORDINE);
 				
-				String dataOrdine = rs.getString("Data_Ordine");
+				String dataOrdine = rs.getString(DATA_ORDINE);
 			    bean.setDataOrdine(dataOrdine);
 				
-				bean.setTotale(rs.getDouble("Totale"));
+				bean.setTotale(rs.getDouble(TOTALE));
 				
 				UtenteModelDS udao = new UtenteModelDS();
 				bean.setUtente(udao.doRetrieveByKey(rs.getString("utente")));
 				
 				RecapitoModelDS rdao = new RecapitoModelDS();
-				bean.setRecapito(rdao.doRetrieveByKey(rs.getInt("Indirizzo")));
+				bean.setRecapito(rdao.doRetrieveByKey(rs.getInt(INDIRIZZO)));
 				
 				PortafoglioModelDS pdao = new PortafoglioModelDS();
-				bean.setPagamento(pdao.doRetrieveByKey(rs.getInt("Pagamento")));			
+				bean.setPagamento(pdao.doRetrieveByKey(rs.getInt(PAGAMENTO)));			
 				
 				ordini.add(bean);
 			}
@@ -303,18 +313,18 @@ public Collection<OrdineBean> doRetrieveByDate(String DataInizio, String DataFin
 			while (rs.next()) {
 				OrdineBean bean = new OrdineBean();
 
-				bean.setID_Ordine(rs.getInt("ID_Ordine"));
+				bean.setID_Ordine(rs.getInt(ID_ORDINE));
 				
-				String dataOrdine = rs.getString("Data_Ordine");
+				String dataOrdine = rs.getString(DATA_ORDINE);
 			    bean.setDataOrdine(dataOrdine);
 			    
-				bean.setTotale(rs.getInt("Totale"));
+				bean.setTotale(rs.getInt(TOTALE));
 			
 				RecapitoModelDS rdao = new RecapitoModelDS();
-				bean.setRecapito(rdao.doRetrieveByKey(rs.getInt("Indirizzo")));
+				bean.setRecapito(rdao.doRetrieveByKey(rs.getInt(INDIRIZZO)));
 				
 				PortafoglioModelDS pdao = new PortafoglioModelDS();
-				bean.setPagamento(pdao.doRetrieveByKey(rs.getInt("Pagamento")));
+				bean.setPagamento(pdao.doRetrieveByKey(rs.getInt(PAGAMENTO)));
 				
 				ordini.add(bean);
 			}

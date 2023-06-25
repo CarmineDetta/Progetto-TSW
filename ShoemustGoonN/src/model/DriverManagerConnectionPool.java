@@ -1,12 +1,15 @@
 package model;
 
 import java.sql.Connection;
+import java.util.logging.Logger;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
 public class DriverManagerConnectionPool {
+
+    private static final Logger LOGGER = Logger.getLogger(DriverManagerConnectionPool.class.getName());
 
 		//Lista che contiene tutte le connessioni disponibili al DataBase.
 		private static List<Connection> freeDbConnections;
@@ -19,7 +22,7 @@ public class DriverManagerConnectionPool {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 			} 	
 			catch (ClassNotFoundException e) {
-				System.err.println("DB driver not found:"+ e.getMessage());
+				LOGGER.log(null, "contesto", e);	//fatto perchè lo chiede sonarcloud dicendo che devo controllare se il questo codice è disattivato quando consegno del condice da eseguire
 			} 
 		}
 		

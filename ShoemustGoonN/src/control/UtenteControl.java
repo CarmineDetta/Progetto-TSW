@@ -1,6 +1,7 @@
 package control;
 
 import java.io.IOException;
+
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -17,6 +18,7 @@ public class UtenteControl extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 
+
 	static UtenteDAO model = new UtenteModelDS();
 	
     public UtenteControl() {
@@ -26,26 +28,20 @@ public class UtenteControl extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		String action = request.getParameter("action");
-		System.out.println(action);
+		//System.out.println(action);
 		
 		if (action != null) {
 			if (action.equalsIgnoreCase("update")) { 
 				
 				UtenteBean u = (UtenteBean) request.getSession().getAttribute("UtenteLoggato");
 				
-				//System.out.println("email--:" + u.getEmail());
-				
 				String email = u.getEmail();
-				//System.out.println("email 222:" + email);
-				
+	
 				String scelta =  request.getParameter("Scelta");
 				String valore =  request.getParameter("valore");
 				String utente =  request.getParameter("utente");
 				
-				/*System.out.println("scelta:" + scelta);
-				System.out.println("valore"  + valore);
-				System.out.println("utente" + utente);*/
-				
+	
 			try {
 		
 					request.setAttribute("UtenteLoggato", model.doRetriveByEmail(email));

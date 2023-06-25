@@ -51,10 +51,10 @@ public class Cart{
 				break;
 			}else {		
 				
-				ProdottoBean p = model.doRetrieveByKey(prod.getID_ProdottoItemCarrello());
+				ProdottoBean p = model.doRetrieveByKey(product.getID_ProdottoItemCarrello());
 				totale = totale - p.getPrezzo();
 				
-				products.remove(prod);
+				products.remove(product);
 				break;
 			}
 		}

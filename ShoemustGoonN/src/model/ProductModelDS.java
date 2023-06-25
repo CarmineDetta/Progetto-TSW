@@ -1,6 +1,8 @@
 package model;
 
 import java.io.IOException;
+
+import java.util.logging.Logger;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,8 +26,13 @@ import utils.GenerateIDProd;
 
 public class ProductModelDS implements ProdottoDAO{
 	
-	private static DataSource ds;
-	
+    private static final Logger LOGGER = Logger.getLogger(ProductModelDS.class.getName());
+
+	private static DataSource ds;	
+	private static final String	ID_PRODOTTO = "ID_Prodotto";	/*sempre per sonarcloud*/
+	private static final String MARCA = "Marca";
+	private static final String DISPONIBILITA = "Disponibilita";
+
 	static {
 		try {
 			Context initCtx = new InitialContext();
@@ -34,7 +41,7 @@ public class ProductModelDS implements ProdottoDAO{
 			ds = (DataSource) envCtx.lookup("jdbc/shoemustgoon");
 
 		} catch (NamingException e) {
-			System.out.println("Error:" + e.getMessage());
+			LOGGER.log(null, "contesto", e);	//fatto perchè lo chiede sonarcloud dicendo che devo controllare se il questo codice è disattivato quando consegno del condice da eseguire
 		}
 	}
 
@@ -84,7 +91,7 @@ public class ProductModelDS implements ProdottoDAO{
 	public synchronized boolean doDelete(String ID_Prodotto) throws SQLException {
 		
 		//fare quando dobbiamo cancellare oggetti precisi sul db
-		System.out.println("Procediamo alla delete");
+		//System.out.println("Procediamo alla delete");
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -98,7 +105,7 @@ public class ProductModelDS implements ProdottoDAO{
 			
 			
 			preparedStatement.setString(1, ID_Prodotto);
-			System.out.println(deleteSQL + ID_Prodotto);
+			//System.out.println(deleteSQL + ID_Prodotto);
 			
 			result = preparedStatement.executeUpdate();
 			connection.commit();
@@ -134,13 +141,13 @@ public class ProductModelDS implements ProdottoDAO{
 				ResultSet rs = preparedStatement.executeQuery();
 				
 				while (rs.next()) {
-					bean.setID_Prodotto(rs.getString("ID_Prodotto"));
-					bean.setMarca(rs.getString("Marca"));
+					bean.setID_Prodotto(rs.getString(ID_PRODOTTO));
+					bean.setMarca(rs.getString(MARCA));
 					bean.setColore(rs.getString("Colore"));
 					bean.setModello(rs.getString("Modello"));
 					bean.setPrezzo(rs.getDouble("Prezzo"));
 					bean.setQuantita(rs.getInt("Quantita"));
-					bean.setDisponibilita(rs.getBoolean("Disponibilita"));
+					bean.setDisponibilita(rs.getBoolean(DISPONIBILITA));
 					bean.setDescrizione(rs.getString("Descrizione"));
 					bean.setCategoria(rs.getString("Categoria"));
 									
@@ -184,13 +191,13 @@ public class ProductModelDS implements ProdottoDAO{
 			while (rs.next()) {
 				ProdottoBean bean = new ProdottoBean();
 
-				bean.setID_Prodotto(rs.getString("ID_Prodotto"));
-				bean.setMarca(rs.getString("Marca"));
+				bean.setID_Prodotto(rs.getString(ID_PRODOTTO));
+				bean.setMarca(rs.getString(MARCA));
 				bean.setColore(rs.getString("Colore"));
 				bean.setModello(rs.getString("Modello"));
 				bean.setPrezzo(rs.getDouble("Prezzo"));
 				bean.setQuantita(rs.getInt("Quantita"));
-				bean.setDisponibilita(rs.getBoolean("Disponibilita"));
+				bean.setDisponibilita(rs.getBoolean(DISPONIBILITA));
 				bean.setDescrizione(rs.getString("Descrizione"));
 				bean.setCategoria(rs.getString("Categoria"));
 				
@@ -231,7 +238,7 @@ public synchronized Collection<ProdottoBean> doRetrieveSuggest(String StringaPar
 			String stringaRicerca = StringaParziale.concat("%");
 			preparedStatement.setString(1, stringaRicerca);
 			
-			System.out.println(stringaRicerca+ " nella stringa: " + selectSQL);
+			//System.out.println(stringaRicerca+ " nella stringa: " + selectSQL);
 
 			ResultSet rs = preparedStatement.executeQuery();
 			
@@ -239,10 +246,10 @@ public synchronized Collection<ProdottoBean> doRetrieveSuggest(String StringaPar
 			
 			while (rs.next()) {
 				bean = new ProdottoBean();
-				bean.setID_Prodotto(rs.getString("ID_Prodotto"));
-				bean.setMarca(rs.getString("Marca"));
-				bean.setDisponibilita(rs.getBoolean("Disponibilita"));
-				System.out.println("Gli oggetti trovati sono: "+bean.getID_Prodotto()+ " " + bean.getMarca() + " " + bean.isDisponibilita() );
+				bean.setID_Prodotto(rs.getString(ID_PRODOTTO));
+				bean.setMarca(rs.getString(MARCA));
+				bean.setDisponibilita(rs.getBoolean(DISPONIBILITA));
+				//System.out.println("Gli oggetti trovati sono: "+bean.getID_Prodotto()+ " " + bean.getMarca() + " " + bean.isDisponibilita() );
 				if( bean.isDisponibilita() ) {
 					products.add(bean);
 				}

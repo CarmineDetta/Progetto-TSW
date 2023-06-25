@@ -21,6 +21,7 @@ public class ProdottoBean implements Serializable {
 
     //Costruttore
     public ProdottoBean (){
+    	//il costruttore è vuoto perché non  inizializziamo nessun campo
     }
 
     //MetodiGet&Set

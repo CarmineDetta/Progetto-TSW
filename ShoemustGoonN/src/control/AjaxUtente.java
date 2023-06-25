@@ -24,17 +24,12 @@ import model.UtenteModelDS;
 public class AjaxUtente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+ 
     public AjaxUtente() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("application/json");
@@ -43,7 +38,7 @@ public class AjaxUtente extends HttpServlet {
         PrintWriter out = response.getWriter();
         String oggettoJSON = null;
         
-		System.out.println(request.getParameter("stringaRicerca"));
+		//System.out.println(request.getParameter("stringaRicerca"));
 		
 		UtenteModelDS Utente = new UtenteModelDS();
 		
@@ -55,11 +50,11 @@ public class AjaxUtente extends HttpServlet {
 				UtenteBean utente = null;
 				while(iter.hasNext()) {
 					utente = iter.next();
-					System.out.println("I prodotti ricevuti dalla servlet sono: "+ utente.getID_Utente() + " " + utente.getCognome() + "" + utente.getNome());
+					//System.out.println("I prodotti ricevuti dalla servlet sono: "+ utente.getID_Utente() + " " + utente.getCognome() + "" + utente.getNome());
 				}
 				
 				oggettoJSON = new Gson().toJson(UtenteSuggest);
-				System.out.println("Oggetto JSON: "+oggettoJSON);
+				//System.out.println("Oggetto JSON: "+oggettoJSON);
 				
 				response.getWriter().write(oggettoJSON.toString());
 			} else {
@@ -68,10 +63,8 @@ public class AjaxUtente extends HttpServlet {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

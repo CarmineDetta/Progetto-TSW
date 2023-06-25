@@ -40,7 +40,6 @@ public class AjaxSuggestControl extends HttpServlet {
 		response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         
-        PrintWriter out = response.getWriter();
         String oggettoJSON = null;
         
 		System.out.println(request.getParameter("stringaRicerca"));
@@ -55,11 +54,11 @@ public class AjaxSuggestControl extends HttpServlet {
 				ProdottoBean prodotto = null;
 				while(iter.hasNext()) {
 					prodotto = iter.next();
-					System.out.println("I prodotti ricevuti dalla servlet sono: "+ prodotto.getMarca() + " " + prodotto.getID_Prodotto());
+					//System.out.println("I prodotti ricevuti dalla servlet sono: "+ prodotto.getMarca() + " " + prodotto.getID_Prodotto());
 				}
 				
 				oggettoJSON = new Gson().toJson(prodottiSuggest);
-				System.out.println("Oggetto JSON: "+oggettoJSON);
+				//System.out.println("Oggetto JSON: "+oggettoJSON);
 				
 				response.getWriter().write(oggettoJSON.toString());
 			} else {
@@ -68,17 +67,13 @@ public class AjaxSuggestControl extends HttpServlet {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

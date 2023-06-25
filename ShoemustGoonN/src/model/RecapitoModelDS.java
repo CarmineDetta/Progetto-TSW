@@ -1,6 +1,8 @@
 package model;
 
 import java.sql.Connection;
+
+import java.util.logging.Logger;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,7 +16,9 @@ import javax.sql.DataSource;
 
 public class RecapitoModelDS implements RecapitoDAO{
 
-private static DataSource ds;
+    private static final Logger LOGGER = Logger.getLogger(RecapitoModelDS.class.getName());
+
+	private static DataSource ds;
 	
 	static {
 		try {
@@ -24,7 +28,7 @@ private static DataSource ds;
 			ds = (DataSource) envCtx.lookup("jdbc/shoemustgoon");
 
 		} catch (NamingException e) {
-			System.out.println("Error:" + e.getMessage());
+			LOGGER.log(null, "contesto", e);	//fatto perchè lo chiede sonarcloud dicendo che devo controllare se il questo codice è disattivato quando consegno del condice da eseguire
 		}
 	}
 
@@ -80,7 +84,7 @@ private static DataSource ds;
 			
 			
 			preparedStatement.setInt(1, ID_Indirizzo);
-			System.out.println(deleteSQL + ID_Indirizzo);
+			//System.out.println(deleteSQL + ID_Indirizzo);
 			
 			result = preparedStatement.executeUpdate();
 			connection.commit();

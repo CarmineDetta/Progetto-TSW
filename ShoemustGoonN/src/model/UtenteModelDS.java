@@ -1,6 +1,7 @@
 package model;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,8 +19,18 @@ import model.UtenteDAO;
 
 public class UtenteModelDS implements UtenteDAO{
 	
+    private static final Logger LOGGER = Logger.getLogger(UtenteModelDS.class.getName());
+
 	private static DataSource ds;
 	private static int c=3;
+	private static final String ID_UTENTE = "ID_Utente";
+	private static final String NOME = "Nome";
+	private static final String COGNOME = "Cognome";
+	private static final String DATA_NASCITA = "DataNascita";
+	private static final String CF = "CF";
+	private static final String EMAIL = "Email";
+	private static final String PASSWORD = "password";
+	
 	
 	static {
 		try {
@@ -79,7 +90,7 @@ public class UtenteModelDS implements UtenteDAO{
 	public synchronized boolean doDelete(String ID_Utente) throws SQLException {
 		
 		//fare quando dobbiamo cancellare oggetti precisi sul db
-		System.out.println("Procediamo alla delete");
+		//System.out.println("Procediamo alla delete");
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -129,13 +140,13 @@ public class UtenteModelDS implements UtenteDAO{
 				ResultSet rs = preparedStatement.executeQuery();
 				
 				while (rs.next()) {
-					u.setID_Utente(rs.getString("ID_Utente"));
-					u.setEmail(rs.getString("Nome"));
-					u.setPassword(rs.getString("Cognome"));
-					u.setTipo(rs.getString("DataNascita"));
-					u.setEmail(rs.getString("CF"));
-					u.setEmail(rs.getString("Email"));
-					u.setPassword(rs.getString("password"));
+					u.setID_Utente(rs.getString(ID_UTENTE));
+					u.setEmail(rs.getString(NOME));
+					u.setPassword(rs.getString(COGNOME));
+					u.setTipo(rs.getString(DATA_NASCITA));
+					u.setEmail(rs.getString(CF));
+					u.setEmail(rs.getString(EMAIL));
+					u.setPassword(rs.getString(PASSWORD));
 					u.setTipo(rs.getString("Tipo"));
 					
 				}
@@ -174,13 +185,13 @@ public class UtenteModelDS implements UtenteDAO{
 			while (rs.next()) {
 
 				//In questo modo inseriamo i valori estratti dalla qeury all'interno dell'oggetto bean
-				bean.setID_Utente(rs.getString("ID_Utente"));
-				bean.setNome(rs.getString("Nome"));
-				bean.setCognome(rs.getString("Cognome"));
-				bean.setDataNascita(rs.getString("DataNascita"));
-				bean.setCF(rs.getString("CF"));
-				bean.setEmail(rs.getString("Email"));
-				bean.setPassword(rs.getString("password"));
+				bean.setID_Utente(rs.getString(ID_UTENTE));
+				bean.setNome(rs.getString(NOME));
+				bean.setCognome(rs.getString(COGNOME));
+				bean.setDataNascita(rs.getString(DATA_NASCITA));
+				bean.setCF(rs.getString(CF));
+				bean.setEmail(rs.getString(EMAIL));
+				bean.setPassword(rs.getString(PASSWORD));
 				bean.setTipo(rs.getString("Tipo"));
 			}
 
@@ -219,13 +230,13 @@ public class UtenteModelDS implements UtenteDAO{
 			while (rs.next()) {
 				UtenteBean utente = new UtenteBean();
 
-				utente.setID_Utente(rs.getString("ID_Utente"));
-				utente.setNome(rs.getString("Nome"));
-				utente.setCognome(rs.getString("Cognome"));
-				utente.setDataNascita(rs.getString("DataNascita"));
-				utente.setCF(rs.getString("CF"));
-				utente.setEmail(rs.getString("Email"));
-				utente.setPassword(rs.getString("password"));
+				utente.setID_Utente(rs.getString(ID_UTENTE));
+				utente.setNome(rs.getString(NOME));
+				utente.setCognome(rs.getString(COGNOME));
+				utente.setDataNascita(rs.getString(DATA_NASCITA));
+				utente.setCF(rs.getString(CF));
+				utente.setEmail(rs.getString(EMAIL));
+				utente.setPassword(rs.getString(PASSWORD));
 				utente.setTipo(rs.getString("Tipo"));
 				
 				u.add(utente);
@@ -258,11 +269,9 @@ public class UtenteModelDS implements UtenteDAO{
 				preparedStatement.setString(1, value);
 				preparedStatement.setString(2, id);
 				
-				//System.out.println("Ho preparato la stringa SQL: "+preparedStatement);
 				preparedStatement.executeUpdate();
 					
 				connection.commit();
-				//System.out.println("Ho aggiornato l'utente con successo");
 			} finally {
 				try {
 					if (preparedStatement != null)
@@ -319,13 +328,13 @@ public class UtenteModelDS implements UtenteDAO{
 			while (rs.next()) {
 				UtenteBean utente = new UtenteBean();
 				
-				utente.setID_Utente(rs.getString("ID_Utente"));
-				utente.setNome(rs.getString("Nome"));
-				utente.setCognome(rs.getString("Cognome"));
-				utente.setDataNascita(rs.getString("DataNascita"));
-				utente.setCF(rs.getString("CF"));
-				utente.setEmail(rs.getString("Email"));
-				utente.setPassword(rs.getString("password"));
+				utente.setID_Utente(rs.getString(ID_UTENTE));
+				utente.setNome(rs.getString(NOME));
+				utente.setCognome(rs.getString(COGNOME));
+				utente.setDataNascita(rs.getString(DATA_NASCITA));
+				utente.setCF(rs.getString(CF));
+				utente.setEmail(rs.getString(EMAIL));
+				utente.setPassword(rs.getString(PASSWORD));
 				utente.setTipo(rs.getString("Tipo"));
 				
 				utenti.add(utente);
@@ -359,7 +368,6 @@ public synchronized Collection<UtenteBean> doRetrieveSuggest(String StringaParzi
 		preparedStatement = connection.prepareStatement(selectSQL);
 		String stringaRicerca = StringaParziale.concat("%");
 		preparedStatement.setString(1, stringaRicerca);
-		System.out.println(stringaRicerca+ " nella stringa: " + selectSQL);
 
 		ResultSet rs = preparedStatement.executeQuery();
 		
@@ -367,14 +375,14 @@ public synchronized Collection<UtenteBean> doRetrieveSuggest(String StringaParzi
 		
 		while (rs.next()) {
 			bean = new UtenteBean();
-			bean.setID_Utente(rs.getString("ID_Utente"));
-			bean.setNome(rs.getString("Nome"));
-			bean.setCognome(rs.getString("Cognome"));
-			bean.setDataNascita(rs.getString("DataNascita"));
-			bean.setCF(rs.getString("CF"));
-			bean.setEmail(rs.getString("Email"));
-			bean.setPassword(rs.getString("password"));
-			System.out.println("Gli oggetti trovati sono: "+bean.getID_Utente()+ " " + bean.getNome() + " " + bean.getCognome() );
+			bean.setID_Utente(rs.getString(ID_UTENTE));
+			bean.setNome(rs.getString(NOME));
+			bean.setCognome(rs.getString(COGNOME));
+			bean.setDataNascita(rs.getString(DATA_NASCITA));
+			bean.setCF(rs.getString(CF));
+			bean.setEmail(rs.getString(EMAIL));
+			bean.setPassword(rs.getString(PASSWORD));
+			
 			utentes.add(bean);
 		}
 

@@ -1,6 +1,9 @@
 package control;
 
 import java.io.IOException;
+
+import java.util.logging.Logger;
+
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -13,7 +16,9 @@ import model.*;
 
 public class CatalogControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    
+    private static final Logger LOGGER = Logger.getLogger(CatalogControl.class.getName());
+
 	static ProdottoDAO model = new ProductModelDS();
 	
     public CatalogControl() {
@@ -34,7 +39,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 				} 
 			}
 		} catch (SQLException e) {
-			System.out.println("Error:" + e.getMessage());
+			LOGGER.log(null, "contesto", e);	//fatto perchè lo chiede sonarcloud dicendo che devo controllare se il questo codice è disattivato quando consegno del condice da eseguire
 		}
 
 		String sort = request.getParameter("sort");
@@ -44,7 +49,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 			request.setAttribute("products", model.doRetrieveAll(sort));
 			
 		} catch (SQLException e) {
-			System.out.println("Error:" + e.getMessage());
+			LOGGER.log(null, "contesto", e);	//fatto perchè lo chiede sonarcloud dicendo che devo controllare se il questo codice è disattivato quando consegno del condice da eseguire
 		}
 
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Catalogo_Utente.jsp");

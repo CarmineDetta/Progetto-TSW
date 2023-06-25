@@ -68,14 +68,7 @@ body{
 				<textarea class="box"  name="descrizione" maxlength="300"  placeholder="Inserisci una descrizione" required></textarea>
 			</div>
 			
-			<!-- 
-				<div class="insert">
-					<label class="label_mod"  for="image-outline">Immagine:</label>
-					<i class="icon"><ion-icon name="image-outline" size="large"></ion-icon></i>
-					<input class="input-field" type="file" name="photo" accept="image/*" required/>
-				</div>
-			 -->
-			
+
 			<div class="insert">
 				<label class="label_mod"  for="categoria">Categoria:</label>
 			
