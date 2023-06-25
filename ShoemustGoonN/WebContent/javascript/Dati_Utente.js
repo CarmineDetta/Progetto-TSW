@@ -3,8 +3,8 @@
  */
 
 function formValidation() {
-	var scelta = document.querySelector('select[name="scelta"]').value;
-    var valore = document.getElementById("valore");
+	let scelta = document.querySelector('select[name="scelta"]').value;
+    let valore = document.getElementById("valore");
 
     if(scelta === "email"){
     	ValidateEmail(valore);
@@ -18,8 +18,8 @@ function formValidation() {
 
 function ValidateEmail(inputText)
 {
-    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if  (inputText.value.match(mailformat))
+    let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;	//sono dei campi consentiti
+    if  (inputText.value.match(mailformat))				//preleva e confronta
        {
         return true;
        } else {
@@ -29,7 +29,7 @@ function ValidateEmail(inputText)
 }
 
 function passid_validation(passid,mx,my) {
-    var passid_len = passid.value.length;
+    let passid_len = passid.value.length;
     if (passid_len == 0 ||passid_len >= my || passid_len < mx) {
         alert("Password should not be empty / length be between "+mx+" to "+my);
         passid.focus();

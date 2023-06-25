@@ -2,8 +2,8 @@
  * 
  */
 function validateCard() {
-  var cardNumber = document.getElementById("n_carta").value;
-  var cardType = getCardType(cardNumber);
+  let cardNumber = document.getElementById("n_carta").value;
+  let cardType = getCardType(cardNumber);
 
   if (cardType === "Visa") {
     if (!validateVisa(cardNumber)) {
@@ -75,7 +75,7 @@ function getCardType(cardNumber) {
 }
 
 function validateVisa(cardNumber) {
-  var visaPattern = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+  let visaPattern = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
   return visaPattern.test(cardNumber);
 }
 

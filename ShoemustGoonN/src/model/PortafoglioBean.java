@@ -2,6 +2,8 @@ package model;
 
 public class PortafoglioBean {
 	
+	private static final long serialVersionUID = 1L;
+	
 	private int ID_Pagamento;
 	private static int c = 0;
 	private String nome_Intestatario;

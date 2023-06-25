@@ -48,7 +48,7 @@ public class OrdineModelDS implements OrdineDAO{
 
 			
 			int id =  ordine.getID_Ordine() + c;
-			this.c++;
+			OrdineModelDS.c++;
 			
 			ordine.setID_Ordine(id);
 			

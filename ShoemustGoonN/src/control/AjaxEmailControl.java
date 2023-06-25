@@ -18,71 +18,57 @@ import model.UtenteBean;
 import model.UtenteModelDS;
 
 
-
-/**
- * Servlet implementation class AjaxEmailControl
- */
 @WebServlet("/AjaxEmailControl")
 public class AjaxEmailControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public AjaxEmailControl() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         
-        PrintWriter out = response.getWriter();
         String oggettoJSON = null;
         
         String stringaRicerca = request.getParameter("stringaRicerca");
-		System.out.println(stringaRicerca);
+		System.err.println(stringaRicerca);
 		
-		UtenteModelDS Utente = new UtenteModelDS();
+		UtenteModelDS model = new UtenteModelDS();
 		
 		try {
 			if(!stringaRicerca.equalsIgnoreCase("")) {
 				
-				UtenteBean UtenteSuggest = Utente.doRetriveByEmail(stringaRicerca);
-				if(UtenteSuggest.getEmail() == "") {
+				UtenteBean utente = model.doRetriveByEmail(stringaRicerca);
+				if(utente.getEmail().equalsIgnoreCase("")) {
 					stringaRicerca = "true";
 					oggettoJSON = new Gson().toJson(stringaRicerca);
-					System.out.println("Oggetto JSON: "+oggettoJSON);
-					response.getWriter().write(oggettoJSON.toString());
+					System.err.println("Oggetto JSON: "+oggettoJSON);
+					response.getWriter().write(oggettoJSON);
 				} else {
 					stringaRicerca = "false";
 					oggettoJSON = new Gson().toJson(stringaRicerca);
-					System.out.println("Oggetto JSON: "+oggettoJSON);
-					response.getWriter().write(oggettoJSON.toString());
+					System.err.println("Oggetto JSON: "+oggettoJSON);
+					response.getWriter().write(oggettoJSON);
 				}
 
 			} else {
 				oggettoJSON = new Gson().toJson("");
-				response.getWriter().write(oggettoJSON.toString());
+				response.getWriter().write(oggettoJSON);
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

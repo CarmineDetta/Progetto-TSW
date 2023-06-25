@@ -1,8 +1,11 @@
 package control;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 import java.sql.SQLException;
+
+import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +25,9 @@ import model.ItemCarrello;
 @WebServlet("/AjaxCart")
 public class AjaxCart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+      
+	private static final Logger LOGGER = Logger.getLogger(AjaxCart.class.getName());
+
     public AjaxCart() {
         super();
         // TODO Auto-generated constructor stub
@@ -62,10 +67,9 @@ public class AjaxCart extends HttpServlet {
 			 }
 			
 			}catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				LOGGER.log(null, "contesto", e);	//fatto perchè lo chiede sonarcloud dicendo che devo controllare se il questo codice è disattivato quando consegno del condice da eseguire
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 

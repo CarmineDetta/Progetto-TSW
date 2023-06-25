@@ -1,7 +1,10 @@
 package control;
 
 import java.io.IOException;
+
 import java.sql.SQLException;
+
+import java.util.logging.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -26,7 +29,9 @@ import model.UtenteBean;
 
 public class AcquistoControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
+	
+	private static final Logger LOGGER = Logger.getLogger(AcquistoControl.class.getName());
+
 	static PortafoglioDAO modelportafoglio = new PortafoglioModelDS();
 	static RecapitoDAO modelrecapito = new RecapitoModelDS();
 	static OrdineDAO modelordine = new OrdineModelDS();
@@ -71,10 +76,8 @@ public class AcquistoControl extends HttpServlet {
 			
 			}
 		} catch (SQLException e){
-			e.printStackTrace();
+			 LOGGER.log(null, "contesto", e);	//fatto perchè lo chiede sonarcloud dicendo che devo controllare se il questo codice è disattivato quando consegno del condice da eseguire
 		}
-		
-		
 
 	}
 

@@ -2,10 +2,10 @@
  * 
  */
 function formValidation() {
-  var citta = document.getElementById("citta");
-  var cap = document.getElementById("cap");
-  var viaPiazza = document.getElementById("via");
-  var nCivico = document.getElementById("civico");
+  let citta = document.getElementById("citta");
+  let cap = document.getElementById("cap");
+  let viaPiazza = document.getElementById("via");
+  let nCivico = document.getElementById("civico");
 
   if (validateCitta(citta) && validateCAP(cap) && validateViaPiazza(viaPiazza) && validateNCivico(nCivico)) {
     return true; // Tutti i controlli di validazione sono superati
@@ -15,7 +15,7 @@ function formValidation() {
 }
 
 function validateCitta(inputtxt) {
-  var regex = /^[a-zA-Z\s]+$/;
+  let regex = /^[a-zA-Z\s]+$/;
   if (inputtxt.value.match(regex)) {
     return true;
   } else {
@@ -26,7 +26,7 @@ function validateCitta(inputtxt) {
 }
 
 function validateCAP(inputtxt) {
-  var regex = /^\d{5}$/;
+  let regex = /^\d{5}$/;
   if (inputtxt.value.match(regex)) {
     return true;
   } else {
@@ -37,7 +37,7 @@ function validateCAP(inputtxt) {
 }
 
 function validateViaPiazza(inputtxt) {
-  var regex = /^[a-zA-Z\s]+$/;
+  let regex = /^[a-zA-Z\s]+$/;
   if (inputtxt.value.match(regex)) {
     return true;
   } else {
@@ -48,7 +48,7 @@ function validateViaPiazza(inputtxt) {
 }
 
 function validateNCivico(inputtxt) {
-  var regex = /^\d{1,3}$/;
+  let regex = /^\d{1,3}$/;
   if (inputtxt.value === "" || inputtxt.value.match(regex)) {
     return true;
   } else {

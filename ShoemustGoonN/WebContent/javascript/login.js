@@ -11,7 +11,7 @@ loginButton.addEventListener("click", function() {
 });
 
 function ValidateEmail(inputText) {
-    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (inputText.value.match(mailformat)) {
         return true;
     } else {
@@ -21,7 +21,7 @@ function ValidateEmail(inputText) {
 }
 
 function passid_validation(passid,mx,my) {
-    var passid_len = passid.value.length;
+    let passid_len = passid.value.length;
     if (passid_len == 0 ||passid_len >= my || passid_len < mx) {
         alert("Password should not be empty / length be between "+mx+" to "+my);
         passid.focus();

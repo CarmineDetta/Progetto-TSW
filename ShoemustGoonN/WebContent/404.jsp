@@ -9,7 +9,7 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
  		<link href="style/Pagine_Errori.css" rel="stylesheet" type="text/css">
 		<title>NOT FOUND</title>
-</head>
+</head lang="it" xml:lang="it">
 </head>
 <body>
 

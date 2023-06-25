@@ -1,6 +1,6 @@
 function formValidation() {
-  var prezzo = document.getElementById("prezzo");
-  var quantita = document.getElementById("quantita");
+  let prezzo = document.getElementById("prezzo");
+  let quantita = document.getElementById("quantita");
 
   if (price(prezzo) && allnumeric(quantita)) {
     return true; // Tutti i controlli di validazione sono superati
@@ -10,7 +10,7 @@ function formValidation() {
 }
 
 function price(inputtxt) {
-  var numbers = /^(\d+|\d+\.\d+)$/;
+  let numbers = /^(\d+|\d+\.\d+)$/;
   if (inputtxt.value.match(numbers)) {
     return true;
   } else {
@@ -21,7 +21,7 @@ function price(inputtxt) {
 }
 
 function allnumeric(inputtxt) {
-  var numbers = /^[0-9]+$/;
+  let numbers = /^[0-9]+$/;
   if (inputtxt.value.match(numbers)) {
     return true;
   } else {
