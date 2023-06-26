@@ -84,7 +84,6 @@ public class RecapitoModelDS implements RecapitoDAO{
 			
 			
 			preparedStatement.setInt(1, ID_Indirizzo);
-			//System.out.println(deleteSQL + ID_Indirizzo);
 			
 			result = preparedStatement.executeUpdate();
 			connection.commit();

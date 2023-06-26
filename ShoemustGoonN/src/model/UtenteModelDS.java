@@ -40,7 +40,7 @@ public class UtenteModelDS implements UtenteDAO{
 			ds = (DataSource) envCtx.lookup("jdbc/shoemustgoon");
 
 		} catch (NamingException e) {
-			System.out.println("Error:" + e.getMessage());
+			LOGGER.log(null, "contesto", e);	//fatto perchè lo chiede sonarcloud dicendo che devo controllare se il questo codice è disattivato quando consegno del condice da eseguire
 		}
 	}
 
@@ -90,7 +90,6 @@ public class UtenteModelDS implements UtenteDAO{
 	public synchronized boolean doDelete(String ID_Utente) throws SQLException {
 		
 		//fare quando dobbiamo cancellare oggetti precisi sul db
-		//System.out.println("Procediamo alla delete");
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -104,7 +103,6 @@ public class UtenteModelDS implements UtenteDAO{
 			
 			
 			preparedStatement.setString(1, ID_Utente);
-			System.out.println(deleteSQL + ID_Utente);
 			
 			result = preparedStatement.executeUpdate();
 			connection.commit();

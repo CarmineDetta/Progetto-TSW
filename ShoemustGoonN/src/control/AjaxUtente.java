@@ -35,11 +35,8 @@ public class AjaxUtente extends HttpServlet {
 		response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         
-        PrintWriter out = response.getWriter();
         String oggettoJSON = null;
         
-		//System.out.println(request.getParameter("stringaRicerca"));
-		
 		UtenteModelDS Utente = new UtenteModelDS();
 		
 		try {
@@ -50,11 +47,9 @@ public class AjaxUtente extends HttpServlet {
 				UtenteBean utente = null;
 				while(iter.hasNext()) {
 					utente = iter.next();
-					//System.out.println("I prodotti ricevuti dalla servlet sono: "+ utente.getID_Utente() + " " + utente.getCognome() + "" + utente.getNome());
 				}
 				
 				oggettoJSON = new Gson().toJson(UtenteSuggest);
-				//System.out.println("Oggetto JSON: "+oggettoJSON);
 				
 				response.getWriter().write(oggettoJSON.toString());
 			} else {

@@ -47,11 +47,11 @@ function getCardType(cardNumber) {
   // Esegui il controllo per determinare il tipo di carta
   // Restituisci "Visa", "Mastercard", "JCB", "Discover", "DinersClub", "AmericanExpress" o "Unknown"
 
-  if (/^4[0-9]{12}(?:[0-9]{3})?$/.test(cardNumber)) {
+	if (/^4\d{12}(?:\d{3})?$/.test(cardNumber)) {
     return "Visa";
   }
 
-  if (/^5[1-5][0-9]{14}$/.test(cardNumber)) {
+	if (/^5[1-5]\d{14}$/.test(cardNumber)) {
     return "Mastercard";
   }
 

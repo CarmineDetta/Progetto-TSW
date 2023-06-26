@@ -91,7 +91,6 @@ public class ProductModelDS implements ProdottoDAO{
 	public synchronized boolean doDelete(String ID_Prodotto) throws SQLException {
 		
 		//fare quando dobbiamo cancellare oggetti precisi sul db
-		//System.out.println("Procediamo alla delete");
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -105,7 +104,6 @@ public class ProductModelDS implements ProdottoDAO{
 			
 			
 			preparedStatement.setString(1, ID_Prodotto);
-			//System.out.println(deleteSQL + ID_Prodotto);
 			
 			result = preparedStatement.executeUpdate();
 			connection.commit();
@@ -238,7 +236,6 @@ public synchronized Collection<ProdottoBean> doRetrieveSuggest(String StringaPar
 			String stringaRicerca = StringaParziale.concat("%");
 			preparedStatement.setString(1, stringaRicerca);
 			
-			//System.out.println(stringaRicerca+ " nella stringa: " + selectSQL);
 
 			ResultSet rs = preparedStatement.executeQuery();
 			
@@ -249,7 +246,6 @@ public synchronized Collection<ProdottoBean> doRetrieveSuggest(String StringaPar
 				bean.setID_Prodotto(rs.getString(ID_PRODOTTO));
 				bean.setMarca(rs.getString(MARCA));
 				bean.setDisponibilita(rs.getBoolean(DISPONIBILITA));
-				//System.out.println("Gli oggetti trovati sono: "+bean.getID_Prodotto()+ " " + bean.getMarca() + " " + bean.isDisponibilita() );
 				if( bean.isDisponibilita() ) {
 					products.add(bean);
 				}

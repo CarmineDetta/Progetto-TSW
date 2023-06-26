@@ -43,7 +43,6 @@ public class AjaxCart extends HttpServlet {
         String oggettoJSON = null;
         String stringaRicerca =  request.getParameter("stringaRicerca");
         
-		//System.out.println("Stringa Ricerca:" + request.getParameter("stringaRicerca"));
 		
 		Cart cart = (Cart) sessione.getAttribute("cart");
 		if(cart == null) {
@@ -60,7 +59,6 @@ public class AjaxCart extends HttpServlet {
 				cart.addProduct(p);	
 
 				oggettoJSON = new Gson().toJson(cart);
-				//System.out.println("Oggetto JSON: "+oggettoJSON);
 				
 				response.getWriter().write(oggettoJSON.toString());
 			 }

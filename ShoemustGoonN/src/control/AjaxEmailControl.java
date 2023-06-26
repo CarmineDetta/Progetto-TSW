@@ -36,7 +36,6 @@ public class AjaxEmailControl extends HttpServlet {
         String oggettoJSON = null;
         
         String stringaRicerca = request.getParameter("stringaRicerca");
-		System.err.println(stringaRicerca);
 		
 		UtenteModelDS model = new UtenteModelDS();
 		
@@ -47,12 +46,12 @@ public class AjaxEmailControl extends HttpServlet {
 				if(utente.getEmail().equalsIgnoreCase("")) {
 					stringaRicerca = "true";
 					oggettoJSON = new Gson().toJson(stringaRicerca);
-					//System.err.println("Oggetto JSON: "+oggettoJSON);
+
 					response.getWriter().write(oggettoJSON);
 				} else {
 					stringaRicerca = "false";
 					oggettoJSON = new Gson().toJson(stringaRicerca);
-					//System.err.println("Oggetto JSON: "+oggettoJSON);
+					
 					response.getWriter().write(oggettoJSON);
 				}
 
