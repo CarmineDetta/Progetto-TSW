@@ -1,6 +1,6 @@
 package model;
 
-import java.io.IOException;
+
 import java.util.logging.Logger;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -118,7 +118,7 @@ public class UtenteModelDS implements UtenteDAO{
 	}
 
 	//Serve per recuperare un oggetto dal database in base all'ID
-	public synchronized UtenteBean doRetrieveByKey(String ID_Utente) throws SQLException {
+	public synchronized UtenteBean doRetrieveByKey(String idUtente) throws SQLException {
 			
 			//fare quando dobbiamo cercare oggetti precisi sul db
 			Connection connection = null;
@@ -131,7 +131,7 @@ public class UtenteModelDS implements UtenteDAO{
 			try {
 				connection = ds.getConnection();
 				preparedStatement = connection.prepareStatement(selectSQL);
-				preparedStatement.setString(1, ID_Utente);
+				preparedStatement.setString(1, idUtente);
 
 				ResultSet rs = preparedStatement.executeQuery();
 				

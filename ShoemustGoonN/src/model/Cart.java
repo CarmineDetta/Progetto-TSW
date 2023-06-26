@@ -45,7 +45,6 @@ public class Cart{
 	
 	public void deleteProduct(ItemCarrello product) throws SQLException {
 	   
-		boolean found = false;
 
 	    for (Iterator<ItemCarrello> iterator = products.iterator(); iterator.hasNext();) {
 	        ItemCarrello prod = iterator.next();
@@ -56,14 +55,12 @@ public class Cart{
 	            ProdottoBean p = model.doRetrieveByKey(prod.getID_ProdottoItemCarrello());
 	            totale = totale - p.getPrezzo();
 
-	            found = true;
 	            break;
 	        } else {
 	            ProdottoBean p = model.doRetrieveByKey(product.getID_ProdottoItemCarrello());
 	            totale = totale - p.getPrezzo();
 
 	            iterator.remove();
-	            found = true;
 	            break;
 	        }
 	    }

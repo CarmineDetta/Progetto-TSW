@@ -28,7 +28,7 @@ public class LoginControl extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		UtenteBean utente = new UtenteBean();
-		UtenteModelDS u_ds = new UtenteModelDS();
+		UtenteModelDS uDS = new UtenteModelDS();
 		 
 		String action = request.getParameter("action");
 	
@@ -38,7 +38,7 @@ public class LoginControl extends HttpServlet {
 				
 				if(action.equalsIgnoreCase("login")){
 			
-					utente = u_ds.doRetriveByEmail(email);
+					utente = uDS.doRetriveByEmail(email);
 					
 					if(utente.getEmail().equalsIgnoreCase("") || utente.getEmail() == null) {
 						response.sendRedirect("Login.jsp");
@@ -90,7 +90,7 @@ public class LoginControl extends HttpServlet {
 					u.setPassword(pass);
 					u.setTipo(tipo);
 					
-					u_ds.doSave(u);
+					uDS.doSave(u);
 					
 					response.sendRedirect("Login.jsp");
 				}

@@ -120,8 +120,8 @@ public class RecapitoModelDS implements RecapitoDAO{
 				bean.setidIndirizzo(rs.getInt("ID_Spedizione"));
 				bean.setcap(rs.getInt("Cap"));
 				bean.setCitta(rs.getString("Citta"));
-				bean.setVia_Piazza(rs.getString("Via_Piazza"));
-				bean.setN_Civico(rs.getInt("N_Civico"));
+				bean.setViaPiazza(rs.getString("Via_Piazza"));
+				bean.setNCivico(rs.getInt("N_Civico"));
 				
 				UtenteModelDS udao = new UtenteModelDS();
 				bean.setUtente(udao.doRetrieveByKey(rs.getString("Utente")));
@@ -163,9 +163,9 @@ public synchronized Collection<RecapitoBean> doRetrieveByUtente(String user) thr
 
 				bean.setidIndirizzo(rs.getInt("ID_Spedizione"));
 				bean.setCitta(rs.getString("Citta"));
-				bean.setVia_Piazza(rs.getString("Via_Piazza"));
+				bean.setViaPiazza(rs.getString("Via_Piazza"));
 				bean.setcap(rs.getInt("Cap"));
-				bean.setN_Civico(rs.getInt("N_Civico"));
+				bean.setNCivico(rs.getInt("N_Civico"));
 
 				recapiti.add(bean);
 			}

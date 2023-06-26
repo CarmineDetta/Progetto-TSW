@@ -37,11 +37,12 @@ public class PortafoglioBean {
 		this.nomeIntestatario = nome;
 	}
 	
+
 	public String getNcarta(){
 		return this.ncarta;
 	}
 	
-	public void setN_carta(String num_carta) {
+	public void setNcarta(String num_carta) {
 		this.ncarta = num_carta;
 	}
 	

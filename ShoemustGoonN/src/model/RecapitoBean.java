@@ -53,7 +53,7 @@ public class RecapitoBean implements Serializable{
     	return this.viaPiazza;
     }
     
-    public void setVia_Piazza(String via) {
+    public void setViaPiazza(String via) {
     	this.viaPiazza = via;
     }
     
@@ -61,7 +61,8 @@ public class RecapitoBean implements Serializable{
     	return this.ncivico;
     }
     
-    public void setN_Civico(int n) {
+
+    public void setNCivico(int n) {
     	this.ncivico = n;
     }
     

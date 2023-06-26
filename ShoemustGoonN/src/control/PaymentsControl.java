@@ -45,7 +45,7 @@ public class PaymentsControl extends HttpServlet {
 					int cvv = Integer.parseInt(request.getParameter("cvv"));
 					
 					PortafoglioBean pagamento = new PortafoglioBean();
-					pagamento.setN_carta(nCarta);
+					pagamento.setNcarta(nCarta);
 					pagamento.setNomeIntestatario(nome);
 					pagamento.setScadenza(scadenza);
 					pagamento.setCvv(cvv);

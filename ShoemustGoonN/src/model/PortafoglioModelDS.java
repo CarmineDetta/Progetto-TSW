@@ -124,7 +124,7 @@ public synchronized boolean doDelete(int idPagamento) throws SQLException {
 				
 				while (rs.next()) {
 					bean.setidPagamento(rs.getInt("ID_Pagamento"));
-					bean.setN_carta(rs.getString("Num_Carta"));
+					bean.setNcarta(rs.getString("Num_Carta"));
 					bean.setNomeIntestatario(rs.getString("Nome_Intestatario"));
 					bean.setScadenza(rs.getString("Scadenza"));
 					bean.setCvv(rs.getInt("CVV"));
@@ -167,7 +167,7 @@ public synchronized Collection<PortafoglioBean> doRetrieveByUtente(String user) 
 				PortafoglioBean bean = new PortafoglioBean();
 
 				bean.setidPagamento(rs.getInt("ID_Pagamento"));
-				bean.setN_carta(rs.getString("Num_Carta"));
+				bean.setNcarta(rs.getString("Num_Carta"));
 				bean.setNomeIntestatario(rs.getString("Nome_Intestatario"));
 				bean.setScadenza(rs.getString("Scadenza"));
 				bean.setCvv(rs.getInt("CVV"));

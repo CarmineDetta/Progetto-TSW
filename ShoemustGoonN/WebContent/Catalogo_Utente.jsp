@@ -49,10 +49,13 @@
     	<div class="video">
 		    <video id="video-element" autoplay muted>
 		  		<source src="image/video-catalog.mp4"  type="video/mp4" >
+		  		<track src="video introduzione al catalago utente" kind="video 1" srclang="it" label="Italiano">
 		 	</video>
 		    
 		    <video id="video-element2" autoplay muted>
 		  		<source src="image/video-catalogo2.mp4"  type="video/mp4" >
+		  		<track src="video introduzione al catalago utente" kind="video 2" srclang="it" label="Italiano">
+		  		
 		 	</video>
 		</div>
     	

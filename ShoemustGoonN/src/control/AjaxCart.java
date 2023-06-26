@@ -18,9 +18,7 @@ import com.google.gson.Gson;
 import model.Cart;
 import model.ItemCarrello;
 
-/**
- * Servlet implementation class AjaxCart
- */
+
 @WebServlet("/AjaxCart")
 public class AjaxCart extends HttpServlet {
 	private static final long serialVersionUID = 1L;

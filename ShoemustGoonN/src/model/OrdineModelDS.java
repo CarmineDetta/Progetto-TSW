@@ -243,7 +243,7 @@ public class OrdineModelDS implements OrdineDAO{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 	
-		Collection<OrdineBean> ordini = new LinkedList<OrdineBean>();
+		Collection<OrdineBean> ordini = new LinkedList<>();
 	
 		String selectSQL = "SELECT * FROM " + OrdineModelDS.TABLE_NAME;
 	

@@ -7,7 +7,7 @@ function formValidation() {
   let viaPiazza = document.getElementById("via");
   let nCivico = document.getElementById("civico");
 
-  return (validateCittà(citta) && validateCAP(berretto) 
+  return (validateCittà(citta) && validateCAP(cap) 
 		  && validateViaPiazza(viaPiazza) && validateNCivico(nCivico)) 
 		  ? true : false;	/*fatto perché me lo chiede sonar, ho solo messo l'if else in un'unica istruzione*/
 }
