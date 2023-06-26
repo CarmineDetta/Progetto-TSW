@@ -2,9 +2,13 @@ package model;
 
 
 import java.sql.SQLException;
+
 import java.util.ArrayList;
 
 import java.util.List;
+
+import java.util.Iterator;
+
 import model.ItemCarrello;
 
 public class Cart{
@@ -14,7 +18,7 @@ public class Cart{
 	private double totale = 0;
 	
 	public Cart() {
-		products = new ArrayList<ItemCarrello>();
+		products = new ArrayList<>();
 		model = new ProductModelDS();
 		
 	}
@@ -40,25 +44,30 @@ public class Cart{
 	}
 	
 	public void deleteProduct(ItemCarrello product) throws SQLException {
-		
-		for(ItemCarrello prod : products) {
-			if(prod.getID_ProdottoItemCarrello().equals(product.getID_ProdottoItemCarrello()) && prod.getQuantitaItemCarrello() > 1) {
-				prod.setQuantitaItemCarrello(prod.getQuantitaItemCarrello()-1);
-				
-				ProdottoBean p = model.doRetrieveByKey(prod.getID_ProdottoItemCarrello());
-				totale = totale - p.getPrezzo();
-				
-				break;
-			}else {		
-				
-				ProdottoBean p = model.doRetrieveByKey(product.getID_ProdottoItemCarrello());
-				totale = totale - p.getPrezzo();
-				
-				products.remove(product);
-				break;
-			}
-		}
- 	}
+	   
+		boolean found = false;
+
+	    for (Iterator<ItemCarrello> iterator = products.iterator(); iterator.hasNext();) {
+	        ItemCarrello prod = iterator.next();
+
+	        if (prod.getID_ProdottoItemCarrello().equals(product.getID_ProdottoItemCarrello()) && prod.getQuantitaItemCarrello() > 1) {
+	            prod.setQuantitaItemCarrello(prod.getQuantitaItemCarrello() - 1);
+
+	            ProdottoBean p = model.doRetrieveByKey(prod.getID_ProdottoItemCarrello());
+	            totale = totale - p.getPrezzo();
+
+	            found = true;
+	            break;
+	        } else {
+	            ProdottoBean p = model.doRetrieveByKey(product.getID_ProdottoItemCarrello());
+	            totale = totale - p.getPrezzo();
+
+	            iterator.remove();
+	            found = true;
+	            break;
+	        }
+	    }
+	}
 	
 	public List<ItemCarrello> getProducts() {
 		return  products;

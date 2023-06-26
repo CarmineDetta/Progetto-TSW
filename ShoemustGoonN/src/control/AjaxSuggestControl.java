@@ -24,17 +24,12 @@ import model.ProductModelDS;
 public class AjaxSuggestControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public AjaxSuggestControl() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("application/json");
@@ -47,31 +42,23 @@ public class AjaxSuggestControl extends HttpServlet {
 		try {
 			if(!request.getParameter("stringaRicerca").equalsIgnoreCase("")) {
 				Collection<ProdottoBean> prodottiSuggest = prodotti.doRetrieveSuggest(request.getParameter("stringaRicerca"));
-				Iterator<ProdottoBean> iter = prodottiSuggest.iterator();
-				
-				ProdottoBean prodotto = null;
-				while(iter.hasNext()) {
-					prodotto = iter.next();
-				}
+
 				
 				oggettoJSON = new Gson().toJson(prodottiSuggest);
 				
-				response.getWriter().write(oggettoJSON.toString());
+				response.getWriter().write(oggettoJSON);
 			} else {
 				oggettoJSON = new Gson().toJson("");
-				response.getWriter().write(oggettoJSON.toString());
+				response.getWriter().write(oggettoJSON);
 			}
 			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+		}catch (SQLException | IOException e) {
+		    e.printStackTrace();
 		}
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

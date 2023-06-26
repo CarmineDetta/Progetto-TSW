@@ -61,7 +61,7 @@ public class ProductModelDS implements ProdottoDAO{
 			preparedStatement = connection.prepareStatement(insertSQL);
  
 			GenerateIDProd generate = new GenerateIDProd();
-			prodotto.setID_Prodotto(generate.generateUniqueID());
+			prodotto.setidProdotto(generate.generateUniqueID());
 
 			
 			preparedStatement.setString(1, prodotto.getID_Prodotto());
@@ -88,7 +88,7 @@ public class ProductModelDS implements ProdottoDAO{
 		
 	}
 	
-	public synchronized boolean doDelete(String ID_Prodotto) throws SQLException {
+	public synchronized boolean doDelete(String idProdotto) throws SQLException {
 		
 		//fare quando dobbiamo cancellare oggetti precisi sul db
 		Connection connection = null;
@@ -103,7 +103,7 @@ public class ProductModelDS implements ProdottoDAO{
 			preparedStatement = connection.prepareStatement(deleteSQL);
 			
 			
-			preparedStatement.setString(1, ID_Prodotto);
+			preparedStatement.setString(1, idProdotto);
 			
 			result = preparedStatement.executeUpdate();
 			connection.commit();
@@ -139,7 +139,7 @@ public class ProductModelDS implements ProdottoDAO{
 				ResultSet rs = preparedStatement.executeQuery();
 				
 				while (rs.next()) {
-					bean.setID_Prodotto(rs.getString(ID_PRODOTTO));
+					bean.setidProdotto(rs.getString(ID_PRODOTTO));
 					bean.setMarca(rs.getString(MARCA));
 					bean.setColore(rs.getString("Colore"));
 					bean.setModello(rs.getString("Modello"));
@@ -172,7 +172,7 @@ public class ProductModelDS implements ProdottoDAO{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<ProdottoBean> products = new LinkedList<ProdottoBean>();
+		Collection<ProdottoBean> products = new LinkedList<>();
 
 		String selectSQL = "SELECT * FROM " + ProductModelDS.TABLE_NAME;
 
@@ -189,7 +189,7 @@ public class ProductModelDS implements ProdottoDAO{
 			while (rs.next()) {
 				ProdottoBean bean = new ProdottoBean();
 
-				bean.setID_Prodotto(rs.getString(ID_PRODOTTO));
+				bean.setidProdotto(rs.getString(ID_PRODOTTO));
 				bean.setMarca(rs.getString(MARCA));
 				bean.setColore(rs.getString("Colore"));
 				bean.setModello(rs.getString("Modello"));
@@ -219,7 +219,7 @@ public class ProductModelDS implements ProdottoDAO{
 
 
 	
-public synchronized Collection<ProdottoBean> doRetrieveSuggest(String StringaParziale) throws SQLException, IOException {
+public synchronized Collection<ProdottoBean> doRetrieveSuggest(String stringaParziale) throws SQLException, IOException {
 		
 		//fare quando dobbiamo cercare oggetti precisi sul db
 		Connection connection = null;
@@ -228,12 +228,12 @@ public synchronized Collection<ProdottoBean> doRetrieveSuggest(String StringaPar
 		ProdottoBean bean = new ProdottoBean();
 
 		String selectSQL = "SELECT * FROM " + ProductModelDS.TABLE_NAME + " WHERE Marca LIKE ?";
-		Collection<ProdottoBean> products = new LinkedList<ProdottoBean>();
+		Collection<ProdottoBean> products = new LinkedList<>();
 			
 		try {
 			connection = DriverManagerConnectionPool.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
-			String stringaRicerca = StringaParziale.concat("%");
+			String stringaRicerca = stringaParziale.concat("%");
 			preparedStatement.setString(1, stringaRicerca);
 			
 
@@ -243,7 +243,7 @@ public synchronized Collection<ProdottoBean> doRetrieveSuggest(String StringaPar
 			
 			while (rs.next()) {
 				bean = new ProdottoBean();
-				bean.setID_Prodotto(rs.getString(ID_PRODOTTO));
+				bean.setidProdotto(rs.getString(ID_PRODOTTO));
 				bean.setMarca(rs.getString(MARCA));
 				bean.setDisponibilita(rs.getBoolean(DISPONIBILITA));
 				if( bean.isDisponibilita() ) {

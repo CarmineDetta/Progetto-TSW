@@ -71,24 +71,24 @@ public class LoginControl extends HttpServlet {
 					}
 				}else if(action.equalsIgnoreCase("register")) {
 					
-					String Nome = request.getParameter("nome");
-					String Cognome = request.getParameter("cognome");
-					String DataNascita = request.getParameter("nascita");
-					String CF = request.getParameter("cf");
-					String Email = request.getParameter("email");
-					String Password = request.getParameter("psw");
-					String Tipo = request.getParameter("tipo");
+					String nome = request.getParameter("nome");
+					String cognome = request.getParameter("cognome");
+					String datanascita = request.getParameter("nascita");
+					String cf = request.getParameter("cf");
+					String mail = request.getParameter("email");	/*mail perhcèé sopra esistegià email*/
+					String pass = request.getParameter("psw");
+					String tipo = request.getParameter("tipo");
 					
 					
 					UtenteBean u = new UtenteBean();
 
-					u.setNome(Nome);
-					u.setCognome(Cognome);
-					u.setDataNascita(DataNascita);
-					u.setCF(CF);
-					u.setEmail(Email);
-					u.setPassword(Password);
-					u.setTipo(Tipo);
+					u.setNome(nome);
+					u.setCognome(cognome);
+					u.setDataNascita(datanascita);
+					u.setCF(cf);
+					u.setEmail(mail);
+					u.setPassword(pass);
+					u.setTipo(tipo);
 					
 					u_ds.doSave(u);
 					
@@ -102,7 +102,6 @@ public class LoginControl extends HttpServlet {
 	}
 		
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doPost(request, response);
 	}
 

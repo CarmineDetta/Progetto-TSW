@@ -2,8 +2,6 @@ package control;
 
 import java.io.IOException;
 
-
-import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import java.util.logging.Logger;
@@ -31,7 +29,6 @@ public class AjaxCart extends HttpServlet {
 
     public AjaxCart() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -60,7 +57,7 @@ public class AjaxCart extends HttpServlet {
 
 				oggettoJSON = new Gson().toJson(cart);
 				
-				response.getWriter().write(oggettoJSON.toString());
+				response.getWriter().write(oggettoJSON);
 			 }
 			
 			}catch (SQLException e) {
@@ -73,7 +70,6 @@ public class AjaxCart extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

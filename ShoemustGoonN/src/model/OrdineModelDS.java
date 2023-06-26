@@ -60,7 +60,7 @@ public class OrdineModelDS implements OrdineDAO{
 			int id =  ordine.getID_Ordine() + c;
 			this.c++;
 			
-			ordine.setID_Ordine(id);
+			ordine.setidOrdine(id);
 			
 			preparedStatement.setInt(1, ordine.getID_Ordine());
 			
@@ -143,7 +143,7 @@ public class OrdineModelDS implements OrdineDAO{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<OrdineBean> ordini = new LinkedList<OrdineBean>();
+		Collection<OrdineBean> ordini = new LinkedList<>();
 
 		String selectSQL = "SELECT * FROM " + OrdineModelDS.TABLE_NAME + " WHERE utente = ?";
 
@@ -159,7 +159,7 @@ public class OrdineModelDS implements OrdineDAO{
 			while (rs.next()) {
 				OrdineBean bean = new OrdineBean();
 
-				bean.setID_Ordine(rs.getInt(ID_ORDINE));
+				bean.setidOrdine(rs.getInt(ID_ORDINE));
 				
 				String dataOrdine = rs.getString(DATA_ORDINE);
 			    bean.setDataOrdine(dataOrdine);
@@ -207,10 +207,8 @@ public class OrdineModelDS implements OrdineDAO{
 				ResultSet rs = preparedStatement.executeQuery();
 				
 				while (rs.next()) {
-					bean.setID_Ordine(rs.getInt(ID_ORDINE));
-					
-					Date dataOrdineSql = rs.getDate(DATA_ORDINE);
-					
+					bean.setidOrdine(rs.getInt(ID_ORDINE));
+										
 					String dataOrdine = rs.getString(DATA_ORDINE);
 				    bean.setDataOrdine(dataOrdine);
 					
@@ -258,10 +256,8 @@ public class OrdineModelDS implements OrdineDAO{
 			while (rs.next()) {
 				OrdineBean bean = new OrdineBean();
 	
-				bean.setID_Ordine(rs.getInt(ID_ORDINE));
-				
-				Date dataOrdineSql = rs.getDate(DATA_ORDINE);
-				
+				bean.setidOrdine(rs.getInt(ID_ORDINE));
+								
 				String dataOrdine = rs.getString(DATA_ORDINE);
 			    bean.setDataOrdine(dataOrdine);
 				
@@ -291,12 +287,12 @@ public class OrdineModelDS implements OrdineDAO{
 		return ordini;
 	}
 	
-public Collection<OrdineBean> doRetrieveByDate(String DataInizio, String DataFine) throws SQLException {
+public Collection<OrdineBean> doRetrieveByDate(String dataInizio, String dataFine) throws SQLException {
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<OrdineBean> ordini = new LinkedList<OrdineBean>();
+		Collection<OrdineBean> ordini = new LinkedList<>();
 
 		String selectSQL = "SELECT * FROM " + OrdineModelDS.TABLE_NAME + " WHERE Data_Ordine >=  ? AND Data_Ordine <= ?";
 
@@ -304,8 +300,8 @@ public Collection<OrdineBean> doRetrieveByDate(String DataInizio, String DataFin
 			
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setString(1, DataInizio);
-			preparedStatement.setString(2, DataFine);
+			preparedStatement.setString(1, dataInizio);
+			preparedStatement.setString(2, dataFine);
 
 			
 			ResultSet rs = preparedStatement.executeQuery();
@@ -313,7 +309,7 @@ public Collection<OrdineBean> doRetrieveByDate(String DataInizio, String DataFin
 			while (rs.next()) {
 				OrdineBean bean = new OrdineBean();
 
-				bean.setID_Ordine(rs.getInt(ID_ORDINE));
+				bean.setidOrdine(rs.getInt(ID_ORDINE));
 				
 				String dataOrdine = rs.getString(DATA_ORDINE);
 			    bean.setDataOrdine(dataOrdine);

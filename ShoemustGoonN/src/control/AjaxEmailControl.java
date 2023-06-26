@@ -1,6 +1,7 @@
 package control;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -60,10 +61,8 @@ public class AjaxEmailControl extends HttpServlet {
 				response.getWriter().write(oggettoJSON);
 			}
 			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (SQLException | IOException e) {
+		    e.printStackTrace();
 		}
 	}
 

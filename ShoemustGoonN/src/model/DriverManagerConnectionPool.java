@@ -45,7 +45,7 @@ public class DriverManagerConnectionPool {
 			
 			//Controlla se ci sono connessioni libere nella lista e se si la inserisce in "connection" e la rimuove dalla lista
 			if (!freeDbConnections.isEmpty()) {
-				connection = (Connection) freeDbConnections.get(0);
+				connection =  freeDbConnections.get(0);
 				freeDbConnections.remove(0);
 				
 				try { //Controlla se la connessione non è stata aperta con successo 

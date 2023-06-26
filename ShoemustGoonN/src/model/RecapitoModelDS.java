@@ -69,7 +69,7 @@ public class RecapitoModelDS implements RecapitoDAO{
 		}
 	}
 
-	public boolean doDelete(int ID_Indirizzo) throws SQLException {
+	public boolean doDelete(int idIndirizzo) throws SQLException {
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -83,7 +83,7 @@ public class RecapitoModelDS implements RecapitoDAO{
 			preparedStatement = connection.prepareStatement(deleteSQL);
 			
 			
-			preparedStatement.setInt(1, ID_Indirizzo);
+			preparedStatement.setInt(1, idIndirizzo);
 			
 			result = preparedStatement.executeUpdate();
 			connection.commit();
@@ -100,7 +100,7 @@ public class RecapitoModelDS implements RecapitoDAO{
 		return (result != 0);
 	}
 
-	public RecapitoBean doRetrieveByKey(int ID_Indirizzo) throws SQLException {
+	public RecapitoBean doRetrieveByKey(int idIndirizzo) throws SQLException {
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -112,12 +112,12 @@ public class RecapitoModelDS implements RecapitoDAO{
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setInt(1, ID_Indirizzo);
+			preparedStatement.setInt(1, idIndirizzo);
 
 			ResultSet rs = preparedStatement.executeQuery();
 			
 			while (rs.next()) {
-				bean.setID_Indirizzo(rs.getInt("ID_Spedizione"));
+				bean.setidIndirizzo(rs.getInt("ID_Spedizione"));
 				bean.setcap(rs.getInt("Cap"));
 				bean.setCitta(rs.getString("Citta"));
 				bean.setVia_Piazza(rs.getString("Via_Piazza"));
@@ -146,7 +146,7 @@ public synchronized Collection<RecapitoBean> doRetrieveByUtente(String user) thr
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<RecapitoBean> recapiti = new LinkedList<RecapitoBean>();
+		Collection<RecapitoBean> recapiti = new LinkedList<>();
 
 		String selectSQL = "SELECT * FROM " + RecapitoModelDS.TABLE_NAME + " WHERE Utente = ?";
 
@@ -161,7 +161,7 @@ public synchronized Collection<RecapitoBean> doRetrieveByUtente(String user) thr
 			while (rs.next()) {
 				RecapitoBean bean = new RecapitoBean();
 
-				bean.setID_Indirizzo(rs.getInt("ID_Spedizione"));
+				bean.setidIndirizzo(rs.getInt("ID_Spedizione"));
 				bean.setCitta(rs.getString("Citta"));
 				bean.setVia_Piazza(rs.getString("Via_Piazza"));
 				bean.setcap(rs.getInt("Cap"));

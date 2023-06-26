@@ -21,7 +21,7 @@ function price(inputtxt) {
 }
 
 function allnumeric(inputtxt) {
-	let numers = /^\d+$/;
+	let numbers = /^\d+$/;
   if (inputtxt.value.match(numbers)) {
     return true;
   } else {

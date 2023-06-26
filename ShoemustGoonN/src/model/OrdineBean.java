@@ -8,8 +8,8 @@ public class OrdineBean implements Serializable{
 	
     private static final long serialVersionUID = 1L; //Serve alla JVK
 
-    private int ID_Ordine;
-    private String data_ordine;
+    private int idOrdine;
+    private String dataOrdine;
     private double totale;
     private UtenteBean utente;
     private RecapitoBean recapito;
@@ -20,19 +20,19 @@ public class OrdineBean implements Serializable{
     }
     
     public int getID_Ordine() {
-    	return this.ID_Ordine;
+    	return this.idOrdine;
     }
     
-    public void setID_Ordine(int n) {
-    	this.ID_Ordine = n;
+    public void setidOrdine(int n) {
+    	this.idOrdine = n;
     }
     
     public String getDataOrdine() {
-    	return this.data_ordine;
+    	return this.dataOrdine;
     }
     
     public void setDataOrdine(String data) {
-    	this.data_ordine = data;
+    	this.dataOrdine = data;
     }
    
     public double getTotale() {

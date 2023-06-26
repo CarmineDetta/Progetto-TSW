@@ -1,23 +1,22 @@
 package model;
 
 import java.io.Serializable;
-import java.text.DecimalFormat;
 
 public class ProdottoBean implements Serializable {
 
     private static final long serialVersionUID = 1L; //Serve alla JVK
 
     //Variabili
-    private String ID_Prodotto;
-    private String Marca;
-    private String Colore;
-    private String Modello;
-    private Double Prezzo;
-    private int Quantita;
-    private boolean Disponibilita;
-    private String Descrizione;
-    private String Categoria;
-    private ImmagineBean Immagine;
+    private String idProdotto;
+    private String marca;
+    private String colore;
+    private String modello;
+    private Double prezzo;
+    private int quantita;
+    private boolean disponibilita;
+    private String descrizione;
+    private String categoria;
+    private ImmagineBean immagine;
 
     //Costruttore
     public ProdottoBean (){
@@ -26,84 +25,84 @@ public class ProdottoBean implements Serializable {
 
     //MetodiGet&Set
     public String getID_Prodotto() {
-        return ID_Prodotto;
+        return idProdotto;
     }
 
-    public void setID_Prodotto(String ID_Prodotto) {
-        this.ID_Prodotto = ID_Prodotto;
+    public void setidProdotto(String idProdotto) {
+        this.idProdotto = idProdotto;
     }
 
     public String getMarca() {
-        return Marca;
+        return marca;
     }
 
     public void setMarca(String marca) {
-        Marca = marca;
+        this.marca = marca;
     }
 
     public String getColore() {
-        return Colore;
+        return colore;
     }
 
     public void setColore(String colore) {
-        Colore = colore;
+        this.colore = colore;
     }
 
     public String getModello() {
-        return Modello;
+        return modello;
     }
 
     public void setModello(String modello) {
-        Modello = modello;
+        this.modello = modello;
     }
 
     public Double getPrezzo() {
-        return Prezzo;
+        return prezzo;
     }
 
     public void setPrezzo(Double prezzo) {
-        Prezzo = prezzo;
+        this.prezzo = prezzo;
     }
 
     public boolean isDisponibilita() {
-        return Disponibilita;
+        return disponibilita;
     }
 
     public void setDisponibilita(boolean disponibilita) {
-        Disponibilita = disponibilita;
+        this.disponibilita = disponibilita;
     }
 
     public int getQuantita() {
-        return Quantita;
+        return quantita;
     }
 
     public void setQuantita(int quantita) {
-        Quantita = quantita;
+        this.quantita = quantita;
     }
 
 	public String getCategoria() {
-		return Categoria;
+		return categoria;
 	}
 
 	public void setCategoria(String categoria) {
-		this.Categoria = categoria;
+		this.categoria = categoria;
 	}
 
 	public String getDescrizione() {
-		return Descrizione;
+		return descrizione;
 	}
 
 	public void setDescrizione(String descrizione) {
-		Descrizione = descrizione;
+		this.descrizione = descrizione;
 	}
 	
 	public ImmagineBean getImmagine() {
-		return this.Immagine;
+		return this.immagine;
 	}
 
 	
 	public void setImmagine(ImmagineBean immagineBean){
-		this.Immagine = immagineBean;
+		this.immagine = immagineBean;
 	}
     
 }

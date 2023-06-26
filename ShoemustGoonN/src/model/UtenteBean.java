@@ -7,90 +7,90 @@ public class UtenteBean implements Serializable {
     private static final long serialVersionUID = 1L;
 
     //Variabili
-    private String ID_Utente;
-    private String Nome;
-    private String Cognome;
-    private String DataNascita;
-    private String CF;
-    private String Email;
-    private String Password;
-    private String Tipo;
+    private String idUtente;
+    private String nome;
+    private String cognome;
+    private String dataNascita;
+    private String cf;
+    private String email;
+    private String password;
+    private String tipo;
 
     //Costruttore
     public UtenteBean () {
-        this.ID_Utente = "";
-        this.Nome="";
-        this.Cognome="";
-        this.DataNascita="";
-        this.CF = "";
-        this.Email = "";
-        this.Password = "";
-        this.Tipo = "";
+        this.idUtente = "";
+        this.nome="";
+        this.cognome="";
+        this.dataNascita="";
+        this.cf = "";
+        this.email = "";
+        this.password = "";
+        this.tipo = "";
     }
 
     //MetodiGet&Set
     public String getID_Utente() {
-        return ID_Utente;
+        return idUtente;
     }
 
-    public void setID_Utente(String ID_Utente) {
-        this.ID_Utente = ID_Utente;
+    public void setidUtente(String idUtente) {
+        this.idUtente = idUtente;
     }
     
     public String getNome() {
-        return Nome;
+        return nome;
     }
 
-    public void setNome(String Nome) {
-        this.Nome = Nome;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getCognome() {
-        return Cognome;
+        return cognome;
     }
 
-    public void setCognome(String Cognome) {
-        this.Cognome = Cognome;
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
     }
     
     public String getDataNascita() {
-        return DataNascita;
+        return dataNascita;
     }
 
-    public void setDataNascita(String DataNascita) {
-        this.DataNascita = DataNascita;
+    public void setDataNascita(String dataNascita) {
+        this.dataNascita = dataNascita;
     }
     
     public String getCF() {
-        return CF;
+        return cf;
     }
 
     public void setCF(String cf) {
-        this.CF = cf;
+        this.cf = cf;
     }
     
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
 	public String getTipo() {
-		return Tipo;
+		return tipo;
 	}
 
 	public void setTipo(String tipo) {
-		Tipo = tipo;
+		this.tipo = tipo;
 	}
 	
 }

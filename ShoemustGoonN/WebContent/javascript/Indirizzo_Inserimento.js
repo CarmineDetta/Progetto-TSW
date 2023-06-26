@@ -7,11 +7,9 @@ function formValidation() {
   let viaPiazza = document.getElementById("via");
   let nCivico = document.getElementById("civico");
 
-  if (validateCitta(citta) && validateCAP(cap) && validateViaPiazza(viaPiazza) && validateNCivico(nCivico)) {
-    return true; // Tutti i controlli di validazione sono superati
-  } else {
-    return false; // Almeno uno dei controlli di validazione ha fallito
-  }
+  return (validateCittà(citta) && validateCAP(berretto) 
+		  && validateViaPiazza(viaPiazza) && validateNCivico(nCivico)) 
+		  ? true : false;	/*fatto perché me lo chiede sonar, ho solo messo l'if else in un'unica istruzione*/
 }
 
 function validateCitta(inputtxt) {

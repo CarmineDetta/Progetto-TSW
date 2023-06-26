@@ -59,15 +59,15 @@ function getCardType(cardNumber) {
     return "JCB";
   }
 
-  if (/^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/.test(cardNumber)) {
+  if (/^(?:6(?:011|5\d{2})\d{12})$/.test(numeroDiCarta)){
     return "Discover";
   }
 
-  if (/^(?:3(?:0[0-5]|[68][0-9])[0-9]{11})$/.test(cardNumber)) {
+  if (/^(?:3(?:0[0-5]|[68]\d{2})\d{11})$/.test(numeroDiCarta)) {
     return "DinersClub";
   }
 
-  if (/^(?:3[47][0-9]{13})$/.test(cardNumber)) {
+  if (/^(?:3[47]\d{13})$/.test(numeroDiCarta)) {
     return "AmericanExpress";
   }
 
@@ -75,12 +75,12 @@ function getCardType(cardNumber) {
 }
 
 function validateVisa(cardNumber) {
-  let visaPattern = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+  let visaPattern = /^(?:4\d{12}(?:\d{3})?)$/;
   return visaPattern.test(cardNumber);
 }
 
 function validateMastercard(cardNumber) {
-  let mastercardPattern = /^(?:5[1-5][0-9]{14})$/;
+  let mastercardPattern = /^(?:5[1-5]\d{14})$/;
   return mastercardPattern.test(cardNumber);
 }
 
@@ -90,17 +90,17 @@ function validateJCB(cardNumber) {
 }
 
 function validateDiscover(cardNumber) {
-  let discoverPattern = /^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
+  let discoverPattern = /^(?:6(?:011|5\d{2})\d{12})$/;
   return discoverPattern.test(cardNumber);
 }
 
 function validateDinersClub(cardNumber) {
-  let dinersClubPattern = /^(?:3(?:0[0-5]|[68][0-9])[0-9]{11})$/;
+  let dinersClubPattern = /^(?:3(?:0[0-5]|[68]\d{2})\d{11})$/;
   return dinersClubPattern.test(cardNumber);
 }
 
 function validateAmericanExpress(cardNumber) {
-  let americanExpressPattern = /^(?:3[47][0-9]{13})$/;
+  let americanExpressPattern = /^(?:3[47]\d{13})$/;
   return americanExpressPattern.test(cardNumber);
 }
 

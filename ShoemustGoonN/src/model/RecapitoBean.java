@@ -6,31 +6,31 @@ public class RecapitoBean implements Serializable{
 	
     private static final long serialVersionUID = 1L; //Serve alla JVK
 
-    private int ID_Indirizzo;
+    private int idIndirizzo;
     private static int c = 0;
     private int cap;
     private String citta;
-    private String via_piazza;
-    private int n_civico;
+    private String viaPiazza;
+    private int ncivico;
     private UtenteBean utente;
     
     public RecapitoBean() {
-    	this.ID_Indirizzo = c;
+    	this.idIndirizzo = c;
     	c++;
     	this.cap = 0;
     	this.citta = "";
-    	this.via_piazza = "";
-    	this.n_civico = 0;
+    	this.viaPiazza = "";
+    	this.ncivico = 0;
     	
     }
     
     
     public int getID_Indirizzo() {
-    	return this.ID_Indirizzo;
+    	return this.idIndirizzo;
     }
     
-    public void setID_Indirizzo(int id) {
-    	this.ID_Indirizzo = id;
+    public void setidIndirizzo(int id) {
+    	this.idIndirizzo = id;
     }
     
     public int getCap() {
@@ -50,19 +50,19 @@ public class RecapitoBean implements Serializable{
     }
     
     public String getVia_Piazza() {
-    	return this.via_piazza;
+    	return this.viaPiazza;
     }
     
     public void setVia_Piazza(String via) {
-    	this.via_piazza = via;
+    	this.viaPiazza = via;
     }
     
     public int getN_Civico() {
-    	return this.n_civico;
+    	return this.ncivico;
     }
     
     public void setN_Civico(int n) {
-    	this.n_civico = n;
+    	this.ncivico = n;
     }
     
     public UtenteBean getUtente() {

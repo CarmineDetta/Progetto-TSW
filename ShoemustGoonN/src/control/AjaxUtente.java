@@ -19,7 +19,7 @@ import model.UtenteBean;
 import model.UtenteModelDS;
 
 
-//Servlet per l'uso di AJAX nella ricerca dei prodotti
+//Servlet per l'uso di AJAX nella ricerca degli utenti
 @WebServlet("/AjaxUtente")
 public class AjaxUtente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -27,7 +27,6 @@ public class AjaxUtente extends HttpServlet {
  
     public AjaxUtente() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,38 +36,28 @@ public class AjaxUtente extends HttpServlet {
         
         String oggettoJSON = null;
         
-		UtenteModelDS Utente = new UtenteModelDS();
+		UtenteModelDS utente = new UtenteModelDS();
 		
 		try {
 			if(!request.getParameter("stringaRicerca").equalsIgnoreCase("")) {
-				Collection<UtenteBean> UtenteSuggest = Utente.doRetrieveSuggest(request.getParameter("stringaRicerca"));
-				Iterator<UtenteBean> iter = UtenteSuggest.iterator();
+				Collection<UtenteBean> utenteSuggest = utente.doRetrieveSuggest(request.getParameter("stringaRicerca"));
 				
-				UtenteBean utente = null;
-				while(iter.hasNext()) {
-					utente = iter.next();
-				}
 				
-				oggettoJSON = new Gson().toJson(UtenteSuggest);
+				oggettoJSON = new Gson().toJson(utenteSuggest);
 				
-				response.getWriter().write(oggettoJSON.toString());
+				response.getWriter().write(oggettoJSON);
 			} else {
 				oggettoJSON = new Gson().toJson("");
-				response.getWriter().write(oggettoJSON.toString());
+				response.getWriter().write(oggettoJSON);
 			}
 			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (SQLException | IOException e) {
+		    e.printStackTrace();
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
