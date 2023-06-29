@@ -12,6 +12,7 @@ public class Cart{
 	private ProductModelDS model;
 	private List<ItemCarrello> products;
 	private double totale = 0;
+	private int tot = 0;
 	
 	public Cart() {
 		products = new ArrayList<ItemCarrello>();
@@ -28,6 +29,8 @@ public class Cart{
 				
 				ProdottoBean p = model.doRetrieveByKey(prod.getID_ProdottoItemCarrello());
 				totale = totale + (p.getPrezzo());
+				tot = tot + 1;
+				
 				break;
 			}
 		}
@@ -35,30 +38,39 @@ public class Cart{
 				this.getProducts().add(product);
 				ProdottoBean p = model.doRetrieveByKey(product.getID_ProdottoItemCarrello());
 				totale = totale + (p.getPrezzo() * product.getQuantitaItemCarrello());
+				tot = tot + product.getQuantitaItemCarrello();
 			}
 			
 	}
 	
 	public void deleteProduct(ItemCarrello product) throws SQLException {
-		
-		for(ItemCarrello prod : products) {
-			if(prod.getID_ProdottoItemCarrello().equals(product.getID_ProdottoItemCarrello()) && prod.getQuantitaItemCarrello() > 1) {
-				prod.setQuantitaItemCarrello(prod.getQuantitaItemCarrello()-1);
-				
-				ProdottoBean p = model.doRetrieveByKey(prod.getID_ProdottoItemCarrello());
-				totale = totale - p.getPrezzo();
-				
-				break;
-			}else {		
-				
-				ProdottoBean p = model.doRetrieveByKey(product.getID_ProdottoItemCarrello());
-				totale = totale - p.getPrezzo();
-				
-				products.remove(product);
-				break;
-			}
-		}
- 	}
+	    boolean eliminato = false;
+	    ItemCarrello prodDaRimuovere = null;
+	    
+	    for (ItemCarrello prod : products) {
+	        if (prod.getID_ProdottoItemCarrello().equals(product.getID_ProdottoItemCarrello()) && prod.getQuantitaItemCarrello() > 1) {
+	            prod.setQuantitaItemCarrello(prod.getQuantitaItemCarrello() - 1);
+	            eliminato = true;
+
+	            ProdottoBean p = model.doRetrieveByKey(prod.getID_ProdottoItemCarrello());
+	            totale = totale - p.getPrezzo();
+	            tot = tot - 1;
+
+	            break;
+	        } else if (prod.getID_ProdottoItemCarrello().equals(product.getID_ProdottoItemCarrello()) && prod.getQuantitaItemCarrello() == 1) {
+	            prodDaRimuovere = prod;
+	            break;
+	        }
+	    }
+
+	    if (prodDaRimuovere != null) {
+	        this.getProducts().remove(prodDaRimuovere);
+	        ProdottoBean p = model.doRetrieveByKey(prodDaRimuovere.getID_ProdottoItemCarrello());
+	        totale = totale - p.getPrezzo();
+	        tot = tot - 1;
+	    }
+	}
+
 	
 	public List<ItemCarrello> getProducts() {
 		return  products;

@@ -22,7 +22,7 @@ public class DriverManagerConnectionPool {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 			} 	
 			catch (ClassNotFoundException e) {
-				LOGGER.log(null, "contesto", e);	//fatto perchè lo chiede sonarcloud dicendo che devo controllare se il questo codice è disattivato quando consegno del condice da eseguire
+				LOGGER.log(null, "contesto", e);	//fatto perchï¿½ lo chiede sonarcloud dicendo che devo controllare se il questo codice ï¿½ disattivato quando consegno del condice da eseguire
 			} 
 		}
 		
@@ -32,7 +32,7 @@ public class DriverManagerConnectionPool {
 			String ip = "localhost";
 			String port = "3306";
 			String username = "root";
-			String password = "carmineadmin";
+			String password = "ciccio";
 			newConnection = DriverManager.getConnection("jdbc:mysql://"+ ip+":"+ port+"/"+"shoemustgoon"+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", username, password);
 			
 			newConnection.setAutoCommit(false);

@@ -1,11 +1,12 @@
 package model;
 
 import java.sql.Connection;
-import java.util.logging.Logger;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -15,8 +16,6 @@ import javax.sql.DataSource;
 import model.OrdineBean;
 
 public class ComposizioneModelDS {
-	
-    private static final Logger LOGGER = Logger.getLogger(ComposizioneModelDS.class.getName());
 
 	private static DataSource ds;
 	static ProdottoDAO modelProdotto = new ProductModelDS();
@@ -29,11 +28,11 @@ public class ComposizioneModelDS {
 			ds = (DataSource) envCtx.lookup("jdbc/shoemustgoon");
 
 		} catch (NamingException e) {
-			LOGGER.log(null, "contesto", e);	//fatto perchè lo chiede sonarcloud dicendo che devo controllare se il questo codice è disattivato quando consegno del condice da eseguire
+			System.out.println("Error:" + e.getMessage());
 		}
 	}
 
-	private static final String TABLE_NAME = "composizione";
+	static final String TABLE_NAME = "composizione";
 
 	public synchronized  void doSaveAll(OrdineBean ordine, Cart carrello) throws SQLException{
 		Connection connection = null;
@@ -104,5 +103,61 @@ public class ComposizioneModelDS {
 	}
 		return lista;
 	}
+
+
+public synchronized Collection<ComposizioneBean> doRetrieveByOrder(int id, String order) throws SQLException {
+
 	
+	
+	Connection connection = null;
+	PreparedStatement preparedStatement = null;
+
+	Collection<ComposizioneBean> compositions = new LinkedList<ComposizioneBean>();
+
+	String selectSQL = "SELECT * FROM " + ComposizioneModelDS.TABLE_NAME+" WHERE ID_Ordine = ?";
+
+	if (order != null && !order.equals("")) {
+		selectSQL += " ORDER BY " + order;
+	}
+
+	try {
+		connection = DriverManagerConnectionPool.getConnection();
+		preparedStatement = connection.prepareStatement(selectSQL);
+
+		preparedStatement.setInt(1, id);
+		
+		ResultSet rs = preparedStatement.executeQuery();
+
+		while (rs.next()) {
+			ComposizioneBean bean = new ComposizioneBean();
+
+			
+			bean.setID_Prodotto(rs.getInt("ID_Prodotto"));
+			bean.setID_Ordine(rs.getInt("ID_Ordine"));
+			bean.setQuantita(rs.getInt("Quantita"));
+			bean.setPrezzo(rs.getDouble("Prezzo"));
+			
+			System.out.println("Id Ordine: "+bean.getID_Prodotto());
+			System.out.println("Id Prodotto: "+bean.getID_Ordine());
+			System.out.println("Prezzo senza IVA: "+bean.getPrezzo());
+			System.out.println("Quantita: "+bean.getQuantita());
+			
+			compositions.add(bean);
+			
+		}
+
+	} finally {
+		try {
+			if (preparedStatement != null)
+				preparedStatement.close();
+		} finally {
+			DriverManagerConnectionPool.releaseConnection(connection);
+		}
+	}
+	return compositions;
 }
+
+
+}
+
+

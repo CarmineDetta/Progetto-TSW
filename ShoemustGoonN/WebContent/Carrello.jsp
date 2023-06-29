@@ -19,6 +19,8 @@
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link href="style/carrello.css" rel="stylesheet" type="text/css">
+	<script src="javascript/Carrello2.js" type="text/javascript"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<title>ShoeMustGoOn | Carrello</title>
 	
 </head>
@@ -73,8 +75,10 @@ body{
 					
 						<p class="prodPrezzo">Prezzo: <br>  <%=p.getPrezzo()%> &euro; </p>			
 					
-						
-						<label class="labelqty" for="quantità">Quantità: <%=c.getQuantitaItemCarrello()%></label>
+					<div id="noajax">
+					  <label class="labelqty" for="quantità">Quantità: </label>
+					  <input type="number" id="valueBox" min="1" value="<%=c.getQuantitaItemCarrello()%>">
+					</div>
 					 </div>
 
 					</div>		
@@ -82,16 +86,16 @@ body{
 				<div class="pulsanti">			
 					<form action="cart" method="post">	
 						<input type="hidden" name="action" value="addCart">	
-						<input type="hidden" name="id" value="<%=c.getID_ProdottoItemCarrello()%>">
-						<input type="hidden" name="qty" value="<%=c.getQuantitaItemCarrello()%>">
-						<button type="submit">Add</button> 
+						<input id="addid" type="hidden" name="id" value="<%=c.getID_ProdottoItemCarrello()%>">
+						<input id="qtyadd" type="hidden" name="qty" value="<%=c.getQuantitaItemCarrello()%>">
+						<button id="add" type="submit" value="add" onclick="return formAdd('<%=c.getID_ProdottoItemCarrello()%>', '<%=c.getQuantitaItemCarrello()%>');">Add</button>
 					</form>
 	
 					<form action="cart" method="post">	
 						<input type="hidden" name="action" value="deleteToCart">	
-						<input type="hidden" name="id" value="<%=c.getID_ProdottoItemCarrello()%>">
-						<input type="hidden" name="qty" value="<%=c.getQuantitaItemCarrello()%>">
-						<button type="submit">Remove</button>
+						<input id="removeid" type="hidden" name="id" value="<%=c.getID_ProdottoItemCarrello()%>">
+						<input id="qtyremove" type="hidden" name="qty" value="<%=c.getQuantitaItemCarrello()%>">
+						<button id="remove" type="submit" value="remove"  onclick="return formRemove('<%=c.getID_ProdottoItemCarrello()%>', '<%=c.getQuantitaItemCarrello()%>');">Remove</button>
 					</form>
 				</div>
 
@@ -101,20 +105,27 @@ body{
 					<input type="hidden" name="action" value="rmvAll">	
 					<input type="hidden" name="qty" value="1">
 					<input type="hidden" name="provenienza" value="carrello">					
-					<button class="button_svuotaCarrello"><img src="https://www.svgrepo.com/show/434577/basket-error.svg" width="24" height="24" title="basket-icon" alt="basket icon"></button>
+					<button id="svuota" class="button_svuotaCarrello"><img src="https://www.svgrepo.com/show/434577/basket-error.svg" width="24" height="24" title="basket-icon" alt="basket icon"></button>
 				</form>	
 		</div>	<!-- chiude div listaprodotti -->
 		
 		<div class="div_acquisto">
 		
-					<p class="somma_title">Prezzo Totale</p>
+				<p class="somma_title">Prezzo Totale</p>
+			
 			<%
 				DecimalFormat df = new DecimalFormat("#.##");
 				String n = df.format(cart.getTotale());
-			%>
+			%>	
+			
+			<div id="prezzo">	
+					
+			</div>
+
 				<div class="euro">
 					<%=n%> &euro;
 				</div>
+
 			<%
 				UtenteBean utente = (UtenteBean) session.getAttribute("UtenteLoggato");
 			
@@ -156,4 +167,6 @@ body{
 	
 </body>
 </html>
+
+
 
