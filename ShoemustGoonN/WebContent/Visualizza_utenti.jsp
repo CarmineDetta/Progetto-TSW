@@ -125,8 +125,8 @@
 	            		$("#Risultati").empty();
 		            	$("#Risultati").addClass( "DivRisultati" );
 		            	for (const i in data) {
-		            		$( "#Risultati" ).append('<div id=""><a href="ordine?action=visualizza_cliente&id='+data[i].ID_Utente+'">'+data[i].Cognome+'</a></div>');
-		            		$( "#RisultatiResponsive" ).append('<div id=""><a href="ordine?action=visualizza_cliente&id='+data[i].ID_Utente+'">'+data[i].Cognome+'</a></div>');
+		            		$( "#Risultati" ).append('<div id=""><a href="ordine?action=visualizza_cliente&id='+data[i].idUtente+'">'+data[i].cognome+'</a></div>');
+		            		$( "#RisultatiResponsive" ).append('<div id=""><a href="ordine?action=visualizza_cliente&id='+data[i].idUtente+'">'+data[i].cognome+'</a></div>');
 						 }
 		            	
 	            	} else {

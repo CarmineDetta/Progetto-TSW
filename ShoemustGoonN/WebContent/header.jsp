@@ -155,8 +155,8 @@
 		            	$("#barraRicerca").css({"border-bottom-right-radius":"0px"});
 		            	$("#risultati").addClass( "DivRisultati" );
 		            	for (const i in data) {
-		            		$( "#risultati" ).append('<div id=""><a href="details?action=read&id='+data[i].ID_Prodotto+'">'+data[i].Marca+'</a></div>');
-		            		$( "#risultatiResponsive" ).append('<div id=""><a href="details?action=read&id='+data[i].ID_Prodotto+'">'+data[i].Marca+'</a></div>');
+		            		$( "#risultati" ).append('<div id=""><a href="details?action=read&id='+data[i].idProdotto+'">'+data[i].marca+'</a></div>');
+		            		$( "#risultatiResponsive" ).append('<div id=""><a href="details?action=read&id='+data[i].idProdotto+'">'+data[i].marca+'</a></div>');
 						}
 		            	
 	            	} else {

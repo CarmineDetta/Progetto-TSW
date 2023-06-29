@@ -57,7 +57,7 @@ public class UtenteModelDS implements UtenteDAO{
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(insertSQL);
 			
-			String id = "U"+c;
+			String id = utente.getID_Utente()+ c;
 			this.c++;
 			
 			utente.setidUtente(id);
