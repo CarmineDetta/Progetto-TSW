@@ -77,7 +77,7 @@ public class RecensioneModelDS implements RecensioneDAO{
 		
 	}
 
-	public boolean doDelete(int ID_Recensione, String ID_Utente) throws SQLException {
+	public boolean doDelete(int idRecensione, String idUtente) throws SQLException {
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -91,8 +91,8 @@ public class RecensioneModelDS implements RecensioneDAO{
 			preparedStatement = connection.prepareStatement(deleteSQL);
 			
 			
-			preparedStatement.setInt(1, ID_Recensione);
-			preparedStatement.setString(2, ID_Utente);
+			preparedStatement.setInt(1, idRecensione);
+			preparedStatement.setString(2, idUtente);
 			
 			result = preparedStatement.executeUpdate();
 			connection.commit();
@@ -109,7 +109,7 @@ public class RecensioneModelDS implements RecensioneDAO{
 		return (result != 0);
 	}
 
-	public RecensioneBean doRetrieveByKey(int ID_Recensione) throws SQLException {
+	public RecensioneBean doRetrieveByKey(int idRecensione) throws SQLException {
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -121,12 +121,12 @@ public class RecensioneModelDS implements RecensioneDAO{
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setInt(1, ID_Recensione);
+			preparedStatement.setInt(1, idRecensione);
 
 			ResultSet rs = preparedStatement.executeQuery();
 			
 			while (rs.next()) {
-				bean.setID_Recensione(rs.getInt(ID_RECENSIONE));
+				bean.setidRecensione(rs.getInt(ID_RECENSIONE));
 				bean.setVotazione(rs.getFloat(VOTAZIONE));
 				bean.setDescrizione(rs.getString(DESCRIZIONE));
 				
@@ -155,7 +155,7 @@ public class RecensioneModelDS implements RecensioneDAO{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<RecensioneBean> recensioni = new LinkedList<RecensioneBean>();
+		Collection<RecensioneBean> recensioni = new LinkedList<>();
 
 		String selectSQL = "SELECT * FROM " + RecensioneModelDS.TABLE_NAME + " WHERE Utente = ?";
 
@@ -170,7 +170,7 @@ public class RecensioneModelDS implements RecensioneDAO{
 			while (rs.next()) {
 				RecensioneBean bean = new RecensioneBean();
 
-				bean.setID_Recensione(rs.getInt(ID_RECENSIONE));
+				bean.setidRecensione(rs.getInt(ID_RECENSIONE));
 				bean.setVotazione(rs.getFloat(VOTAZIONE));
 				bean.setDescrizione(rs.getString(DESCRIZIONE));
 
@@ -197,7 +197,7 @@ public class RecensioneModelDS implements RecensioneDAO{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<RecensioneBean> recensioni = new LinkedList<RecensioneBean>();
+		Collection<RecensioneBean> recensioni = new LinkedList<>();
 
 		String selectSQL = "SELECT * FROM " + RecensioneModelDS.TABLE_NAME + " WHERE Prodotto = ?";
 
@@ -211,7 +211,7 @@ public class RecensioneModelDS implements RecensioneDAO{
 			while (rs.next()) {
 				RecensioneBean bean = new RecensioneBean();
 
-				bean.setID_Recensione(rs.getInt(ID_RECENSIONE));
+				bean.setidRecensione(rs.getInt(ID_RECENSIONE));
 				bean.setVotazione(rs.getFloat(VOTAZIONE));
 				bean.setDescrizione(rs.getString(DESCRIZIONE));
 				

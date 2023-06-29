@@ -59,7 +59,7 @@ body{
 					PortafoglioBean bean = (PortafoglioBean) it.next();
 		%>
 		<tr>
-			<td><%=bean.getN_carta()%></td>
+			<td><%=bean.getNcarta()%></td>
 			<td><%=bean.getNome_Intestatario()%></td>
 			<td><%=bean.getScadenza()%></td>
 			<td><%=bean.getCvv()%></td>

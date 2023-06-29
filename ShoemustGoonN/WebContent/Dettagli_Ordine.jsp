@@ -64,7 +64,7 @@
 		
 				<div class="campo_specifico">
 					<p id="label">N° Carta:</p>
-						<p id="risposta"> <%=pagamento.getN_carta()%></p>
+						<p id="risposta"> <%=pagamento.getNcarta()%></p>
 				</div>
 				
 				<div class="campo_specifico">

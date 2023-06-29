@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
-
+import java.util.List;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -67,7 +67,7 @@ public class ComposizioneModelDS {
 	
 	}
 	
-	public synchronized ArrayList<ItemCarrello> doRetrieveByOrdine(int ID_Ordine) throws SQLException{
+	public synchronized List<ItemCarrello> doRetrieveByOrdine(int idOrdine) throws SQLException{
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -80,14 +80,14 @@ public class ComposizioneModelDS {
 		{
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
-			preparedStatement.setInt(1, ID_Ordine);
+			preparedStatement.setInt(1, idOrdine);
 
 			ResultSet rs = preparedStatement.executeQuery();
 			
 			while (rs.next()) {
 				
 				ItemCarrello i = new ItemCarrello();
-				i.setID_ProdottoItemCarrello(rs.getString("ID_Prodotto"));
+				i.setidProdottoItemCarrello(rs.getString("ID_Prodotto"));
 				i.setQuantitaItemCarrello(rs.getInt("Quantita"));
 				lista.add(i);
 			}

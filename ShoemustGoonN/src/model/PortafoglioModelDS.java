@@ -2,8 +2,8 @@ package model;
 
 import java.sql.Connection;
 
+
 import java.util.logging.Logger;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +15,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import utils.GenerateIDProd;
 
 public class PortafoglioModelDS implements PortafoglioDAO{
 	
@@ -50,7 +49,7 @@ public synchronized void doSave(PortafoglioBean pagamento, UtenteBean utente) th
 			preparedStatement = connection.prepareStatement(insertSQL);
 						
 			preparedStatement.setInt(1, pagamento.getID_Pagamento());
-			preparedStatement.setString(2, pagamento.getN_carta());
+			preparedStatement.setString(2, pagamento.getNcarta());
 			preparedStatement.setString(3, pagamento.getNome_Intestatario());
 			preparedStatement.setString(4, pagamento.getScadenza());
 			preparedStatement.setInt(5, pagamento.getCvv());
@@ -73,7 +72,7 @@ public synchronized void doSave(PortafoglioBean pagamento, UtenteBean utente) th
 		
 	}
 
-public synchronized boolean doDelete(int ID_Pagamento) throws SQLException {
+public synchronized boolean doDelete(int idPagamento) throws SQLException {
 	
 	//fare quando dobbiamo cancellare oggetti precisi sul db
 	Connection connection = null;
@@ -88,7 +87,7 @@ public synchronized boolean doDelete(int ID_Pagamento) throws SQLException {
 		preparedStatement = connection.prepareStatement(deleteSQL);
 		
 		
-		preparedStatement.setInt(1, ID_Pagamento);
+		preparedStatement.setInt(1, idPagamento);
 		
 		result = preparedStatement.executeUpdate();
 		connection.commit();
@@ -124,9 +123,9 @@ public synchronized boolean doDelete(int ID_Pagamento) throws SQLException {
 				ResultSet rs = preparedStatement.executeQuery();
 				
 				while (rs.next()) {
-					bean.setID_Pagamento(rs.getInt("ID_Pagamento"));
-					bean.setN_carta(rs.getString("Num_Carta"));
-					bean.setNome_Intestatario(rs.getString("Nome_Intestatario"));
+					bean.setidPagamento(rs.getInt("ID_Pagamento"));
+					bean.setNcarta(rs.getString("Num_Carta"));
+					bean.setNomeIntestatario(rs.getString("Nome_Intestatario"));
 					bean.setScadenza(rs.getString("Scadenza"));
 					bean.setCvv(rs.getInt("CVV"));
 					
@@ -152,7 +151,7 @@ public synchronized Collection<PortafoglioBean> doRetrieveByUtente(String user) 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<PortafoglioBean> payments = new LinkedList<PortafoglioBean>();
+		Collection<PortafoglioBean> payments = new LinkedList<>();
 
 		String selectSQL = "SELECT * FROM " + PortafoglioModelDS.TABLE_NAME + " WHERE utente = ?";
 
@@ -167,9 +166,9 @@ public synchronized Collection<PortafoglioBean> doRetrieveByUtente(String user) 
 			while (rs.next()) {
 				PortafoglioBean bean = new PortafoglioBean();
 
-				bean.setID_Pagamento(rs.getInt("ID_Pagamento"));
-				bean.setN_carta(rs.getString("Num_Carta"));
-				bean.setNome_Intestatario(rs.getString("Nome_Intestatario"));
+				bean.setidPagamento(rs.getInt("ID_Pagamento"));
+				bean.setNcarta(rs.getString("Num_Carta"));
+				bean.setNomeIntestatario(rs.getString("Nome_Intestatario"));
 				bean.setScadenza(rs.getString("Scadenza"));
 				bean.setCvv(rs.getInt("CVV"));
 

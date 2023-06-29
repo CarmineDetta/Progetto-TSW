@@ -1,8 +1,6 @@
 package control;
 
 import java.io.IOException;
-
-
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
@@ -20,9 +18,7 @@ import com.google.gson.Gson;
 import model.Cart;
 import model.ItemCarrello;
 
-/**
- * Servlet implementation class AjaxCart
- */
+
 @WebServlet("/AjaxCart")
 public class AjaxCart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -31,7 +27,6 @@ public class AjaxCart extends HttpServlet {
 
     public AjaxCart() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,10 +35,11 @@ public class AjaxCart extends HttpServlet {
 		response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         
+        PrintWriter out = response.getWriter();
         String oggettoJSON = null;
+        
         String stringaRicerca =  request.getParameter("stringaRicerca");
         
-		//System.out.println("Stringa Ricerca:" + request.getParameter("stringaRicerca"));
 		
 		Cart cart = (Cart) sessione.getAttribute("cart");
 		if(cart == null) {
@@ -60,9 +56,8 @@ public class AjaxCart extends HttpServlet {
 				cart.addProduct(p);	
 
 				oggettoJSON = new Gson().toJson(cart);
-				//System.out.println("Oggetto JSON: "+oggettoJSON);
 				
-				response.getWriter().write(oggettoJSON.toString());
+				response.getWriter().write(oggettoJSON);
 			 }
 			
 			}catch (SQLException e) {
@@ -75,7 +70,6 @@ public class AjaxCart extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

@@ -1,6 +1,7 @@
 package control;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -24,58 +25,48 @@ import model.ProductModelDS;
 public class AjaxSuggestControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public AjaxSuggestControl() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         
+        PrintWriter out = response.getWriter();
         String oggettoJSON = null;
-        
-		System.out.println(request.getParameter("stringaRicerca"));
-		
+        		
 		ProductModelDS prodotti = new ProductModelDS();
 		
 		try {
 			if(!request.getParameter("stringaRicerca").equalsIgnoreCase("")) {
 				Collection<ProdottoBean> prodottiSuggest = prodotti.doRetrieveSuggest(request.getParameter("stringaRicerca"));
+				
 				Iterator<ProdottoBean> iter = prodottiSuggest.iterator();
 				
 				ProdottoBean prodotto = null;
 				while(iter.hasNext()) {
 					prodotto = iter.next();
-					//System.out.println("I prodotti ricevuti dalla servlet sono: "+ prodotto.getMarca() + " " + prodotto.getID_Prodotto());
 				}
 				
 				oggettoJSON = new Gson().toJson(prodottiSuggest);
-				//System.out.println("Oggetto JSON: "+oggettoJSON);
-				
+				System.out.println("Oggetto JSON: "+oggettoJSON);
 				response.getWriter().write(oggettoJSON.toString());
 			} else {
 				oggettoJSON = new Gson().toJson("");
 				response.getWriter().write(oggettoJSON.toString());
 			}
 			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+		}catch (SQLException | IOException e) {
+		    e.printStackTrace();
 		}
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

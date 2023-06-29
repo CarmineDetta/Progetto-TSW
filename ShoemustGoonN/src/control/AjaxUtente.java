@@ -19,7 +19,7 @@ import model.UtenteBean;
 import model.UtenteModelDS;
 
 
-//Servlet per l'uso di AJAX nella ricerca dei prodotti
+//Servlet per l'uso di AJAX nella ricerca degli utenti
 @WebServlet("/AjaxUtente")
 public class AjaxUtente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -27,7 +27,6 @@ public class AjaxUtente extends HttpServlet {
  
     public AjaxUtente() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,42 +37,34 @@ public class AjaxUtente extends HttpServlet {
         PrintWriter out = response.getWriter();
         String oggettoJSON = null;
         
-		//System.out.println(request.getParameter("stringaRicerca"));
-		
-		UtenteModelDS Utente = new UtenteModelDS();
+		UtenteModelDS utente = new UtenteModelDS();
 		
 		try {
 			if(!request.getParameter("stringaRicerca").equalsIgnoreCase("")) {
-				Collection<UtenteBean> UtenteSuggest = Utente.doRetrieveSuggest(request.getParameter("stringaRicerca"));
-				Iterator<UtenteBean> iter = UtenteSuggest.iterator();
+				Collection<UtenteBean> utenteSuggest = utente.doRetrieveSuggest(request.getParameter("stringaRicerca"));
 				
-				UtenteBean utente = null;
+				Iterator<UtenteBean> iter = utenteSuggest.iterator();
+				
+				UtenteBean u = null;
 				while(iter.hasNext()) {
-					utente = iter.next();
-					//System.out.println("I prodotti ricevuti dalla servlet sono: "+ utente.getID_Utente() + " " + utente.getCognome() + "" + utente.getNome());
+					u = iter.next();			
 				}
 				
-				oggettoJSON = new Gson().toJson(UtenteSuggest);
-				//System.out.println("Oggetto JSON: "+oggettoJSON);
+				oggettoJSON = new Gson().toJson(utenteSuggest);
 				
-				response.getWriter().write(oggettoJSON.toString());
+				response.getWriter().write(oggettoJSON);
 			} else {
 				oggettoJSON = new Gson().toJson("");
-				response.getWriter().write(oggettoJSON.toString());
+				response.getWriter().write(oggettoJSON);
 			}
 			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (SQLException | IOException e) {
+		    e.printStackTrace();
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

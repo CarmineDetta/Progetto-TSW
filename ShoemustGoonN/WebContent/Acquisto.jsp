@@ -62,7 +62,7 @@
 					PortafoglioBean bean = (PortafoglioBean) it.next();
 		%>
 		<tr>
-			<td><%=bean.getN_carta()%></td>
+			<td><%=bean.getNcarta()%></td>
 			<td><%=bean.getNome_Intestatario()%></td>
 			<td><%=bean.getScadenza()%></td>
 			<td><%=bean.getCvv()%></td>
@@ -87,15 +87,8 @@
 		<p>Seleziona il recapito dell'ordine</p>
 		
 		<table border="1">
-<<<<<<< HEAD
 			<caption display="none";>Tabella per selezionare l'indirizzo di spedizione per l'acquisto</caption>
-=======
 
-			<caption >Tabella per selezionare l'indirizzo di spedizione per l'acquisto</caption>
-
-			<caption>Tabella per selezionare l'indirizzo di spedizione per l'acquisto</caption>
-
->>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
 		<tr>
 		
 			<th>Cap</th>
@@ -150,10 +143,6 @@
 		</div>
 		</form>
 </div>		
-<<<<<<< HEAD
-	</form>
-=======
 
->>>>>>> branch 'master' of https://github.com/CarmineDetta/Progetto-TSW
 </body>
 </html>

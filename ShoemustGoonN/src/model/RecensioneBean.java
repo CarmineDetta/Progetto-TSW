@@ -2,7 +2,7 @@ package model;
 
 public class RecensioneBean {
 	
-	private int ID_Recensione;
+	private int idRecensione;
 	private static int c = 0;
 	private float votazione;
 	private String descrizione;
@@ -10,18 +10,18 @@ public class RecensioneBean {
 	private ProdottoBean prodotto;
 	
 	public RecensioneBean(){
-		ID_Recensione = c;
+		idRecensione = c;
 		c++;
 		votazione = 0;
 		descrizione = "";
 	}
 	
 	public int getID_Recensione() {
-		return this.ID_Recensione;
+		return this.idRecensione;
 	}
 	
-	public void setID_Recensione(int a){
-		ID_Recensione = a;
+	public void setidRecensione(int a){
+		idRecensione = a;
 	}
 	
 	public float getVotazione() {

@@ -2,9 +2,13 @@ package model;
 
 
 import java.sql.SQLException;
+
 import java.util.ArrayList;
 
 import java.util.List;
+
+import java.util.Iterator;
+
 import model.ItemCarrello;
 
 public class Cart{
@@ -15,7 +19,7 @@ public class Cart{
 	private int tot = 0;
 	
 	public Cart() {
-		products = new ArrayList<ItemCarrello>();
+		products = new ArrayList<>();
 		model = new ProductModelDS();
 		
 	}
@@ -43,7 +47,7 @@ public class Cart{
 			
 	}
 	
-	public void deleteProduct(ItemCarrello product) throws SQLException {
+public void deleteProduct(ItemCarrello product) throws SQLException {
 	    boolean eliminato = false;
 	    ItemCarrello prodDaRimuovere = null;
 	    
@@ -70,9 +74,8 @@ public class Cart{
 	        tot = tot - 1;
 	    }
 	}
-
 	
-	public List<ItemCarrello> getProducts() {
+public List<ItemCarrello> getProducts() {
 		return  products;
 	}
 	

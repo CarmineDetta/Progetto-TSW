@@ -47,9 +47,9 @@ public class RecapitoControl extends HttpServlet {
 					
 					RecapitoBean r = new RecapitoBean();
 					r.setCitta(citta);
-					r.setVia_Piazza(via);
+					r.setViaPiazza(via);
 					r.setcap(cap);
-					r.setN_Civico(n);
+					r.setNCivico(n);
 					model.doSave(r, utente);				
 				}
 			}

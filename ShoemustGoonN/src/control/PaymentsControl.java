@@ -39,14 +39,14 @@ public class PaymentsControl extends HttpServlet {
 				}
 				else if (action.equalsIgnoreCase("insert")) {
 
-					String num_carta = request.getParameter("n_carta");			
+					String nCarta = request.getParameter("n_carta");			
 					String nome = request.getParameter("nome_intestatario");
 					String scadenza = request.getParameter("scadenza");
 					int cvv = Integer.parseInt(request.getParameter("cvv"));
 					
 					PortafoglioBean pagamento = new PortafoglioBean();
-					pagamento.setN_carta(num_carta);
-					pagamento.setNome_Intestatario(nome);
+					pagamento.setNcarta(nCarta);
+					pagamento.setNomeIntestatario(nome);
 					pagamento.setScadenza(scadenza);
 					pagamento.setCvv(cvv);
 					model.doSave(pagamento, utente);				

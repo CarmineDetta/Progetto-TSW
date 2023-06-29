@@ -18,7 +18,7 @@ function formValidation() {
 
 function ValidateEmail(inputText)
 {
-    let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;	//sono dei campi consentiti
+    let mailformat = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;	//sono dei campi consentiti
     if  (inputText.value.match(mailformat))				//preleva e confronta
        {
         return true;

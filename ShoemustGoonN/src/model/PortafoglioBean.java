@@ -4,53 +4,54 @@ public class PortafoglioBean {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private int ID_Pagamento;
+	private int idPagamento;
 	private static int c = 0;
-	private String nome_Intestatario;
-	private String n_carta;
-	private String Scadenza;
+	private String nomeIntestatario;
+	private String ncarta;
+	private String scadenza;
 	private int cvv;
 	private UtenteBean utente;
 	
 	public PortafoglioBean(){
-		this.ID_Pagamento = c;
+		this.idPagamento = c;
 		this.c++;
-		this.nome_Intestatario = "";
-		this.n_carta = "";
-		this.Scadenza = "";
+		this.nomeIntestatario = "";
+		this.ncarta = "";
+		this.scadenza = "";
 		this.cvv = 0;
 	}
 	
 	public int getID_Pagamento() {
-		return this.ID_Pagamento;
+		return this.idPagamento;
 	}
 	
-	public void setID_Pagamento(int pagamento) {
-		this.ID_Pagamento = pagamento;
+	public void setidPagamento(int pagamento) {
+		this.idPagamento = pagamento;
 	}
 	
 	public String getNome_Intestatario(){
-		return nome_Intestatario;
+		return nomeIntestatario;
 	}
 	
-	public void setNome_Intestatario(String nome) {
-		this.nome_Intestatario = nome;
+	public void setNomeIntestatario(String nome) {
+		this.nomeIntestatario = nome;
 	}
 	
-	public String getN_carta(){
-		return this.n_carta;
+
+	public String getNcarta(){
+		return this.ncarta;
 	}
 	
-	public void setN_carta(String num_carta) {
-		this.n_carta = num_carta;
+	public void setNcarta(String numCarta) {
+		this.ncarta = numCarta;
 	}
 	
 	public String getScadenza() {
-		return this.Scadenza;
+		return this.scadenza;
 	}
 	
 	public void setScadenza(String n) {
-		this.Scadenza = n;
+		this.scadenza = n;
 	}
 	
 	public int getCvv(){

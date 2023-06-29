@@ -1,21 +1,19 @@
 package model;
 
-import java.io.IOException;
+
 import java.util.logging.Logger;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
-import java.util.Date;
 import java.util.LinkedList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-import model.UtenteBean;
-import model.UtenteDAO;
+
 
 public class UtenteModelDS implements UtenteDAO{
 	
@@ -40,7 +38,7 @@ public class UtenteModelDS implements UtenteDAO{
 			ds = (DataSource) envCtx.lookup("jdbc/shoemustgoon");
 
 		} catch (NamingException e) {
-			System.out.println("Error:" + e.getMessage());
+			LOGGER.log(null, "contesto", e);	//fatto perchè lo chiede sonarcloud dicendo che devo controllare se il questo codice è disattivato quando consegno del condice da eseguire
 		}
 	}
 
@@ -59,10 +57,10 @@ public class UtenteModelDS implements UtenteDAO{
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(insertSQL);
 			
-			String id = "U"+c;
+			String id = utente.getID_Utente()+ c;
 			this.c++;
 			
-			utente.setID_Utente(id);
+			utente.setidUtente(id);
 
 			preparedStatement.setString(1, utente.getID_Utente());
 			preparedStatement.setString(2, utente.getNome());
@@ -87,10 +85,9 @@ public class UtenteModelDS implements UtenteDAO{
 		
 	}
 	
-	public synchronized boolean doDelete(String ID_Utente) throws SQLException {
+	public synchronized boolean doDelete(String idUtente) throws SQLException {
 		
 		//fare quando dobbiamo cancellare oggetti precisi sul db
-		//System.out.println("Procediamo alla delete");
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -103,8 +100,7 @@ public class UtenteModelDS implements UtenteDAO{
 			preparedStatement = connection.prepareStatement(deleteSQL);
 			
 			
-			preparedStatement.setString(1, ID_Utente);
-			System.out.println(deleteSQL + ID_Utente);
+			preparedStatement.setString(1, idUtente);
 			
 			result = preparedStatement.executeUpdate();
 			connection.commit();
@@ -122,7 +118,7 @@ public class UtenteModelDS implements UtenteDAO{
 	}
 
 	//Serve per recuperare un oggetto dal database in base all'ID
-	public synchronized UtenteBean doRetrieveByKey(String ID_Utente) throws SQLException {
+	public synchronized UtenteBean doRetrieveByKey(String idUtente) throws SQLException {
 			
 			//fare quando dobbiamo cercare oggetti precisi sul db
 			Connection connection = null;
@@ -135,12 +131,12 @@ public class UtenteModelDS implements UtenteDAO{
 			try {
 				connection = ds.getConnection();
 				preparedStatement = connection.prepareStatement(selectSQL);
-				preparedStatement.setString(1, ID_Utente);
+				preparedStatement.setString(1, idUtente);
 
 				ResultSet rs = preparedStatement.executeQuery();
 				
 				while (rs.next()) {
-					u.setID_Utente(rs.getString(ID_UTENTE));
+					u.setidUtente(rs.getString(ID_UTENTE));
 					u.setEmail(rs.getString(NOME));
 					u.setPassword(rs.getString(COGNOME));
 					u.setTipo(rs.getString(DATA_NASCITA));
@@ -185,7 +181,7 @@ public class UtenteModelDS implements UtenteDAO{
 			while (rs.next()) {
 
 				//In questo modo inseriamo i valori estratti dalla qeury all'interno dell'oggetto bean
-				bean.setID_Utente(rs.getString(ID_UTENTE));
+				bean.setidUtente(rs.getString(ID_UTENTE));
 				bean.setNome(rs.getString(NOME));
 				bean.setCognome(rs.getString(COGNOME));
 				bean.setDataNascita(rs.getString(DATA_NASCITA));
@@ -213,7 +209,7 @@ public class UtenteModelDS implements UtenteDAO{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		Collection<UtenteBean> u = new LinkedList<UtenteBean>();
+		Collection<UtenteBean> u = new LinkedList<>();
 
 		String selectSQL = "SELECT * FROM " + UtenteModelDS.TABLE_NAME;
 
@@ -230,7 +226,7 @@ public class UtenteModelDS implements UtenteDAO{
 			while (rs.next()) {
 				UtenteBean utente = new UtenteBean();
 
-				utente.setID_Utente(rs.getString(ID_UTENTE));
+				utente.setidUtente(rs.getString(ID_UTENTE));
 				utente.setNome(rs.getString(NOME));
 				utente.setCognome(rs.getString(COGNOME));
 				utente.setDataNascita(rs.getString(DATA_NASCITA));
@@ -315,7 +311,7 @@ public class UtenteModelDS implements UtenteDAO{
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 	
-		Collection<UtenteBean> utenti = new LinkedList<UtenteBean>();
+		Collection<UtenteBean> utenti = new LinkedList<>();
 	
 		String selectSQL = "SELECT * FROM " + UtenteModelDS.TABLE_NAME + " WHERE Tipo = 'utente'";
 	
@@ -328,7 +324,7 @@ public class UtenteModelDS implements UtenteDAO{
 			while (rs.next()) {
 				UtenteBean utente = new UtenteBean();
 				
-				utente.setID_Utente(rs.getString(ID_UTENTE));
+				utente.setidUtente(rs.getString(ID_UTENTE));
 				utente.setNome(rs.getString(NOME));
 				utente.setCognome(rs.getString(COGNOME));
 				utente.setDataNascita(rs.getString(DATA_NASCITA));
@@ -353,7 +349,7 @@ public class UtenteModelDS implements UtenteDAO{
 	}
 
 	
-public synchronized Collection<UtenteBean> doRetrieveSuggest(String StringaParziale) throws SQLException, IOException {	
+public synchronized Collection<UtenteBean> doRetrieveSuggest(String stringaParziale) throws SQLException {	
 	//fare quando dobbiamo cercare oggetti precisi sul db
 	Connection connection = null;
 	PreparedStatement preparedStatement = null;
@@ -361,12 +357,12 @@ public synchronized Collection<UtenteBean> doRetrieveSuggest(String StringaParzi
 	UtenteBean bean = new UtenteBean();
 
 	String selectSQL = "SELECT * FROM " + UtenteModelDS.TABLE_NAME + " WHERE Cognome LIKE ?";
-	Collection<UtenteBean> utentes = new LinkedList<UtenteBean>();
+	Collection<UtenteBean> utentes = new LinkedList<>();
 		
 	try {
 		connection = DriverManagerConnectionPool.getConnection();
 		preparedStatement = connection.prepareStatement(selectSQL);
-		String stringaRicerca = StringaParziale.concat("%");
+		String stringaRicerca = stringaParziale.concat("%");
 		preparedStatement.setString(1, stringaRicerca);
 
 		ResultSet rs = preparedStatement.executeQuery();
@@ -375,7 +371,7 @@ public synchronized Collection<UtenteBean> doRetrieveSuggest(String StringaParzi
 		
 		while (rs.next()) {
 			bean = new UtenteBean();
-			bean.setID_Utente(rs.getString(ID_UTENTE));
+			bean.setidUtente(rs.getString(ID_UTENTE));
 			bean.setNome(rs.getString(NOME));
 			bean.setCognome(rs.getString(COGNOME));
 			bean.setDataNascita(rs.getString(DATA_NASCITA));

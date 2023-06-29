@@ -15,7 +15,7 @@ public interface OrdineDAO {
 	
 	public Collection<OrdineBean> doRetrieveAll() throws SQLException;
 	
-	public Collection<OrdineBean> doRetrieveByDate(String DataInizio, String DataFine) throws SQLException;
+	public Collection<OrdineBean> doRetrieveByDate(String dataInizio, String dataFine) throws SQLException;
 
 
 }

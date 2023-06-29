@@ -69,15 +69,16 @@ public class CartControl extends HttpServlet {
 					
 					cart = new Cart();
 					
-					if(request.getParameter("provenienza").equals("cart"));
+					request.getParameter("provenienza").equals("cart");
 					
 					request.getSession().setAttribute("cart", cart);
-					
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Carrello.jsp");
-					dispatcher.forward(request, response);
-					
+					}
+								
 				} 
-			}			
+			
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Carrello.jsp");
+			dispatcher.forward(request, response);
+			
 		} catch (SQLException e) {
 			LOGGER.log(null, "contesto", e);	//fatto perchè lo chiede sonarcloud dicendo che devo controllare se il questo codice è disattivato quando consegno del condice da eseguire
 		}
@@ -89,7 +90,6 @@ public class CartControl extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
