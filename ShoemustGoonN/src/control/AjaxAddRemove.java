@@ -54,22 +54,29 @@ public class AjaxAddRemove extends HttpServlet {
 		try {
 			  JsonObject responseObject = new JsonObject();
 			  double d = cart.getTotale();
+			  int qnt = 0;
 
 			  if (button.equalsIgnoreCase("add")) {
 			    int qty2 = Integer.parseInt(request.getParameter("qty"));
 			    ItemCarrello p = new ItemCarrello(stringaRicerca, qty2);
 
-			    cart.addProduct(p);
+			    d = cart.addProduct(p);
+			    qnt = cart.getQuantita(p);
 			  } else if (button.equalsIgnoreCase("remove")) {
 				 int qty2 = Integer.parseInt(request.getParameter("qty"));
 				 ItemCarrello p = new ItemCarrello(stringaRicerca, qty2);
 
-			    cart.deleteProduct(p);
+			    d = cart.deleteProduct(p);
+			    qnt = cart.getQuantita(p);
 			  }
 
 			  responseObject.add("cart", new Gson().toJsonTree(cart));
 			  responseObject.addProperty("d", d);
-
+			  responseObject.addProperty("qnt", qnt);
+			  
+			  System.out.println("Prezzo d: " + d);
+			  System.out.println("QUANTITAAAAAAAAAA: " + qnt);
+			  
 			  out.write(responseObject.toString());
 			} catch (SQLException e) {
 			  e.printStackTrace();

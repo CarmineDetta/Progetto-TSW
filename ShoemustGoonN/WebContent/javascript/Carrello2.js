@@ -23,7 +23,10 @@ function formAdd(id, qty) {
     dataType: "json",
     success: function (data, textStatus, jqXHR) {
       let d = data.d;
-      let t = data.qty;
+      let qnt = data.qnt;
+      
+      console.log("Quantita prodotti: " + qnt);
+      $("#quantita").text(qnt);
 
       let formattedValue = parseFloat(d).toFixed(2);
       $("#prezzo").text(formattedValue + "€");
@@ -32,7 +35,7 @@ function formAdd(id, qty) {
         $(".euro").hide();
       } else {
         $(".euro").show();
-      }
+      }     
     }
   });
 }
@@ -60,7 +63,10 @@ function formRemove(id, qty) {
 	    dataType: "json",
 	    success: function (data, textStatus, jqXHR) {
 	      let d = data.d;
-	      let t = data.qty;
+	      let qnt = data.qnt;
+	      
+	      console.log("Quantita prodotti: " + qnt);
+	      $("#quantita").text(qnt);
 
 	      let formattedValue = parseFloat(d).toFixed(2);
 	      $("#prezzo").text(formattedValue + "€");
@@ -70,6 +76,7 @@ function formRemove(id, qty) {
 	      } else {
 	        $(".euro").show();
 	      }
+	     
 	  }
 	});
 }

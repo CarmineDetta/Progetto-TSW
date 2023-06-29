@@ -24,7 +24,7 @@ public class Cart{
 		
 	}
 	
-	public void addProduct(ItemCarrello product) throws SQLException{
+	public double addProduct(ItemCarrello product) throws SQLException{
 		boolean aggiunto = false;
 		for(ItemCarrello prod : products) {
 			if(prod.getID_ProdottoItemCarrello().equals(product.getID_ProdottoItemCarrello())) {
@@ -33,9 +33,10 @@ public class Cart{
 				
 				ProdottoBean p = model.doRetrieveByKey(prod.getID_ProdottoItemCarrello());
 				totale = totale + (p.getPrezzo());
+				System.out.println("Prezzo aggiornato: " + totale);
 				tot = tot + 1;
 				
-				break;
+				return totale;
 			}
 		}
 			if(!aggiunto) {
@@ -45,9 +46,10 @@ public class Cart{
 				tot = tot + product.getQuantitaItemCarrello();
 			}
 			
+			return totale;	
 	}
 	
-public void deleteProduct(ItemCarrello product) throws SQLException {
+public double deleteProduct(ItemCarrello product) throws SQLException {
 	    boolean eliminato = false;
 	    ItemCarrello prodDaRimuovere = null;
 	    
@@ -58,9 +60,10 @@ public void deleteProduct(ItemCarrello product) throws SQLException {
 
 	            ProdottoBean p = model.doRetrieveByKey(prod.getID_ProdottoItemCarrello());
 	            totale = totale - p.getPrezzo();
+				System.out.println("Prezzo aggiornato: " + totale);
 	            tot = tot - 1;
 
-	            break;
+	            return totale;
 	        } else if (prod.getID_ProdottoItemCarrello().equals(product.getID_ProdottoItemCarrello()) && prod.getQuantitaItemCarrello() == 1) {
 	            prodDaRimuovere = prod;
 	            break;
@@ -73,6 +76,7 @@ public void deleteProduct(ItemCarrello product) throws SQLException {
 	        totale = totale - p.getPrezzo();
 	        tot = tot - 1;
 	    }
+	    return totale;
 	}
 	
 public List<ItemCarrello> getProducts() {
@@ -100,4 +104,14 @@ public List<ItemCarrello> getProducts() {
 	public void setTotale(double t) {
 		this.totale = t;
 	}
+	
+	public int getQuantita(ItemCarrello product) {
+		for(ItemCarrello prod : products) {
+			if(prod.getID_ProdottoItemCarrello().equals(product.getID_ProdottoItemCarrello())) {
+				return prod.getQuantitaItemCarrello();
+			}
+		}
+		return 0;
+	}
+	
 }

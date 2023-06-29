@@ -74,13 +74,12 @@ body{
 						
 					
 						<p class="prodPrezzo">Prezzo: <br>  <%=p.getPrezzo()%> &euro; </p>			
-					
+				
 					<div id="noajax">
-					  <label class="labelqty" for="quantità">Quantità: </label>
-					  <input type="number" id="valueBox" min="1" value="<%=c.getQuantitaItemCarrello()%>">
+  						<label class="labelqty" for="quantità">Quantità: <span id="quantita"><%= c.getQuantitaItemCarrello() %></span></label>
 					</div>
-					 </div>
 
+					 </div>
 					</div>		
 				
 				<div class="pulsanti">			
