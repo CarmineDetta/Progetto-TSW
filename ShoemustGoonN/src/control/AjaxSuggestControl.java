@@ -2,6 +2,7 @@ package control;
 
 import java.io.IOException;
 
+import java.util.logging.Logger;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -24,7 +25,8 @@ import model.ProductModelDS;
 @WebServlet("/AjaxSuggestControl")
 public class AjaxSuggestControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private static final Logger LOGGER = Logger.getLogger(AjaxSuggestControl.class.getName());
+   
 
     public AjaxSuggestControl() {
         super();
@@ -43,9 +45,7 @@ public class AjaxSuggestControl extends HttpServlet {
 		try {
 			if(!request.getParameter("stringaRicerca").equalsIgnoreCase("")) {
 				Collection<ProdottoBean> prodottiSuggest = prodotti.doRetrieveSuggest(request.getParameter("stringaRicerca"));
-				
-				Iterator<ProdottoBean> iter = prodottiSuggest.iterator();
-			
+							
 				
 				oggettoJSON = new Gson().toJson(prodottiSuggest);
 				response.getWriter().write(oggettoJSON);
@@ -55,7 +55,7 @@ public class AjaxSuggestControl extends HttpServlet {
 			}
 			
 		}catch (SQLException | IOException e) {
-		    e.printStackTrace();
+			LOGGER.log(null, "contesto", e);
 		}
 	}
 

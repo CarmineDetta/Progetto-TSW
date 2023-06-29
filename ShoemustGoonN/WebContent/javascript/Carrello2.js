@@ -3,10 +3,7 @@
  */
 
 function formAdd(id, qty) {
-	const e = event || window.event; // Utilizza l'oggetto evento alternativo, se disponibile
-	  if (e) {
-	    e.preventDefault(); // Impedisce l'invio del modulo predefinito
-	  }
+	event.preventDefault(); // Impedisce l'invio del modulo predefinito
   let button = document.getElementById("add").value;
 
 	console.log(button);
@@ -42,10 +39,7 @@ function formAdd(id, qty) {
 
 
 function formRemove(id, qty) {
-	const e = event || window.event; // Utilizza l'oggetto evento alternativo, se disponibile
-	  if (e) {
-	    e.preventDefault(); // Impedisce l'invio del modulo predefinito
-	  }
+	event.preventDefault(); // Impedisce l'invio del modulo predefinito
 	  let button = document.getElementById("remove").value;
 
 		console.log(button);

@@ -2,6 +2,7 @@ package control;
 
 import java.io.IOException;
 
+import java.util.logging.Logger;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -18,6 +19,7 @@ public class UtenteControl extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
 
+	private static final Logger LOGGER = Logger.getLogger(UtenteControl.class.getName());
 
 	static UtenteDAO model = new UtenteModelDS();
 	
@@ -59,7 +61,7 @@ public class UtenteControl extends HttpServlet{
 					
 					
 			} catch (SQLException e1) {
-					e1.printStackTrace();
+				LOGGER.log(null, "contesto", e1);
 				}
 			}
 			if(action.equalsIgnoreCase("visualizza_tutti")) {
@@ -68,7 +70,7 @@ public class UtenteControl extends HttpServlet{
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Visualizza_utenti.jsp");
 					dispatcher.forward(request, response);
 				} catch (SQLException e) {
-					e.printStackTrace();
+					LOGGER.log(null, "contesto", e);
 				}
 				
 			}

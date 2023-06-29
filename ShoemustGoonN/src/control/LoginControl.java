@@ -1,9 +1,9 @@
 package control;
 
 import java.io.IOException;
-import model.UtenteBean;
-import java.sql.SQLException;
 
+import java.sql.SQLException;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +15,9 @@ import model.*;
 
 public class LoginControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    
+	private static final Logger LOGGER = Logger.getLogger(LoginControl.class.getName());
+
 
     public LoginControl() {
         super();
@@ -96,7 +98,7 @@ public class LoginControl extends HttpServlet {
 				}
 			}			
 		}catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.log(null, "contesto", e);
 			response.sendRedirect("Login.jsp");
 		}
 	}

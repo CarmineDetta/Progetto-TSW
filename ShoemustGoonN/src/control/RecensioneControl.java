@@ -1,8 +1,9 @@
 package control;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
+import java.sql.SQLException;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,7 +21,8 @@ import model.UtenteBean;
 
 public class RecensioneControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+	private static final Logger LOGGER = Logger.getLogger(RecensioneControl.class.getName());
+
 	static RecensioneDAO model = new RecensioneModelDS();
 	static ProdottoDAO modelProd = new ProductModelDS();
     
@@ -58,7 +60,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 						dispatcher.forward(request, response);
 					
 					} catch (SQLException e) {
-					e.printStackTrace();
+						LOGGER.log(null, "contesto", e);
 					}
 				}
 			}
@@ -67,7 +69,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 			dispatcher.forward(request, response);
 			
 		} catch (SQLException e) {
-			e.printStackTrace();
+			LOGGER.log(null, "contesto", e);
 		}
 
 	}

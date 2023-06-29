@@ -48,7 +48,7 @@
 			<ul class="social-list">		<!-- targetblank utilizzato per aprire un link in un'altra pagina -->
 				<li class="trans-color"><a target="_blank" href="#"><img src="https://www.svgrepo.com/show/494273/facebook-round.svg"  title="facebook" alt="Facebook icon"><br></a></li>
 				<li class="trans-color"><a target="_blank" href="#"><img src="https://www.svgrepo.com/show/494277/instagram-round.svg" title="Instagram" alt="Instagram icon"><br></a></li>
-				<li class="trans-color"><a target="_blank" href="https://github.com/CarmineDetta/Progetto-TSW"><img src="https://www.svgrepo.com/show/361181/github.svg" title="git-hub" alt="Git-Hub icon"><br></a></li>
+				<li class="trans-color"><a target="_blank" href="https://github.com/CarmineDetta/Progetto-TSW" rel="noopener"><img src="https://www.svgrepo.com/show/361181/github.svg" title="git-hub" alt="Git-Hub icon"><br></a></li>
 			</ul>			
 		</div><!--/fine social-->	
 	
@@ -60,19 +60,19 @@
 		<span class="title_crediti">Creato da:</span>
 
       	<span class="nomiCreatori">
-         <a target="_blank" class="linkNome" href="https://github.com/SalvatoreAlberti">Salvatore Alberti | </a>
+         <a target="_blank" class="linkNome" href="https://github.com/SalvatoreAlberti" rel="noopener">Salvatore Alberti | </a>
       	</span>
       
       	<span class="nomiCreatori">
-         <a target="_blank" class="linkNome" href="https://github.com/Onil0">Lino D'Amora | </a>
+         <a target="_blank" class="linkNome" href="https://github.com/Onil0" rel="noopener">Lino D'Amora | </a>
       	</span>
 
       	<span class="nomiCreatori">
-         <a target="_blank" class="linkNome" href="https://github.com/CiaoMiChiamoFrank">Francesco Contaldo | </a>
+         <a target="_blank" class="linkNome" href="https://github.com/CiaoMiChiamoFrank" rel="noopener">Francesco Contaldo | </a>
       	</span>
 
       	<span class="nomiCreatori">
-         <a target="_blank"  class="linkNome" href="https://github.com/CarmineDetta">Carmine Detta</a>
+         <a target="_blank"  class="linkNome" href="https://github.com/CarmineDetta" rel="noopener">Carmine Detta</a>
      	</span>
 	</div>				
 
@@ -82,3 +82,5 @@
 
 </body>
 </html>
+
+<!-- rel nooper viene utilizzato per evitare l'accesso a finestre aperte (phishing) (sonarcloud)  -->

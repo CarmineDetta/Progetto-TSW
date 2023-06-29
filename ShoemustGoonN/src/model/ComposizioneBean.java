@@ -19,16 +19,16 @@ public class ComposizioneBean {
 		return idOrdine;
 	}
 
-	public void setidOrdine(int identificativo_ordine) {
-		this.idOrdine = identificativo_ordine;
+	public void setidOrdine(int identificativoOrdine) {
+		this.idOrdine = identificativoOrdine;
 	}
 
 	public int getID_Prodotto() {
 		return idProdotto;
 	}
 
-	public void setidProdotto(int identificativo_prodotto) {
-		this.idProdotto = identificativo_prodotto;
+	public void setidProdotto(int identificativoProdotto) {
+		this.idProdotto = identificativoProdotto;
 	}
 
 	public int getQuantita() {
@@ -43,8 +43,8 @@ public class ComposizioneBean {
 		return prezzo;
 	}
 
-	public void setPrezzo(double prezzo_acquisto) {
-		this.prezzo = prezzo_acquisto;
+	public void setPrezzo(double prezzoAcquisto) {
+		this.prezzo = prezzoAcquisto;
 	}
 
 	@Override

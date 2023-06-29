@@ -2,6 +2,7 @@ package control;
 
 import java.io.IOException;
 
+import java.util.logging.Logger;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -30,6 +31,9 @@ import model.*;
 @WebServlet("/PDFControl")
 public class PDFControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final Logger LOGGER = Logger.getLogger(PDFControl.class.getName());
+
+	
 	
 	static OrdineDAO ordineModel = new OrdineModelDS();
 	static ComposizioneModelDS composizioneModel = new ComposizioneModelDS();
@@ -59,7 +63,7 @@ public class PDFControl extends HttpServlet {
         	try {
     			ordine = ordineModel.doRetriveByKey(id);
         	} catch (SQLException e1) {
-    			e1.printStackTrace();
+        		LOGGER.log(null, "contesto", e1);
     		}
         	
         	Document document = new Document();
@@ -231,7 +235,7 @@ public class PDFControl extends HttpServlet {
 					
 					}
 				} catch (SQLException e) {
-					e.printStackTrace();
+					LOGGER.log(null, "contesto", e);
 				}
 			
 //CREO SPAZIO PER L'INDIRIZZO DI SPEDIZIONE

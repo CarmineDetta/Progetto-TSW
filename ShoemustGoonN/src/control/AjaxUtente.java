@@ -1,6 +1,8 @@
 package control;
 
 import java.io.IOException;
+
+import java.util.logging.Logger;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -23,7 +25,9 @@ import model.UtenteModelDS;
 @WebServlet("/AjaxUtente")
 public class AjaxUtente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
+	private static final Logger LOGGER = Logger.getLogger(AjaxUtente.class.getName());
+
  
     public AjaxUtente() {
         super();
@@ -41,9 +45,7 @@ public class AjaxUtente extends HttpServlet {
 		try {
 			if(!request.getParameter("stringaRicerca").equalsIgnoreCase("")) {
 				Collection<UtenteBean> utenteSuggest = utente.doRetrieveSuggest(request.getParameter("stringaRicerca"));
-				
-				Iterator<UtenteBean> iter = utenteSuggest.iterator();
-				
+								
 				oggettoJSON = new Gson().toJson(utenteSuggest);
 				
 				response.getWriter().write(oggettoJSON);
@@ -53,7 +55,7 @@ public class AjaxUtente extends HttpServlet {
 			}
 			
 		} catch (SQLException | IOException e) {
-		    e.printStackTrace();
+			LOGGER.log(null, "contesto", e);
 		}
 	}
 

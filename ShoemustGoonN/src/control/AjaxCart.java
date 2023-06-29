@@ -62,8 +62,7 @@ public class AjaxCart extends HttpServlet {
 			}catch (SQLException e) {
 				LOGGER.log(null, "contesto", e);	//fatto perchè lo chiede sonarcloud dicendo che devo controllare se il questo codice è disattivato quando consegno del condice da eseguire
 			} catch (IOException e) {
-				
-				e.printStackTrace();
+				LOGGER.log(null, "contesto", e);
 			}
 
 	}

@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 
 public class ComposizioneModelDS {
 	
-    private static final Logger LOGGER = Logger.getLogger(DriverManagerConnectionPool.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(ComposizioneModelDS.class.getName());
 
 	private static DataSource ds;
 	static ProdottoDAO modelProdotto = new ProductModelDS();
