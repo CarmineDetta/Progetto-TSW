@@ -34,7 +34,6 @@ public class AjaxUtente extends HttpServlet {
 		response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         
-        PrintWriter out = response.getWriter();
         String oggettoJSON = null;
         
 		UtenteModelDS utente = new UtenteModelDS();
@@ -44,11 +43,6 @@ public class AjaxUtente extends HttpServlet {
 				Collection<UtenteBean> utenteSuggest = utente.doRetrieveSuggest(request.getParameter("stringaRicerca"));
 				
 				Iterator<UtenteBean> iter = utenteSuggest.iterator();
-				
-				UtenteBean u = null;
-				while(iter.hasNext()) {
-					u = iter.next();			
-				}
 				
 				oggettoJSON = new Gson().toJson(utenteSuggest);
 				

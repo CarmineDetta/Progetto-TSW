@@ -219,7 +219,7 @@ public class ProductModelDS implements ProdottoDAO{
 
 
 	
-public synchronized Collection<ProdottoBean> doRetrieveSuggest(String stringaParziale) throws SQLException, IOException {
+public synchronized Collection<ProdottoBean> doRetrieveSuggest(String stringaParziale) throws SQLException {
 		
 		//fare quando dobbiamo cercare oggetti precisi sul db
 		Connection connection = null;

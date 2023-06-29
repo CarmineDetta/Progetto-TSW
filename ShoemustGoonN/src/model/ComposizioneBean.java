@@ -3,54 +3,54 @@ package model;
 public class ComposizioneBean {
 	private static final long serialVersionUID = 1L;
 	
-	private int ID_Ordine;
-	private int ID_Prodotto;
-	private int Quantita;
-	private double Prezzo;
+	private int idOrdine;
+	private int idProdotto;
+	private int quantita;
+	private double prezzo;
 	
 	public ComposizioneBean() {
-		ID_Ordine=0;
-		ID_Prodotto=0;
-		Quantita=0;
-		Prezzo=0.0;
+		idOrdine=0;
+		idProdotto=0;
+		quantita=0;
+		prezzo=0.0;
 	}
 
 	public int getID_Ordine() {
-		return ID_Ordine;
+		return idOrdine;
 	}
 
-	public void setID_Ordine(int identificativo_ordine) {
-		this.ID_Ordine = identificativo_ordine;
+	public void setidOrdine(int identificativo_ordine) {
+		this.idOrdine = identificativo_ordine;
 	}
 
 	public int getID_Prodotto() {
-		return ID_Prodotto;
+		return idProdotto;
 	}
 
-	public void setID_Prodotto(int identificativo_prodotto) {
-		this.ID_Prodotto = identificativo_prodotto;
+	public void setidProdotto(int identificativo_prodotto) {
+		this.idProdotto = identificativo_prodotto;
 	}
 
 	public int getQuantita() {
-		return Quantita;
+		return quantita;
 	}
 
 	public void setQuantita(int quantita) {
-		this.Quantita = quantita;
+		this.quantita = quantita;
 	}
 
 	public double getPrezzo() {
-		return Prezzo;
+		return prezzo;
 	}
 
 	public void setPrezzo(double prezzo_acquisto) {
-		this.Prezzo = prezzo_acquisto;
+		this.prezzo = prezzo_acquisto;
 	}
 
 	@Override
 	public String toString() {
-		return "CompositionBean [identificativo_prodotto=" + this.ID_Prodotto + ", identificativo_ordine="
-				+ this.ID_Ordine + ", quantita=" + this.Quantita + ", prezzo_acquisto=" + this.Prezzo + "]";
+		return "CompositionBean [identificativo_prodotto=" + this.idProdotto + ", identificativo_ordine="
+				+ this.idOrdine + ", quantita=" + this.quantita + ", prezzo_acquisto=" + this.prezzo + "]";
 	}
 }
 

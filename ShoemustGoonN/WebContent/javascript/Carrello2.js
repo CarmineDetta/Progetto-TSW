@@ -3,7 +3,10 @@
  */
 
 function formAdd(id, qty) {
-  event.preventDefault(); // Impedisce l'invio del modulo predefinito
+	const e = event || window.event; // Utilizza l'oggetto evento alternativo, se disponibile
+	  if (e) {
+	    e.preventDefault(); // Impedisce l'invio del modulo predefinito
+	  }
   let button = document.getElementById("add").value;
 
 	console.log(button);
@@ -23,7 +26,7 @@ function formAdd(id, qty) {
     dataType: "json",
     success: function (data, textStatus, jqXHR) {
       let d = data.d;
-      let t = data.qty;
+      
 
       let formattedValue = parseFloat(d).toFixed(2);
       $("#prezzo").text(formattedValue + "€");
@@ -39,7 +42,10 @@ function formAdd(id, qty) {
 
 
 function formRemove(id, qty) {
-	  event.preventDefault();
+	const e = event || window.event; // Utilizza l'oggetto evento alternativo, se disponibile
+	  if (e) {
+	    e.preventDefault(); // Impedisce l'invio del modulo predefinito
+	  }
 	  let button = document.getElementById("remove").value;
 
 		console.log(button);
@@ -60,7 +66,7 @@ function formRemove(id, qty) {
 	    dataType: "json",
 	    success: function (data, textStatus, jqXHR) {
 	      let d = data.d;
-	      let t = data.qty;
+	     
 
 	      let formattedValue = parseFloat(d).toFixed(2);
 	      $("#prezzo").text(formattedValue + "€");

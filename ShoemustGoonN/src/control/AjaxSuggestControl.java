@@ -36,7 +36,6 @@ public class AjaxSuggestControl extends HttpServlet {
 		response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         
-        PrintWriter out = response.getWriter();
         String oggettoJSON = null;
         		
 		ProductModelDS prodotti = new ProductModelDS();
@@ -46,18 +45,13 @@ public class AjaxSuggestControl extends HttpServlet {
 				Collection<ProdottoBean> prodottiSuggest = prodotti.doRetrieveSuggest(request.getParameter("stringaRicerca"));
 				
 				Iterator<ProdottoBean> iter = prodottiSuggest.iterator();
-				
-				ProdottoBean prodotto = null;
-				while(iter.hasNext()) {
-					prodotto = iter.next();
-				}
+			
 				
 				oggettoJSON = new Gson().toJson(prodottiSuggest);
-				System.out.println("Oggetto JSON: "+oggettoJSON);
-				response.getWriter().write(oggettoJSON.toString());
+				response.getWriter().write(oggettoJSON);
 			} else {
 				oggettoJSON = new Gson().toJson("");
-				response.getWriter().write(oggettoJSON.toString());
+				response.getWriter().write(oggettoJSON);
 			}
 			
 		}catch (SQLException | IOException e) {

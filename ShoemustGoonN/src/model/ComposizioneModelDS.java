@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,14 +9,17 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Logger;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import model.OrdineBean;
 
 public class ComposizioneModelDS {
+	
+    private static final Logger LOGGER = Logger.getLogger(DriverManagerConnectionPool.class.getName());
 
 	private static DataSource ds;
 	static ProdottoDAO modelProdotto = new ProductModelDS();
@@ -28,7 +32,7 @@ public class ComposizioneModelDS {
 			ds = (DataSource) envCtx.lookup("jdbc/shoemustgoon");
 
 		} catch (NamingException e) {
-			System.out.println("Error:" + e.getMessage());
+			LOGGER.log(null, "contesto", e);
 		}
 	}
 
@@ -112,7 +116,7 @@ public synchronized Collection<ComposizioneBean> doRetrieveByOrder(int id, Strin
 	Connection connection = null;
 	PreparedStatement preparedStatement = null;
 
-	Collection<ComposizioneBean> compositions = new LinkedList<ComposizioneBean>();
+	Collection<ComposizioneBean> compositions = new LinkedList<>();
 
 	String selectSQL = "SELECT * FROM " + ComposizioneModelDS.TABLE_NAME+" WHERE ID_Ordine = ?";
 
@@ -132,15 +136,10 @@ public synchronized Collection<ComposizioneBean> doRetrieveByOrder(int id, Strin
 			ComposizioneBean bean = new ComposizioneBean();
 
 			
-			bean.setID_Prodotto(rs.getInt("ID_Prodotto"));
-			bean.setID_Ordine(rs.getInt("ID_Ordine"));
+			bean.setidProdotto(rs.getInt("ID_Prodotto"));
+			bean.setidOrdine(rs.getInt("ID_Ordine"));
 			bean.setQuantita(rs.getInt("Quantita"));
 			bean.setPrezzo(rs.getDouble("Prezzo"));
-			
-			System.out.println("Id Ordine: "+bean.getID_Prodotto());
-			System.out.println("Id Prodotto: "+bean.getID_Ordine());
-			System.out.println("Prezzo senza IVA: "+bean.getPrezzo());
-			System.out.println("Quantita: "+bean.getQuantita());
 			
 			compositions.add(bean);
 			

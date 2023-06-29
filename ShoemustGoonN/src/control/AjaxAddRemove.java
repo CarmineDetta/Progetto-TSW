@@ -3,6 +3,7 @@ package control;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,28 +24,23 @@ import model.ItemCarrello;
 @WebServlet("/AjaxAddRemove")
 public class AjaxAddRemove extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private static final Logger LOGGER = Logger.getLogger(AcquistoControl.class.getName());
+
     public AjaxAddRemove() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		HttpSession sessione = request.getSession();
 		
 		response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         
         PrintWriter out = response.getWriter();
-        String oggettoJSON = null;
         
         String stringaRicerca =  request.getParameter("stringaRicerca");
         String button =  request.getParameter("button");
-        
-		System.out.println("Stringa Ricerca:" + request.getParameter("stringaRicerca"));
-		System.out.println("Stringa button:" + button);
-		
+        		
 		Cart cart = (Cart) sessione.getAttribute("cart");
 		if(cart == null) {
 			cart = new Cart();
@@ -72,7 +68,7 @@ public class AjaxAddRemove extends HttpServlet {
 
 			  out.write(responseObject.toString());
 			} catch (SQLException e) {
-			  e.printStackTrace();
+				LOGGER.log(null, "contesto", e);
 			}
 
 
@@ -80,7 +76,6 @@ public class AjaxAddRemove extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

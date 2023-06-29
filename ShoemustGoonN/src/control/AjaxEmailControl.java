@@ -34,7 +34,6 @@ public class AjaxEmailControl extends HttpServlet {
 		response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         
-        PrintWriter out = response.getWriter();
         String oggettoJSON = null;
         
         String stringaRicerca = request.getParameter("stringaRicerca");
