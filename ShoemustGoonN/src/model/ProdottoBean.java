@@ -28,72 +28,72 @@ public class ProdottoBean implements Serializable {
         return idProdotto;
     }
 
-    public void setidProdotto(String idProdotto) {
-        this.idProdotto = idProdotto;
+    public void setidProdotto(String id) {
+        this.idProdotto = id;
     }
 
     public String getMarca() {
         return marca;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public void setMarca(String marc) {
+        this.marca = marc;
     }
 
     public String getColore() {
         return colore;
     }
 
-    public void setColore(String colore) {
-        this.colore = colore;
+    public void setColore(String color) {
+        this.colore = color;
     }
 
     public String getModello() {
         return modello;
     }
 
-    public void setModello(String modello) {
-        this.modello = modello;
+    public void setModello(String model) {
+        this.modello = model;
     }
 
     public Double getPrezzo() {
         return prezzo;
     }
 
-    public void setPrezzo(Double prezzo) {
-        this.prezzo = prezzo;
+    public void setPrezzo(Double price) {
+        this.prezzo = price;
     }
 
     public boolean isDisponibilita() {
         return disponibilita;
     }
 
-    public void setDisponibilita(boolean disponibilita) {
-        this.disponibilita = disponibilita;
+    public void setDisponibilita(boolean disp) {
+        this.disponibilita = disp;
     }
 
     public int getQuantita() {
         return quantita;
     }
 
-    public void setQuantita(int quantita) {
-        this.quantita = quantita;
+    public void setQuantita(int quantity) {
+        this.quantita = quantity;
     }
 
 	public String getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
+	public void setCategoria(String category) {
+		this.categoria = category;
 	}
 
 	public String getDescrizione() {
 		return descrizione;
 	}
 
-	public void setDescrizione(String descrizione) {
-		this.descrizione = descrizione;
+	public void setDescrizione(String descr) {
+		this.descrizione = descr;
 	}
 	
 	public ImmagineBean getImmagine() {

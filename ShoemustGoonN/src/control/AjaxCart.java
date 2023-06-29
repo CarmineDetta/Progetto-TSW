@@ -1,7 +1,7 @@
 package control;
 
 import java.io.IOException;
-
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import java.util.logging.Logger;
@@ -35,7 +35,9 @@ public class AjaxCart extends HttpServlet {
 		response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         
+        PrintWriter out = response.getWriter();
         String oggettoJSON = null;
+        
         String stringaRicerca =  request.getParameter("stringaRicerca");
         
 		

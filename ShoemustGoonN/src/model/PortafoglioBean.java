@@ -42,8 +42,8 @@ public class PortafoglioBean {
 		return this.ncarta;
 	}
 	
-	public void setNcarta(String num_carta) {
-		this.ncarta = num_carta;
+	public void setNcarta(String numCarta) {
+		this.ncarta = numCarta;
 	}
 	
 	public String getScadenza() {

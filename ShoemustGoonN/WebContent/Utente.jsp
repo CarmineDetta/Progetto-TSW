@@ -47,7 +47,7 @@
 		%>
 		<tr>
 			<td><%=bean.getID_Pagamento()%></td>
-			<td><%=bean.getN_carta()%></td>
+			<td><%=bean.getNcarta()%></td>
 			<td><%=bean.getNome_Intestatario()%></td>
 			<td><%=bean.getScadenza()%></td>
 			<td><%=bean.getCvv()%></td>

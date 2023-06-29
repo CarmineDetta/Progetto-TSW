@@ -1,6 +1,7 @@
 package control;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -35,6 +36,7 @@ public class AjaxSuggestControl extends HttpServlet {
 		response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         
+        PrintWriter out = response.getWriter();
         String oggettoJSON = null;
         		
 		ProductModelDS prodotti = new ProductModelDS();
@@ -42,14 +44,20 @@ public class AjaxSuggestControl extends HttpServlet {
 		try {
 			if(!request.getParameter("stringaRicerca").equalsIgnoreCase("")) {
 				Collection<ProdottoBean> prodottiSuggest = prodotti.doRetrieveSuggest(request.getParameter("stringaRicerca"));
-
+				
+				Iterator<ProdottoBean> iter = prodottiSuggest.iterator();
+				
+				ProdottoBean prodotto = null;
+				while(iter.hasNext()) {
+					prodotto = iter.next();
+				}
 				
 				oggettoJSON = new Gson().toJson(prodottiSuggest);
-				
-				response.getWriter().write(oggettoJSON);
+				System.out.println("Oggetto JSON: "+oggettoJSON);
+				response.getWriter().write(oggettoJSON.toString());
 			} else {
 				oggettoJSON = new Gson().toJson("");
-				response.getWriter().write(oggettoJSON);
+				response.getWriter().write(oggettoJSON.toString());
 			}
 			
 		}catch (SQLException | IOException e) {
