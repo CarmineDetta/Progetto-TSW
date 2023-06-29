@@ -34,10 +34,15 @@ public class DriverManagerConnectionPool {
 			String port = "3306";
 			String username = "root";
 			String password = "carmineadmin";
-			newConnection = DriverManager.getConnection("jdbc:mysql://"+ ip+":"+ port+"/"+"shoemustgoon"+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", username, password);
 			
-			newConnection.setAutoCommit(false);
-			return newConnection;
+			try {
+			    newConnection = DriverManager.getConnection("jdbc:mysql://" + ip + ":" + port + "/shoemustgoon" + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", username, password);
+			    return newConnection;
+			} catch (SQLException e) {
+				LOGGER.log(null, "contesto", e);
+				throw e;
+			}
+			
 		}
 
 

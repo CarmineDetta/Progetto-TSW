@@ -2,6 +2,7 @@ package model;
 
 
 import java.sql.SQLException;
+import java.util.logging.Logger;
 
 
 
@@ -10,7 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cart{
-		
+	
+	private static final Logger LOGGER = Logger.getLogger(Cart.class.getName());
+
 	private ProductModelDS model;
 	private List<ItemCarrello> products;
 	private double totale = 0;
@@ -83,7 +86,7 @@ public List<ItemCarrello> getProducts() {
 			p = model.doRetrieveByKey(id);
 		} catch (SQLException e) {
 		
-			e.printStackTrace();
+			LOGGER.log(null, "contesto", e);
 		}
 		
 		return p;
