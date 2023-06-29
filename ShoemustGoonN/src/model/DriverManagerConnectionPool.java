@@ -40,7 +40,9 @@ public class DriverManagerConnectionPool {
 			    return newConnection;
 			} catch (SQLException e) {
 				LOGGER.log(null, "contesto", e);
-				throw e;
+				// Gestisci l'eccezione o rilanciala con informazioni contestuali aggiuntive
+				throw new SQLException("Errore durante l'esecuzione del codice SQL: " + e.getMessage(), e.getSQLState(), e.getErrorCode());
+
 			}
 			
 		}
