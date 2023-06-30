@@ -34,7 +34,6 @@ public class Cart{
 				
 				ProdottoBean p = model.doRetrieveByKey(prod.getID_ProdottoItemCarrello());
 				totale = totale + (p.getPrezzo());
-				System.out.println("Prezzo aggiornato: " + totale);
 				tot = tot + 1;
 				
 				return totale;
@@ -52,7 +51,6 @@ public class Cart{
 	
 
 public double deleteProduct(ItemCarrello product) throws SQLException {
-	    boolean eliminato = false;
 	    ItemCarrello prodDaRimuovere = null;
 	    
 	    for (ItemCarrello prod : products) {
@@ -61,7 +59,6 @@ public double deleteProduct(ItemCarrello product) throws SQLException {
 
 	            ProdottoBean p = model.doRetrieveByKey(prod.getID_ProdottoItemCarrello());
 	            totale = totale - p.getPrezzo();
-				System.out.println("Prezzo aggiornato: " + totale);
 	            tot = tot - 1;
 
 	            return totale;

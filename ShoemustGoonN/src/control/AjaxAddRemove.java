@@ -69,10 +69,7 @@ public class AjaxAddRemove extends HttpServlet {
 			  responseObject.add("cart", new Gson().toJsonTree(cart));
 			  responseObject.addProperty("d", d);
 			  responseObject.addProperty("qnt", qnt);
-			  
-			  System.out.println("Prezzo d: " + d);
-			  System.out.println("QUANTITAAAAAAAAAA: " + qnt);
-			  
+
 			  out.write(responseObject.toString());
 			} catch (SQLException e) {
 				LOGGER.log(null, "contesto", e);

@@ -15,7 +15,8 @@ public class DriverManagerConnectionPool {
 		//Lista che contiene tutte le connessioni disponibili al DataBase.
 		private static List<Connection> freeDbConnections;
 		
-		
+		private DriverManagerConnectionPool() {
+	    }
 		//Viene utilizzato "static" in modo tale che si caricano i driver per la connessione solo quando si crea la classe.
 		static {
 			freeDbConnections = new LinkedList<>();
@@ -33,7 +34,7 @@ public class DriverManagerConnectionPool {
 			String ip = "localhost";
 			String port = "3306";
 			String username = "root";
-			String password = "ciccio";
+			String password = "carmineadmin";
 			
 			try {
 			    newConnection = DriverManager.getConnection("jdbc:mysql://" + ip + ":" + port + "/shoemustgoon" + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", username, password);
