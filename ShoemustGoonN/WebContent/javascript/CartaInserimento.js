@@ -5,43 +5,51 @@ function validateCard() {
   let cardNumber = document.getElementById("n_carta").value;
   let cardType = getCardType(cardNumber);
 
-  if (cardType === "Visa") {
-    if (!validateVisa(cardNumber)) {
-      alert("Not a valid Visa credit card number!");
+  switch (cardType) {
+    case "Visa":
+      if (!validateVisa(cardNumber)) {
+        alert("Not a valid Visa credit card number!");
+        return false;
+      }
+      break;
+    case "Mastercard":
+      if (!validateMastercard(cardNumber)) {
+        alert("Not a valid Mastercard number!");
+        return false;
+      }
+      break;
+    case "JCB":
+      if (!validateJCB(cardNumber)) {
+        alert("Not a valid JCB card number!");
+        return false;
+      }
+      break;
+    case "Discover":
+      if (!validateDiscover(cardNumber)) {
+        alert("Not a valid Discover card number!");
+        return false;
+      }
+      break;
+    case "DinersClub":
+      if (!validateDinersClub(cardNumber)) {
+        alert("Not a valid Diners Club card number!");
+        return false;
+      }
+      break;
+    case "AmericanExpress":
+      if (!validateAmericanExpress(cardNumber)) {
+        alert("Not a valid American Express credit card number!");
+        return false;
+      }
+      break;
+    default:
+      alert("Invalid card type!");
       return false;
-    }
-  } else if (cardType === "Mastercard") {
-    if (!validateMastercard(cardNumber)) {
-      alert("Not a valid Mastercard number!");
-      return false;
-    }
-  } else if (cardType === "JCB") {
-    if (!validateJCB(cardNumber)) {
-      alert("Not a valid JCB card number!");
-      return false;
-    }
-  } else if (cardType === "Discover") {
-    if (!validateDiscover(cardNumber)) {
-      alert("Not a valid Discover card number!");
-      return false;
-    }
-  } else if (cardType === "DinersClub") {
-    if (!validateDinersClub(cardNumber)) {
-      alert("Not a valid Diners Club card number!");
-      return false;
-    }
-  } else if (cardType === "AmericanExpress") {
-    if (!validateAmericanExpress(cardNumber)) {
-      alert("Not a valid American Express credit card number!");
-      return false;
-    }
-  } else {
-    alert("Invalid card type!");
-    return false;
   }
 
-  return true; // La carta è valida
+  return true; // The card is valid
 }
+
 
 function getCardType(cardNumber) {
   // Esegui il controllo per determinare il tipo di carta

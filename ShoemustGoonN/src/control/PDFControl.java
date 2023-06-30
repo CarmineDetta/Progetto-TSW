@@ -1,8 +1,9 @@
 package control;
 
 import java.io.IOException;
+
+import java.util.logging.Logger;
 import java.sql.SQLException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.itextpdf.awt.geom.Rectangle;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -19,12 +19,8 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
-import com.itextpdf.text.pdf.ColumnText;
-import com.itextpdf.text.pdf.PdfContentByte;
-import com.itextpdf.text.pdf.PdfDocument;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfPage;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 
@@ -35,6 +31,9 @@ import model.*;
 @WebServlet("/PDFControl")
 public class PDFControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final Logger LOGGER = Logger.getLogger(PDFControl.class.getName());
+
+	
 	
 	static OrdineDAO ordineModel = new OrdineModelDS();
 	static ComposizioneModelDS composizioneModel = new ComposizioneModelDS();
@@ -64,11 +63,11 @@ public class PDFControl extends HttpServlet {
         	try {
     			ordine = ordineModel.doRetriveByKey(id);
         	} catch (SQLException e1) {
-    			e1.printStackTrace();
+        		LOGGER.log(null, "contesto", e1);
     		}
         	
         	Document document = new Document();
-			PdfWriter writer = PdfWriter.getInstance(document, response.getOutputStream());
+			PdfWriter.getInstance(document, response.getOutputStream());
 	
 			document.open();
 			
@@ -236,7 +235,7 @@ public class PDFControl extends HttpServlet {
 					
 					}
 				} catch (SQLException e) {
-					e.printStackTrace();
+					LOGGER.log(null, "contesto", e);
 				}
 			
 //CREO SPAZIO PER L'INDIRIZZO DI SPEDIZIONE
@@ -263,8 +262,8 @@ public class PDFControl extends HttpServlet {
 				
 				spedizione.add(recapito.getVia_Piazza() + " - N° ");
 				
-				int n_civico = recapito.getN_Civico();
-				String stringaCivico = String.valueOf(n_civico);
+				int nCivico = recapito.getN_Civico();
+				String stringaCivico = String.valueOf(nCivico);
 				
 				spedizione.add(stringaCivico + "\n");
 				

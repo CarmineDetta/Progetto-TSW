@@ -11,7 +11,8 @@ loginButton.addEventListener("click", function() {
 });
 
 function ValidateEmail(inputText) {
-    let mailformat = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+	let mailformat = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/;
+
     if (inputText.value.match(mailformat)) {
         return true;
     } else {

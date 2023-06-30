@@ -2,17 +2,18 @@ package model;
 
 
 import java.sql.SQLException;
+import java.util.logging.Logger;
+
+
 
 import java.util.ArrayList;
 
 import java.util.List;
 
-import java.util.Iterator;
-
-import model.ItemCarrello;
-
 public class Cart{
-		
+	
+	private static final Logger LOGGER = Logger.getLogger(Cart.class.getName());
+
 	private ProductModelDS model;
 	private List<ItemCarrello> products;
 	private double totale = 0;
@@ -49,6 +50,7 @@ public class Cart{
 			return totale;	
 	}
 	
+
 public double deleteProduct(ItemCarrello product) throws SQLException {
 	    boolean eliminato = false;
 	    ItemCarrello prodDaRimuovere = null;
@@ -56,7 +58,6 @@ public double deleteProduct(ItemCarrello product) throws SQLException {
 	    for (ItemCarrello prod : products) {
 	        if (prod.getID_ProdottoItemCarrello().equals(product.getID_ProdottoItemCarrello()) && prod.getQuantitaItemCarrello() > 1) {
 	            prod.setQuantitaItemCarrello(prod.getQuantitaItemCarrello() - 1);
-	            eliminato = true;
 
 	            ProdottoBean p = model.doRetrieveByKey(prod.getID_ProdottoItemCarrello());
 	            totale = totale - p.getPrezzo();
@@ -91,7 +92,7 @@ public List<ItemCarrello> getProducts() {
 			p = model.doRetrieveByKey(id);
 		} catch (SQLException e) {
 		
-			e.printStackTrace();
+			LOGGER.log(null, "contesto", e);
 		}
 		
 		return p;

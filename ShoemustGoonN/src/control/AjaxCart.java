@@ -35,7 +35,6 @@ public class AjaxCart extends HttpServlet {
 		response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         
-        PrintWriter out = response.getWriter();
         String oggettoJSON = null;
         
         String stringaRicerca =  request.getParameter("stringaRicerca");
@@ -60,11 +59,8 @@ public class AjaxCart extends HttpServlet {
 				response.getWriter().write(oggettoJSON);
 			 }
 			
-			}catch (SQLException e) {
-				LOGGER.log(null, "contesto", e);	//fatto perchè lo chiede sonarcloud dicendo che devo controllare se il questo codice è disattivato quando consegno del condice da eseguire
-			} catch (IOException e) {
-				
-				e.printStackTrace();
+			}catch (SQLException | IOException e) {
+				LOGGER.log(null, "contesto", e);
 			}
 
 	}

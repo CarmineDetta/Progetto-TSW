@@ -2,10 +2,10 @@ package control;
 
 import java.io.IOException;
 
-import java.io.PrintWriter;
+
 import java.sql.SQLException;
-import java.util.Collection;
-import java.util.Iterator;
+
+import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +22,9 @@ import model.UtenteModelDS;
 @WebServlet("/AjaxEmailControl")
 public class AjaxEmailControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    
+	private static final Logger LOGGER = Logger.getLogger(AjaxEmailControl.class.getName());
+
 
     public AjaxEmailControl() {
         super();
@@ -34,7 +36,6 @@ public class AjaxEmailControl extends HttpServlet {
 		response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         
-        PrintWriter out = response.getWriter();
         String oggettoJSON = null;
         
         String stringaRicerca = request.getParameter("stringaRicerca");
@@ -63,7 +64,7 @@ public class AjaxEmailControl extends HttpServlet {
 			}
 			
 		} catch (SQLException | IOException e) {
-		    e.printStackTrace();
+			LOGGER.log(null, "contesto", e);
 		}
 	}
 

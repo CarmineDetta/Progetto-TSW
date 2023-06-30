@@ -3,7 +3,7 @@
  */
 
 function formAdd(id, qty) {
-  event.preventDefault(); // Impedisce l'invio del modulo predefinito
+	event.preventDefault(); // Impedisce l'invio del modulo predefinito
   let button = document.getElementById("add").value;
 
 	console.log(button);
@@ -28,6 +28,7 @@ function formAdd(id, qty) {
       console.log("Quantita prodotti: " + qnt);
       $("#quantita").text(qnt);
 
+
       let formattedValue = parseFloat(d).toFixed(2);
       $("#prezzo").text(formattedValue + "€");
 
@@ -42,7 +43,7 @@ function formAdd(id, qty) {
 
 
 function formRemove(id, qty) {
-	  event.preventDefault();
+	event.preventDefault(); // Impedisce l'invio del modulo predefinito
 	  let button = document.getElementById("remove").value;
 
 		console.log(button);
@@ -67,7 +68,7 @@ function formRemove(id, qty) {
 	      
 	      console.log("Quantita prodotti: " + qnt);
 	      $("#quantita").text(qnt);
-
+	      
 	      let formattedValue = parseFloat(d).toFixed(2);
 	      $("#prezzo").text(formattedValue + "€");
 
