@@ -1,6 +1,7 @@
 
 //funzione per mettere l'effetto sull'immagine del catalogo in jquery
 
+
 $(document).ready(function() {
   $(".product-item").hover(
     function() {
