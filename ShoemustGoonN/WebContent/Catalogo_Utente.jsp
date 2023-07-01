@@ -16,7 +16,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="style/NEOn.css" type="text/css">
 	<link rel="stylesheet" href="style/side-bar.css" type="text/css">
-	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="javascript/catalogo.js" type="text/javascript"></script>
 	<link rel="stylesheet" href="style/catalogo-Utente.css" type="text/css">
 	
 	<title>ShoeMustGoOn | Catalogo Utente</title>
