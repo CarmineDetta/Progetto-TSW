@@ -15,7 +15,7 @@
 	}
 	
 	UtenteBean utente = (UtenteBean) request.getSession().getAttribute("UtenteLoggato");
-
+	/*Ottenere l'oggetto "UtenteBean" dalla sessione*/
 %>
 
 <!-- prova -->
