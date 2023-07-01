@@ -47,7 +47,7 @@ public class AcquistoControl extends HttpServlet {
 		String action = request.getParameter("action");
 		
 		try {
-			if(action.equalsIgnoreCase("Completo")) {
+			if(action.equalsIgnoreCase("Completo")) {		//questa invece è la seconda fase in cui scegliamo le carte e l'indirizzo
 				
 				PortafoglioBean pagamento = modelportafoglio.doRetrieveByKey(Integer.parseInt(request.getParameter("Pagamento")));
 				RecapitoBean recapito = (modelrecapito.doRetrieveByKey(Integer.parseInt(request.getParameter("Recapito"))));
@@ -66,7 +66,7 @@ public class AcquistoControl extends HttpServlet {
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Acquisto_Completato.jsp");
 				dispatcher.forward(request, response);				
 			}
-				if(action.equalsIgnoreCase("CheckOut")) {
+				if(action.equalsIgnoreCase("CheckOut")) {		//la prima fase dell'acquisto, quella in cui clicchiamo su "acquista"
 							
 				request.setAttribute("payments", modelportafoglio.doRetrieveByUtente(utente.getID_Utente()));
 				request.setAttribute("recapiti", modelrecapito.doRetrieveByUtente(utente.getID_Utente()));

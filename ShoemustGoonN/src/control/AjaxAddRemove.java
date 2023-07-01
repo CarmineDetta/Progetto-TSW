@@ -48,7 +48,7 @@ public class AjaxAddRemove extends HttpServlet {
 		}
 		
 		try {
-			  JsonObject responseObject = new JsonObject();
+			  JsonObject responseObject = new JsonObject();	//memorizza la risposta di una richiesta
 			  double d = cart.getTotale();
 			  int qnt = 0;
 
@@ -66,11 +66,12 @@ public class AjaxAddRemove extends HttpServlet {
 			    qnt = cart.getQuantita(p);
 			  }
 
-			  responseObject.add("cart", new Gson().toJsonTree(cart));
-			  responseObject.addProperty("d", d);
-			  responseObject.addProperty("qnt", qnt);
+			  responseObject.add("cart", new Gson().toJsonTree(cart));	//Gson converte oggetti java in json, quindi tramire tojsontree converte il magazzino di prodotti carrello in un albero json
+			  	//aggiunge l'albero alla risposta json
+			  responseObject.addProperty("d", d);	//aggiunge il totale del carrello alla risposta json
+			  responseObject.addProperty("qnt", qnt);	//qunatita
 
-			  out.write(responseObject.toString());
+			  out.write(responseObject.toString());	//scrive la risposta della response convertendola in stringa nella variabil out per mandarla al client
 			} catch (SQLException e) {
 				LOGGER.log(null, "contesto", e);
 			}
