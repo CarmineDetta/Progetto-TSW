@@ -105,18 +105,18 @@
 		$('#pulsanteRicercaResponsive').on('click', function() {
 			
 			Swal.fire({
-				  showConfirmButton: false,
+				  showConfirmButton: false,	//Questa proprietà nasconde il pulsante di conferma nel popup.
 				  html: '<h1>Ricerca</h1><div id="barraRicercaResponsive"><input type="text" placeholder="Cerca prodotti" class="campoRicercaResponsive" id="queryRicercaResponsive" onkeyup="funzioneRicerca()"/><button type="submit" class="bottoneRicercaResponsive"><ion-icon name="search-outline" class="" id=""></ion-icon></button><div id="risultatiResponsive"></div></div>',
-				  customClass: { popup: 'borderBoxPopUp'},
+				  customClass: { popup: 'borderBoxPopUp'},		//Questa proprietà applica una classe CSS personalizzata al popup. In questo caso, il nome della classe è borderBoxPopUp.
 				})
 		} )
 		
 		
 		function funzioneRicerca() {
 			
-			$("#risultati").empty();
+			$("#risultati").empty(); //Svuota il contenuto dell'elemento con l'ID "risultati".
         	$("#risultatiResponsive").empty();
-        	$("#risultati").removeClass( "DivRisultati" );
+        	$("#risultati").removeClass( "DivRisultati" );	//Rimuove la classe "DivRisultati" dall'elemento con l'ID "risultati".
     		$("#barraRicerca").css({"border-bottom-left-radius":"20px"});
         	$("#barraRicerca").css({"border-bottom-right-radius":"20px"});
 			
