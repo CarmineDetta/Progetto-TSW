@@ -15,7 +15,7 @@ Oltre a questo l’e-commerce darà varie possibilità agli utenti, dipendenteme
 
 Lino D'Amora - https://github.com/Onil0
 
-Francesco Pio Contaldo - 
+Francesco Pio Contaldo - https://github.com/CiaoMiChiamoFrank
 
 Carmine Detta - 
 
