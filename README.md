@@ -9,3 +9,6 @@ L’obiettivo è quello di soddisfare i gusti più vari, spaziando da scarpe ele
 L’e-commerce prevede una pagina iniziale per tutti i prodotti offerti, una pagina per gli acquisti e una pagina informativa con relativi contatti e specifiche.
 <br>
 Oltre a questo l’e-commerce darà varie possibilità agli utenti, dipendentemente dal tipo di utente.
+
+
+#Autori
