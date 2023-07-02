@@ -13,11 +13,13 @@ Oltre a questo l’e-commerce darà varie possibilità agli utenti, dipendenteme
 
 # Autori
 
-Lino D'Amora - 
+Lino D'Amora - https://github.com/Onil0
 
 Francesco Pio Contaldo - 
 
+Carmine Detta - 
+
 Salvatore Aliberti - 
 
-Carmine Detta - 
+
 
