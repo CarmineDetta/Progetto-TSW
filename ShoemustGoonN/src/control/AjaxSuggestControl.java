@@ -36,7 +36,7 @@ public class AjaxSuggestControl extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");    
         
         String oggettoJSON = null;
         		
@@ -45,8 +45,10 @@ public class AjaxSuggestControl extends HttpServlet {
 		try {
 			if(!request.getParameter("stringaRicerca").equalsIgnoreCase("")) {
 				Collection<ProdottoBean> prodottiSuggest = prodotti.doRetrieveSuggest(request.getParameter("stringaRicerca"));
+
 				
 				//mezzo che funge da intermediario con ajax
+
 				oggettoJSON = new Gson().toJson(prodottiSuggest);
 				response.getWriter().write(oggettoJSON);
 			} else {
@@ -57,7 +59,7 @@ public class AjaxSuggestControl extends HttpServlet {
 		}catch (SQLException | IOException e) {
 			LOGGER.log(null, "contesto", e);
 		}
-	}
+}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

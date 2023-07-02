@@ -21,7 +21,7 @@
 			        <!-- barra ricerca -->
 					
 					<div id="barraRicerca">
-						<input type="text" placeholder="Cerca Prodotti" class="campoRicerca" id="queryRicerca" onkeyup="funzioneRicerca()"/>
+						<input type="text" placeholder="Barra di ricerca" class="campoRicerca" id="queryRicerca" onkeyup="funzioneRicerca()"/>
 							
 							<button type="submit" class="bottoneRicerca">
 								<ion-icon name="search-outline" class="" id=""></ion-icon>
@@ -101,8 +101,7 @@
 	        
 	    </header>
 	     
-<script>
-
+	       <script>
 
 	  function funzioneRicerca() {
 			

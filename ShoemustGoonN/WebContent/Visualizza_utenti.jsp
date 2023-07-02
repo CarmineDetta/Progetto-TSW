@@ -75,7 +75,9 @@
 </div>
 
 		<jsp:include page="footer.jsp" />
-	<script>
+
+<script>
+
 		function funzioneRicercaUtente() {
 
 			var stringaParziale = document.getElementById("cerca").value;
