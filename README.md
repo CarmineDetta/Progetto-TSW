@@ -17,7 +17,7 @@ Lino D'Amora - https://github.com/Onil0
 
 Francesco Pio Contaldo - https://github.com/CiaoMiChiamoFrank
 
-Carmine Detta - 
+Carmine Detta - https://github.com/CarmineDetta
 
 Salvatore Aliberti - 
 
