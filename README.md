@@ -11,4 +11,4 @@ L’e-commerce prevede una pagina iniziale per tutti i prodotti offerti, una pag
 Oltre a questo l’e-commerce darà varie possibilità agli utenti, dipendentemente dal tipo di utente.
 
 
-#Autori
+# Autori
