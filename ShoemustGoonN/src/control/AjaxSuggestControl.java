@@ -36,9 +36,7 @@ public class AjaxSuggestControl extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        
-        String stringaRicerca = request.getParameter("stringaRicerca");        
+        response.setCharacterEncoding("UTF-8");    
         
         String oggettoJSON = null;
         		
@@ -58,7 +56,7 @@ public class AjaxSuggestControl extends HttpServlet {
 		}catch (SQLException | IOException e) {
 			LOGGER.log(null, "contesto", e);
 		}
-	}
+}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

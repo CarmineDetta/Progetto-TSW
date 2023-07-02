@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%
-	UtenteBean update = (UtenteBean) request.getAttribute("user");
-%>
+
 <!DOCTYPE html>
 <html lang="it" xml:lang="it">
 <%@ page contentType="text/html; charset=UTF-8" import="model.UtenteBean"%>

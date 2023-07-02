@@ -2,20 +2,20 @@
     pageEncoding="UTF-8"%>
 <%
 
-	ProdottoBean product = (ProdottoBean) request.getAttribute("product");
-	if(product == null) {
-		response.sendRedirect("./details");	
-		return;
-	}
-	
-	Collection<?> recensioni = (Collection<?>) request.getAttribute("recensioni");
-	if(recensioni == null) {
-		response.sendRedirect("./details");	
-		return;
-	}
-	
-	UtenteBean utente = (UtenteBean) request.getSession().getAttribute("UtenteLoggato");
-	/*Ottenere l'oggetto "UtenteBean" dalla sessione*/
+ProdottoBean product = (ProdottoBean) request.getAttribute("product");
+if(product == null) {
+	response.sendRedirect("./details");	
+	return;
+}
+
+Collection<?> recensioni = (Collection<?>) request.getAttribute("recensioni");
+if(recensioni == null) {
+	response.sendRedirect("./details");	
+	return;
+}
+
+UtenteBean utente = (UtenteBean) request.getSession().getAttribute("UtenteLoggato");
+/*Ottenere l'oggetto "UtenteBean" dalla sessione*/
 %>
 
 <!-- prova -->
