@@ -38,6 +38,8 @@ public class AjaxSuggestControl extends HttpServlet {
 		response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         
+        String stringaRicerca = request.getParameter("stringaRicerca");        
+        
         String oggettoJSON = null;
         		
 		ProductModelDS prodotti = new ProductModelDS();
@@ -45,8 +47,7 @@ public class AjaxSuggestControl extends HttpServlet {
 		try {
 			if(!request.getParameter("stringaRicerca").equalsIgnoreCase("")) {
 				Collection<ProdottoBean> prodottiSuggest = prodotti.doRetrieveSuggest(request.getParameter("stringaRicerca"));
-							
-				
+	
 				oggettoJSON = new Gson().toJson(prodottiSuggest);
 				response.getWriter().write(oggettoJSON);
 			} else {
