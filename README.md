@@ -12,3 +12,12 @@ Oltre a questo l’e-commerce darà varie possibilità agli utenti, dipendenteme
 
 
 # Autori
+
+Lino D'Amora - 
+
+Francesco Pio Contaldo - 
+
+Salvatore Aliberti - 
+
+Carmine Detta - 
+
