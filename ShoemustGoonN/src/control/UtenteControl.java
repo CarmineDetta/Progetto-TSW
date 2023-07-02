@@ -64,9 +64,12 @@ public class UtenteControl extends HttpServlet{
 				LOGGER.log(null, "contesto", e1);
 				}
 			}
+			
 			if(action.equalsIgnoreCase("visualizza_tutti")) {
 				try {
+					
 					request.setAttribute("all_utents", model.doRetrieveAllUtente());
+					
 					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Visualizza_utenti.jsp");
 					dispatcher.forward(request, response);
 				} catch (SQLException e) {

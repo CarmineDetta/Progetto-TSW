@@ -148,7 +148,7 @@ public class ProductModelDS implements ProdottoDAO{
 					bean.setDisponibilita(rs.getBoolean(DISPONIBILITA));
 					bean.setDescrizione(rs.getString("Descrizione"));
 					bean.setCategoria(rs.getString("Categoria"));
-									
+					
 					ImageModelDS idao = new ImageModelDS();
 					bean.setImmagine(idao.doRetriveByKey(rs.getString("Immagine")));
 

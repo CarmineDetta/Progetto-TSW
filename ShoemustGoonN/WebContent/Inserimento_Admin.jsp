@@ -68,7 +68,7 @@ body{
 				<textarea class="box"  name="descrizione" maxlength="300"  placeholder="Inserisci una descrizione" required></textarea>
 			</div>
 			
-
+			
 			<div class="insert">
 				<label class="label_mod"  for="categoria">Categoria:</label>
 			
@@ -78,6 +78,7 @@ body{
 					<option value="unisex">Unisex</option>
 				</select>
 			</div>
+			
 			
 			<div>
 				<input id="submit" class="pulsanti" type="submit" value="Aggiungi">

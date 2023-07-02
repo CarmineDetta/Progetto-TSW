@@ -60,7 +60,7 @@ input[type="reset"]:hover{
 	text-align: center;
 }
 
-.total_cont table > caption{
+.content table > caption{
 	display:none; /*nasconde il caption*/
 }
 

@@ -18,7 +18,7 @@
 		
 		<div class="footer-informazioni">
 		 				
-		  <p class="descrizione">Il nostro sito web tratta la vendita di scarpe, scarpe di tutte le tipologie. Una scarpa per ogni evento! Venite a trovarci. Ad ogni persona la sua scarpa!</p>
+		  <p class="descrizione">Il nostro sito web tratta la vendita di scarpe, scarpe recell. Scarpe in ottime condizioni, come nuove! Venite a trovarci. Ad ogni persona la sua scarpa!</p>
 
 	      <br/><a target="_blank" href="#">Informativa Privacy</a> | <a target="_blank" href="#">Informativa Cookie</a>
 			

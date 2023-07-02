@@ -45,8 +45,8 @@ public class AjaxSuggestControl extends HttpServlet {
 		try {
 			if(!request.getParameter("stringaRicerca").equalsIgnoreCase("")) {
 				Collection<ProdottoBean> prodottiSuggest = prodotti.doRetrieveSuggest(request.getParameter("stringaRicerca"));
-							
 				
+				//mezzo che funge da intermediario con ajax
 				oggettoJSON = new Gson().toJson(prodottiSuggest);
 				response.getWriter().write(oggettoJSON);
 			} else {

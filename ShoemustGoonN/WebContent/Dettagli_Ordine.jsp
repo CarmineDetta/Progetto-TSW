@@ -160,7 +160,7 @@
 			<%
 				if(session.getAttribute("AdminLoggato") == null){ 
 			%>
-					<button><a href="fattura?idOrdine=<%= ordine.getID_Ordine()%>">Stampa Fattura</a></button></td>
+					<button><a href="PDFControl?idOrdine=<%= ordine.getID_Ordine()%>">Stampa Fattura</a></button></td>
 			<%
 				}
 			%>

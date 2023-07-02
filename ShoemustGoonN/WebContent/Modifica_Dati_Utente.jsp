@@ -6,10 +6,10 @@
 
 <head>
 	<%@ page contentType="text/html; charset=UTF-8" import="java.util.*,model.PortafoglioBean, model.UtenteBean"%>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet" href="style/modifica-dati-utente.css" type="text/css">
-	
-	<title>ShoeMustGoOn | Modifica Dati</title>
+		<script src="javascript/Dati_Utente.js" type="text/javascript"></script>
+		<title>ShoeMustGoOn | Modifica Dati</title>
 </head>
 
 <body>

@@ -75,36 +75,11 @@
 </div>
 
 		<jsp:include page="footer.jsp" />
-		<script>
-		$('#cerca').on('click', function() {
-			
-			Swal.fire({
-				  showConfirmButton: false,
-				  html: '<h1>Ricerca</h1><div id="barraricercaResponsive"><input type="text" placeholder="Cerca prodotti" class="campoRicercaResponsive" id="QueryRicercaResponsive" onkeyup="funzioneRicercaUtente()"/><button type="submit" class="bottoneRicercaResponsive"><ion-icon name="search-outline" class="" id=""></ion-icon></button><div id="RisultatiResponsive"></div></div>',
-				  customClass: { popup: 'borderBoxPopU'},
-				})
-		} )
-		
-		
+	<script>
 		function funzioneRicercaUtente() {
-			
-			$("#Risultati").empty();
-        	$("#RisultatiResponsive").empty();
-        	$("#Risultati").removeClass( "DivRisultati" );
-			
-			console.log("Inizia la funzione di ricerca")
-			var stringaParziale;
 
-			
-			
-			if(document.getElementById("cerca").value === ""){
-				stringaParziale = document.getElementById("QueryRicercaResponsive").value;
-				console.log("Ricerca query responsive");
-			} else {
-				stringaParziale = document.getElementById("cerca").value;
-				console.log("Ricerca query normale");
-			}
-			
+			var stringaParziale = document.getElementById("cerca").value;
+
 			$.ajax({  
 				async: true,
 	            //uri della servlet
@@ -118,20 +93,16 @@
 	            success: function(data, textStatus, jqXHR) {
 	            	
 	            	$("#Risultati").empty();
-	            	$("#RisultatiResponsive").empty();
 	            	
 	            	if( data.length >=1) {
-	            		$("#RisultatiResponsive").empty();
 	            		$("#Risultati").empty();
 		            	$("#Risultati").addClass( "DivRisultati" );
 		            	for (const i in data) {
 		            		$( "#Risultati" ).append('<div id=""><a href="ordine?action=visualizza_cliente&id='+data[i].idUtente+'">'+data[i].cognome+'</a></div>');
-		            		$( "#RisultatiResponsive" ).append('<div id=""><a href="ordine?action=visualizza_cliente&id='+data[i].idUtente+'">'+data[i].cognome+'</a></div>');
 						 }
 		            	
 	            	} else {
-	            		$("#RisultatiResponsive").empty();
-	            		$("#Rdisultati").empty();
+	            		$("#Risultati").empty();
 	            		$("#Risultati").removeClass( "DivRisultati" );
 	            	}
 	            	
@@ -144,9 +115,8 @@
 	            error: function(jqXHR, textStatus, errorThrown){
 	            	console.log(jqXHR);
 	            } 
-	        });
+	        });
 		}
-		
-	</script>
+		</script>
 </body>
 </html>

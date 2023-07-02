@@ -1,3 +1,4 @@
+
 function formValidation() {
   let prezzo = document.getElementById("prezzo");
   let quantita = document.getElementById("quantita");

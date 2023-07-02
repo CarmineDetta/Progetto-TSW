@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<%
-	UtenteBean update = (UtenteBean) request.getAttribute("user");
-%>
+
 <!DOCTYPE html>
 <html lang="it" xml:lang="it">
 <%@ page contentType="text/html; charset=UTF-8" import="model.UtenteBean"%>
@@ -11,7 +8,6 @@
 	<meta charset="UTF-8">
 	<link href="style/dati-utente.css" rel="stylesheet" type="text/css">
 	<title>ShoeMustGoOn | I mie Dati</title>
-	<script src="javascript/Dati_Utente.js" type="text/javascript"></script>
 </head>
 
 <style>

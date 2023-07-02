@@ -101,38 +101,13 @@
 	        
 	    </header>
 	     
-	       <script>
-		$('#pulsanteRicercaResponsive').on('click', function() {
-			
-			Swal.fire({
-				  showConfirmButton: false,	//Questa proprietà nasconde il pulsante di conferma nel popup.
-				  html: '<h1>Ricerca</h1><div id="barraRicercaResponsive"><input type="text" placeholder="Cerca prodotti" class="campoRicercaResponsive" id="queryRicercaResponsive" onkeyup="funzioneRicerca()"/><button type="submit" class="bottoneRicercaResponsive"><ion-icon name="search-outline" class="" id=""></ion-icon></button><div id="risultatiResponsive"></div></div>',
-				  customClass: { popup: 'borderBoxPopUp'},		//Questa proprietà applica una classe CSS personalizzata al popup. In questo caso, il nome della classe è borderBoxPopUp.
-				})
-		} )
-		
-		
-		function funzioneRicerca() {
-			
-			$("#risultati").empty(); //Svuota il contenuto dell'elemento con l'ID "risultati".
-        	$("#risultatiResponsive").empty();
-        	$("#risultati").removeClass( "DivRisultati" );	//Rimuove la classe "DivRisultati" dall'elemento con l'ID "risultati".
-    		$("#barraRicerca").css({"border-bottom-left-radius":"20px"});
-        	$("#barraRicerca").css({"border-bottom-right-radius":"20px"});
-			
-			console.log("Inizia la funzione di ricerca")
-			var stringaParziale;
+<script>
 
+
+	  function funzioneRicerca() {
 			
-			
-			if(document.getElementById("queryRicerca").value === ""){
-				stringaParziale = document.getElementById("queryRicercaResponsive").value;
-				console.log("Ricerca query responsive");
-			} else {
-				stringaParziale = document.getElementById("queryRicerca").value;
-				console.log("Ricerca query normale");
-			}
-			
+			var stringaParziale = document.getElementById("queryRicerca").value;
+
 			$.ajax({  
 				async: true,
 	            //uri della servlet
@@ -146,32 +121,22 @@
 	            success: function(data, textStatus, jqXHR) {
 	            	
 	            	$("#risultati").empty();
-	            	$("#risultatiResponsive").empty();
 	            	
 	            	if( data.length >=1) {
-	            		$("#risultatiResponsive").empty();
 	            		$("#risultati").empty();
-		            	$("#barraRicerca").css({"border-bottom-left-radius":"0px"});
-		            	$("#barraRicerca").css({"border-bottom-right-radius":"0px"});
 		            	$("#risultati").addClass( "DivRisultati" );
 		            	for (const i in data) {
 		            		$( "#risultati" ).append('<div id=""><a href="details?action=read&id='+data[i].idProdotto+'">'+data[i].marca+'</a></div>');
-		            		$( "#risultatiResponsive" ).append('<div id=""><a href="details?action=read&id='+data[i].idProdotto+'">'+data[i].marca+'</a></div>');
 						}
 		            	
 	            	} else {
-	            		$("#risultatiResponsive").empty();
 	            		$("#risultati").empty();
 	            		$("#risultati").removeClass( "DivRisultati" );
-	            		$("#barraRicerca").css({"border-bottom-left-radius":"20px"});
-		            	$("#barraRicerca").css({"border-bottom-right-radius":"20px"});
 	            	}
 	            	
 	            	if(stringaParziale === ""){
 	            		
 	            		$("#risultati").removeClass( "DivRisultati" );
-	            		$("#barraRicerca").css({"border-bottom-left-radius":"20px"});
-		            	$("#barraRicerca").css({"border-bottom-right-radius":"20px"});
 	            	}
 	            	
 	            },
