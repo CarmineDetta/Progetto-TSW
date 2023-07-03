@@ -23,6 +23,8 @@ Salvatore Alberti - https://github.com/SalvatoreAlberti
 
 # Project Images
 
+![WhatsApp Image 2023-07-02 at 20 43 50](https://github.com/CarmineDetta/Progetto-TSW/assets/131976677/234bdc36-bcbc-40c5-ba71-d3bc9484c849)
+
 ![WhatsApp Image 2023-07-02 at 20 39 37](https://github.com/CarmineDetta/Progetto-TSW/assets/131976677/aa8735ce-8773-4566-8cdd-5b8aaee3bbae)
 
 
