@@ -29,7 +29,7 @@ Salvatore Alberti - https://github.com/SalvatoreAlberti
 
 ![WhatsApp Image 2023-07-02 at 20 43 50 (2)](https://github.com/CarmineDetta/Progetto-TSW/assets/131976677/5b60b9be-729e-4ae4-804c-1071d8ebbd54)
 
-
+![WhatsApp Image 2023-07-02 at 20 39 37](https://github.com/CarmineDetta/Progetto-TSW/assets/131976677/ebde7d39-4417-47a2-a74e-a7a4105dc2b9)
 
 
 <Faso was here>
